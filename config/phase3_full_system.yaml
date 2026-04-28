@@ -1,0 +1,48 @@
+project:
+  name: evolutionary-llm-research
+  phase: 3
+  seed: 42
+
+model:
+  base_model: qwen3:32b
+  inference_backend: ollama
+  lora_backend: unsloth
+
+population:
+  size: 15
+  archetypes:
+    id: 5
+    ego: 5
+    superego: 5
+
+biomes:
+  savanna:
+    food: 0.60
+    predator: 0.20
+    noise: 0.20
+    k_max: 30
+  desert:
+    food: 0.10
+    predator: 0.70
+    noise: 0.20
+    k_max: 10
+  plain:
+    food: 0.80
+    predator: 0.05
+    noise: 0.15
+    k_max: 25
+
+metrics:
+  weights:
+    w1_complexity: 1.0
+    w2_mutual_info: 1.0
+    w3_disorganization: 1.0
+
+mechanics:
+  reproduction_enabled: true
+  hgt_enabled: true
+  cannibalism_enabled: true
+
+constraints:
+  pass_content_type_tags_to_model: false
+  phase_mechanics_isolated: true

@@ -1,0 +1,24 @@
+name: evollm-wsl
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - numpy
+  - scipy
+  - pyyaml
+  - pip:
+      - unsloth
+      - accelerate
+      - peft
+      - trl
+      - datasets
+      - sentence-transformers
+      - bitsandbytes
+      - xformers

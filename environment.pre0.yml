@@ -1,0 +1,28 @@
+name: evolllm
+channels:
+  - defaults
+  - nvidia
+  - pytorch
+dependencies:
+    - python=3.11
+    - pip
+    - pytorch-cuda=12.1
+    - pytorch=2.7.0
+    - torchvision=0.22.0
+    - torchaudio=2.7.0
+    - numpy=2.4.4
+    - scipy # version as in WSL2, can be left unpinned if not critical
+    - pyyaml=6.0.3
+    - pip:
+      - unsloth==2026.4.6
+      - unsloth-zoo==2026.4.8
+      - accelerate==1.13.0
+      - peft==0.19.1
+      - trl==0.24.0
+      - datasets==4.3.0
+      - sentence-transformers==5.4.1
+      - bitsandbytes==0.49.2
+      - xformers==0.0.30
+      - torchao==0.13.0+cu126
+      - triton==3.3.0
+      - fsspec==2025.9.0

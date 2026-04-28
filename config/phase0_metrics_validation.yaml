@@ -1,0 +1,71 @@
+
+project:
+  name: evolutionary-llm-research
+  phase: 0
+  seed: 42
+
+model:
+  base_model: unsloth/qwen3-8b-base-unsloth-bnb-4bit
+  inference_backend: unsloth
+  lora_backend: unsloth
+  load_in_4bit: true
+
+generation:
+  max_new_tokens: 200
+  temperature: 0.0
+  do_sample: false
+  seed: 42
+
+biomes:
+  savanna:
+    food: 0.60
+    predator: 0.20
+    noise: 0.20
+    k_max: 30
+  desert:
+    food: 0.10
+    predator: 0.70
+    noise: 0.20
+    k_max: 10
+  plain:
+    food: 0.80
+    predator: 0.05
+    noise: 0.15
+    k_max: 25
+
+
+metrics:
+  weights:
+    w1_complexity: 0.3
+    w2_mutual_info: 0.5
+    w3_disorganization: 0.2
+  diagnostic:
+    jaccard_enabled: true
+    jaccard_correlation_threshold: 0.8
+
+mechanics:
+  reproduction_enabled: false
+  hgt_enabled: false
+  cannibalism_enabled: false
+
+constraints:
+  pass_content_type_tags_to_model: false
+  phase_mechanics_isolated: true
+
+phase0_validation:
+  seed_text: "Climate and vaccine discourse requires coherent, evidence-grounded synthesis."
+  samples:
+    - id: sample_001
+      text: "Climate science reports warming trends and regional variability over decades."
+    - id: sample_002
+      text: "Vaccination campaigns reduce severe disease burden in high-risk populations."
+    - id: sample_003
+      text: "Neutral grammatical sequence without semantic target can still be syntactically valid."
+  corpus_files:
+    - data/raw/food_climate.jsonl
+    - data/raw/food_vaccines.jsonl
+    - data/raw/food_covid.jsonl
+    - data/raw/predator_climate.jsonl
+    - data/raw/predator_vaccines.jsonl
+    - data/raw/predator_covid.jsonl
+    - data/raw/noise.jsonl
