@@ -1,16 +1,7 @@
+
 # Project Journal — Evolutionary LLM Research
 
 Chronological log of work sessions, decisions, and progress.
-
----
-
-## 2026-04-23 — Session 2: Ollama → Unsloth pipeline decision
-
-Problem: qwen3:8b-base not available in Ollama registry
-Decision: drop Ollama, use HuggingFace + Unsloth directly
-Rationale: Unsloth already in stack for LoRA fine-tuning, base model available on HuggingFace as Qwen/Qwen3-8B-Base, logprobs extractable from forward pass — cleaner than mixing Ollama and Unsloth in one pipeline
-Impact: H_dezorg definition unchanged, implementation backend changed
-Next: scripts/verify_logprobs.py to confirm logprobs extractable from Unsloth forward pass before modifying src/metrics/core.py
 
 ---
 
@@ -165,6 +156,35 @@ document type isolated before grid search. Weights frozen after calibration.
 | `~/.bashrc` (WSL2) | Modified | Proxy block appended (lines 119–124) |
 | `~/.profile` (WSL2) | Modified | Proxy block appended |
 
+
+## 2026-04-24 (logged out of order) — HF cache diagnostics, dashboard improvements, token-length sensitivity analysis
+
+**Cel:**  
+Rozwiązanie problemów z pobieraniem i cache’owaniem dużych datasetów (MBIB-base, hate-speech.csv) przez Hugging Face datasets w środowisku WSL2, usprawnienia dashboardu, systemu nazewnictwa eksperymentów oraz analiza wpływu długości wyjścia na rozdzielczość metryk.
+
+**Najważniejsze działania:**
+- Diagnostyka i czyszczenie ustawień proxy w WSL2, automatyzacja usuwania proxy, checklist migracyjny.
+- Rozbudowa dashboard.py: podsumowanie metryk, wykresy Kruskala-Wallisa, pasek postępu, obsługa run-namingu z tagami semantycznymi.
+- Wprowadzenie systemu nazw eksperymentów (run_name) w skryptach i dokumentacji (docs/run_naming_convention.md).
+- Ręczne pobieranie hate-speech.csv i walidacja obecności w cache datasets.
+- Analiza działania datasets w trybie offline/online, troubleshooting loader script cache.
+- Testy ładowania pliku CSV przez pandas i datasets, porównanie wydajności.
+- Weryfikacja, że loader script musi być pobrany online, a samo podmienianie pliku CSV w cache nie wystarcza.
+- Przenoszenie plików między Windows a WSL2, testy poprawności pliku hate-speech.csv (339 011 wierszy, 95 MB).
+
+**Analiza czułości metryk na długość wyjścia:**
+- Przeprowadzono eksperyment sensitivity_analysis.py dla długości: 50, 100, 150, 200, 300, 500 tokenów.
+- Dla każdej długości obliczono H(X), C(X), I(X;seed), p-value Kruskala-Wallisa oraz Cliff’s delta.
+- Wyniki: już przy 50 tokenach metryki pozwalają na bardzo silną separację typów tekstu (p-value < 1e-17, Cliff’s delta > 0.69 dla I, > 0.99 dla H).
+- **Kluczowa obserwacja:** dla metryki C (kompresja) Cliff’s delta zmienia znak przy 200 tokenach (z ujemnej na dodatnią), co sugeruje efekt przejścia i zmianę kierunku efektu. Oznacza to, że choć 50 tokenów pozwala na rozróżnienie, to 200 tokenów jest bezpieczną wartością progową do stabilnej ewaluacji metryk i unikania artefaktów.
+- Wniosek: minimalna długość wyjścia do wiarygodnej ewaluacji metryk to 200 tokenów.
+
+**Wnioski:**  
+- Hugging Face datasets wymaga obecności loader script w cache (pobrany online), by działać offline z lokalnym plikiem.
+- Ręczne podmienianie pliku CSV jest skuteczne tylko po wcześniejszym pobraniu loadera.
+- Dla szybkiej diagnostyki i pracy na dużych plikach CSV lepiej używać pandas, jeśli nie są wymagane funkcje datasets.
+- Minimalna długość wyjścia do stabilnej ewaluacji metryk to 200 tokenów.
+
 ---
 
 ### 5. Phase Status After This Session
@@ -234,7 +254,17 @@ All technical debt items from previous session are now resolved. The environment
 
 ---
 
-## Session 2 continued — verify_logprobs.py results and infrastructure fixes:
+## 2026-04-23 — Session 2: Ollama → Unsloth pipeline decision
+
+Problem: qwen3:8b-base not available in Ollama registry
+Decision: drop Ollama, use HuggingFace + Unsloth directly
+Rationale: Unsloth already in stack for LoRA fine-tuning, base model available on HuggingFace as Qwen/Qwen3-8B-Base, logprobs extractable from forward pass — cleaner than mixing Ollama and Unsloth in one pipeline
+Impact: H_dezorg definition unchanged, implementation backend changed
+Next: scripts/verify_logprobs.py to confirm logprobs extractable from Unsloth forward pass before modifying src/metrics/core.py
+
+---
+
+## 2026-04-23 — Session 2 continued: verify_logprobs.py results and infrastructure fixes
 
 verify_logprobs.py outcome:
 - Model downloaded: unsloth/qwen3-8b-base-unsloth-bnb-4bit (6.76GB)
@@ -257,7 +287,7 @@ Phase status after Session 2:
 
 ---
 
-## 2026-04-27 — Session 3: Phase 0 metric validation, grid search i analiza wag
+## 2026-04-27 — Session 3a: Phase 0 metric validation, grid search
 
 ### Zakres prac
 - Wykonano dwa pełne przebiegi walidacji metryk na korpusie (metrics_phase0.json w katalogach 20260427T075806Z i 20260427T073814Z)
@@ -384,3 +414,162 @@ priorities, and formal definition of "evolution" in the project.
 3. Install streamlit + full stats stack after network fix
 4. Phase 1: configure three biomes, run first experiment
 5. Start ALife Letter draft
+
+---
+
+## 2026-04-28 — Session 3b: Environment backup, sensitivity analysis finalisation
+
+### Actions
+- WSL2 conda environment backup before planned Ubuntu 22.04 migration:
+  `evollm-wsl-backup.yml` + `pip-freeze-backup.txt` saved to repo root
+- Sensitivity analysis experiments run and saved:
+  `experiments/sensitivity_analysis_20260428T062255Z/`
+  `experiments/sensitivity_analysis_20260428T062701Z/`
+- `scripts/remove_proxy.sh` created — automates proxy env-var removal in WSL2 shell
+- `docs/run_naming_convention.md` updated
+
+---
+
+## 2026-04-29 — Session 3c: DOAJ pipeline, corpus expansion (alt_med), predator NaturalNews
+
+### DOAJ pipeline — new OA full-text architecture
+Built three-stage pipeline for open-access full-text retrieval:
+1. `fetch_doaj_*.py` — fetch metadata + fulltext URL from DOAJ API
+2. `convert_to_easy_candidates_*.py` — filter to "easy" OA publishers (direct HTML)
+3. `batch_extract_easy_html_*.py` — extract clean article text from OA HTML
+
+Domains covered: alt_med, climate, vaccines.
+Pipeline documented in `docs/doaj_pipeline.md`.
+
+### alt_med food corpus
+Sources tried in order: CORE OAI, EuropePMC, Semantic Scholar, DOAJ.
+Outputs: `data/raw/europepmc_altmed_*.jsonl`, `data/raw/food_alt_med_*.jsonl`
+Final merged: `data/raw/food_alt_med.jsonl`
+
+### Predator — NaturalNews scraper development
+Explored NaturalNews tag taxonomy via Selenium and requests:
+`scrape_naturalnews_health_links_tags.py`, `scrape_naturalnews_science_links_tags.py`
+`extract_unique_tags.py`, `extract_unique_tags_science.py`
+`classify_nn_tags.py` → `data/processed/nn_tag_mapping.json`
+
+Raw scraping attempts: `fetch_naturalnews_*.py`, `selenium_naturalnews_tags_demo.py`
+Final production scraper: `scrape_nn_articles.py` (tag-based, rate-limited)
+
+### Corpus v1 snapshot
+`data/v1/` — archive of all v1 corpus files before v2 build begins.
+Journal checkpoint committed.
+
+---
+
+## 2026-04-30 — Session 4: Corpus v2 build, Phase 0 re-run on new domains
+
+### Scope
+- Built expanded corpus v2 with 5 domains: climate, vaccines, alt_med, cancer, gmo
+- Ran Phase 0 metric validation on new corpus
+- Discovered and remediated Brighteon CTA contamination in predator corpus
+- Per-dataset quality analysis on cleaned corpus
+
+### Corpus v2 — Food
+- food_climate: 80 docs (DOAJ + PMC OAI)
+- food_vaccines: 80 docs (DOAJ + PMC OAI)
+- food_alt_med: 80 docs (DOAJ pipeline, 221 raw → 80 balanced)
+- food_cancer: 80 docs (DOAJ + PMC OAI)
+- food_gmo: 55 docs (DOAJ + PMC OAI + manual supplement)
+- food_covid: 35 docs (PMC OAI supplement)
+- noise_mixed: 80 docs (regenerated 50/50 food+predator sentences)
+
+### Corpus v2 — Predator
+Sources: NaturalNews (vaccines, alt_med, cancer, covid), GMWatch (gmo),
+WattsUpWithThat + CFACT + Plate Climatology (climate)
+
+Raw predator before cleaning:
+- predator_vaccines_nn: 80 docs
+- predator_alt_med_nn: 80 docs
+- predator_cancer_nn: 80 docs
+- predator_gmo_nn: 80 docs
+- predator_climate (merged): 80 docs
+
+### Brighteon CTA contamination — discovery and remediation
+NaturalNews scraper collected short CTA pages linking to Brighteon.com videos
+("Subscribe to our channel", "This video is from the BrightU channel", etc.)
+These produced near-zero model outputs (h_x ≈ 0, c_x ≈ 0).
+
+Filter applied: min 300 chars + blacklist
+['brighteon', 'subscribe to', 'subscribe for', 'our channel',
+ 'sign up for', 'watch the video', 'this video is from']
+
+Post-cleaning N:
+- predator_alt_med: 80 → 45 (removed 35, 44%)
+- predator_cancer: 80 → 35 (removed 45, 56%)
+- predator_gmo: 80 → 35 (removed 45, 56%)
+- predator_vaccines: 77 → 33 (removed 44, 57%)
+- predator_climate: 80 → 79 (removed 1, 1%)
+
+Climate corpus unaffected — Plate Climatology and WattsUpWithThat
+write long argumentative articles without video CTA.
+
+### Phase 0 re-run results (before cleaning, N=877)
+- food: H=5.948, C=0.519, I=0.090, J=0.014, fitness=+0.027, n=391
+- predator: H=3.076, C=0.396, I=0.045, J=0.010, fitness=+0.044, n=481
+- noise: H=5.753, C=0.487, I=0.076, J=0.016, fitness=+0.010, n=80
+- KW p-values: H=3.9e-65, C=4.7e-21, I=5.7e-37, Jaccard=8.1e-20
+
+Note: predator fitness > food fitness due to Brighteon CTA contamination
+producing low-entropy outputs with small H_dezorg penalty.
+
+### Per-dataset quality analysis (corpus_quality_analysis.py, after cleaning)
+All effect sizes rank-biserial r, food vs predator:
+
+| Domain   | H effect | C effect | I effect | Jaccard  |
+|----------|----------|----------|----------|----------|
+| climate  | -0.695   | -0.655   | -0.675   | -0.563   |
+| vaccines | -0.705   | -0.364   | -0.594   | -0.481   |
+| alt_med  | -0.607   | -0.605   | -0.628   | -0.743   |
+| cancer   | -0.773   | -0.562   | -0.666   | -0.626   |
+| gmo      | -0.817   | -0.423   | -0.749   | -0.651   |
+
+All p < 0.001. All effect sizes large (|r| > 0.3).
+Cancer and GMO exceed original climate benchmark (-0.823 H from Phase 0 canonical).
+
+### Key methodological findings
+1. Authentic language (NaturalNews) produces larger effects than
+   academic misinformation (VaccineLies) — confirms Phase 0 vaccine anomaly hypothesis.
+2. Brighteon CTA contamination reduces effect sizes significantly —
+   validates corpus cleaning protocol as essential pre-processing step.
+3. Climate predator (blog sources) is cleanest — 99% retention after filtering.
+   Long-form argumentative writing is better predator than news aggregators.
+
+### Infrastructure updates
+- `audit_corpus.py`: new corpus audit and merge tool with PMC header cleaning
+- `build_food_corpus.py`: DOAJ + PMC OAI pipeline with domain keyword filter
+- `scrape_nn_articles.py`: NaturalNews tag-based scraper with Brighteon cutoff
+- `generate_noise.py`: 50/50 food+predator sentence mixer
+- `dashboard.py`: fixed IndentationError, added streamlit-autorefresh
+- `data/v2/corpus_manifest.json`: generated — full manifest with n_docs, avg_words, sources
+
+### Files created / updated
+| File | Notes |
+|------|-------|
+| `data/v2/food_*.jsonl` (6 domains) | Balanced, deduplicated food corpus |
+| `data/v2/predator_*.jsonl` (5 domains) | Cleaned predator, Brighteon filtered |
+| `data/v2/noise_mixed.jsonl` | 50/50 regenerated noise |
+| `data/v2/corpus_manifest.json` | v2 corpus manifest |
+| `config/phase0_rerun_v2.yaml` | Phase 0 config for v2 corpus |
+| `scripts/audit_corpus.py` | Corpus audit + merge |
+| `scripts/build_food_corpus.py` | Multi-source food builder |
+| `scripts/scrape_nn_articles.py` | NaturalNews scraper |
+| `scripts/scrape_predator.py` | Generic predator scraper |
+| `scripts/scrape_american_thinker.py` | Climate predator source |
+| `scripts/scrape_plate.py` | Plate Climatology scraper |
+| `scripts/generate_noise.py` | Noise regeneration |
+| `scripts/convert_doaj_to_corpus.py` | DOAJ → corpus format converter |
+| `scripts/supplement_food_gmo.py` | GMO food supplement |
+| `scripts/supplement_food_covid.py` | COVID food supplement |
+| `scripts/corpus_quality_analysis.py` | Updated for multi-domain |
+| `experiments/corpus_quality_analysis_results.json` | Final v2 quality results |
+| `docs/doaj_pipeline.md` | DOAJ pipeline documentation |
+
+### Pending before Paper 1
+- Doscraping: vaccines, alt_med, cancer, gmo need 35-47 additional docs each
+- Final Phase 0 run on fully cleaned balanced corpus (target 80 per domain)
+- Style swap experiment: predator_vaccines_nn vs predator_vaccines_legacy

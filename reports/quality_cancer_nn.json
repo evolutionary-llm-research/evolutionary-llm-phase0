@@ -1,0 +1,3761 @@
+{
+  "corpus": "predator_cancer_nn.jsonl",
+  "summary": {
+    "n_docs": 80,
+    "verdict_distribution": {
+      "ACCEPT": 77,
+      "REVIEW": 0,
+      "REJECT": 3
+    },
+    "accept_rate": 0.963,
+    "score_stats": {
+      "mean": 0.984,
+      "std": 0.027,
+      "min": 0.9,
+      "max": 1.0
+    },
+    "flag_frequency": {
+      "loop": 3
+    },
+    "length_histogram": {
+      "bins": [
+        [
+          2548,
+          3204
+        ],
+        [
+          3204,
+          3861
+        ],
+        [
+          3861,
+          4517
+        ],
+        [
+          4517,
+          5174
+        ],
+        [
+          5174,
+          5831
+        ],
+        [
+          5831,
+          6487
+        ],
+        [
+          6487,
+          7144
+        ],
+        [
+          7144,
+          7801
+        ]
+      ],
+      "counts": [
+        4,
+        6,
+        28,
+        15,
+        13,
+        7,
+        2,
+        5
+      ],
+      "mean": 4824.5,
+      "median": 4568.0,
+      "p10": 3696.1,
+      "p90": 6167.8,
+      "min": 2548,
+      "max": 7801
+    }
+  },
+  "documents": [
+    {
+      "id": "PRED_CANCER_NN_0001",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4582,
+          "words": 716,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.571,
+          "vocab_size": 409,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0002",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4684,
+          "words": 659,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.645,
+          "vocab_size": 425,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0003",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6611,
+          "words": 928,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.543,
+          "vocab_size": 504,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0004",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4335,
+          "words": 620,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 381,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0005",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6824,
+          "words": 918,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.547,
+          "vocab_size": 502,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0006",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6220,
+          "words": 937,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.547,
+          "vocab_size": 513,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 33,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0007",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3707,
+          "words": 548,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.597,
+          "vocab_size": 327,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0008",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5464,
+          "words": 818,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.565,
+          "vocab_size": 462,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0009",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7432,
+          "words": 1124,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.513,
+          "vocab_size": 577,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 35,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0010",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2898,
+          "words": 409,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.719,
+          "vocab_size": 294,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0011",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7633,
+          "words": 1155,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "organic banana peanut butter &",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.511,
+          "vocab_size": 590,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 40,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0012",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4423,
+          "words": 645,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 390,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0013",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4126,
+          "words": 656,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.596,
+          "vocab_size": 391,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0014",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7801,
+          "words": 1166,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.525,
+          "vocab_size": 612,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 39,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0015",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7268,
+          "words": 1096,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.96,
+          "unique_ratio": 0.48,
+          "vocab_size": 526,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.942,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0016",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4493,
+          "words": 642,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.632,
+          "vocab_size": 406,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0017",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5510,
+          "words": 789,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.522,
+          "vocab_size": 412,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0018",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5236,
+          "words": 756,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.623,
+          "vocab_size": 471,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 23,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0019",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2548,
+          "words": 374,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.668,
+          "vocab_size": 250,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0020",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5955,
+          "words": 855,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.511,
+          "vocab_size": 437,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0021",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3919,
+          "words": 549,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.641,
+          "vocab_size": 352,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0022",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5634,
+          "words": 784,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.519,
+          "vocab_size": 407,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0023",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7219,
+          "words": 1032,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.51,
+          "vocab_size": 526,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0024",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4287,
+          "words": 612,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 370,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0025",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2844,
+          "words": 421,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.684,
+          "vocab_size": 288,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0026",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4051,
+          "words": 605,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.635,
+          "vocab_size": 384,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0027",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4974,
+          "words": 690,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.57,
+          "vocab_size": 393,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0028",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4626,
+          "words": 669,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.596,
+          "vocab_size": 399,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0029",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5935,
+          "words": 873,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.564,
+          "vocab_size": 492,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0030",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4433,
+          "words": 623,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.616,
+          "vocab_size": 384,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0031",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4543,
+          "words": 688,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.581,
+          "vocab_size": 400,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0032",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4198,
+          "words": 649,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.569,
+          "vocab_size": 369,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0033",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3921,
+          "words": 550,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.662,
+          "vocab_size": 364,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0034",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5518,
+          "words": 800,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 492,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0035",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3598,
+          "words": 557,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.616,
+          "vocab_size": 343,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0036",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4106,
+          "words": 598,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.625,
+          "vocab_size": 374,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0037",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4951,
+          "words": 734,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.59,
+          "vocab_size": 433,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0038",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4166,
+          "words": 640,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.628,
+          "vocab_size": 402,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0039",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4554,
+          "words": 668,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.599,
+          "vocab_size": 400,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0040",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3259,
+          "words": 498,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "risk of overall cancer and",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.576,
+          "vocab_size": 287,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0041",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4100,
+          "words": 610,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.579,
+          "vocab_size": 353,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0042",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3866,
+          "words": 583,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.595,
+          "vocab_size": 347,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0043",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4464,
+          "words": 690,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.57,
+          "vocab_size": 393,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0044",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4494,
+          "words": 651,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.628,
+          "vocab_size": 409,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0045",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4975,
+          "words": 705,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.604,
+          "vocab_size": 426,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0046",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5491,
+          "words": 784,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.582,
+          "vocab_size": 456,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0047",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3917,
+          "words": 581,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "higher overall cancer risk and",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.539,
+          "vocab_size": 313,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0048",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4507,
+          "words": 692,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.571,
+          "vocab_size": 395,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0049",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5236,
+          "words": 747,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.613,
+          "vocab_size": 458,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0050",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5850,
+          "words": 904,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.574,
+          "vocab_size": 519,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0051",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4221,
+          "words": 594,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.626,
+          "vocab_size": 372,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0052",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5623,
+          "words": 850,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.576,
+          "vocab_size": 490,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0053",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4251,
+          "words": 683,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.599,
+          "vocab_size": 409,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 7,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0054",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5029,
+          "words": 739,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.582,
+          "vocab_size": 430,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0055",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6014,
+          "words": 919,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.546,
+          "vocab_size": 502,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0056",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5479,
+          "words": 809,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.6,
+          "vocab_size": 485,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0057",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4611,
+          "words": 653,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.591,
+          "vocab_size": 386,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0058",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5270,
+          "words": 780,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.586,
+          "vocab_size": 457,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0059",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3266,
+          "words": 445,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.708,
+          "vocab_size": 315,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0060",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4288,
+          "words": 612,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.658,
+          "vocab_size": 403,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0061",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3961,
+          "words": 588,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 356,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0062",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4648,
+          "words": 618,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.663,
+          "vocab_size": 410,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0063",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4916,
+          "words": 720,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.588,
+          "vocab_size": 423,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0064",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4341,
+          "words": 681,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.558,
+          "vocab_size": 380,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0065",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6162,
+          "words": 915,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.568,
+          "vocab_size": 520,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0066",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4605,
+          "words": 652,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.627,
+          "vocab_size": 409,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0067",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5822,
+          "words": 777,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.654,
+          "vocab_size": 508,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 23,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0068",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4986,
+          "words": 747,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.556,
+          "vocab_size": 415,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0069",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3803,
+          "words": 542,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.646,
+          "vocab_size": 350,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0070",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4348,
+          "words": 684,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.604,
+          "vocab_size": 413,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0071",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3185,
+          "words": 474,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.608,
+          "vocab_size": 288,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0072",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4095,
+          "words": 638,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.569,
+          "vocab_size": 363,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0073",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5253,
+          "words": 739,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.622,
+          "vocab_size": 460,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0074",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3941,
+          "words": 549,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.638,
+          "vocab_size": 350,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0075",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5048,
+          "words": 829,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.539,
+          "vocab_size": 447,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0076",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4347,
+          "words": 617,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.579,
+          "vocab_size": 357,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0077",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3974,
+          "words": 543,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.652,
+          "vocab_size": 354,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0078",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3431,
+          "words": 483,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.669,
+          "vocab_size": 323,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0079",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5641,
+          "words": 836,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.56,
+          "vocab_size": 468,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CANCER_NN_0080",
+      "domain": "cancer",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6013,
+          "words": 901,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.541,
+          "vocab_size": 487,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    }
+  ]
+}

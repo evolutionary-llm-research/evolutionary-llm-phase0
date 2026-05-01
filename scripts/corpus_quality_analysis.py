@@ -110,11 +110,19 @@ def main():
     )
 
     # File paths
-    food_files = ["data/raw/food_climate.jsonl", "data/raw/food_vaccines.jsonl", "data/raw/food_covid.jsonl"]
+    food_files = [
+    "data/v2/food_climate.jsonl",
+    "data/v2/food_vaccines.jsonl",
+    "data/v2/food_alt_med.jsonl",
+    "data/v2/food_cancer.jsonl",
+    "data/v2/food_gmo.jsonl",
+]
     predator_files = [
-        ("climate", "data/raw/predator_climate.jsonl"),
-        ("vaccines", "data/raw/predator_vaccines.jsonl"),
-        ("covid", "data/raw/predator_covid.jsonl"),
+        ("climate",  "data/v2/predator_climate.jsonl"),
+        ("vaccines", "data/v2/predator_vaccines.jsonl"),
+        ("alt_med",  "data/v2/predator_alt_med.jsonl"),
+        ("cancer",   "data/v2/predator_cancer.jsonl"),
+        ("gmo",      "data/v2/predator_gmo.jsonl"),
     ]
 
     # Load corpora
@@ -172,11 +180,19 @@ if __name__ == "__main__":
         "w3": float(weights["w3_disorganization"]),
     }
     # File paths
-    food_files = ["data/raw/food_climate.jsonl", "data/raw/food_vaccines.jsonl", "data/raw/food_covid.jsonl"]
+    food_files = [
+    "data/v2/food_climate.jsonl",
+    "data/v2/food_vaccines.jsonl",
+    "data/v2/food_alt_med.jsonl",
+    "data/v2/food_cancer.jsonl",
+    "data/v2/food_gmo.jsonl",
+]
     predator_files = [
-        ("climate", "data/raw/predator_climate.jsonl"),
-        ("vaccines", "data/raw/predator_vaccines.jsonl"),
-        ("covid", "data/raw/predator_covid.jsonl"),
+        ("climate",  "data/v2/predator_climate.jsonl"),
+        ("vaccines", "data/v2/predator_vaccines.jsonl"),
+        ("alt_med",  "data/v2/predator_alt_med.jsonl"),
+        ("cancer",   "data/v2/predator_cancer.jsonl"),
+        ("gmo",      "data/v2/predator_gmo.jsonl"),
     ]
     # Load corpora
     food_docs = []

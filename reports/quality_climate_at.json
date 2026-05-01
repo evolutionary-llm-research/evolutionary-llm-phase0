@@ -1,0 +1,725 @@
+{
+  "corpus": "predator_climate_at.jsonl",
+  "summary": {
+    "n_docs": 14,
+    "verdict_distribution": {
+      "ACCEPT": 11,
+      "REVIEW": 0,
+      "REJECT": 3
+    },
+    "accept_rate": 0.786,
+    "score_stats": {
+      "mean": 0.927,
+      "std": 0.049,
+      "min": 0.776,
+      "max": 0.95
+    },
+    "flag_frequency": {
+      "loop": 3
+    },
+    "length_histogram": {
+      "bins": [
+        [
+          5394,
+          7068
+        ],
+        [
+          7068,
+          8743
+        ],
+        [
+          8743,
+          10418
+        ],
+        [
+          10418,
+          12093
+        ],
+        [
+          12093,
+          13767
+        ],
+        [
+          13767,
+          15442
+        ],
+        [
+          15442,
+          17117
+        ],
+        [
+          17117,
+          18792
+        ]
+      ],
+      "counts": [
+        7,
+        5,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "mean": 7990.3,
+      "median": 7149.0,
+      "p10": 5618.2,
+      "p90": 9569.4,
+      "min": 5394,
+      "max": 18792
+    }
+  },
+  "documents": [
+    {
+      "id": "PRED_CLIMATE_AT_0001",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5929,
+          "words": 962,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.583,
+          "vocab_size": 561,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.949,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0002",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 8206,
+          "words": 1197,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.573,
+          "vocab_size": 686,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 29,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0003",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5394,
+          "words": 910,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.52,
+          "vocab_size": 473,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0004",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 10095,
+          "words": 1579,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.522,
+          "vocab_size": 824,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 27,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.995,
+          "jaccard_with_food": 0.005,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.949,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0005",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7250,
+          "words": 1081,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.549,
+          "vocab_size": 594,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 31,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0006",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6473,
+          "words": 984,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.574,
+          "vocab_size": 565,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0007",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 18792,
+          "words": 2548,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.4,
+          "max_repeat": 4,
+          "most_repeated": "human in the age of",
+          "flag": "loop_detected (max_repeat=4)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.633,
+          "unique_ratio": 0.316,
+          "vocab_size": 806,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 43,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=4)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.776,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0008",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7048,
+          "words": 1116,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "when solar or wind is",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.814,
+          "unique_ratio": 0.407,
+          "vocab_size": 454,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.862,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0009",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 8016,
+          "words": 1244,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.544,
+          "vocab_size": 677,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 35,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.949,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0010",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5485,
+          "words": 881,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "back in the day, our",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.536,
+          "vocab_size": 472,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0011",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6647,
+          "words": 1102,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.971,
+          "unique_ratio": 0.485,
+          "vocab_size": 535,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.995,
+          "jaccard_with_food": 0.005,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.943,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0012",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 8343,
+          "words": 1273,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.995,
+          "unique_ratio": 0.497,
+          "vocab_size": 633,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 29,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.948,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0013",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7442,
+          "words": 1096,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.585,
+          "vocab_size": 641,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 27,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.949,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_CLIMATE_AT_0014",
+      "domain": "climate",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6744,
+          "words": 979,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.589,
+          "vocab_size": 577,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.996,
+          "jaccard_with_food": 0.004,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.949,
+      "verdict": "ACCEPT"
+    }
+  ]
+}

@@ -15,6 +15,8 @@ Sensitivity analysis for minimum output token length at which metric separation
 
 Usage: python scripts/sensitivity_analysis.py
 """
+
+import argparse
 import os
 import json
 import yaml
@@ -88,11 +90,20 @@ SEED_TEXT = config.get("phase0_validation", {}).get("seed_text", "Climate and va
 SAMPLE_SIZES = [50, 100, 150, 200, 300, 500]
 results = []
 
-# --- Progressive logging setup ---
+
+# --- Argument parsing ---
+parser = argparse.ArgumentParser(description="Sensitivity analysis for output token length.")
+parser.add_argument("--run-name", type=str, default=None, help="Optional run name for experiment folder and dashboard labeling.")
+args = parser.parse_args()
+
 from pathlib import Path
 from datetime import timezone
 timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-run_dir = Path("experiments") / f"sensitivity_analysis_{timestamp}"
+if args.run_name:
+    run_folder = f"sensitivity_analysis_{args.run_name}"
+else:
+    run_folder = f"sensitivity_analysis_{timestamp}"
+run_dir = Path("experiments") / run_folder
 run_dir.mkdir(parents=True, exist_ok=False)
 progressive_path = run_dir / "metrics_progressive.jsonl"
 
@@ -184,9 +195,15 @@ for sample_size in SAMPLE_SIZES:
             })
 
 # --- Save results ---
+
 out_path = run_dir / "sensitivity_analysis.json"
+payload = {
+    "run_name": args.run_name if args.run_name else timestamp,
+    "created_utc": timestamp,
+    "results": results
+}
 with open(out_path, "w", encoding="utf-8") as f:
-    json.dump(results, f, indent=2)
+    json.dump(payload, f, indent=2)
 
 # --- Print summary table ---
 df = pd.DataFrame(results)

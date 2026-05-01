@@ -1,0 +1,166 @@
+{
+  "food_alt_med.jsonl": {
+    "domain": "alt_med",
+    "type": "food",
+    "n_docs": 80,
+    "avg_words": 8729,
+    "sources": [
+      "food_alt_med",
+      "food_alt_med_",
+      "food_alt_med_cleaned",
+      "food_alt_med_ext",
+      "food_alt_med"
+    ],
+    "target_n": 80
+  },
+  "predator_alt_med.jsonl": {
+    "domain": "alt_med",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 2293,
+    "sources": [
+      "predator_alt_med_nn",
+      "predator_alt_med_mercola"
+    ],
+    "target_n": 80
+  },
+  "food_cancer.jsonl": {
+    "domain": "cancer",
+    "type": "food",
+    "n_docs": 80,
+    "avg_words": 10053,
+    "sources": [
+      "food_cancer"
+    ],
+    "target_n": 80
+  },
+  "predator_cancer.jsonl": {
+    "domain": "cancer",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 2590,
+    "sources": [
+      "predator_cancer_nn",
+      "predator_cancer_mercola"
+    ],
+    "target_n": 80
+  },
+  "food_climate.jsonl": {
+    "domain": "climate",
+    "type": "food",
+    "n_docs": 80,
+    "avg_words": 8501,
+    "sources": [
+      "food_climate",
+      "food_climate_ext",
+      "food_climate"
+    ],
+    "target_n": 80
+  },
+  "predator_climate.jsonl": {
+    "domain": "climate",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 1219,
+    "sources": [
+      "predator_climate_plate",
+      "predator_climate_at",
+      "predator_climate_nn",
+      "predator_climate",
+      "predator_climate_v2"
+    ],
+    "target_n": 80
+  },
+  "food_covid.jsonl": {
+    "domain": "covid",
+    "type": "food",
+    "n_docs": 35,
+    "avg_words": 7337,
+    "sources": [
+      "food_covid"
+    ],
+    "target_n": 80
+  },
+  "predator_covid.jsonl": {
+    "domain": "covid",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 687,
+    "sources": [
+      "predator_covid_nn",
+      "predator_covid_supplement"
+    ],
+    "target_n": 80
+  },
+  "predator_covid_legacy_covid.jsonl": {
+    "domain": "covid",
+    "type": "predator",
+    "n_docs": 61,
+    "note": "legacy — style comparison only"
+  },
+  "food_gmo.jsonl": {
+    "domain": "gmo",
+    "type": "food",
+    "n_docs": 77,
+    "avg_words": 9419,
+    "sources": [
+      "food_gmo",
+      "food_gmo"
+    ],
+    "target_n": 80
+  },
+  "predator_gmo.jsonl": {
+    "domain": "gmo",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 2912,
+    "sources": [
+      "predator_gmo_nn",
+      "predator_gmo_mercola"
+    ],
+    "target_n": 80
+  },
+  "noise_mixed.jsonl": {
+    "domain": "mixed",
+    "type": "noise",
+    "n_docs": 80,
+    "avg_words": 350,
+    "sources": [
+      "noise",
+      "noise_v2"
+    ],
+    "target_n": 80
+  },
+  "food_vaccines.jsonl": {
+    "domain": "vaccines",
+    "type": "food",
+    "n_docs": 80,
+    "avg_words": 7861,
+    "sources": [
+      "food_vaccines",
+      "food_vaccines_ext",
+      "food_vaccines"
+    ],
+    "target_n": 80
+  },
+  "predator_vaccines.jsonl": {
+    "domain": "vaccines",
+    "type": "predator",
+    "n_docs": 80,
+    "avg_words": 3862,
+    "sources": [
+      "predator_vaccines_nn",
+      "predator_vaccines_mercola",
+      "predator_vaccines_v2"
+    ],
+    "target_n": 80
+  },
+  "predator_vaccines_legacy_vaccines.jsonl": {
+    "domain": "vaccines",
+    "type": "predator",
+    "n_docs": 23,
+    "note": "legacy — style comparison only"
+  },
+  "_generated": "2026-05-01T14:33:18.716116Z",
+  "_target_n": 80
+}

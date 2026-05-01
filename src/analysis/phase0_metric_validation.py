@@ -80,31 +80,12 @@ def run_phase0_metric_validation(config: dict[str, Any], output_root: str | Path
     model.eval()
     torch.set_grad_enabled(False)
 
-
-    # --- Progressive logging setup ---
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_name = f"phase0_metrics_{timestamp}"
-    run_dir = Path(output_root) / run_name
-    run_dir.mkdir(parents=True, exist_ok=False)
-    progressive_path = run_dir / "metrics_progressive.jsonl"
-
-    # If progressive file exists (resume), load processed IDs
-    processed_ids = set()
-    if progressive_path.exists():
-        with open(progressive_path, "r", encoding="utf-8") as pf:
-            for line in pf:
-                try:
-                    rec = json.loads(line)
-                    processed_ids.add(rec.get("sample_id"))
-                except Exception:
-                    continue
-
     group_metrics = defaultdict(list)
     all_results = []
     doc_counter = defaultdict(int)
 
     gen_cfg = dict(
-        max_new_tokens=150,
+        max_new_tokens=200,
         do_sample=True,
         temperature=0.7,
         top_p=0.95,
@@ -112,58 +93,52 @@ def run_phase0_metric_validation(config: dict[str, Any], output_root: str | Path
         pad_token_id=tokenizer.pad_token_id,
     )
 
-    # Open progressive file for appending
-    with open(progressive_path, "a", encoding="utf-8") as prog_f:
-        for file_path in corpus_files:
-            with open(file_path, "r", encoding="utf-8") as f:
-                for line in f:
-                    doc = json.loads(line)
-                    doc_id = doc.get("id", "unknown")
-                    if doc_id in processed_ids:
-                        continue  # Skip already processed
-                    doc_type = doc.get("type", "unknown")
-                    prompt = doc.get("content", "")
-                    # Generate model output
-                    inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=2048)
-                    inputs = {k: v.cuda() for k, v in inputs.items()}
-                    with torch.no_grad():
-                        output_ids = model.generate(**inputs, **gen_cfg)
-                    # Remove prompt from output
-                    gen_text = tokenizer.decode(output_ids[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
-                    # In Phase 0, seed model = base model, so seed output = model output
-                    seed_text_out = gen_text
-                    # Compute metrics on generated output
-                    h_x = shannon_entropy(gen_text)
-                    c_x = effective_complexity(gen_text)
-                    i_x_seed = mutual_information_proxy(seed_text=seed_text, output_text=gen_text)
-                    h_dezorg = disorganization_entropy(gen_text)
-                    fit = fitness_score(
-                        complexity=c_x,
-                        mutual_info=i_x_seed,
-                        disorganization=h_dezorg,
-                        w1=w1,
-                        w2=w2,
-                        w3=w3,
-                    )
-                    jaccard = jaccard_similarity(seed_text, gen_text)
-                    result = {
-                        "sample_id": doc_id,
-                        "type": doc_type,
-                        "h_x": h_x,
-                        "c_x": c_x,
-                        "i_x_seed": i_x_seed,
-                        "h_dezorg": h_dezorg,
-                        "fitness": fit,
-                        "jaccard": jaccard,
-                        "model_output": gen_text,
-                        "timestamp": datetime.now(timezone.utc).isoformat(),
-                    }
-                    group_metrics[doc_type].append(result)
-                    all_results.append(result)
-                    doc_counter[doc_type] += 1
-                    # Progressive log
-                    prog_f.write(json.dumps(result) + "\n")
-                    prog_f.flush()
+    for file_path in corpus_files:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                doc = json.loads(line)
+                doc_id = doc.get("id", "unknown")
+                doc_type = doc.get("type", "unknown")
+                prompt = doc.get("content", "")
+                # Generate model output
+                inputs = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=2048)
+                inputs = {k: v.cuda() for k, v in inputs.items()}
+                with torch.no_grad():
+                    output_ids = model.generate(**inputs, **gen_cfg)
+                # Remove prompt from output
+                gen_text = tokenizer.decode(output_ids[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+                # Generate seed output (frozen base model, same prompt)
+                # In Phase 0, seed model = base model, so seed output = model output
+                seed_text_out = gen_text  # For future phases: generate with frozen model
+                # Compute metrics on generated output
+                h_x = shannon_entropy(gen_text)
+                c_x = effective_complexity(gen_text)
+                i_x_seed = mutual_information_proxy(seed_text=seed_text, output_text=gen_text)
+                h_dezorg = disorganization_entropy(gen_text)
+                fit = fitness_score(
+                    complexity=c_x,
+                    mutual_info=i_x_seed,
+                    disorganization=h_dezorg,
+                    w1=w1,
+                    w2=w2,
+                    w3=w3,
+                )
+                # Jaccard similarity (diagnostic)
+                jaccard = jaccard_similarity(seed_text, gen_text)
+                result = {
+                    "sample_id": doc_id,
+                    "type": doc_type,
+                    "h_x": h_x,
+                    "c_x": c_x,
+                    "i_x_seed": i_x_seed,
+                    "h_dezorg": h_dezorg,
+                    "fitness": fit,
+                    "jaccard": jaccard,
+                    "model_output": gen_text,
+                }
+                group_metrics[doc_type].append(result)
+                all_results.append(result)
+                doc_counter[doc_type] += 1
 
 
     # Kruskal-Wallis test for H(X), C(X), I(X;seed), Jaccard
@@ -225,6 +200,11 @@ def run_phase0_metric_validation(config: dict[str, Any], output_root: str | Path
                 jaccard_corr[typ] = {"corr": corr, "p": p}
             else:
                 jaccard_corr[typ] = {"corr": None, "p": None}
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_name = f"phase0_metrics_{timestamp}"
+    run_dir = Path(output_root) / run_name
+    run_dir.mkdir(parents=True, exist_ok=False)
 
     output_path = run_dir / "metrics_phase0.json"
     payload = {

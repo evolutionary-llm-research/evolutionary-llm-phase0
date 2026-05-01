@@ -1,0 +1,451 @@
+14kAccesses
+
+27Citations
+
+2Altmetric
+
+Explore all metrics
+
+The current study was conducted to evaluate the antioxidant, analgesic, antihyperglycemic, neuropharmacological and antidiarrheal activities of ethanolic extract ofLepisanthes rubiginosaL. leaves in different experimental models.
+
+Quantitative and qualitative analysis were done by TLC (thin layer chromatography) and DPPH (1,1-diphenyl-2-picrylhydrazyl) free radical scavenging assay. Analgesic, antihyperglycemic and antidiarrheal activities were evaluated using acetic acid induced writhing in mice, oral glucose tolerance test and castor oil induced diarrhea, respectively. Neuropharmacological activity was investigated in mice using both Open Field and Hole Board methods.
+
+TLC analysis indicated the presence of antioxidant compounds in the extract we used. The extract showed IC50value was 31.62 μg/mL whereas the standard ascorbic acid showed 12.02 μg/mL. In acetic acid induced writhing assay, the extract showed 46.07% and 58.43% writhing inhibition at the doses of 250 mg/kg and 500 mg/kg body weight, respectively whereas standard diclofenac-Na (25 mg/kg) showed 86.52% writhing inhibition. The plant extract showed significant (p< 0.05) antihyperglycemic activity on mice as compared to control groups. In neuropharmacological activity assay the experimental animal showed a noticeable decrease in locomotion by showing a decrease in number of square crossed and head dipping at both doses (250 mg/kg & 500 mg/kg). In antidiarrheal activity test, the plant extract at the doses of 250 mg/kg and 500 mg/kg showed percent inhibition of defecation 57.89 and 77.19 respectively, whereas standard loperamide (3 mg/kg) showed percent inhibition of defecation 88.59.
+
+The results demonstrated that the extract has potential antioxidant, analgesic, antihyperglycemic, neuropharmacological and antidiarrheal activity.
+
+Everyday researchers are searching for new drugs with better or improved therapeutic actions. Medicinal plants provide an excellent source of lead compound in discovering noble and new drugs with considerable less side or adverse effects [1]. Traditional medicines are very important since early ancient period because of their faithfulness in the use of various ailments and human sufferings. Various types of bioactive natural compounds are derived from medicinal plants and it serves as raw materials for new drug discovery [2]. Different types of phytochemicals such as alkaloids, saponins, carbohydrates, glycosides, flavonoids, gums, steroids, tannins, phenolic compounds, volatile oils etc. are synthesized from numerous types of medicinal plants that have a potential therapeutic and pharmacological activities and are used in different disorders [3]. In last few years, there has been great focus on the possible health benefits of natural substances with antioxidant, antimicrobial, analgesic, anticancer, anti-diabetic and others activity. This has resulted in an enormous increase of research on different medicinal plant to find lead compounds responsible for such pharmacological activity.
+
+L. rubiginosais evergreen shrub and height usually 2–3 m, sometimes to 7 m. The plants have been traditionally used for various purposes such as antipruritic, headache, fever, decoction, antitussive, tonics and food preservatives. Stems are used for inducing sleep. Saburi et al. carried out chemical investigation of the methanolic fraction ofL. rubiginosabark which led to the isolation and characterization of a new tetrasaccharide derivative of farnesol named rubiginoside along with known triterpenoid saponins [4]. In a study, it is seen that an aqueous fruit extract ofL. rubiginosaat doses of 20 mg/kg and 100 mg/kg significantly (p< 0.05) decrease locomotion and at dose of 100 mg/kg enhanced the thiopental-induced sleeping period. In another study, it was also disclosed the affinity to the dopaminergic receptors and inhibition of the apomorphine induced climbing behavior in experimental mice [5,6]. In that consequence, it is assumed that the leaf extract should exert neuropharmacological activity, and hence, we carried out in-vivo experiments to evaluate neuropharmacological activity.
+
+The drugs which are currently used as antidiabetics have serious side effects and deleterious contraindications [7]. Hence, researchers are paying attention to herbal medications having high therapeutic efficacy with minimal side effects. The antidiabetic agents from medicinal plants are very promising and traditionally acclaimed medicinal plants are being investigated for their antidiabetic potential [8,9]. In other studies, the fruit extracts of some plants were evaluated for alpha-amylase, alpha-glucosidase, total phenolic and total flavonoid contents where the extract have shown significant anti-hyperglycemic and analgesic activities [10,11,12]. In this context, we hypothesize that the leaf extracts of this plant might possess compounds with anti-hyperglycemic and analgesic activities.
+
+Alkaloids, flavonoids, phenolics, tannins, saponin, glycosides and steroids were identified in the preliminary phytochemical investigation ofLepisanthes rubiginosaleaf extract. Researchers have reported a number of bioactive compounds from different plants to have antihyperglycemic effect among which mostly phenolics, flavonoids etc. have a positive correlation as antidiabetic agents [13,14,15]. Our phytochemical screening identified the presence of flavonoids, phenolics in our leaf extract of Lepisanthes rubiginosa. And this prompted us to investigate the antihyperglycemic activity of the extract using in vivo model.
+
+Among different disorders, diarrhea is one of the causes of morbidity and mortality specially in developing countries [16]. The world health organization (WHO) has established a diarrhea disease control program for the treatment and management of diarrhea that includes traditional medicine practices along with health education and prevention approaches (Syder medicine), which is mostly based on herbal products [17]. WHO has accepted traditional medicine as an alternative health care form. In a developing country like Bangladesh where a handsome amount of people including children are affected by diarrhea every year, a search for plants with antidiarrheal activity that could be used against diarrheal disease is of prime interest. However, amazingly no research has been carried out to evaluate the in-vivo antidiarrheal activity of the leaves extract ofL. rubiginosa.
+
+In a comparative study of the essential oil from flowers and fruits ofL. rubiginosa, the flower essential oil showed anticancer activity against NCI-H187 (small cell lung cancer) and possessed antioxidant activity. But fruit essential oil did not show anticancer activity and possessed low antioxidant activity. However, both flower and fruit essential oils showed strong antimicrobial activity againstTricophytonmentagrophytesand moderate activity againstE. coli,S. aureus,Pseudomonas aeruginosaandCandida albicans[6]. The findings of the above-mentioned studies formed the basis of our hypothesis that the leaf extract of the plant could have bioactivity beneficial for human health. And thus, we have been prompted to carry out in vivo evaluation of the leaf extract of the plant in animal models. And hence, the current study was designed to evaluate the antioxidant activity, neuropharmacological, analgesic, antihyperglycemic and antidiarrheal activities of ethanolic extract ofL. rubiginosaleaves in different experimental models.
+
+The leaves ofL. rubiginosawere used as the raw material for the extraction and other investigation process. The leaves ofL. rubiginosawere collected from the Sundarbans, Bangladesh in April, 2014. Any types of undesirable materials or plants or plant parts were separated from the collected plant parts. The plant identification was authenticated by Dr. HosneAra, Director, Bangladesh National Herbarium (BNH), Mirpur-1, Dhaka-1216. A voucher specimen (Accession number: DACB-44952) was deposited at the Herbarium.
+
+The collected plant parts were washed with water. After washing it was subjected to shed-drying for 1–2 weeks. When the plant parts were suitable for grinding, it was grinded into coarse powder by a grinder (Wuhu motor factory, China). Finally, the powder material was stored in a sealed container and kept in a dark, cool and dry place until farther processing.
+
+About 250 g of finely powered plant materials was taken in a clean glass container and it was soaked with 800 mL of C2H5OH. Then the container was sealed and kept for a period of 15 days. During this time, it was subjected to occasional stirring and shaking. The mixture was then filtered by cotton. Finally, it was filtered by Whatman filter paper.
+
+About 4–5 weeks aged Swiss-albino mice of both sexes (Around 50 mice), average weight of 20–35 g was collected from central animal house of the Department of Pharmacy, Jahangirnagar University, Savar, Dhaka-1342, and were used for the present study. The animals were randomly selected and divided into normal and experimental groups. The research was carried out according to the rules governing the use of laboratory animals and the experimental protocol was approved by the Animal Ethics Committee, Khulna University. After one week for their adaptation, all the experimental processes would be conducted and it would be performed in an isolated and noiseless environmental condition. All sections of this report adhere to the ARRIVE Guidelines for reporting animal research. A completed ARRIVE guidelines checklist is included with the submission as Additional file1.
+
+Acetone, n-hexane, chloroform, methanol, ethanol, ascorbic acid, quercetin, sodium nitrous, aluminum chloride, sodium hydroxide, sodium carbonate, gallic acid, acetic acid, 2, 2-diphenyl-1-picrylhydrazyl (DPPH), and folin-ciocalteu’s reagent were obtained from Sigma Chemical Co. Ltd., St. Louis, MO, USA. Castor oil was supplied by LobaChemie Pvt. Ltd., India.
+
+Loperamide and diclofenac-Nawere purchased from Square Pharmaceuticals Ltd., Bangladesh. Diazepam and Glibenclamide were purchased from Incepta Pharmaceuticals Ltd., Bangladesh.
+
+Ethanol leaves extract Ofl. rubiginosawas evaluated for antioxidant activity by both qualitative and quantitative method. Thin-layer chromatographic (TLC) technique was used for qualitative analysis and DPPH-scavenging technique was used for quantitative analysis [18].
+
+Thin-layer chromatography (TLC) is a chromatographic technique that is useful for separating wide range of organic compounds. Maximum diluted solutions of extract were spotted on TLC plates and then the plates were developed with different type of solvent systems like polar, medium polar and non-polar to separate polar and non-polar components from the plant materials. When the chromatogram of the extract was developed, it forms pale yellow to the yellow color that indicate the presence of antioxidant components [19].
+
+DPPH, having an odd number of electrons is a stable free radical. Different concentrations (1–512 μg/mL) of the extract were taken in different test tubes and 3 ml of a 0.004%w/vsolution of DPPH were added to it. After 30 min, absorbance was taken at 517 nm, and IC50(Inhibitory concentration 50%) was determined. IC50value indicates the concentration of sample required to scavenge 50% of the DPPH free radicals [19]. Here, ascorbic acid was used as a standard compound. Percent inhibition was calculated using the following formula:
+
+Percent inhibition= (1 –A1/A0) × 100 % ,
+
+where A0is the absorbance of blank and A1is the absorbance of sample or standard.
+
+The total phenolic content of the ethanolic leaves extract ofL. rubiginosawas determined by using Folin-Ciocalteu’s reagent [20,21,22,23]. Gallic acid (12.5 mg) was dissolved in methanol to make final volume up to 25 ml. Different concentrations (500–15.62 mg/L) of standard gallic acid solution was made by serial dilution method. 1 ml solution of every concentration was taken into different volumetric flask and 9 ml of distilled water along with 1 ml of FC reagent (10%v/v) was added to it. After 5 min, 10 ml solution of 7% sodium carbonate (Na2CO3) was added every volumetric flasks and volume was adjusted to make final volume up to 25 ml. After 30 min, absorbance was observed at 750 nm against the blank solution. Total phenolic content of the extract was evaluated against gallic acid standard calibration curve and expressed as mg gallic acid equivalent, GAE/100 g of dried plant extract.
+
+Ethanolic extract ofL. rubiginosaleaves was evaluated for total phenolic content by using quercetin standard calibration curve [23,24,25]. Plant extract (10 mg) was dissolved with 10 ml distilled water in order to get final concentration 1 mg/1 ml. 0.1, 0.08, 0.06, 0.04 and 0.02 mg quercetin was mixed in 1 ml of distilled water to make the final concentrations 100, 80, 60, 40 and 20 μg/ml. 1 ml quercetin solution of every concentration (100-20 μg/ml) was taken into different volumetric flask and 4 ml of distilled water was added to it. Then 0.3 ml 5%v/v sodium nitrous solution was added. After 5 min, 2 ml 1 M sodium hydroxide (NaOH) was added and final volume was made up to 10 ml. Finally, UV absorbance was determined at 510 nm against blank solution. Total flavonoid content of the extract was also measured using quercetin standard calibration curve and expressed as mg quercetin equivalent, QE/100 g of dried plant extract.
+
+Ethanolic extract ofL. rubiginosaleaves was evaluated for total phenolic content by using Folin-Ciocalteu’s reagent [26,27]. Plant extract (10 mg) was dissolved in 10 ml distilled water to make final concentration of 1 mg/1 ml. Different aliquots of gallic acid (0.5, 0.4, 0.3, 0.2 and 0.1 mg) was dissolved in 1 ml of distilled water to make the final concentrations 100, 80, 60, 40 and 20 μg/ml. After preparing 3.5%w/vsodium carbonate solution, 0.1 ml gallic acid solution of every concentration (100-20 mg/l) was taken into different volumetric flask. Then 7.5 ml of distilled water and 0.5 ml FC reagent was added to it. After 5 min, 1 ml 3.5% sodium carbonate solution and 10 ml distilled water was added to that flask. After 30 min, UV absorbance was determined at 725 nm. Total tannin content of the extract ofL. rubiginosawas measured using gallic acid standard calibration curve and stated as mg gallic acid equivalent, GAE/100 g of dried plant extract.
+
+To investigate analgesic activity, the experimental animals were divided into four groups: control, standard and two test samples consisting of five mice of each group. The control groups received only vehicle (1% tween-80 water) whereas test groups received extract doses of 250 mg/kg and 500 mg/kg body weight of mice. Diclofenac-Na (25 mg/kg) was used as a standard drug [28,29]. Control, standard, extract doses of 250 mg/kg and 500 mg/kg were given orally with the help of a feeding needle. After 30 min, 0.7%v/v acetic acid solution was administered intraperitoneally by all groups. After an interval of 5 min, number of writhing was counted for 15 min [30]. The mice do not always give full writhing. Sometimes they begin to produce writhing but they are not complete it. This incomplete writhing was then count as half writhing, so two half writhing was equal to one full writhing.
+
+In antihyperglycemic activity test, the experimental animals were divided into four groups: control, standard and two test samples consisting of five mice of each group. The control groups received only vehicle (1% tween-80 water) whereas test groups received extract doses of 250 mg/kg and 500 mg/kg body weight of mice. Glibenclamide (5 mg/kg) was used as a standard drug. In a fasting state (having no food for at least 10 h but not more than 16 h), the experimental animals were tested. In a fasting state (having no food for at least 10 h but not more than 16 h), the experimental animals were tested. After selection and weighing of mice, fasting blood glucose level for control, standard and two test groups were measured. Then glucose solution was administered orallyand blood glucose levels after 30, 60, and 150 min were measured [31,32,33]. To estimate blood glucose level, blood samples of experimental mice were drawn by pricking with a sterile needle in the tail vein. The blood glucose levels were measured by using the glucometre and compatible blood glucose strips. The blood glucose levels were measured in millimole per liter (mmol/L) unit.
+
+Open Field and Hole Board test were performed to evaluate neuropharmacological activity of the ethanolic leaves extract ofl. rubiginosa[34,35,36].
+
+In the Open Field method, the test animals were divided into four groups: control, standard and two test samples, consisting of five mice in each group. The control groups received only vehicle (1% tween-80 water) whereas test groups received extract doses of 250 mg/kg and 500 mg/kg body weight of mice. The floor was half square meter open field and it was alternatively colored black and white. The height of wall in the Open Field apparatus was 40 cm. The number of squares traveled by the experimental mice was counted for 3 min. The observations were made on 0, 30, 60, 90 and 120 min after oral administration of control, standard and two test groups. Diazepam (1 mg/kg) was used as a standard drug.
+
+In the Hole Board method, the test animals were divided into four groups: control, standard and two test samples, consisting of five mice in each group. The control groups received only vehicle (1% tween-80 water) whereas test groups received extract doses of 250 mg/kg and 500 mg/kg body weight of mice. The apparatus consists of an enclosed space having sixteen holes in a grid-pattern. The experimental mice when placed in this apparatus were free to dip its head through the holes. The number of head dipping by the animal was counted for 3 min. The observations were made on 0, 30, 60, 90 and 120 min after oral administration of control, standard and two test groups. Diazepam (1 mg/kg) was used as a standard drug.
+
+In Castor oil induced antidiarrheal activity test, the experimental animals were divided into four groups: control, standard and two test samples consisting of five mice of each group. The control groups received only vehicle (1% tween-80 water) whereas test groups received extract doses of 250 mg/kg and 500 mg/kg body weight of mice. Loperamide (3 mg/kg) was used as a standard drug. After 60 min, each mouse of all groups was administered 0.5 ml of castor oil in oral route. All animals were then kept separately in transparent cage having white blotting paper in order to count the no. of faeces. Every hour the blotting paper was changed and it was observed within a period of 4 h. Latent period of faecal drops for each group was also recorded. Latent period of faecal drops and percent inhibition of defecation of each group were determined [37,38]. By using the following formula percent inhibition of defecation was calculated:
+
+Percent inhibition= (D0−D1/D0) × 100 %
+
+where D0is the number of defecation of the control group, and D1is the number of defecation of the test or standard group.
+
+All experimental data was expressed as mean ± standard error of mean. Dunnett’s test was used to assess statistical significance by one-way analysis of variance. Statistical analysis was executed in Prism 6.0 (Graph Pad Software Inc., San Diego, CA, USA). Results of the present study were considered as statistically significant whenP< 0.05.
+
+Phytochemical studies showed that carbohydrate, alkaloid, glycoside, phenolic compounds, flavonoids, tannins, steroids and proteins were present whereas combined reducing sugar and gums were absent in the ethanol extract ofL. rubiginosa(Table1).
+
+This assay was carried out to estimate the free radical scavenging activity of the extract. IC50value ofL. rubiginosa(extract) was found to be 31.62 μg/ml, whereas IC50value of ascorbic acid (standard) was found to be 12.02 μg/ml (Fig.1).
+
+Percent inhibition vs. log concentration graph for standard (ascorbic acid) and extract ofLepisanthes rubiginosaL
+
+As shown in Fig.2, the total phenolic content inL. rubiginosawas estimated to be 422.42 mg GAE/100 g of the dry weight extract.
+
+Gallic acid standard calibration curve for the determination of total phenolic content
+
+Total flavonoid content inL. rubiginosawas estimated to be 350 mg QE/100 g of the dry weight extract (Fig.3).
+
+Quercetin standard calibration curve for the determination of total flavonoid content
+
+Total tannin content inL. rubiginosawas estimated to be 233.3 mg GAE/100 g of the dry weight extract (Fig.4).
+
+Gallic acid standard calibration curve for the determination of total tannin content
+
+The results of the test showed that ethanolic leaf extract ofL. rubiginosaat the dose of 250 mg/kg and 500 mg/kg exhibit significant (p< 0.05) inhibition of writhing reflex of 46.07% and 58.43% respectively while the standard (diclofenac-Na 25 mg/kg) drug inhibition was found to be 86.52% (Fig.5).
+
+Percentage writhing inhibition of acetic acid induced writhing in mice by the standard drug andLepisanthes rubiginosaL
+
+The plant extract ofL. rubiginosashowed significant (p< 0.05) antihyperglycemic activity in mice as compared to control groups (Table2). The extracts showed a noticeable decrease in locomotion by decreasing number of square crossed in the test animals from the 2nd, 3rd, 4th, 5th observation period at both dose levels (250 and 500 mg/kg body weight). The present study elevated the effect of ethanolic extract ofLepisanthes rubiginosaLeenh on experimentally induced anti anxiety and depression.
+
+The present study evaluated the neuropharmacological activity of ethanol extract ofL. rubiginosaon mice using Open Field method and Hole Board method. The results are shown in Tables3&4. The mice group treated with extracts (test group) showed a significant decrease in number of squares crossed (Table3) as well as head dipping (Table4) at both dose levels (250 and 500 mg/kg body weight). The results demonstrated that the extract significantly decreased locomotor activity at the doses used in the experiment. Here we did not find any statistically significant difference between 250 mg/kg and 500 mg/kg with respect to neuropharmacological activity.
+
+In the present study the antidiarrheal activity of the test extract was evaluated in castor oil induced diarrheal mice. In the castor oil induced diarrheal mice, the ethanol leaves extract ofL. rubiginosaat the doses of 250 and 500 mg/kg body weight of mice significantly decreased the total number of faeces as well as delayed the onset of diarrhea in a dose dependent manner when compared to vehicle-treated negative control group. In this experiment Loperamide was used as positive control for antidiarrheal activity. We compared the antidiarrheal effect of the test extract at 500 mg/kg body weight with the effect of 250 mg/kg body weight dose. We found that the antidiarrheal effect at dose 500 mg/kg was significantly higher than that with 250 mg/kg dose and the difference is statistically significant. This finding further suggests that the test extract exerts antidiarrheal activity in a dose dependent manner. Percent inhibition of defecation at doses 250 and 500 mg/kg body weight was 57.89 and 77.19, respectively whereas standard loperamide (3 mg/kg) was 88.59 (Table5).
+
+One of the most important pharmacological properties of plants is antioxidant activity. This assay is widely used as a preliminary test which provides information on the reactivity of test compound with a stable free radical. Reactive oxygen species (ROS) or active oxygen species are the activated oxygen of several forms, like hydroxyl ions, hydrogen peroxide and superoxide ions etc. [39]. These ROS play a dynamic healing role in some perilous disorders such as cancers, inflammations, coronary heart diseases, aging, cataracts, neurodegenerative disorders, atherosclerosis [40]. These antioxidant molecules scavenge the ROS and protect cells by antioxidant defense mechanisms [41]. Among several antioxidant potency investigations, DPPH scavenging assay is one of the straight way for free radical scavenging assay. In doing that, DPPH is converted to unpaired (purple color) to paired electron (yellow colored) by reduction to α, α-diphenyl-β-picryl hydrazine. The degree of color change is proportional to the concentration and potency of the antioxidants molecules. It is found that a huge decrease in the absorbance indicates the significant free radical scavenging activity of the compound [42,43]. In the present study, the extract ofL. rubiginosashowed a good IC50value which is compared to standard ascorbic acid (Fig.1) indicating the presence of antioxidant components in the plant extract. The results of phytochemical screening carried out in this study also suggested that the plant contains phytochemical constituents which are capable of donating hydrogen to scavange the free radicals that might cause potential damage.
+
+Phenolic compounds are considered to be a product of secondary metabolites which derived from phenylalanine and tyrosine that occurs in plant. Plant materials with high phenolic contents are being increasingly used in food industry because of their protective activity against oxidative degradation of lipids. Thus they improve food quality and add nutritional value. Phenolic components containing plants also possess hydroxyl groups which have a good scavenging ability [44,45]. Some previous studies showed the efficiency of phenolics for scavenging radicals that is influenced by their nature of OH group’s substitution, molecular weight and presence of aromatic rings [46]. These properties may explain the possible mechanisms of antioxidant activites of the plant extract. The result (422.42 mg GAE/100 g of dried extract) proved that the extract ofL. rubiginisaleaves have a handsome amount of phenolic compound which indicates the presence of hydroxyl groups.
+
+Another important category of phenolic compounds are flavonoids which have a good antioxidant activity. Flavonoids are natural compounds occurring in plant and having a positive effect on human health. Flavonoid and its derivatives show a varied range of anti-inflammatory antibacterial, anticancer, antiviral and anti-allergic activities. It is also considered to be highly effective against oxidizing molecules like singlet oxygen and various free radicals responsible for several diseases [47,48]. In another study, it is shown that flavonoids exhibit their activity by affecting membrane permeability by inhibiting membrane bound enzymes like ATPase and phospholipase A2. These properties may elucidate the conceivable mechanisms of antioxidative action of the extract. Our results indicate that phytochemical constituents present in the extracts contain a good amount of flavonoid compounds (350 mg QE/100 g of the dry extract) which support the usefulness of this plant in folklore remedies in the treatment of various disorders related to stress [49,50,51,52].
+
+Tannins are astringent and bitter plant polyphenols. They bind to protein molecules and precipitate or shrink them. Tannins are large polyphenolic compounds containing sufficient hydroxyl groups and other free radicals such as carboxyl and they form complexes with proteins and other macromolecules. These free radicals are very much useful in protecting cell from damage [53]. Some studies indicate that tannins are useful indealing of ulcerated or inflamed tissues and they also have a good activity against cancer preventions [54,55]. The result suggests that the extract ofL. rubiginisacontains good amount of tannins which may be a source of free radicals responsible for protecting cell from death and satisfy the probable mechanisms how the plant extract exerts its scavenging activities.
+
+In pathological conditions, tissue injury causes pain resulting in the local release of chemical mediators such as prostaglandins, cytokines, leukotrienes etc. They act on the nerve terminals in both activating them directly and enhancing their sensitivity to other stimulation [56,57]. Acetic acid administration in intraperitoneal routes can produce pain by consequent abdominal writhing due to the release of mediators like prostaglandin E2 and other lipooxygenase products [58]. Prostaglandin mainly prostacyclines (PGI2) and prostaglandin E (PG-E) are responsible for pain sensation due to the excitation of Að-nerve fibers [50]. Thus, the plant extract ofL. rubiginisamay produce non-narcotic analgesic activity due to the inhibition of prostaglandin synthesis by blocking of lipooxygenase and cyclooxygenase activities. In the present study, ethanolic leaves extract ofL. rubiginisashowed a significant (p< 0.05) writhing inhibitions compared to that of standard diclofenac-Na. The result also shown that percentage of writhing inhibition in two test samples (250 mg/kg & 500 mg/kg) are sufficient enough to produce analgesic activity as compared to standard test results. As we know that the standard drug diclofenac sodium is a potent analgesic and it can produce stronger analgesic activity rather the ethanolic leaves extract ofL. rubiginosa.
+
+Diabetes is a metabolic disorder that indicates elevated blood glucose concentration and occurred by an insufficient of insulin secretion and action [59,60]. The agents that are used to treat diabetics by means of decreasing blood glucose concentration or sufficiently secreting insulin are known as antihyperglycemic agents. In a recent report Joy and his group the mechanism of antihyperglycemic agents had either by potentiating pancreatic insulin secretion or increasing glucose uptake [61]. Such mechanism has also been proposed in another study, root extracts ofHelicteresisora[62]. The current study of ethanolic leaves extract ofL. rubiginosaexpressed a significant (p< 0.05) antihyperglycemic activity as compared to control and other groups (Table2). The possible mechanism of this activity may be either by potentiating pancreatic insulin secretion or increasing glucose uptake. The result also demonstrated that animal treating with standard drug (Glibenclamide 5 mg/kg) had been shown strong antihyperglycemic activity rather than the other groups and the two test groups (250 mg/kg & 500 mg/kg) also shown a significant decrease in blood glucose level. From the above discussion, we can say that the ethanolic extract ofL. rubiginosamay be a potential source of antihyperglycemic agents.
+
+The present work has evaluated the neuropharmacological activity ofL. rubiginisain two different experimental model, Open Field and Hole Board method. The open field method is a classical method for evaluating anxiety, exploratory behavior and general motor activity. Locomotion means increase in alertness and decrease in locomotor activity is considered as sedative effects [63]. Mice have a normal tendency to spend more time in the protective corners which suggest that the walls confer anxiety-relieving body contact. When animals are placed in Open Field apparatus they express anxiety by decreasing number of square crosses in the open space as well as to spend more time in protective corners due to fear generation. The reason behind the fear generation is to reflect an aversion towards open spaces [64]. Similar observations were shown in our current study. Our extracts at both doses (250 mg/kg & 500 mg/kg) caused a significant suppression of movements resulting in decreased number of square crossed as compared to control groups. Standard drug (diazepam 1 mg/kg) also exerted significant suppression of movements. The results indicated that the extract ofL. rubiginosahas CNS depression activity.
+
+Studies have shown that the head dipping behavior of mice is directly related to their emotional state. Base on the concept the anxiolytic state of mice may be the reflection of head dipping behavior [65]. Treatment with ethanolic extract at both doses (250 and 500 mg/kg) caused a statistically significant reduction in the number of head dipping when compared to control groups. The standard drug (diazepam 1 mg/kg) also showed noticeable decrease in head dipping. The result of this study proved that the ethanolic extract ofL. rubiginosapossesses CNS depression activity. In case of anxiety, the number of head dipping in mice is increased but in depression the number of head dipping in mice is decreased. GABA (Gamma-amino-butyric acid) is one of the major inhibitory neurotransmitters in the CNS (central nervous system). CNS depressant drugs show their action by inferring with GABA receptors [66].
+
+Medicinal plants have been investigated for their activity in gut motility, intestinal transit, and water absorption or reduce intraluminal fluid accumulation [67]. Diarrhea refers to excess passage of watery stools which is caused by decreased consistency or increased frequency of bowel movements. The possible mechanism of diarrhea would be the change in active ion transport system either by increasing chloride secretion or decreasing sodium absorption. It may also include the increase in luminal osmolality, change in intestinal motility and increase in tissue hydrostatic pressure [68]. Among the all mechanisms, castor oil (active compound ricinoleic acid) induces diarrhea by stimulating intestinal motility and secretory processes [69]. In the present study, antidiarrheal activity of the plant extract ofL. rubiginisawas investigated by castor oil-induced diarrhea in mice. In the castor oil induced diarrheal mice, the ethanolic leaf extract ofL. rubiginosaat the doses of 250 and 500 mg/kg body weight of mice significantly decreased the total number of feces as well as delayed the onset of diarrhea in a dose dependent manner when compared to vehicle-treated negative control group. Loperamide, an antidiarrheal drug, was used as positive control. We also compared the antidiarrheal effect of the two test doses (500 mg/kg vs. 250 mg/kg body weight). We found that the antidiarrheal effect at dose 500 mg/kg was significantly higher than that with 250 mg/kg dose (Table5). Percent inhibition of defecation at doses 250 and 500 mg/kg body weight was 57.89 and 77.19, respectively whereas with loperamide (3 mg/kg) it was 88.59. This finding further suggests that the test extract exerts antidiarrheal activity in a dose dependent manner. Some other plant extracts have shown the similar effect [70].
+
+Our results demonstrated the presence of antioxidant, analgesic, antihyperglycemic, neuropharmacological and antidiarrheal activity. The results of these investigations justify the uses of the plant in folk medicine. These preliminary studies do not describe the actual mechanism of which these pharmacological activities were shown. Further advanced investigations are required to identify the actual mechanism as well as to isolate bioactive compounds responsible for each pharmacological activity.
+
+Saha S, Hossain F, Anisuzzman M, Islam MK. Pharmacological evaluation ofMusa seminiferaLour. Fruit. Journal of Integrative Medicine. 2013;11(4):253–61.
+
+ArticlePubMedGoogle Scholar
+
+Ramawat KG, Dass S, Mathur M. The chemical diversity of bioactive molecules and therapeutic potential of medicinal plants. In: Ramawat KG, editor. Herbal drugs: ethnomedicine to modern medicine. Berlin: Springer; 2009. p. 7–32.
+
+ChapterGoogle Scholar
+
+Akinmoladun AC, Ibukun EO, Afor E, Obuotor EM, Farombi EO. Phytochemical constituent and antioxidant activity of extract from the leaves ofOcimum gratissimum. Sci Res Essays. 2007;2(5):163–6.
+
+Google Scholar
+
+Adesanya SA, Martin MT, Hill B, Dumontet V, Van Tri M, Sévenet T, Païs M. Rubiginoside, a farnesyl glycoside fromLepisanthes rubiginosa. Phytochemistry. 1999;51(8):1039–41.
+
+ArticleCASPubMedGoogle Scholar
+
+Chabra SC, Mahunnah RLA, Mshiu EN. Plants used in traditional medicine in eastern tanzania. V. Angiosperms (passifloraceae to sapindaceae). J Ethnopharmacol. 1991;33:143–57.
+
+ArticleGoogle Scholar
+
+Chuangbunyat J, Teerawutkulrag A, Pyne SG, Liawruangrath S, Liawruangrath B. A comparative study of the essential oil from flowers and fruits ofLepisanthes rubiginosa(Roxb.) Leenh. Acta Pharmaceutica Sciencia. 2011;53(4):535–42.
+
+CASGoogle Scholar
+
+Wadkar KA, Magdum CS, Patil SS, Naikwade NS. Anti-diabetic potential and Indian medicinal plants. Journal of herbal medicine and. Toxicology. 2008;2(1):45–50.
+
+Google Scholar
+
+Babu V, Gangadevi T, Subramanian A. Antihyperglycemic effect ofCassia keiniileaf extract in glucose feed normal rats and alloxam induced diabetic rats. Indian J Pharmacol. 2002;34(6):409–15.
+
+Google Scholar
+
+Parthasarathy R, Ilavarasan R, Karrunakaran CM. Antidiabetic activity ofThespesia populneabark and leaf extract against streptozotocin induced diabetic rats. International Journal of Pharm Tech Research. 2009;1(4):1069–72.
+
+Google Scholar
+
+Das S, Das S, De B.In Vitroinhibition of key enzymes related to diabetes by the aqueous extracts of some fruits of West Bengal, India. Current nutrition. Food Sci. 2012;8:19–24.
+
+CASGoogle Scholar
+
+Sangeetha R, Vedasree N. In Vitro α-Amylase Inhibitory Activity of the Leaves ofThespesiapopulnea. ISRN Pharmacology. Vol. 2012; 4pages. 2012. doi:10.5402/2012/515634
+
+Telagari M, Hullatti K.In-vitroα-amylase and α-glucosidase inhibitory activity ofAdiantum caudatumLinn. AndCelosia argenteaLinn. Extracts and fractions. Indian Journal of Pharmacology. 2015;47(4):425–9.
+
+ArticleCASPubMedPubMed CentralGoogle Scholar
+
+Tundis R, Loizzo MR, Menichini F. Natural products as alpha-amylase and pha-glucosidase inhibitors and their hypoglycaemic potential in the treatment of diabetes: an update. Mini review in. Med Chem. 2010;10:315–31.
+
+CASGoogle Scholar
+
+Sales PM, Souza PM, Simeoni LA, Silveira D. A-Amylase inhibitors: a review of raw material and isolated compounds from plant source. J Pharm Pharm Sci 2012;15:141–183.
+
+ArticlePubMedGoogle Scholar
+
+Brahmachari G. Bio-flavonoids with promising antidiabetic potentials: a critical survey. In: Tiwari VK, Mishra BB, editors. Opportunity, challenge and scope of natural products in medicinal chemistry, Trivandrum: research signpost, vol. 2; 2011. p. 187–212.
+
+Google Scholar
+
+Carlos CC, Saniel MC. Etiology and epidemiology of diarrhea. Phil J Microbiol. Infect Dis. 1990;19(2):51–3.
+
+Google Scholar
+
+World Health Organization, Research guidelines for evaluating safety and efficacy of herbal medicine. Manila: World Health Organization; 1993. [Online]Available from: http://apps.who.int/medicinedocs/fr/d/Jh2946e/. [Accessed on 5 January, 2015].
+
+Sharma OP, Bhat TKDPPH. Antioxidant assay revisited. Food Chem. 2009;113(4):1202–5.
+
+ArticleCASGoogle Scholar
+
+Radomir VM, Eva SL, Ljiljana AK. TLC analysis of some phenolic compounds in Kombucha beverage. Acta Periodica Techonologica. 2004;35:199–205.
+
+Google Scholar
+
+Hossain A, Islam T. Saifuzzaman, Saeed MAS, Islam MK, Murshid GMM, Rahman MM. Bioactivity ofBoehmeria Macrophylla(Urticaceae) leaf extract. Orient Pharm Exp Med. 2016;16(3):233–41.
+
+ArticleCASGoogle Scholar
+
+Rahman MK, Barua S, Islam MF, Islam MR, Sayeed MA, Parvin MS, Islam ME. Studies on the anti-diarrheal properties of leaf extract ofDesmodium puchellum. Asian Pacific Journal of Tropical Biomedicine. 2013;3(8):639–43.
+
+ArticleCASPubMedPubMed CentralGoogle Scholar
+
+Marinova D, Ribarova F, Atanassova M. Total phenolics and total flavonoids in Bulgarian fruits and vegetables. Journal of the University of Chemical Technology and Metallurgy. 2005;40:255–60.
+
+CASGoogle Scholar
+
+Meda A, Lamien CE, Romito M, Millogo J, Nacoulma OJ. Determination of the total phenolic, flavonoid and proline contents in Burkina Fasan honey, as well as their radical scavenging activity. Food Chem. 2005;91(3):571–7.
+
+ArticleCASGoogle Scholar
+
+Singleton VL, Orthofer R, Lamuela-Raventos RM. Analysis of total phenols and other oxidation substrates and antioxidants by means of folin-ciocalteu reagent. Food Chem. 1999;299:152–78.
+
+CASGoogle Scholar
+
+Sumi SA, Saeed MAS, Hossain A, Mia MS, Afrin S, Rahman MM. Investigation of the key pharmacological activities ofFicus racemosaand analysis of its major bioactive polyphenols by HPLC-DAD. Evidence-Based Complementary and Alternative Medicine. 2016:9. Doi.org/10.1155/2016/3874516.
+
+Islam F, Hossain A, Hossain MG, Murshid GMM, Rahman MM. Evaluation of antioxidant, analgesic and cytotoxic activities ofTypha angustataL. root. Dhaka University. J Pharm Sci. 2015;14(1):55–9.
+
+Google Scholar
+
+Rajeev S, Pawan KV, Gagandeep S. Total phenolic, flavonoids and tannin contents in different extracts ofArtemisia absinthium. Journal of Intercultural Ethnopharmacology. 2012;1(2):101–4.
+
+ArticleGoogle Scholar
+
+Koster R, Anderson M, Beer EJ. Acetic acid analgesic screening. Fed Proc. 1959;18:418–20.
+
+Google Scholar
+
+Biswas M, Biswas K, Ghosh AK, Haldar PKA. Pentacyclic triterpenoid possessing analgesic activity for the fruit ofDregea volubilis. Pharmacogn Mag. 2009;5(19):90–2.
+
+CASGoogle Scholar
+
+Woolfe G, MacDonald AD. The evaluation of analgesic action of Pethidine hydrochloride. J Pharmacol Exp Ther. 1969;166:96–103.
+
+Google Scholar
+
+Kumar GP, Arulselvan SP, Kumar DS. Anti-diabetic activity of fruits ofTerminalia chebula onstreptozotocin induced diabetic rats. J Health Sci. 2006;52:283–91.
+
+ArticleGoogle Scholar
+
+Shirwaikar A, Rajendran K, Barik R. Effect of aqueous bark extract ofGaruga pinnataRoxb in streptozotocin-nicotinamide induced type-II diabetes mellitus. J Ethnopharmacol. 2006;107:285–90.
+
+ArticlePubMedGoogle Scholar
+
+Kessler RC, Chiu WT, Demler O. Prevalence, severity, and co-morbidity of 12-month DSM-IV disorders in the National co-Morbidity Survey Replication. Arch Gen Psychiatry. 2005;62:617–27.
+
+ArticlePubMedPubMed CentralGoogle Scholar
+
+Ronok Z, Anamul HM, Laizuman N, Ashik MM, Ekramul HM. Evaluation of anxiolytic CNS depresant activityAlangium salvifoliumwang flowers. International Research Journal of Pharmacy. 2012;3(4):2230–8407.
+
+Google Scholar
+
+Doukkali Z, Taghzouti K, Bouidida EL, Nadjmouddine M, Cherrah Y, Alaoui K. Evaluation of anxiolytic activity of methanolic extract ofUrticaurensin a mice model. Behav Brain Funct. 2015;1:11–9.
+
+Google Scholar
+
+Adebesin IF, Akindele AJ, Adeyemi OO. Evaluation of neuropharmacological effects of aqueous leaf extract ofAlbizia glaberrima(Leguminosae) in mice. J Ethnopharmacol. 2015;160:101–8.
+
+ArticlePubMedGoogle Scholar
+
+Islam MK, Mahmud I, Saha S, Sarker AB, Mondal H, ASM M-a-H, Anisuzzman M. Preliminary pharmacological evaluation ofAlocasia indicaSchott tuber. Journal of integrating Medicine. 2013;11:343–51.
+
+ArticleGoogle Scholar
+
+Rahman A, Riyanto S, Yuniarti N, Saputra WR, Utami R, Mulatsih W. Antioxidant activity, total phenolic and total flavonoid of extracts and fractions of red fruit (Pandanus conoideuslam). Int Food Res J. 2010;17:97–106.
+
+Google Scholar
+
+Yildrim A, Oktay M, Bilaloulu V. The antioxidant activity of leaves ofCydonia vulgaris. Turkish journal of. Medical Science. 2001;31:23–7.
+
+Google Scholar
+
+Huang DH, Chen C, Lin C, Lin Y. Antioxidant and antiproliferative activities of water spinach (Ipomoea aquaticForsk.) constituents. Botanical bulletin of academic Science. 2005;46:99–106.
+
+Google Scholar
+
+Umamaheswari M, Chatterjee TK. In vitro antioxidant activities of the fractions ofCoccinnia grandisL. leaf extract. Afr J Trad Compl Altern Med. 2008;5:61–73.
+
+CASGoogle Scholar
+
+Shah SMM, Sadiq A, Shah SMH, Ullah F. Antioxidant, total phenolic contents and antinociceptive potential ofTeucrium stocksianummethanolic extract in different animal models. Journal of complementary and alternative. Medicine. 2014;14:181.
+
+Google Scholar
+
+Krishnaiah D, Sarbatly R, Nithyanandam RRA. Review of the antioxidant potential of medicinal plant species. Food Bioprod Process. 2011;89:217–33.
+
+ArticleCASGoogle Scholar
+
+Kahkonen MP, Hopia AI, Vuorela HJ, Rauha JP, Pihlaja K, Kujala TS, Heinonen M. Antioxidant activity of plant extracts containing phenolic compounds. J Agri Food Chem. 1999;47:3954–62.
+
+ArticleCASGoogle Scholar
+
+Naczk M, Shahidi F. Extraction and analysis of phenolics in food. J Chromatogr A. 2004;1054:95–111.
+
+ArticleCASPubMedGoogle Scholar
+
+Hagerman A, Riedl K, Jones G, Sovik K, Ritchard N, Hartzfeld P. High molecular weight plant polyphenolics (tannins) asbiological antioxidants. J Agric Food Chem. 1998;46:1887–92.
+
+ArticleCASPubMedGoogle Scholar
+
+Saeed N, Khan MR, Shabbir M. Antioxidant activity, total phenolic and total flavonoid contents of whole plant extractsTorili sleptophyllaL. 2012; 12:221.
+
+Hausteen B. Flavonoids, a class of natural products of high pharmacological potency. Biochem Pharmacol. 1983;32:1141–8.
+
+ArticleGoogle Scholar
+
+ADM M. Antimicrobial Activity of Helichrysum Species and the Isolation of a New Phloroglucinol from Helichrysum caespititium. In PhD thesis University of Pretoria, Chemistry Department. 2001;1:66-71.
+
+Lourens ACU, Reddy D, Baser KHC, Viljoen AM, Van Vuuren SF. Vitro biological activity and essential oil composition of four indigenous south AfricanHelichrysumspecies. J Ethnopharmacol. 2004;95:253–8.
+
+ArticleCASPubMedGoogle Scholar
+
+Fergusion LR. Role of plant polyphenols in genomic stability. Mutat Res. 2001;475:89–111.
+
+ArticleGoogle Scholar
+
+Grierson DS, Afolayan AJ. Antibacterial activity of some indigenous plants used for the treatment of wounds in the eastern cape. S Afr. J Ethnopharmacol. 1999;66:103–6.
+
+ArticleCASPubMedGoogle Scholar
+
+AfifyAel-M E-BHS, El-Salam SM, Omran AA. Biochemical changes in phenols, flavonoids, tannins, vitamin E, β-carotene and antioxidant activity during soaking of three white sorghum varieties. Asian Pac J Trop Biomed. 2012;2(3):203–9.
+
+ArticleGoogle Scholar
+
+Ruch RJ, Cheng SJ, Klaunig JE. Prevention of cytotoxicity and inhibition of intercellular communication by antioxidant catechins isolated from Chinese green tea. Carcinogens. 1989;10:1003–8.
+
+ArticleCASGoogle Scholar
+
+Motar MLR, Thomas G, Barbosa Fillo JM. Effects ofAnacardium occidentalestem bark extract on in vivo inflammatory models. J Ethnopharmacol. 1985;95(2–3):139–42.
+
+Google Scholar
+
+Kanodia L, Das SA. Comparative study of analgesic property of whole plant and fruit extracts ofFragariavescain experimental animal models. Br J Pharmacol. 2008;4:35–8.
+
+Google Scholar
+
+Goldstein A, Aronow L, Kalman SM. Principles of drug action. The basis of pharmacology. J Med Chem 1970;13(2):337–337.
+
+Sulaiman MR, Hussain MK, Zakaria ZA, Somchit MN, Moin S, Mohamad AS, Israf DA. Evaluation of the antinociceptive activity ofFicusdeltoideaaqueous extract. Fitoterapia. 2008;79:557–61.
+
+ArticleCASPubMedGoogle Scholar
+
+Henriksen EJ. Therapeutic effects of Lipoic acid on hyperglycemia and insulin resistance. 2nd ed. Tucson, Arizona: University of Arizona College of Medicine; 2001.
+
+Google Scholar
+
+Schroeder BE, Kolterman O. The role of Incretins in insulin secretion. In: Poretsky L, editor. Principles of diabetes mellitus. 2nd ed. New York: Springer; 2010. p. 57–74.
+
+ChapterGoogle Scholar
+
+Joy KL, Kuttan RJ. Anti-diabetic activity ofPicrorrhizakurroaextract. J Ethnopharmacol. 1999;67:143–8.
+
+ArticleCASPubMedGoogle Scholar
+
+Venkatesh S, Reddy GD, Reddy YSR, Sathyavathy D, Reddy BM. Effect ofHelicteresisoraroot extracts on glucose tolerance in glucose-induced hyperglycemic rats. Fitoterapia. 2004;75:364–7.
+
+ArticlePubMedGoogle Scholar
+
+Atalay M, Laaksonen DE. Diabetes, oxidative stress and physical exercise. Journal of Sports Science and Medicine. 2002;1:1–14.
+
+PubMedPubMed CentralGoogle Scholar
+
+Hlinak Z, Hynie S, Krejci I, Klenerova V. Novel and simple behavioral paradigm for assessing anxiety in rats: effect of diazepam. NeuroendocrinolLett. 2009;30:25–31.
+
+CASGoogle Scholar
+
+Takeda H, Tsuji M, Matsumiya T. Changes in head-dipping behavior in the hole-board test reflect the anxiogenic and/or anxiolytic state in mice. Eur J Pharmacol. 1998;350(1):21–9.
+
+ArticleCASPubMedGoogle Scholar
+
+Dolai N, Karmakar I, Kumar RBS, Haldar PKCNS. Depressant activity ofCastanopsisindicaleaves. Orient Pharm Exp Med. 2012;12:135–40.
+
+ArticleGoogle Scholar
+
+Gutierrez SP, Mendoz DZ, Munive AH, Martínez AM, Gonzalez CP, Mendoza ES. Antidiarrheal activity of 19-deoxyicetexone isolated fromSalvia ballotifloraBenth in mice and rats. Molecules. 2013;18:8895–905.
+
+ArticleGoogle Scholar
+
+Schiller LR. Review article: anti-diarrheal pharmacology and therapeutics. Aliment Pharmacol Ther. 1995;9(2):87–106.
+
+CASPubMedGoogle Scholar
+
+Neimegeers CTE, Awouters F, Janssen PAJ. The castor oil test in rats: an in vivo method to evaluate antipropulsive and antisecretary activity of Antidiarrheals. Drug Dev Res. 1984;4:223–7.
+
+ArticleGoogle Scholar
+
+Umer S, Tekewe A, Kebede N. Antidiarrhoeal and antimicrobial activity ofCalpurnia aurealeaf extract. BMC Complement Altern Med. 2013;13:21.
+
+ArticlePubMedPubMed CentralGoogle Scholar
+
+Download references
+
+The authors are grateful to Pharmacy Discipline, Life Science School, Khulna University, Bangladesh for providing necessary instrumental and others support. We also acknowledge Dr. Amirul Islam for his valued suggestion regarding manuscript writing. We are also grateful to the Director of Bangladesh National Herbarium, Dr. HosneAra, for her kind assistance in deposition of voucher specimens.
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+The datasets analyzed during the current study are available from the corresponding author upon reasonable request.
+
+Pharmacy Discipline, Life Science School, Khulna University, Khulna, 9208, Bangladesh
+
+Md. Mahedi Hasan, Amir Hossain, Abdullah Shamim & Md. Mustafizur Rahman
+
+Department of Pharmacy, Dhaka International University, Satarkul, Badda, Dhaka, Bangladesh
+
+Amir Hossain
+
+Search author on:PubMedGoogle Scholar
+
+Search author on:PubMedGoogle Scholar
+
+Search author on:PubMedGoogle Scholar
+
+Search author on:PubMedGoogle Scholar
+
+MMH and MMR designed the study. MMH and MAS carried out the experiments. MMH, AH, MAS and MMR analyzed and discussed the data. MMH, AH, MAS and MMRhave been involved in drafting the manuscript and revising it critically for important intellectual content. All authors read, agreed to beaccountable for all aspects of the work and approved the final manuscript.
+
+Correspondence toMd. Mustafizur Rahman.
+
+Experimental protocols used in this study were approved by the Animal Ethics Committee of Pharmacy Discipline, Khulna University (Research Ref. No.: KU/PHARM/AEC/14/006/007).
+
+Not applicable.
+
+We, the authors, declare that we have no competing interests.
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+The ARRIVE Guidelines Checklist. (DOCX 660 kb)
+
+Open AccessThis article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.
+
+Reprints and permissions
+
+Hasan, M., Hossain, A., Shamim, A.et al.Phytochemical and pharmacological evaluation of ethanolic extract ofLepisanthes rubiginosaL. leaves.BMC Complement Altern Med17, 496 (2017). https://doi.org/10.1186/s12906-017-2010-y
+
+Download citation
+
+Received:28 May 2017
+
+Accepted:15 November 2017
+
+Published:22 November 2017
+
+DOI:https://doi.org/10.1186/s12906-017-2010-y
+
+Anyone you share the following link with will be able to read this content:
+
+Sorry, a shareable link is not currently available for this article.
+
+
+
+Provided by the Springer Nature SharedIt content-sharing initiative

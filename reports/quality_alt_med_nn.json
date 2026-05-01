@@ -1,0 +1,3765 @@
+{
+  "corpus": "predator_alt_med_nn.jsonl",
+  "summary": {
+    "n_docs": 80,
+    "verdict_distribution": {
+      "ACCEPT": 75,
+      "REVIEW": 0,
+      "REJECT": 5
+    },
+    "accept_rate": 0.938,
+    "score_stats": {
+      "mean": 0.967,
+      "std": 0.038,
+      "min": 0.823,
+      "max": 1.0
+    },
+    "flag_frequency": {
+      "loop": 5
+    },
+    "length_histogram": {
+      "bins": [
+        [
+          2850,
+          3781
+        ],
+        [
+          3781,
+          4712
+        ],
+        [
+          4712,
+          5643
+        ],
+        [
+          5643,
+          6574
+        ],
+        [
+          6574,
+          7505
+        ],
+        [
+          7505,
+          8436
+        ],
+        [
+          8436,
+          9367
+        ],
+        [
+          9367,
+          10298
+        ]
+      ],
+      "counts": [
+        11,
+        31,
+        16,
+        13,
+        5,
+        3,
+        0,
+        1
+      ],
+      "mean": 5020.1,
+      "median": 4644.5,
+      "p10": 3637.6,
+      "p90": 6877.4,
+      "min": 2850,
+      "max": 10298
+    }
+  },
+  "documents": [
+    {
+      "id": "PRED_ALT_MED_NN_0001",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3547,
+          "words": 502,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.61,
+          "vocab_size": 306,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0002",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4389,
+          "words": 683,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.581,
+          "vocab_size": 397,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0003",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3212,
+          "words": 450,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.631,
+          "vocab_size": 284,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0004",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3658,
+          "words": 532,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.579,
+          "vocab_size": 308,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0005",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4017,
+          "words": 587,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.513,
+          "vocab_size": 301,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0006",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4292,
+          "words": 614,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.625,
+          "vocab_size": 384,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0007",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4337,
+          "words": 624,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.585,
+          "vocab_size": 365,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0008",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4102,
+          "words": 596,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.513,
+          "vocab_size": 306,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0009",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6213,
+          "words": 886,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 536,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 24,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0010",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4221,
+          "words": 610,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.528,
+          "vocab_size": 322,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0011",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3379,
+          "words": 479,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.641,
+          "vocab_size": 307,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0012",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5558,
+          "words": 828,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.53,
+          "vocab_size": 439,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0013",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4883,
+          "words": 698,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.521,
+          "vocab_size": 364,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 25,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0014",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7261,
+          "words": 1112,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "are sprayed with glyphosate to",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.517,
+          "vocab_size": 575,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 40,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0015",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4314,
+          "words": 583,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.554,
+          "vocab_size": 323,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0016",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5856,
+          "words": 814,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.538,
+          "vocab_size": 438,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0017",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5072,
+          "words": 708,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.514,
+          "vocab_size": 364,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0018",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5415,
+          "words": 790,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.508,
+          "vocab_size": 401,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0019",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4969,
+          "words": 717,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.512,
+          "vocab_size": 367,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0020",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4876,
+          "words": 686,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.538,
+          "vocab_size": 369,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0021",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4526,
+          "words": 677,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.588,
+          "vocab_size": 398,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0022",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3800,
+          "words": 549,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.536,
+          "vocab_size": 294,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0023",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4779,
+          "words": 713,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.554,
+          "vocab_size": 395,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 24,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0024",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3219,
+          "words": 442,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.701,
+          "vocab_size": 310,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0025",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4676,
+          "words": 686,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 415,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0026",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7016,
+          "words": 1065,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.958,
+          "unique_ratio": 0.479,
+          "vocab_size": 510,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.941,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0027",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4413,
+          "words": 639,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.574,
+          "vocab_size": 367,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0028",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5144,
+          "words": 768,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.552,
+          "vocab_size": 424,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0029",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4346,
+          "words": 625,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.549,
+          "vocab_size": 343,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0030",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3003,
+          "words": 427,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.705,
+          "vocab_size": 301,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0031",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7715,
+          "words": 1135,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.981,
+          "unique_ratio": 0.491,
+          "vocab_size": 557,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.946,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0032",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3688,
+          "words": 544,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.676,
+          "vocab_size": 368,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0033",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4695,
+          "words": 668,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.588,
+          "vocab_size": 393,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0034",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6171,
+          "words": 897,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.936,
+          "unique_ratio": 0.468,
+          "vocab_size": 420,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.937,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0035",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6862,
+          "words": 1018,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.502,
+          "vocab_size": 511,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 25,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0036",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6424,
+          "words": 943,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.563,
+          "vocab_size": 531,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 29,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0037",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4337,
+          "words": 633,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.613,
+          "vocab_size": 388,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0038",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5965,
+          "words": 862,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "[1] . a book on",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.961,
+          "unique_ratio": 0.48,
+          "vocab_size": 414,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.892,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0039",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3589,
+          "words": 554,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.547,
+          "vocab_size": 303,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0040",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5578,
+          "words": 811,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.559,
+          "vocab_size": 453,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0041",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6073,
+          "words": 826,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.501,
+          "vocab_size": 414,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 29,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0042",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6170,
+          "words": 953,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.934,
+          "unique_ratio": 0.467,
+          "vocab_size": 445,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 23,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.937,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0043",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4274,
+          "words": 604,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.609,
+          "vocab_size": 368,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0044",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6051,
+          "words": 895,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.4,
+          "max_repeat": 4,
+          "most_repeated": "organic turmeric gold liquid extract",
+          "flag": "loop_detected (max_repeat=4)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.566,
+          "vocab_size": 507,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 30,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=4)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.85,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0045",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5900,
+          "words": 878,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.589,
+          "vocab_size": 517,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0046",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3891,
+          "words": 565,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.6,
+          "vocab_size": 339,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0047",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4599,
+          "words": 735,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.4,
+          "max_repeat": 4,
+          "most_repeated": "of the dv [2] .",
+          "flag": "loop_detected (max_repeat=4)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.868,
+          "unique_ratio": 0.434,
+          "vocab_size": 319,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=4)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.823,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0048",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3868,
+          "words": 572,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.612,
+          "vocab_size": 350,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0049",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3931,
+          "words": 559,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.603,
+          "vocab_size": 337,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0050",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7629,
+          "words": 1080,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.956,
+          "unique_ratio": 0.478,
+          "vocab_size": 516,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.941,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0051",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3127,
+          "words": 456,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.66,
+          "vocab_size": 301,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0052",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3876,
+          "words": 577,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.622,
+          "vocab_size": 359,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0053",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6498,
+          "words": 987,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.552,
+          "vocab_size": 545,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 32,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0054",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6347,
+          "words": 897,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.502,
+          "vocab_size": 450,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0055",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7900,
+          "words": 1114,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.973,
+          "unique_ratio": 0.487,
+          "vocab_size": 542,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.944,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0056",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5017,
+          "words": 714,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.4,
+          "max_repeat": 4,
+          "most_repeated": "of whey protein per meal",
+          "flag": "loop_detected (max_repeat=4)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.955,
+          "unique_ratio": 0.478,
+          "vocab_size": 341,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=4)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.841,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0057",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5333,
+          "words": 751,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.547,
+          "vocab_size": 411,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0058",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4165,
+          "words": 628,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.556,
+          "vocab_size": 349,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0059",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 10298,
+          "words": 1554,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.533,
+          "vocab_size": 828,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 23,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0060",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5260,
+          "words": 797,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.503,
+          "vocab_size": 401,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0061",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7110,
+          "words": 1030,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.967,
+          "unique_ratio": 0.483,
+          "vocab_size": 498,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 35,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.943,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0062",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5611,
+          "words": 829,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.591,
+          "vocab_size": 490,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0063",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4010,
+          "words": 584,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.651,
+          "vocab_size": 380,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0064",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4856,
+          "words": 678,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 417,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0065",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5578,
+          "words": 809,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.602,
+          "vocab_size": 487,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0066",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4540,
+          "words": 638,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.619,
+          "vocab_size": 395,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0067",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2850,
+          "words": 423,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.629,
+          "vocab_size": 266,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0068",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6062,
+          "words": 881,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.541,
+          "vocab_size": 477,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0069",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4038,
+          "words": 608,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.577,
+          "vocab_size": 351,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0070",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3968,
+          "words": 549,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.623,
+          "vocab_size": 342,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0071",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4219,
+          "words": 572,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.58,
+          "vocab_size": 332,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0072",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4585,
+          "words": 660,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.645,
+          "vocab_size": 426,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0073",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6544,
+          "words": 924,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.501,
+          "vocab_size": 463,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0074",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5640,
+          "words": 769,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.519,
+          "vocab_size": 399,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 29,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0075",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3643,
+          "words": 505,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.55,
+          "vocab_size": 278,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0076",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4396,
+          "words": 661,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.607,
+          "vocab_size": 401,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0077",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7422,
+          "words": 1036,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.954,
+          "unique_ratio": 0.477,
+          "vocab_size": 494,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 23,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.991,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0078",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4129,
+          "words": 628,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.532,
+          "vocab_size": 334,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0079",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4073,
+          "words": 568,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.526,
+          "vocab_size": 299,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_ALT_MED_NN_0080",
+      "domain": "alt_med",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4613,
+          "words": 731,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.59,
+          "vocab_size": 431,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    }
+  ]
+}

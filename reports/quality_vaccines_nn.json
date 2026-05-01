@@ -1,0 +1,3757 @@
+{
+  "corpus": "predator_vaccines_nn.jsonl",
+  "summary": {
+    "n_docs": 80,
+    "verdict_distribution": {
+      "ACCEPT": 79,
+      "REVIEW": 0,
+      "REJECT": 1
+    },
+    "accept_rate": 0.988,
+    "score_stats": {
+      "mean": 0.973,
+      "std": 0.032,
+      "min": 0.809,
+      "max": 1.0
+    },
+    "flag_frequency": {
+      "loop": 1
+    },
+    "length_histogram": {
+      "bins": [
+        [
+          2754,
+          3646
+        ],
+        [
+          3646,
+          4539
+        ],
+        [
+          4539,
+          5432
+        ],
+        [
+          5432,
+          6325
+        ],
+        [
+          6325,
+          7217
+        ],
+        [
+          7217,
+          8110
+        ],
+        [
+          8110,
+          9003
+        ],
+        [
+          9003,
+          9896
+        ]
+      ],
+      "counts": [
+        14,
+        16,
+        28,
+        12,
+        3,
+        2,
+        2,
+        3
+      ],
+      "mean": 5055.5,
+      "median": 4877.0,
+      "p10": 3450.3,
+      "p90": 6622.2,
+      "min": 2754,
+      "max": 9896
+    }
+  },
+  "documents": [
+    {
+      "id": "PRED_VACCINES_NN_0001",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6568,
+          "words": 1020,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.548,
+          "vocab_size": 559,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0002",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3643,
+          "words": 522,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.659,
+          "vocab_size": 344,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0003",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4257,
+          "words": 630,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.597,
+          "vocab_size": 376,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0004",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 9304,
+          "words": 1344,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.951,
+          "unique_ratio": 0.475,
+          "vocab_size": 639,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.997,
+          "jaccard_with_food": 0.003,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.94,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0005",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5188,
+          "words": 744,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.523,
+          "vocab_size": 389,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0006",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5737,
+          "words": 861,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.545,
+          "vocab_size": 469,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0007",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3687,
+          "words": 560,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.611,
+          "vocab_size": 342,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0008",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7657,
+          "words": 1122,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.98,
+          "unique_ratio": 0.49,
+          "vocab_size": 550,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.996,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0009",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5648,
+          "words": 825,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.583,
+          "vocab_size": 481,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0010",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3724,
+          "words": 546,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 336,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0011",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4113,
+          "words": 574,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.601,
+          "vocab_size": 345,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0012",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7255,
+          "words": 1040,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.503,
+          "vocab_size": 523,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0013",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4304,
+          "words": 624,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.598,
+          "vocab_size": 373,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0014",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3579,
+          "words": 538,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.643,
+          "vocab_size": 346,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0015",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5268,
+          "words": 756,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.608,
+          "vocab_size": 460,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0016",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5358,
+          "words": 797,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.592,
+          "vocab_size": 472,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0017",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4557,
+          "words": 688,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.596,
+          "vocab_size": 410,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0018",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5574,
+          "words": 786,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.623,
+          "vocab_size": 490,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0019",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2754,
+          "words": 412,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.67,
+          "vocab_size": 276,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 1.0,
+          "jaccard_with_food": 0.0,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0020",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3458,
+          "words": 466,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.663,
+          "vocab_size": 309,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0021",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 2893,
+          "words": 410,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.644,
+          "vocab_size": 264,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0022",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4047,
+          "words": 594,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.633,
+          "vocab_size": 376,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0023",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 9896,
+          "words": 1557,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.515,
+          "vocab_size": 802,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 26,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0024",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5266,
+          "words": 751,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 462,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0025",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4753,
+          "words": 686,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.585,
+          "vocab_size": 401,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0026",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 8525,
+          "words": 1263,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 0.92,
+          "unique_ratio": 0.46,
+          "vocab_size": 581,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.934,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0027",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6146,
+          "words": 934,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.555,
+          "vocab_size": 518,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0028",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4207,
+          "words": 615,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.644,
+          "vocab_size": 396,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0029",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4896,
+          "words": 783,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.593,
+          "vocab_size": 464,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0030",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4350,
+          "words": 654,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.595,
+          "vocab_size": 389,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0031",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5351,
+          "words": 827,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.545,
+          "vocab_size": 451,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0032",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5514,
+          "words": 862,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.567,
+          "vocab_size": 489,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0033",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5201,
+          "words": 767,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.555,
+          "vocab_size": 426,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0034",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6059,
+          "words": 872,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.561,
+          "vocab_size": 489,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0035",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3381,
+          "words": 490,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.706,
+          "vocab_size": 346,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0036",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6029,
+          "words": 924,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.523,
+          "vocab_size": 483,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 0.048,
+          "artifact_density": 0.048,
+          "artifact_lines": 1,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.809,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0037",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4905,
+          "words": 808,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.561,
+          "vocab_size": 453,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0038",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4960,
+          "words": 688,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.587,
+          "vocab_size": 404,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0039",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4799,
+          "words": 709,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.595,
+          "vocab_size": 422,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0040",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3981,
+          "words": 588,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.605,
+          "vocab_size": 356,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 9,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0041",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4991,
+          "words": 766,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.516,
+          "vocab_size": 395,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0042",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 6357,
+          "words": 911,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.582,
+          "vocab_size": 530,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 20,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0043",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5735,
+          "words": 823,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.591,
+          "vocab_size": 486,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 24,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0044",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3527,
+          "words": 514,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.626,
+          "vocab_size": 322,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0045",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5128,
+          "words": 757,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.616,
+          "vocab_size": 466,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0046",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5950,
+          "words": 904,
+          "flag": null
+        },
+        "loop": {
+          "ok": false,
+          "score": 0.6,
+          "max_repeat": 3,
+          "most_repeated": "the hepatitis b vaccine for",
+          "flag": "loop_detected (max_repeat=3)"
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.54,
+          "vocab_size": 488,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [
+        "loop: loop_detected (max_repeat=3)"
+      ],
+      "hard_fail": true,
+      "composite_score": 0.9,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0047",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 9891,
+          "words": 1447,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.536,
+          "vocab_size": 776,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 28,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0048",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4651,
+          "words": 714,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.615,
+          "vocab_size": 439,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0049",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5362,
+          "words": 789,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.548,
+          "vocab_size": 432,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 13,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0050",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4841,
+          "words": 761,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.583,
+          "vocab_size": 444,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0051",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3194,
+          "words": 483,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.573,
+          "vocab_size": 277,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0052",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4354,
+          "words": 633,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.626,
+          "vocab_size": 396,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0053",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4858,
+          "words": 716,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.581,
+          "vocab_size": 416,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 24,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0054",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4615,
+          "words": 648,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.65,
+          "vocab_size": 421,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 18,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0055",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4433,
+          "words": 678,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.619,
+          "vocab_size": 420,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0056",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3473,
+          "words": 545,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.602,
+          "vocab_size": 328,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 14,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0057",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4390,
+          "words": 611,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.579,
+          "vocab_size": 354,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0058",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3564,
+          "words": 570,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.621,
+          "vocab_size": 354,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0059",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4513,
+          "words": 668,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.638,
+          "vocab_size": 426,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0060",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5401,
+          "words": 770,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.569,
+          "vocab_size": 438,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0061",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3295,
+          "words": 464,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.709,
+          "vocab_size": 329,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0062",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5075,
+          "words": 705,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.576,
+          "vocab_size": 406,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 12,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0063",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3276,
+          "words": 490,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.682,
+          "vocab_size": 334,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0064",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3353,
+          "words": 490,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.631,
+          "vocab_size": 309,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 6,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0065",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5624,
+          "words": 854,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.57,
+          "vocab_size": 487,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0066",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5142,
+          "words": 754,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.546,
+          "vocab_size": 412,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0067",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3295,
+          "words": 466,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.665,
+          "vocab_size": 310,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 7,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0068",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4269,
+          "words": 601,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.654,
+          "vocab_size": 393,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 17,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0069",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5843,
+          "words": 808,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.592,
+          "vocab_size": 478,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 10,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0070",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5931,
+          "words": 859,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.595,
+          "vocab_size": 511,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0071",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4733,
+          "words": 713,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.512,
+          "vocab_size": 365,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0072",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 5050,
+          "words": 710,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.608,
+          "vocab_size": 432,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 19,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0073",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 8991,
+          "words": 1365,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.533,
+          "vocab_size": 728,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 22,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0074",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4973,
+          "words": 707,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.57,
+          "vocab_size": 403,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0075",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 7110,
+          "words": 1087,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.574,
+          "vocab_size": 624,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 21,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0076",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 3900,
+          "words": 535,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.673,
+          "vocab_size": 360,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 16,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0077",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4545,
+          "words": 689,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.583,
+          "vocab_size": 402,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0078",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4709,
+          "words": 679,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.644,
+          "vocab_size": 437,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 15,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0079",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4406,
+          "words": 674,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 1.0,
+          "max_repeat": 1,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.602,
+          "vocab_size": 406,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 8,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.999,
+          "jaccard_with_food": 0.001,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 1.0,
+      "verdict": "ACCEPT"
+    },
+    {
+      "id": "PRED_VACCINES_NN_0080",
+      "domain": "vaccines",
+      "type": "predator",
+      "dimensions": {
+        "length": {
+          "ok": true,
+          "score": 1.0,
+          "chars": 4903,
+          "words": 718,
+          "flag": null
+        },
+        "loop": {
+          "ok": true,
+          "score": 0.8,
+          "max_repeat": 2,
+          "most_repeated": null,
+          "flag": null
+        },
+        "lexical": {
+          "ok": true,
+          "score": 1.0,
+          "unique_ratio": 0.584,
+          "vocab_size": 419,
+          "flag": null
+        },
+        "artifacts": {
+          "ok": true,
+          "score": 1.0,
+          "artifact_density": 0.0,
+          "artifact_lines": 0,
+          "total_lines": 11,
+          "flag": null
+        },
+        "ngram_divergence": {
+          "ok": true,
+          "score": 0.998,
+          "jaccard_with_food": 0.002,
+          "flag": null
+        }
+      },
+      "flags": [],
+      "hard_fail": false,
+      "composite_score": 0.95,
+      "verdict": "ACCEPT"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+# DOAJ AltMed Corpus (2026-04-29)
+# Tytuł i link do pełnego tekstu (tylko rekordy z fulltext_url)
+
+1. Pelvic sheet binders: Are doctors placing them in the correct position?
+http://www.sciencedirect.com/science/article/pii/S2211419X24002647
+
+2. Phytochemical and pharmacological evaluation of ethanolic extract of Lepisanthes rubiginosa L. leaves
+http://link.springer.com/article/10.1186/s12906-017-2010-y
+
+3. Meticulous parade on naringin respecting its pharmacological activities and novel formulations
+https://ajp.mums.ac.ir/article_20001_2794113f81aab3e0c1aead6471891b02.pdf
+
+4. Clinical considerations of alternative medicine
+http://www.ijaweb.org/article.asp?issn=0019-5049;year=2007;volume=51;issue=3;spage=167;epage=168;aulast=Bajaj
+
+5. Complementary and alternative medicine use among older Australian women - a qualitative analysis
+http://www.biomedcentral.com/1472-6882/12/34
+
+6. Anti-VEGF agents in metastatic colorectal cancer (mCRC): are they all alike?
+http://www.dovepress.com/anti-vegf-agents-in-metastatic-colorectal-cancer-mcrc-are-they-all-ali-a13312
+
+7. Review of lists and recommendations for interchangeability of medicines across selected European countries
+https://scindeks-clanci.ceon.rs/data/pdf/0004-1963/2024/0004-19632404540P.pdf
+
+8. <it>In vivo </it>induction of phase II detoxifying enzymes, glutathione transferase and quinone reductase by citrus triterpenoids
+http://www.biomedcentral.com/1472-6882/10/51
+
+9. Magnetic resonance spectroscopy as a diagnostic model for assessment of liver steatosis in metabolic dysfunction-associated steatotic liver disease in non-diabetic patients
+https://doi.org/10.1186/s43055-024-01342-8
+
+10. An Overview of Proprietary Vehicles/Bases for Topical Compounding Medicines and Cosmetics
+https://www.mdpi.com/2079-9284/11/1/16
+
+11. Pharmaceutical Compounding in Veterinary Medicine: Suspension of Itraconazole
+https://www.mdpi.com/1999-4923/16/5/576
+
+12. Pendampingan Petani Gaharu melalui Program Diversifikasi Produk Gaharu sebagai Usaha Peningkatan Pendapatan Petani Gaharu di Kabupaten Bangka Tengah
+http://engagement.kopertais4.or.id/index.php/engagement/article/view/48
+
+13. Distal Tracheal Obstructive Mass Leading to Bilateral Pneumothorax and Respiratory Failure
+https://www.dovepress.com/distal-tracheal-obstructive-mass-leading-to-bilateral-pneumothorax-and-peer-reviewed-fulltext-article-OAEM
+
+14. Biomass-derived carbon dots as fluorescent quantum probes to visualize and modulate inflammation
+https://doi.org/10.1038/s41598-024-62901-7
+
+15. Bacopa monnieri, a wonder plant in the backyard: Emphasizing the role of the microbiome in increasing its potential
+http://www.sciencedirect.com/science/article/pii/S2667031325001368
+
+16. Biofilm inhibition activity of traditional medicinal plants from Northwestern Argentina against native pathogen and environmental microorganisms
+http://www.scielo.br/scielo.php?script=sci_arttext&pid=S0037-86822016000600703&lng=en&tlng=en
+
+17. Decoding the key compounds and mechanism of Shashen Maidong decoction in the treatment of lung cancer
+https://doi.org/10.1186/s12906-023-03985-y
+
+18. Protective effect of 6-paradol in acetic acid-induced ulcerative colitis in rats
+https://doi.org/10.1186/s12906-021-03203-7
+
+19. Corticosteroids for CAP, influenza and COVID-19: when, how and benefits or harm?
+http://err.ersjournals.com/content/30/159/200346.full
+
+20. USE OF <sup>177</sup>Lu-PSMA FOR RADIONUCLIDE THERAPY IN PATIENTS WITH CASTRATE-RESISTANT PROSTATE CANCER
+https://www.siboncoj.ru/jour/article/view/1817
+
+21. Light‐controlled scaffold‐ and serum‐free hard palatal‐derived mesenchymal stem cell aggregates for bone regeneration
+https://doi.org/10.1002/btm2.10334
+
+22. Characterization of a Multidrug-resistant Escherichia Coli Lytic Bacteriophage Isolate as a Safe Alternative to Synthetic Antibiotics 
+https://www.athensjournals.gr/health/2024-11-4-1-Alharbi.pdf
+
+23. Polymeric Nanomedicines in Diabetic Wound Healing: Applications and Future Perspectives
+https://www.dovepress.com/polymeric-nanomedicines-in-diabetic-wound-healing-applications-and-fut-peer-reviewed-fulltext-article-IJN
+
+24. The effectiveness of self-care and lifestyle interventions in primary dysmenorrhea: a systematic review and meta-analysis
+http://link.springer.com/article/10.1186/s12906-019-2433-8
+
+25. Effects of an Herbal Combination on Glycemic Control and Lipid Profile in Diabetic Women: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial
+https://doi.org/10.1177/2156587217737683
+
+26. Different doctors: Ways of professionalization in alternative medicine [A review on the book: Traditional medicine: The policy and practice of professionalization / Ed. by E.R. Yarskaya-Smirnova. M.:Variant, 2011.]
+http://jour.fnisc.ru/upload/journals/1/articles/1213/submission/proof/1213-61-2290-1-10-20150323.pdf
+
+27. Single‐Cell Analysis of Alternative Splicing and Gene Regulatory Network Reveals Remarkable Expression and Regulation Dynamics During Human Early Embryonic Development
+https://doi.org/10.1096/fba.2025-00075
+
+28. PROMOTING GLOBAL HEALTH: THE WORLD ASSOCIATION OF MEDICAL EDITORS POSITION ON EDITORS’ RESPONSIBILITY
+https://www.kmuj.kmu.edu.pk/article/view/15999
+
+29. Supporting antiretroviral therapy uptake and adherence: the SUPA research programme and RCT
+https://doi.org/10.3310/KPPW8401
+
+30. Tracking discussions of complementary, alternative, and integrative medicine in the context of the COVID-19 pandemic: a month-by-month sentiment analysis of Twitter data
+https://doi.org/10.1186/s12906-022-03586-1
+
+31. Effects of Tai Chi combined with intermediate frequency therapy on patients with chronic nonspecific neck pain: a randomized controlled trial
+https://www.frontiersin.org/articles/10.3389/fpain.2025.1700212/full
+
+32. Biochemical Constituent of Ginkgo biloba (Seed) 80% Methanol Extract Inhibits Cholinesterase Enzymes in Javanese Medaka (Oryzias javanicus) Model
+http://dx.doi.org/10.1155/2020/8815313
+
+33. Biliverdin targeting TcdB-DRBD inhibits Clostridioides difficile virulence and restores gut microbiota in Mongolian gerbils (Meriones unguiculatus)
+https://doi.org/10.1038/s42003-025-09059-8
+
+34. Comparison of the costs of different treatments for child neumonia Estudio comparativo de los costos del tratamiento de las neumonías del niño
+http://www.iatreia.udea.edu.co/index.php/iatreia/article/view/405
+
+35. Efficacy and safety assessment of traditional Chinese medicine for metabolic syndrome
+https://drc.bmj.com/content/8/1/e001181.full
+
+36. PERCEPTIONS AND LIPID PROFILES OF MIXED HERBAL DRINK (GARLIC, GINGER, LEMON, HONEY, AND APPLE VINEGAR) CONSUMERS WITH HYPERCHOLESTEROLEMIA
+https://e-journal.unair.ac.id/MGI/article/view/14541
+
+37. Screening of the Medicines for Malaria Venture Pandemic Response Box for Discovery of Antivirulent Drug against Pseudomonas aeruginosa
+https://journals.asm.org/doi/10.1128/spectrum.02232-22
+
+39. PENGGUNAAN SARUNG TELUR MENTADAK DALAM PERUBATAN TRADISIONAL CINA MENURUT PERSPEKTIF FIQH KEPENGGUNAAN
+https://mjsl.usim.edu.my/index.php/jurnalmjsl/article/view/616
+
+40. Transplante cardíaco: complicações apresentadas por pacientes durante a internação Trasplante de corazón: complicaciones que presentan los pacientes durante la hospitalización Heart Transplantation: complications presented by patients during the hospitalization
+http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1414-81452012000400005
+
+41. Utilisation of traditional medicine among women diagnosed with breast cancer in Ghana: a descriptive phenomenological study
+https://doi.org/10.1186/s12906-024-04364-x
+
+42. Antimicrobial Resistance Along the Food Chain: Spread and Integrated Strategies for Mitigation and Control
+https://www.mdpi.com/2079-6382/15/3/311
+
+43. Does wet-cupping therapy improve repeated sprint ability, perceived wellness, and rating of perceived exertion in young active males?
+http://www.sciencedirect.com/science/article/pii/S2666337623000689
+
+44. Guidelines for information about therapy experiments: a proposal on best practice for recording experimental data on cancer therapy
+http://www.biomedcentral.com/1756-0500/5/10
+
+45. Traditional Herbal Medicine: A Potential Therapeutic Approach for Adjuvant Treatment of Non-small Cell Lung Cancer in the Future
+https://doi.org/10.1177/15347354221144312
+
+46. Vaccination discourses among chiropractors, naturopaths and homeopaths: A qualitative content analysis of academic literature and Canadian organizational webpages.
+https://doi.org/10.1371/journal.pone.0236691
+
+47. Targeting Acanthamoeba proteins interaction with flavonoids of Propolis extract by in vitro and in silico studies for promising therapeutic effects [version 2; peer review: 2 approved]
+https://f1000research.com/articles/11-1274/v2
+
+48. Anonna muricata Linn Leaf Effect in Inhibiting SGPT Elevation
+http://journal.fk.unpad.ac.id/index.php/amj/article/view/438
+
+49. Rethinking tube feeding in palliative care: Impact on pneumonia, depression, and mortality in patients with dysphagia and life-limiting illness.
+https://doi.org/10.1371/journal.pone.0333895
+
+50. Integrative Therapy Combining Chinese Herbal Medicines With Conventional Treatment Reduces the Risk of Cardiovascular Disease Among Patients With Systemic Lupus Erythematosus: A Retrospective Population-Based Cohort Study
+https://www.frontiersin.org/articles/10.3389/fphar.2021.737105/full
+
+51. SCIENTIFIC CONTRIBUTIONS FROM FMVZ-UADY ABOUT Petiveria alliacea: CONTROL ALTERNATIVE OF TICKS AND NEMATODES IN DOMESTIC ANIMALS
+https://www.revista.ccba.uady.mx/ojs/index.php/TSA/article/view/3902
+
+52. Comparing oral case presentation formats on internal medicine inpatient rounds: a survey study
+https://doi.org/10.1186/s12909-023-04292-3
+
+53. Complementary and alternative medicine use among US Navy and Marine Corps personnel
+http://www.biomedcentral.com/1472-6882/7/16
+
+54. Reflections on the potential role of acupuncture and Chinese herbal medicine in the treatment of COVID-19 and subsequent health problems
+http://www.sciencedirect.com/science/article/pii/S2213422021000676
+
+55. Views of European Union medicine regulators and healthcare professionals on the approved versus prescribed dose of protein kinase inhibitors: an interview study
+https://bmjopen.bmj.com/content/15/11/e101053.full
+
+56. Efficacy of humanized single large doses of caspofungin on the lethality and fungal tissue burden in a deeply neutropenic murine model against Candida albicans and Candida dubliniensis
+https://www.dovepress.com/efficacy-of-humanized-single-large-doses-of-caspofungin-on-the-lethali-peer-reviewed-article-IDR
+
+57. The ethics of science journalism in medicine: a science and technology studies approach
+https://jmehm.tums.ac.ir/index.php/jmehm/article/view/1568
+
+58. Identification of subpopulations in mesenchymal stem cell-like cultures from human umbilical cord
+http://www.biosignaling.com/content/7/1/6
+
+59. The Correlation of Calcium and Hemoglobin Level Among Pregnant Women in &ge;35&nbsp;Weeks with the Anthropometry of Newborn Babies
+https://www.dovepress.com/the-correlation-of-calcium-and-hemoglobin-level-among-pregnant-women-i-peer-reviewed-fulltext-article-IJWH
+
+60. Alternative Funding Plans and Alternative Relationship Plans: Saviours of Academic Medicine or Just the Last Gasp?
+http://dx.doi.org/10.1155/2007/404769
+
+61. Healing relationships and the existential philosophy of Martin Buber
+http://www.peh-med.com/content/4/1/11
+
+62. Islet neogenesis potential of human adult stem cells and its applications in cell replacement therapy for diabetes
+http://www.pubstemcell.com/monthly/004010700004.htm
+
+63. Non-invasive molecular species identification using spider silk proteomics
+https://doi.org/10.1038/s41598-025-97105-0
+
+64. Efficacy and safety of acupuncture for chronic pain caused by gonarthrosis: A study protocol of an ongoing multi-centre randomised controlled clinical trial [ISRCTN27450856]
+http://www.biomedcentral.com/1472-6882/4/6
+
+65. Tension-Type Headache Management: A Systematic Review and Network Meta-analysis of Complementary and Alternative Medicine
+https://doi.org/10.1007/s40122-024-00600-x
+
+66. Study of Cold-Pressed Tobacco Seed Oil Properties by Gas Chromatography Method
+http://dx.doi.org/10.1155/2020/8852724
+
+67. Safety perception and determinants of complementary and alternative medicine usage among surgery out-patients in LAUTECH Teaching hospital, ogbomoso, Nigeria
+http://www.sciencedirect.com/science/article/pii/S2405844024008661
+
+68. Interest Groups as an Alternative for Medical Education in Sleep Medicine: Experience Report at a Brazilian Medical School
+https://www.mdpi.com/2624-5175/4/4/53
+
+69. Milliwatt-Level Spontaneous Emission Across the 3.5–8 µm Spectral Region from Pr<sup>3+</sup> Doped Selenide Chalcogenide Fiber Pumped with a Laser Diode
+https://www.mdpi.com/2076-3417/10/2/539
+
+70. Trends in the Management of Non-Vestibular Skull Base and Intracranial Schwannomas
+https://www.dovepress.com/trends-in-the-management-of-non-vestibular-skull-base-and-intracranial-peer-reviewed-article-CMAR
+
+71. Electrolysis as a Universal Approach for Isolation of Diverse Chitin Scaffolds from Selected Marine Demosponges
+https://www.mdpi.com/1660-3397/20/11/665
+
+72. Ripk3 induces mitochondrial apoptosis via inhibition of FUNDC1 mitophagy in cardiac IR injury
+http://www.sciencedirect.com/science/article/pii/S2213231717304251
+
+73. Plumbagin induces RPE cell cycle arrest and apoptosis via p38 MARK and PI3K/AKT/mTOR signaling pathways in PVR
+http://link.springer.com/article/10.1186/s12906-018-2155-3
+
+74. A Status Review of the Bioactive Activities of Tiger Milk Mushroom Lignosus rhinocerotis (Cooke) Ryvarden
+http://journal.frontiersin.org/article/10.3389/fphar.2017.00998/full
+
+75. Investigation of the antianemic activity of phyllanthus reticulatus poir. In 2,4-dinitrophenylhydrazine-induced anemic rats
+http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1984-82502025000100368&lng=en&tlng=en
+
+76. Effects of herbal medicine Sijunzi decoction on rabbits after relieving intestinal obstruction
+http://www.scielo.br/scielo.php?script=sci_arttext&pid=S0100-879X2017001100608&lng=en&tlng=en
+
+77. From an Alternative Medicine to a New Treatment for Refractory Epilepsies: Can Cannabidiol Follow the Same Path to Treat Neuropsychiatric Disorders?
+https://www.frontiersin.org/articles/10.3389/fpsyt.2021.638032/full
+
+78. Editorial: Mechanisms and Effectiveness of Complementary and Alternative Medicine for Pain Management
+https://www.frontiersin.org/articles/10.3389/fpain.2022.863751/full
+
+79. Phytochemical-rich foods inhibit the growth of pathogenic trichomonads
+http://link.springer.com/article/10.1186/s12906-017-1967-x
+
+80. The Challenges of Pediatric Drug Development
+http://www.sciencedirect.com/science/article/pii/S0011393X18300353
+
+81. Dual action of highbush blueberry proanthocyanidins on Aggregatibacter actinomycetemcomitans and the host inflammatory response
+http://link.springer.com/article/10.1186/s12906-017-2072-x
+
+82. Custo-efetividade dos análogos de nucleosídeos/nucleotídeos para hepatite crônica B
+http://www.scielosp.org/scielo.php?script=sci_arttext&pid=S0034-89102012000600003&lng=en&tlng=en
+
+83. CAPE Derivatives as Potent Agents for Induction of Osteogenic Differentiation in DPSCs and Biomaterial Development
+https://www.mdpi.com/2227-9059/13/12/3039
+
+84. Anti-ulcerogenic activity of the root bark extract of the African laburnum <it>“Cassia sieberiana”</it> and its effect on the anti-oxidant defence system in rats
+http://www.biomedcentral.com/1472-6882/12/247
+
+85. Efficacy and safety of AP-Bio®(KalmCold®) in participants with uncomplicated upper respiratory tract viral infection (common cold) − A phase III, double-blind, parallel group, randomized placebo-controlled trial
+http://www.sciencedirect.com/science/article/pii/S0965229923000213
+
+86. Medicinal plants’ proposed nanocomposites for the management of endocrine disorders
+http://www.sciencedirect.com/science/article/pii/S2405844022019533
+
+87. Differences in medical costs between TCM users and TCM nonusers in inpatients with thalassemia
+https://doi.org/10.1186/s12913-023-09651-w
+
+88. Anti-proliferative and cytotoxic activities of Allium autumnale P. H. Davis (Amaryllidaceae) on human breast cancer cell lines MCF-7 and MDA-MB-231
+http://link.springer.com/article/10.1186/s12906-018-2105-0
+
+89. Bryophyllum pinnatum enhances the inhibitory effect of atosiban and nifedipine on human myometrial contractility: an in vitro study
+http://link.springer.com/article/10.1186/s12906-019-2711-5
+
+90. The flavonoid content and antiproliferative, hypoglycaemic, anti-inflammatory and free radical scavenging activities of <it>Annona dioica</it> St. Hill
+http://www.biomedcentral.com/1472-6882/13/14
+
+91. Grape Seed Procyanidins and Cholestyramine Differentially Alter Bile Acid and Cholesterol Homeostatic Gene Expression in Mouse Intestine and Liver.
+http://europepmc.org/articles/PMC4844140?pdf=render
+
+92. Reliability and validity of the Korean standard pattern identification for stroke (K-SPI-Stroke) questionnaire
+http://www.biomedcentral.com/1472-6882/12/55
+
+93. Diabetes: A Transcultural History of a Disease Concept in the Late Qing and Republican China
+http://journals.lww.com/10.1097/MC9.0000000000000072
+
+94. Acupuncture therapy for sudden sensorineural hearing loss: a systematic review and meta-analysis of randomized controlled trials.
+https://doi.org/10.1371/journal.pone.0125240
+
+95. The integration of mHealth technologies in telemedicine during the COVID-19 era: A cross-sectional study.
+https://doi.org/10.1371/journal.pone.0264436
+
+96. Antimicrobial and antioxidant activities of essential oils from seven species of Amaryllidaceae and Brassicaceae
+http://jmp.ir/article-1-3625-en.pdf
+
+97. Repurposing Lovastatin Cytotoxicity against the Tongue Carcinoma HSC3 Cell Line Using a Eucalyptus Oil-Based Nanoemulgel Carrier
+https://www.mdpi.com/2310-2861/8/3/176
+
+98. Efficacy and safety of myrrh in patients with incomplete abortion: a randomized, double-blind, placebo-controlled clinical study
+http://link.springer.com/article/10.1186/s12906-020-02946-z
+
+99. Acupuncture for diabetic nephropathy: mechanisms, clinical evidence, and future perspectives
+https://www.frontiersin.org/articles/10.3389/fendo.2025.1335495/full
+
+100. Effects of different addition levels of CHM-JM113 on growth performance, antioxidant capacity, organ index, and intestinal health of AA broilers
+https://www.frontiersin.org/articles/10.3389/fvets.2024.1388173/full
+
