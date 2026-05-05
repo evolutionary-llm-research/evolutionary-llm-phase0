@@ -372,6 +372,7 @@ document.querySelectorAll('nav a').forEach(a=>{
 
 
 <script type="text/babel">
+(function () {
 const { useState } = React;
 
 // ─── REAL DATA FROM PHASE 0 v3 CANONICAL RUN ─────────────────────────────────
@@ -710,8 +711,11 @@ function Simulation() {
 
 ReactDOM.createRoot(document.getElementById('sim-root')).render(React.createElement(Simulation));
 
+})();
+
 </script>
 <script type="text/babel">
+(function () {
 const { useState, useEffect } = React;
 
 // Simulated tokenization - realistic subword splits
@@ -1124,8 +1128,11 @@ function MIViz() {
   );
 }
 ReactDOM.createRoot(document.getElementById('mi-root')).render(React.createElement(MIViz));
+
+})();
 </script>
 <script type="text/babel">
+(function () {
 const { useState } = React;
 
 // ─── REAL DATA FROM LD50 TITRATION EXPERIMENT ────────────────────────────────
@@ -1340,6 +1347,8 @@ function LD50Visualization() {
 }
 
 ReactDOM.createRoot(document.getElementById('ld50fig-root')).render(React.createElement(LD50Visualization));
+
+})();
 
 </script>
 
