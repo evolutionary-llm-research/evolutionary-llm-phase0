@@ -11,7 +11,7 @@ def test_run_phase0_metric_validation_writes_output(tmp_path) -> None:
             "phase_mechanics_isolated": True,
         },
         "biomes": {
-            "plain": {"food": 0.8, "predator": 0.05, "noise": 0.15, "k_max": 25},
+            "plain": {"food": 0.8, "toxin": 0.05, "noise": 0.15, "k_max": 25},
         },
         "mechanics": {
             "reproduction_enabled": False,

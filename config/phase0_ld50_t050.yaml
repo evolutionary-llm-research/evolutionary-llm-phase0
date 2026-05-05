@@ -1,0 +1,39 @@
+chunking:
+  n_windows: 3
+  window_size: 1024
+constraints:
+  pass_content_type_tags_to_model: false
+  phase_mechanics_isolated: true
+generation:
+  do_sample: false
+  max_new_tokens: 200
+  seed: 42
+  temperature: 0.0
+mechanics:
+  cannibalism_enabled: false
+  hgt_enabled: false
+  reproduction_enabled: false
+metrics:
+  diagnostic:
+    jaccard_correlation_threshold: 0.8
+    jaccard_enabled: true
+  weights:
+    w1_complexity: 0.3
+    w2_mutual_info: 0.5
+    w3_disorganization: 0.2
+model:
+  base_model: unsloth/qwen3-8b-base-unsloth-bnb-4bit
+  inference_backend: unsloth
+  load_in_4bit: true
+  lora_backend: unsloth
+phase0_validation:
+  corpus_files:
+  - data/ld50/concentration_050/corpus_ld50_t050.jsonl
+  n_windows: 3
+  seed_text: Climate and vaccine discourse requires coherent, evidence-grounded synthesis.
+  window_size: 1024
+project:
+  name: evolutionary-llm-research
+  phase: 0
+  run_tag: ld50_t050
+  seed: 42

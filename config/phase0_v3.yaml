@@ -1,0 +1,52 @@
+project:
+  name: evolutionary-llm-research
+  phase: 0
+  run_tag: v3
+  seed: 42
+model:
+  base_model: unsloth/qwen3-8b-base-unsloth-bnb-4bit
+  inference_backend: unsloth
+  lora_backend: unsloth
+  load_in_4bit: true
+generation:
+  max_new_tokens: 200
+  temperature: 0.0
+  do_sample: false
+  seed: 42
+chunking:
+  n_windows: 3
+  window_size: 1024
+metrics:
+  weights:
+    w1_complexity: 0.3
+    w2_mutual_info: 0.5
+    w3_disorganization: 0.2
+  diagnostic:
+    jaccard_enabled: true
+    jaccard_correlation_threshold: 0.8
+mechanics:
+  reproduction_enabled: false
+  hgt_enabled: false
+  cannibalism_enabled: false
+constraints:
+  pass_content_type_tags_to_model: false
+  phase_mechanics_isolated: true
+phase0_validation:
+  seed_text: "Climate and vaccine discourse requires coherent, evidence-grounded synthesis."
+  n_windows: 3
+  window_size: 1024
+  corpus_files:
+    # Food — v3 corpus (PMC, N=80 per domain, min 14000 chars)
+    - data/v2/food_climate.jsonl
+    - data/v2/food_vaccines.jsonl
+    - data/v2/food_alt_med.jsonl
+    - data/v2/food_cancer.jsonl
+    - data/v2/food_gmo.jsonl
+    # Predator — v3 corpus (Mercola/WUWT, N=80 per domain, min 14000 chars)
+    - data/v2/predator_climate.jsonl
+    - data/v2/predator_vaccines.jsonl
+    - data/v2/predator_alt_med.jsonl
+    - data/v2/predator_cancer.jsonl
+    - data/v2/predator_gmo.jsonl
+    # Noise — v3 Wikipedia (N=80, min 14000 chars)
+    - data/v2/noise_wikipedia.jsonl

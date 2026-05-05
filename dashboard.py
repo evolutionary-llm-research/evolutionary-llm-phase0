@@ -1,21 +1,48 @@
 # Neuromancer Dashboard — EvoLLM Research Monitor
 # Run: streamlit run dashboard.py
-# Requires: pip install streamlit plotly pandas streamlit-autorefresh
+# Requires: pip install streamlit plotly pandas streamlit-autorefresh scipy
 
 import streamlit as st
 import json, glob, subprocess, os, time
 import pandas as pd
 import numpy as np
+import sys
 from pathlib import Path
 from datetime import datetime
 import plotly.graph_objects as go
-import plotly.express as px
+from scipy.stats import kruskal
+
+try:
+    from streamlit.runtime.scriptrunner import get_script_run_ctx
+except ImportError:
+    try:
+        from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx
+    except ImportError:
+        get_script_run_ctx = None
 
 try:
     from streamlit_autorefresh import st_autorefresh
     AUTOREFRESH_AVAILABLE = True
 except ImportError:
     AUTOREFRESH_AVAILABLE = False
+
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
+
+def _running_without_streamlit_context() -> bool:
+    if __name__ != "__main__":
+        return False
+    if get_script_run_ctx is None:
+        return False
+    return get_script_run_ctx() is None
+
+
+if _running_without_streamlit_context():
+    print("Launch this dashboard with: streamlit run dashboard.py")
+    sys.exit(0)
 
 st.set_page_config(
     page_title="NEUROMANCER // EvoLLM",
@@ -51,6 +78,7 @@ html,body,[data-testid="stAppViewContainer"]{background:var(--bg)!important;colo
 .badge-amber{background:#ffb30020;color:var(--amber);border:1px solid #996900;}
 .badge-red{background:#ff3c3c20;color:var(--red);border:1px solid #991a1a;}
 .badge-blue{background:#00d4ff20;color:var(--blue);border:1px solid #006680;}
+.badge-orange{background:#ff880020;color:#ff8800;border:1px solid #884400;}
 .scanlines{position:fixed;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);pointer-events:none;z-index:9999;}
 div.stButton>button{background:transparent;border:1px solid var(--green-dim);color:var(--green);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;border-radius:2px;}
 div.stButton>button:hover{background:#00ff8810;border-color:var(--green);}
@@ -59,22 +87,31 @@ div.stButton>button:hover{background:#00ff8810;border-color:var(--green);}
 """, unsafe_allow_html=True)
 
 
-# ── Helpers ────────────────────────────────────────────────────────────────────
+# ── Constants ──────────────────────────────────────────────────────────────────
 
 PLOTLY_LAYOUT = dict(
     paper_bgcolor='#020408', plot_bgcolor='#060d12',
     font=dict(family='Share Tech Mono', color='#b0c8b8', size=11),
     margin=dict(l=10, r=10, t=30, b=10),
 )
-TYPE_COLORS = {'food': '#00ff88', 'predator': '#ffb300', 'noise': '#00d4ff'}
+TYPE_COLORS = {'food': '#00ff88', 'toxin': '#ffb300', 'noise': '#00d4ff'}
+METRICS_KEYS = ['h_x', 'c_x', 'i_x_seed', 'h_dezorg', 'fitness', 'jaccard']
+CANONICAL = '20260427T120238Z'
+ACTIVE_RUN_MAX_AGE_SECONDS = 60 * 60
 
+
+# ── Helpers ────────────────────────────────────────────────────────────────────
 
 def get_gpu_stats():
     try:
         r = subprocess.run(
             ['nvidia-smi', '--query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu,power.draw',
              '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=3)
+        if r.returncode != 0 or not r.stdout.strip():
+            return None
         p = [x.strip() for x in r.stdout.strip().split(',')]
+        if len(p) < 5:
+            return None
         return {'util': float(p[0]), 'mem_used': float(p[1]), 'mem_total': float(p[2]),
                 'temp': float(p[3]), 'power': float(p[4]) if p[4] not in ('[N/A]', 'N/A') else None}
     except Exception:
@@ -82,7 +119,10 @@ def get_gpu_stats():
 
 
 def render_bar(value, max_val=100, color_var='--green'):
-    pct = min(100, max(0, value / max_val * 100))
+    if max_val <= 0:
+        pct = 0
+    else:
+        pct = min(100, max(0, value / max_val * 100))
     color = 'var(--red)' if pct > 85 else 'var(--amber)' if pct > 60 else f'var({color_var})'
     return f'<div class="gpu-bar-bg"><div class="gpu-bar-fill" style="width:{pct:.1f}%;background:{color};"></div></div>'
 
@@ -94,7 +134,165 @@ def tile_html(label, value, unit='', color='var(--green)'):
         <div class="metric-unit">{unit}</div></div>"""
 
 
+def load_progressive(path):
+    """Load all lines from a progressive JSONL log."""
+    if not path or not os.path.exists(path):
+        return []
+    try:
+        lines = []
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        lines.append(json.loads(line))
+                    except Exception:
+                        pass
+        return lines
+    except Exception:
+        return []
+
+
+def compute_live_metrics(prog_lines):
+    """
+    Aggregate progressive log lines into mean_metrics dict
+    (same structure as get_mean_metrics() from final JSON).
+    Returns dict keyed by type: food/toxin/noise.
+    """
+    from collections import defaultdict
+    buckets = defaultdict(list)
+    for rec in prog_lines:
+        dtype = rec.get('type', 'unknown')
+        buckets[dtype].append(rec)
+
+    result = {}
+    for dtype, recs in buckets.items():
+        if not recs:
+            continue
+        agg = {}
+        for k in METRICS_KEYS:
+            vals = [r[k] for r in recs if k in r and r[k] is not None]
+            agg[k] = float(np.mean(vals)) if vals else 0.0
+        agg['count'] = len(recs)
+        result[dtype] = agg
+    return result
+
+
+def compute_live_kw(prog_lines):
+    """
+    Compute Kruskal-Wallis on progressive data grouped by type.
+    Requires at least 2 groups with >=2 samples each.
+    """
+    from collections import defaultdict
+    buckets = defaultdict(list)
+    for rec in prog_lines:
+        dtype = rec.get('type', 'unknown')
+        buckets[dtype].append(rec)
+
+    groups = {k: v for k, v in buckets.items() if len(v) >= 2}
+    if len(groups) < 2:
+        return {}
+
+    result = {}
+    for metric in ['h_x', 'c_x', 'i_x_seed', 'jaccard']:
+        arrays = []
+        for dtype in sorted(groups.keys()):
+            vals = [r[metric] for r in groups[dtype] if metric in r and r[metric] is not None]
+            if len(vals) >= 2:
+                arrays.append(vals)
+        if len(arrays) >= 2:
+            try:
+                stat, p = kruskal(*arrays)
+                result[metric] = {'stat': float(stat), 'p': float(p)}
+            except Exception:
+                pass
+    return result
+
+
+def count_jsonl_records(file_path):
+    try:
+        with open(file_path, encoding='utf-8') as handle:
+            return sum(1 for line in handle if line.strip())
+    except Exception:
+        return 0
+
+
+def infer_total_docs_from_configs(config_dir='config'):
+    if yaml is None:
+        return None
+
+    config_candidates = sorted(
+        glob.glob(os.path.join(config_dir, 'phase0*.yaml')),
+        key=os.path.getmtime,
+        reverse=True,
+    )
+
+    for config_path in config_candidates:
+        try:
+            with open(config_path, encoding='utf-8') as handle:
+                config = yaml.safe_load(handle) or {}
+        except Exception:
+            continue
+
+        corpus_files = config.get('phase0_validation', {}).get('corpus_files', [])
+        if not corpus_files:
+            continue
+
+        total_docs = 0
+        found_any = False
+        for corpus_file in corpus_files:
+            normalized = os.path.normpath(corpus_file)
+            if os.path.exists(normalized):
+                total_docs += count_jsonl_records(normalized)
+                found_any = True
+
+        if found_any and total_docs > 0:
+            return total_docs
+
+    return None
+
+
+def find_in_progress_run(base_dir='experiments', max_age_seconds=ACTIVE_RUN_MAX_AGE_SECONDS):
+    """
+    Find the most recently modified run directory that has a progressive log
+    but no final metrics_phase0.json yet (i.e., still running).
+    Returns (run_id, prog_path, total_docs_hint) or None.
+    """
+    candidates = []
+    now_ts = time.time()
+    for run_dir in glob.glob(f'{base_dir}/phase0_metrics_*/'):
+        prog = os.path.join(run_dir, 'metrics_progressive.jsonl')
+        final = os.path.join(run_dir, 'metrics_phase0.json')
+        if os.path.exists(prog) and not os.path.exists(final):
+            mtime = os.path.getmtime(prog)
+            if max_age_seconds is not None and (now_ts - mtime) > max_age_seconds:
+                continue
+            run_id = Path(run_dir).name.replace('phase0_metrics_', '')
+            candidates.append((mtime, run_id, prog, run_dir))
+    if not candidates:
+        return None
+    candidates.sort(reverse=True)
+    _, run_id, prog_path, run_dir = candidates[0]
+    # Try to read a manifest or config for total doc count
+    total = None
+    for cfg_name in ['config.json', 'run_config.json', 'manifest.json']:
+        cfg_path = os.path.join(run_dir, cfg_name)
+        if os.path.exists(cfg_path):
+            try:
+                with open(cfg_path) as f:
+                    cfg = json.load(f)
+                total = cfg.get('total_docs') or cfg.get('doc_count') or cfg.get('n_docs')
+                if total:
+                    break
+            except Exception:
+                pass
+    if total is None:
+        total = infer_total_docs_from_configs()
+    return {'run_id': run_id, 'prog_path': prog_path, 'run_dir': run_dir, 'total_docs': total}
+
+
 def load_experiments(base_dir='experiments'):
+    """Load completed experiments (have final metrics_phase0.json)."""
     runs = {}
     for run_dir in sorted(glob.glob(f'{base_dir}/phase0_metrics_*/'), reverse=True):
         run_id = Path(run_dir).name.replace('phase0_metrics_', '')
@@ -116,7 +314,7 @@ def get_mean_metrics(data):
     mm = data.get('mean_metrics', {})
     result = {}
     for dtype, m in mm.items():
-        result[dtype] = {k: m.get(k, 0) for k in ['h_x', 'c_x', 'i_x_seed', 'h_dezorg', 'fitness', 'jaccard', 'count']}
+        result[dtype] = {k: m.get(k, 0) for k in METRICS_KEYS + ['count']}
     return result
 
 
@@ -133,20 +331,33 @@ def get_effects(data):
     return data.get('effect_sizes', {})
 
 
-def load_progressive(path):
-    if not path or not os.path.exists(path):
-        return []
-    try:
-        with open(path) as f:
-            return [json.loads(l) for l in f if l.strip()]
-    except Exception:
-        return []
+def build_corpus_table(doc_count, data_source):
+    if data_source == "demo":
+        return pd.DataFrame([
+            {'FILE': f, 'N': n, 'TYPE': dtype, 'DOMAIN': domain, 'SOURCE': src}
+            for f, n, src, dtype, domain in DEMO_CORPUS
+        ])
+
+    rows = []
+    for dtype in ['food', 'toxin', 'noise']:
+        count = doc_count.get(dtype)
+        if count is None:
+            continue
+        rows.append({
+            'FILE': 'run summary',
+            'N': count,
+            'TYPE': dtype,
+            'DOMAIN': 'all',
+            'SOURCE': 'metrics_phase0.json',
+        })
+    return pd.DataFrame(rows)
 
 
-# ── Canonical demo fallback ────────────────────────────────────────────────────
+# ── Demo data ──────────────────────────────────────────────────────────────────
+
 DEMO_METRICS = {
     'food':     {'h_x': 5.503, 'c_x': 0.526, 'i_x_seed': 0.0900, 'h_dezorg': 0.840, 'fitness': 0.035,  'jaccard': 0.018, 'count': 73},
-    'predator': {'h_x': 5.240, 'c_x': 0.425, 'i_x_seed': 0.0717, 'h_dezorg': 0.925, 'fitness': -0.024, 'jaccard': 0.021, 'count': 116},
+    'toxin': {'h_x': 5.240, 'c_x': 0.425, 'i_x_seed': 0.0717, 'h_dezorg': 0.925, 'fitness': -0.024, 'jaccard': 0.021, 'count': 116},
     'noise':    {'h_x': 5.771, 'c_x': 0.564, 'i_x_seed': 0.0912, 'h_dezorg': 0.921, 'fitness': 0.035,  'jaccard': 0.020, 'count': 35},
 }
 DEMO_KW = {
@@ -156,18 +367,18 @@ DEMO_KW = {
     'jaccard':  {'stat': 2.26,  'p': 0.323},
 }
 DEMO_EFFECTS = {
-    'h_x':      {'food_vs_predator': -0.357, 'food_vs_noise': 0.033, 'predator_vs_noise': 0.410},
-    'c_x':      {'food_vs_predator': -0.524, 'food_vs_noise': 0.107, 'predator_vs_noise': 0.633},
-    'i_x_seed': {'food_vs_predator': -0.168, 'food_vs_noise': 0.033, 'predator_vs_noise': 0.209},
+    'h_x':      {'food_vs_toxin': -0.357, 'food_vs_noise': 0.033, 'toxin_vs_noise': 0.410},
+    'c_x':      {'food_vs_toxin': -0.524, 'food_vs_noise': 0.107, 'toxin_vs_noise': 0.633},
+    'i_x_seed': {'food_vs_toxin': -0.168, 'food_vs_noise': 0.033, 'toxin_vs_noise': 0.209},
 }
 DEMO_CORPUS = [
     ('food_climate.jsonl',     26, 'PMC peer-reviewed',    'food',     'climate'),
     ('food_vaccines.jsonl',    23, 'PMC peer-reviewed',    'food',     'vaccines'),
     ('food_covid.jsonl',       52, 'PMC peer-reviewed',    'food',     'covid-19'),
-    ('predator_climate.jsonl', 32, 'ClimateFever REFUTES', 'predator', 'climate'),
-    ('predator_vaccines.jsonl',23, 'VaccineLies MisT',     'predator', 'vaccines'),
-    ('predator_covid.jsonl',   61, 'CoAID + synthetic',    'predator', 'covid-19'),
-    ('noise.jsonl',            35, '50/50 food+predator',  'noise',    'all'),
+    ('toxin_climate.jsonl', 32, 'ClimateFever REFUTES', 'toxin', 'climate'),
+    ('toxin_vaccines.jsonl',23, 'VaccineLies MisT',     'toxin', 'vaccines'),
+    ('toxin_covid.jsonl',   61, 'CoAID + synthetic',    'toxin', 'covid-19'),
+    ('noise.jsonl',            35, '50/50 food+toxin',  'noise',    'all'),
 ]
 
 
@@ -182,7 +393,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ── Auto-refresh controls ──────────────────────────────────────────────────────
+# ── Auto-refresh ───────────────────────────────────────────────────────────────
 cr1, cr2, cr3 = st.columns([2, 1, 1])
 with cr1:
     auto_refresh = st.checkbox("AUTO REFRESH", value=False)
@@ -192,12 +403,11 @@ with cr3:
     if st.button("⟳ REFRESH NOW"):
         st.rerun()
 
-# Use streamlit-autorefresh if available (no screen flash)
 if auto_refresh:
     if AUTOREFRESH_AVAILABLE:
         st_autorefresh(interval=refresh_interval * 1000, key="autorefresh")
     else:
-        st.warning("Install streamlit-autorefresh for flicker-free refresh: pip install streamlit-autorefresh")
+        st.warning("Install streamlit-autorefresh: pip install streamlit-autorefresh")
         time.sleep(refresh_interval)
         st.rerun()
 
@@ -244,56 +454,185 @@ for col, (phase, desc, status) in zip(ph_cols, phases):
     </div>""", unsafe_allow_html=True)
 
 
-# ── Progressive logging ────────────────────────────────────────────────────────
-prog_files = sorted(glob.glob('experiments/*/metrics_progressive.jsonl'))
-if prog_files:
-    prog_lines = load_progressive(prog_files[-1])
-    run_dir = os.path.dirname(prog_files[-1])
-    jf = os.path.join(run_dir, 'metrics_phase0.json')
-    total_docs = None
-    if os.path.exists(jf):
-        try:
-            with open(jf) as f:
-                pdata = json.load(f)
-            dc = pdata.get('run', {}).get('doc_count', {})
-            if dc:
-                total_docs = sum(dc.values())
-        except Exception:
-            pass
+# ══════════════════════════════════════════════════════════════════════════════
+# LIVE IN-PROGRESS RUN SECTION
+# Shown only when a run is active (has .jsonl but no final .json)
+# ══════════════════════════════════════════════════════════════════════════════
 
-    st.markdown('<div class="section-head">// LIVE PROGRESS</div>', unsafe_allow_html=True)
+in_progress = find_in_progress_run()
+
+if in_progress:
+    st.markdown('<div class="section-head">// ACTIVE RUN · LIVE TELEMETRY</div>', unsafe_allow_html=True)
+    st.markdown(f'<span class="badge badge-orange">● RUNNING</span>&nbsp;&nbsp;<span style="font-family:\'Share Tech Mono\',monospace;font-size:11px;color:var(--dim);">{in_progress["run_id"]}</span>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    prog_lines = load_progressive(in_progress['prog_path'])
     processed = len(prog_lines)
-    if total_docs:
-        pct = processed / total_docs
+    total_docs = in_progress['total_docs']
+
+    # Progress bar
+    if total_docs and total_docs > 0:
+        pct = min(1.0, processed / total_docs)
         pc1, pc2, pc3 = st.columns([3, 1, 1])
         with pc1:
             st.progress(pct, text=f"Processing: {processed}/{total_docs} documents ({pct*100:.1f}%)")
-        pc2.markdown(tile_html("PROCESSED", str(processed), "", 'var(--blue)'), unsafe_allow_html=True)
-        pc3.markdown(tile_html("REMAINING", str(total_docs - processed)), unsafe_allow_html=True)
+        pc2.markdown(tile_html("PROCESSED", str(processed), "docs", 'var(--blue)'), unsafe_allow_html=True)
+        pc3.markdown(tile_html("REMAINING", str(max(0, total_docs - processed)), "docs"), unsafe_allow_html=True)
     else:
-        st.info(f"Progressive log: {processed} documents processed")
+        st.info(f"Progressive log: {processed} documents processed (total unknown — add total_docs to config.json)")
 
+    # Last document status
     if prog_lines:
         last = prog_lines[-1]
-        st.markdown(f"""<div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dim);margin-top:4px;">
-        LAST: {last.get('id', last.get('doc_id','?'))} | type={last.get('type','?')} |
-        H={last.get('h_x',0):.3f} | C={last.get('c_x',0):.3f} |
-        I={last.get('i_x_seed',0):.4f} | fitness={last.get('fitness',0):.4f}
+        fit_val = last.get('fitness', 0)
+        fit_color = '#00ff88' if fit_val >= 0 else '#ff3c3c'
+        st.markdown(f"""<div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dim);
+            background:var(--surface);border:1px solid var(--border);padding:8px 12px;margin:4px 0;">
+            LAST: <span style="color:var(--text);">{last.get('id', last.get('doc_id','?'))}</span> &nbsp;|&nbsp;
+            type=<span style="color:{TYPE_COLORS.get(last.get('type','?'),'#888')};">{last.get('type','?')}</span> &nbsp;|&nbsp;
+            H=<span style="color:var(--text);">{last.get('h_x',0):.3f}</span> &nbsp;|&nbsp;
+            C=<span style="color:var(--text);">{last.get('c_x',0):.3f}</span> &nbsp;|&nbsp;
+            I=<span style="color:var(--text);">{last.get('i_x_seed',0):.4f}</span> &nbsp;|&nbsp;
+            fitness=<span style="color:{fit_color};">{fit_val:+.4f}</span>
         </div>""", unsafe_allow_html=True)
 
+    # Live aggregated metric tiles
+    if processed >= 3:
+        live_metrics = compute_live_metrics(prog_lines)
 
-# ── Experiment results ─────────────────────────────────────────────────────────
-st.markdown('<div class="section-head">// PHASE 0 · METRIC VALIDATION RESULTS</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-head">// LIVE METRICS · RUNNING AVERAGES (updates each refresh)</div>', unsafe_allow_html=True)
+        mt_cols = st.columns(max(len(live_metrics), 1))
+        for col, (dtype, m) in zip(mt_cols, live_metrics.items()):
+            color = TYPE_COLORS.get(dtype, 'var(--green)')
+            fit_color = '#00ff88' if m['fitness'] >= 0 else '#ff3c3c'
+            col.markdown(f"""<div class="metric-tile" style="border-top-color:{color};">
+                <div class="metric-label">{dtype.upper()} · n={m['count']}</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:12px;line-height:1.9;margin-top:4px;">
+                    <span style="color:{color};">H</span> = {m['h_x']:.3f}<br>
+                    <span style="color:{color};">C</span> = {m['c_x']:.3f}<br>
+                    <span style="color:{color};">I</span> = {m['i_x_seed']:.4f}<br>
+                    <span style="color:{color};">J</span> = {m['jaccard']:.4f}<br>
+                    <span style="color:{fit_color};">fitness = {m['fitness']:+.4f}</span>
+                </div></div>""", unsafe_allow_html=True)
+
+        # Live KW (only if enough data)
+        live_kw = compute_live_kw(prog_lines)
+        if live_kw:
+            st.markdown('<div class="section-head">// LIVE KRUSKAL-WALLIS (preliminary, n growing)</div>', unsafe_allow_html=True)
+            kw_labels = {'h_x': 'H(X)', 'c_x': 'C(X)', 'i_x_seed': 'I(X;seed)', 'jaccard': 'Jaccard'}
+            kw_cols = st.columns(len(live_kw))
+            for col, (metric, res) in zip(kw_cols, live_kw.items()):
+                pval = res['p']
+                is_sig = pval < 0.05
+                sig_kind = "green" if is_sig else "red"
+                sig_text = "SIG" if is_sig else "NOT SIG"
+                p_str = f"{pval:.3e}"
+                col.markdown(f"""<div class="metric-tile" style="border-top-color:{'var(--green)' if is_sig else 'var(--red)'};">
+                    <div class="metric-label">{kw_labels.get(metric, metric)}</div>
+                    <div style="font-family:'Share Tech Mono',monospace;font-size:13px;color:{'var(--green)' if is_sig else 'var(--red)'};">
+                        H = {res['stat']:.2f}
+                    </div>
+                    <div style="margin-top:4px;"><span class="badge badge-{sig_kind}">{sig_text} p={p_str}</span></div>
+                </div>""", unsafe_allow_html=True)
+
+    # Live time-series chart — metrics per document index
+    if processed >= 2:
+        st.markdown('<div class="section-head">// LIVE TIME-SERIES · METRICS PER DOCUMENT</div>', unsafe_allow_html=True)
+
+        df_prog = pd.DataFrame(prog_lines)
+        df_prog['doc_index'] = range(len(df_prog))
+
+        # Metric selector
+        metric_choice = st.selectbox(
+            "METRIC",
+            options=['h_x', 'c_x', 'i_x_seed', 'fitness', 'h_dezorg', 'jaccard'],
+            format_func=lambda x: {'h_x': 'H(X) entropy', 'c_x': 'C(X) complexity',
+                                   'i_x_seed': 'I(X;seed) mutual info', 'fitness': 'Fitness',
+                                   'h_dezorg': 'H_dezorg', 'jaccard': 'Jaccard'}[x],
+            key='live_metric_select'
+        )
+
+        fig_ts = go.Figure()
+        for dtype in df_prog['type'].unique():
+            subset = df_prog[df_prog['type'] == dtype]
+            if metric_choice in subset.columns:
+                color = TYPE_COLORS.get(dtype, '#888888')
+                # Scatter: individual points
+                fig_ts.add_trace(go.Scatter(
+                    x=subset['doc_index'],
+                    y=subset[metric_choice],
+                    mode='markers',
+                    name=dtype.upper(),
+                    marker=dict(color=color, size=5, opacity=0.6),
+                    showlegend=True,
+                ))
+                # Rolling mean (window=min(10, len))
+                window = min(10, max(1, len(subset) // 5))
+                rolled = subset[metric_choice].rolling(window=window, min_periods=1).mean()
+                fig_ts.add_trace(go.Scatter(
+                    x=subset['doc_index'],
+                    y=rolled,
+                    mode='lines',
+                    name=f'{dtype.upper()} (rolling avg w={window})',
+                    line=dict(color=color, width=2),
+                    showlegend=True,
+                ))
+
+        fig_ts.add_hline(y=0, line_color='#3a5a46', line_dash='dash', line_width=1)
+        fig_ts.update_layout(
+            height=320,
+            legend=dict(orientation='h', y=1.08, x=0.5, xanchor='center', font=dict(color='#b0c8b8')),
+            xaxis=dict(title='Document index', tickfont=dict(color='#b0c8b8'), gridcolor='#0d2a1a'),
+            yaxis=dict(tickfont=dict(color='#b0c8b8'), gridcolor='#0d2a1a'),
+            **PLOTLY_LAYOUT
+        )
+        st.plotly_chart(fig_ts, width="stretch")
+
+        # Per-type running mean line chart for all 4 key metrics simultaneously
+        st.markdown('<div class="section-head">// LIVE OVERVIEW · ALL KEY METRICS (running mean)</div>', unsafe_allow_html=True)
+        fig_all = go.Figure()
+        key_metrics = ['h_x', 'c_x', 'i_x_seed', 'fitness']
+        key_labels  = {'h_x': 'H(X)', 'c_x': 'C(X)', 'i_x_seed': 'I(X;seed)', 'fitness': 'Fitness'}
+        dash_styles = ['solid', 'dash', 'dot', 'dashdot']
+        for dtype in df_prog['type'].unique():
+            subset = df_prog[df_prog['type'] == dtype].copy()
+            base_color = TYPE_COLORS.get(dtype, '#888888')
+            for i, km in enumerate(key_metrics):
+                if km in subset.columns:
+                    window = min(15, max(1, len(subset) // 5))
+                    rolled = subset[km].rolling(window=window, min_periods=1).mean()
+                    fig_all.add_trace(go.Scatter(
+                        x=subset['doc_index'].values,
+                        y=rolled.values,
+                        mode='lines',
+                        name=f'{dtype.upper()} {key_labels[km]}',
+                        line=dict(color=base_color, width=1.5, dash=dash_styles[i]),
+                        opacity=0.85,
+                    ))
+        fig_all.update_layout(
+            height=300,
+            legend=dict(orientation='h', y=1.15, x=0.5, xanchor='center', font=dict(color='#b0c8b8', size=9)),
+            xaxis=dict(title='Document index', tickfont=dict(color='#b0c8b8'), gridcolor='#0d2a1a'),
+            yaxis=dict(tickfont=dict(color='#b0c8b8'), gridcolor='#0d2a1a'),
+            **PLOTLY_LAYOUT
+        )
+        st.plotly_chart(fig_all, width="stretch")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# COMPLETED EXPERIMENT RESULTS
+# ══════════════════════════════════════════════════════════════════════════════
+
+st.markdown('<div class="section-head">// PHASE 0 · COMPLETED RUN RESULTS</div>', unsafe_allow_html=True)
 
 runs = load_experiments()
-CANONICAL = '20260427T120238Z'
 
 if runs:
     available = list(runs.keys())
     run_labels = [runs[k]["run_name"] if runs[k]["run_name"] else k for k in available]
     default_idx = available.index(CANONICAL) if CANONICAL in available else 0
     selected_idx = st.selectbox(
-        "SELECT RUN",
+        "SELECT COMPLETED RUN",
         range(len(available)),
         format_func=lambda i: run_labels[i],
         index=default_idx
@@ -304,16 +643,23 @@ if runs:
     kw           = get_kw(data)
     effects      = get_effects(data)
     doc_count    = data.get('run', {}).get('doc_count', {})
-else:
+    data_source  = "completed run"
+elif not in_progress:
     st.caption("No experiment data found — showing canonical Phase 0 results (20260427T120238Z).")
     mean_metrics = DEMO_METRICS
     kw           = DEMO_KW
     effects      = DEMO_EFFECTS
-    doc_count    = {'food': 73, 'predator': 116, 'noise': 35}
+    doc_count    = {'food': 73, 'toxin': 116, 'noise': 35}
+    data_source  = "demo"
+else:
+    mean_metrics = {}
+    kw           = {}
+    effects      = {}
+    doc_count    = {}
+    data_source  = None
 
-
-# Metric tiles
 if mean_metrics:
+    # Metric tiles
     mt_cols = st.columns(len(mean_metrics))
     for col, (dtype, m) in zip(mt_cols, mean_metrics.items()):
         color = TYPE_COLORS.get(dtype, 'var(--green)')
@@ -328,9 +674,7 @@ if mean_metrics:
                 <span style="color:{fit_color};">fitness = {m['fitness']:+.4f}</span>
             </div></div>""", unsafe_allow_html=True)
 
-
-# Bar chart
-if mean_metrics:
+    # Bar chart
     st.markdown('<div class="section-head">// METRIC COMPARISON</div>', unsafe_allow_html=True)
     types = list(mean_metrics.keys())
     metrics_to_plot = ['h_x', 'c_x', 'i_x_seed', 'jaccard']
@@ -351,10 +695,8 @@ if mean_metrics:
         yaxis=dict(tickfont=dict(color='#b0c8b8'), gridcolor='#0d2a1a'),
         **PLOTLY_LAYOUT
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
-
-# KW gauges
 if kw:
     st.markdown('<div class="section-head">// KRUSKAL-WALLIS · STATISTICAL SIGNIFICANCE</div>', unsafe_allow_html=True)
     kw_labels = {'h_x': 'H(X)', 'c_x': 'C(X)', 'i_x_seed': 'I(X;seed)', 'jaccard': 'Jaccard'}
@@ -382,18 +724,16 @@ if kw:
                    'font': {'color': '#b0c8b8', 'size': 12}},
         ))
         fig.update_layout(height=200, **PLOTLY_LAYOUT)
-        col.plotly_chart(fig, use_container_width=True)
+        col.plotly_chart(fig, width="stretch")
         sig_text = "SIGNIFICANT" if is_sig else "NOT SIG"
         sig_kind = "green" if is_sig else "red"
         col.markdown(f'<div style="text-align:center;"><span class="badge badge-{sig_kind}">{sig_text} p={p_str}</span></div>', unsafe_allow_html=True)
 
-
-# Effect sizes
 if effects:
     st.markdown('<div class="section-head">// EFFECT SIZES · RANK-BISERIAL r</div>', unsafe_allow_html=True)
     eff_labels  = {'h_x': 'H(X)', 'c_x': 'C(X)', 'i_x_seed': 'I(X;seed)', 'jaccard': 'Jaccard'}
-    comp_labels = {'food_vs_predator': 'food/predator', 'food_vs_noise': 'food/noise', 'predator_vs_noise': 'predator/noise'}
-    comparisons = ['food_vs_predator', 'food_vs_noise', 'predator_vs_noise']
+    comp_labels = {'food_vs_toxin': 'food/toxin', 'food_vs_noise': 'food/noise', 'toxin_vs_noise': 'toxin/noise'}
+    comparisons = ['food_vs_toxin', 'food_vs_noise', 'toxin_vs_noise']
     rows = []
     for comp in comparisons:
         row = {'COMPARISON': comp_labels[comp]}
@@ -401,13 +741,13 @@ if effects:
             val = mdata.get(comp, 0)
             row[eff_labels.get(m, m)] = f"{val:+.3f}"
         rows.append(row)
-    st.dataframe(pd.DataFrame(rows).reset_index(drop=True), use_container_width=True, hide_index=True)
+    st.dataframe(pd.DataFrame(rows).reset_index(drop=True), width="stretch", hide_index=True)
     st.markdown("""<div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--dim);margin-top:6px;">
     │ |r| &gt; 0.4 = large effect &nbsp;│&nbsp; |r| &gt; 0.2 = medium &nbsp;│&nbsp; |r| &lt; 0.1 = small │
     </div>""", unsafe_allow_html=True)
 
 
-# Fitness function
+# ── Fitness function ───────────────────────────────────────────────────────────
 st.markdown('<div class="section-head">// FITNESS FUNCTION · CALIBRATED WEIGHTS</div>', unsafe_allow_html=True)
 fw1, fw2, fw3, fw4 = st.columns(4)
 fw1.markdown(tile_html("w1 · COMPLEXITY",      "0.3", "C(X) weight"), unsafe_allow_html=True)
@@ -434,19 +774,19 @@ if mean_metrics:
         xaxis=dict(tickfont=dict(color='#b0c8b8')),
         **PLOTLY_LAYOUT
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 
-# Corpus
+# ── Corpus ─────────────────────────────────────────────────────────────────────
 st.markdown('<div class="section-head">// CORPUS · PHASE 0 DATA</div>', unsafe_allow_html=True)
-corpus_df = pd.DataFrame([
-    {'FILE': f, 'N': n, 'TYPE': dtype, 'DOMAIN': domain, 'SOURCE': src}
-    for f, n, src, dtype, domain in DEMO_CORPUS
-])
-st.dataframe(corpus_df.reset_index(drop=True), use_container_width=True, hide_index=True)
+corpus_df = build_corpus_table(doc_count, data_source)
+if not corpus_df.empty:
+    st.dataframe(corpus_df.reset_index(drop=True), width="stretch", hide_index=True)
+else:
+    st.caption("No corpus metadata available for the selected run.")
 
 
-# Config
+# ── Config ─────────────────────────────────────────────────────────────────────
 st.markdown('<div class="section-head">// ACTIVE CONFIGURATION</div>', unsafe_allow_html=True)
 cfg1, cfg2 = st.columns(2)
 cfg1.markdown("""<div class="metric-tile"><div class="metric-label">MODEL</div>

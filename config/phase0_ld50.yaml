@@ -1,0 +1,88 @@
+# config/phase0_ld50.yaml
+# LD50 titration experiment — Phase 0 extension
+# Inherits all canonical Phase 0 parameters from phase0_v3.yaml.
+# DO NOT modify corpus_manifest_v3.json.
+
+experiment:
+  name: "phase0_ld50_titration"
+  description: >
+    Dose-response experiment measuring metric degradation as toxin
+    concentration increases from 0% to 100%. LD50 defined as the
+    toxin concentration at which C(X) drops 50% relative to T=0%.
+  output_dir: "experiments/ld50_{timestamp}"
+  random_seed: 42
+
+# --- Corpus -----------------------------------------------------------------
+corpus:
+  manifest: "data/v2/corpus_manifest_v3.json"       # frozen, read-only
+  ld50_manifest: "data/ld50/ld50_corpus_manifest.json"
+  n_docs_per_concentration: 80
+  concentrations: [0, 10, 25, 50, 75, 90, 100]      # toxin %
+
+  # Each concentration reads from its own JSONL
+  input_pattern: "data/ld50/concentration_{toxin_pct:03d}/corpus_ld50_t{toxin_pct:03d}.jsonl"
+
+# --- Model ------------------------------------------------------------------
+model:
+  name: "qwen3:8b-base"
+  backend: "ollama"
+  temperature: 0.0          # greedy — canonical Phase 0 setting
+  max_new_tokens: 200       # canonical Phase 0 output length
+  context_window: 4096
+
+# --- Metrics ----------------------------------------------------------------
+# Canonical Phase 0 settings — do not change between concentrations
+metrics:
+  window_size: 1024          # tokens per entropy window
+  n_windows: 3               # windows per document output
+  seed_prompt: "Describe the relationship between information quality and biological fitness."
+
+  # Fitness weights — frozen after Phase 0 grid search
+  fitness_weights:
+    w1: 0.3   # C(X) effective complexity
+    w2: 0.5   # I(X;seed) mutual information with seed
+    w3: 0.2   # H_dezorg disorganization entropy
+
+# --- Analysis ---------------------------------------------------------------
+analysis:
+  # Primary metric for LD50 calculation
+  ld50_primary_metric: "complexity"   # C(X)
+  ld50_definition: "50% drop in C(X) relative to T=0% (linear interpolation)"
+
+  # Dose-response model fitting
+  dose_response:
+    model: "sigmoid_4param"   # Hill / 4PL: y = bottom + (top - bottom) / (1 + (EC50/x)^hill)
+    fallback: "sigmoid_3param"
+    fit_library: "scipy.optimize.curve_fit"
+    bootstrap_n: 1000         # for LD50 confidence interval
+    ci_alpha: 0.05
+
+  # Nonlinearity test
+  linearity_test:
+    # Compare AIC: linear fit vs sigmoid fit
+    # H0: linear model fits as well as sigmoid (alpha=0.05)
+    method: "aic_comparison"   # delta_AIC > 2 = nonlinear preferred
+    secondary: "likelihood_ratio_test"
+
+  # Secondary: test all metrics for dose-response relationship
+  secondary_metrics:
+    - "h_dezorg"
+    - "entropy"
+    - "fitness"
+
+# --- Run parameters ---------------------------------------------------------
+run:
+  # Run pipeline once per concentration file
+  mode: "sequential"         # one concentration at a time (GPU memory safe)
+  save_raw_outputs: true     # save per-document model outputs for audit
+  log_level: "INFO"
+
+# --- Output -----------------------------------------------------------------
+output:
+  results_dir: "experiments/ld50_{timestamp}/"
+  per_concentration_subdir: true
+  # Filenames produced per concentration:
+  #   metrics_t{pct:03d}.json   — per-document metrics
+  #   summary_t{pct:03d}.json   — mean/std/n per metric
+  summary_file: "experiments/ld50_{timestamp}/ld50_summary.json"
+  figures_dir: "experiments/ld50_{timestamp}/figures/"

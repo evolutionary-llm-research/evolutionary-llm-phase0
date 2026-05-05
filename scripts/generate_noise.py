@@ -1,6 +1,6 @@
 # scripts/generate_noise.py
 """
-Generuje noise corpus przez losowe mieszanie zdań z food i predator.
+Generuje noise corpus przez losowe mieszanie zdań z food i toxin.
 Każdy dokument noise = losowe zdania z różnych domen i typów.
 """
 import json, random
@@ -22,13 +22,13 @@ FOOD_FILES = [
     RAW_DIR  / "food_covid.jsonl",
 ]
 
-PREDATOR_FILES = [
-    RAW_DIR / "predator_alt_med_nn.jsonl",
-    RAW_DIR / "predator_cancer_nn.jsonl",
-    RAW_DIR / "predator_gmo_nn.jsonl",
-    RAW_DIR / "predator_vaccines_nn.jsonl",
-    RAW_DIR / "predator_covid_nn.jsonl",
-    RAW_DIR / "predator_climate_plate.jsonl",
+TOXIN_FILES = [
+    RAW_DIR / "toxin_alt_med_nn.jsonl",
+    RAW_DIR / "toxin_cancer_nn.jsonl",
+    RAW_DIR / "toxin_gmo_nn.jsonl",
+    RAW_DIR / "toxin_vaccines_nn.jsonl",
+    RAW_DIR / "toxin_covid_nn.jsonl",
+    RAW_DIR / "toxin_climate_plate.jsonl",
 ]
 
 def load_sentences(paths: list[Path]) -> list[str]:
@@ -58,9 +58,9 @@ def main():
     food_sents = load_sentences(FOOD_FILES)
     print(f"  food: {len(food_sents)} zdań")
 
-    print("Wczytuję zdania z predator corpus...")
-    pred_sents = load_sentences(PREDATOR_FILES)
-    print(f"  predator: {len(pred_sents)} zdań")
+    print("Wczytuję zdania z toxin corpus...")
+    pred_sents = load_sentences(TOXIN_FILES)
+    print(f"  toxin: {len(pred_sents)} zdań")
 
     all_sents = food_sents + pred_sents
     print(f"  łącznie: {len(all_sents)} zdań")

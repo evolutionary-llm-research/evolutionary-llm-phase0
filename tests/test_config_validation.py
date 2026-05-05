@@ -11,7 +11,7 @@ def _base_config() -> dict:
             "phase_mechanics_isolated": True,
         },
         "biomes": {
-            "savanna": {"food": 0.6, "predator": 0.2, "noise": 0.2, "k_max": 30},
+            "savanna": {"food": 0.6, "toxin": 0.2, "noise": 0.2, "k_max": 30},
         },
         "mechanics": {
             "reproduction_enabled": False,

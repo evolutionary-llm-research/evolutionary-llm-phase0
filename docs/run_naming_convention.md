@@ -17,9 +17,9 @@ Format: {phase}_{type}_{number}
 - grid: fitness weight grid search
 
 ### Phase 1
-- savanna: savanna biome (60% food / 20% predator / 20% noise, K=30)
-- desert: desert biome (10% food / 70% predator / 20% noise, K=10)
-- plain: plain biome (80% food / 5% predator / 15% noise, K=25)
+- savanna: savanna biome (60% food / 20% toxin / 20% noise, K=30)
+- desert: desert biome (10% food / 70% toxin / 20% noise, K=10)
+- plain: plain biome (80% food / 5% toxin / 15% noise, K=25)
 
 ### Phase 2
 - evo_id: Id archetype evolution

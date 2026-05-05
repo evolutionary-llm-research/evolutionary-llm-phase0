@@ -7,13 +7,13 @@ with dimension breakdown and flags, plus corpus-level summary.
 
 Usage:
     python scripts/verify_corpus_quality.py \
-        --predator data/predator_alt_med.jsonl \
+        --toxin data/toxin_alt_med.jsonl \
         --food data/food_alt_med.jsonl \
         --out reports/quality_alt_med.json
 
     # Check single corpus:
     python scripts/verify_corpus_quality.py \
-        --predator data/predator_vaccines_v2.jsonl \
+        --toxin data/toxin_vaccines_v2.jsonl \
         --out reports/quality_vaccines_v2.json
 
     # Check all corpora in data/ directory:
@@ -38,7 +38,7 @@ MIN_CHARS = 500
 MIN_UNIQUE_RATIO = 0.25
 MAX_ARTIFACT_DENSITY = 0.05    # max fraction of lines with artifacts
 MAX_LOOP_REPEAT = 3            # if 5-gram appears >= N times → loop
-MIN_NGRAM_DIVERGENCE = 0.3     # predator should not be too similar to food
+MIN_NGRAM_DIVERGENCE = 0.3     # toxin should not be too similar to food
 
 # Artifact patterns (same base as scraper, expanded)
 ARTIFACT_PATTERNS = [
@@ -156,18 +156,18 @@ def compute_bigrams(text: str) -> Counter:
     return Counter(zip(words, words[1:]))
 
 
-def check_ngram_overlap(predator_text: str,
+def check_ngram_overlap(toxin_text: str,
                          food_bigrams: Optional[Counter]) -> dict:
     """
-    Check if predator is not too similar to food (by bigram Jaccard).
+    Check if toxin is not too similar to food (by bigram Jaccard).
     Food bigrams must be pre-computed from the food corpus.
-    A high overlap means predator sounds like food — the VaccineLies problem.
+    A high overlap means toxin sounds like food — the VaccineLies problem.
     """
     if food_bigrams is None:
         return {"ok": True, "score": 1.0, "jaccard": None,
                 "flag": "no_food_reference"}
 
-    pred_bigrams = compute_bigrams(predator_text)
+    pred_bigrams = compute_bigrams(toxin_text)
     pred_set = set(pred_bigrams.keys())
     food_set = set(food_bigrams.keys())
 
@@ -178,10 +178,10 @@ def check_ngram_overlap(predator_text: str,
     union = len(pred_set | food_set)
     jaccard = intersection / union if union > 0 else 0.0
 
-    # We WANT low Jaccard with food (predator should sound different)
-    # High Jaccard → likely academic language → lower quality as predator
+    # We WANT low Jaccard with food (toxin should sound different)
+    # High Jaccard → likely academic language → lower quality as toxin
     ok = jaccard <= (1 - MIN_NGRAM_DIVERGENCE)
-    score = 1.0 - jaccard  # lower overlap = better predator score
+    score = 1.0 - jaccard  # lower overlap = better toxin score
     return {
         "ok": ok,
         "score": round(score, 3),
@@ -335,14 +335,14 @@ def build_food_bigrams(food_paths: list[Path]) -> Optional[Counter]:
 # Main
 # ---------------------------------------------------------------------------
 
-def run_verification(predator_path: Path,
+def run_verification(toxin_path: Path,
                      food_paths: list[Path],
                      output_path: Path) -> dict:
-    print(f"\n=== Verifying: {predator_path.name} ===")
+    print(f"\n=== Verifying: {toxin_path.name} ===")
 
-    docs = load_jsonl(predator_path)
+    docs = load_jsonl(toxin_path)
     if not docs:
-        print(f"ERROR: No documents in {predator_path}", file=sys.stderr)
+        print(f"ERROR: No documents in {toxin_path}", file=sys.stderr)
         return {}
 
     print(f"Loaded {len(docs)} documents")
@@ -367,7 +367,7 @@ def run_verification(predator_path: Path,
 
     # Full output
     output = {
-        "corpus": predator_path.name,
+        "corpus": toxin_path.name,
         "summary": summary,
         "documents": results,
     }
@@ -399,40 +399,40 @@ def main():
     parser = argparse.ArgumentParser(
         description="EvoLLM corpus quality verifier (no LLM required)"
     )
-    parser.add_argument("--predator", type=Path,
-                        help="Predator JSONL file to verify")
+    parser.add_argument("--toxin", type=Path,
+                        help="Toxin JSONL file to verify")
     parser.add_argument("--food", type=Path, nargs="*",
                         help="Food JSONL file(s) for n-gram reference (optional)")
     parser.add_argument("--out", type=Path, required=True,
                         help="Output path (JSON report, or directory for --all-dir)")
     parser.add_argument("--all-dir", type=Path,
-                        help="Verify all predator_*.jsonl files in this directory")
+                        help="Verify all toxin_*.jsonl files in this directory")
     args = parser.parse_args()
 
     food_paths = args.food or []
 
     if args.all_dir:
-        # Batch mode: process all predator files in directory
+        # Batch mode: process all toxin files in directory
         data_dir = args.all_dir
-        predator_files = sorted(data_dir.glob("predator_*.jsonl"))
+        toxin_files = sorted(data_dir.glob("toxin_*.jsonl"))
         output_dir = Path(args.out)
 
-        print(f"Batch mode: found {len(predator_files)} predator files in {data_dir}")
-        for pf in predator_files:
+        print(f"Batch mode: found {len(toxin_files)} toxin files in {data_dir}")
+        for pf in toxin_files:
             # Try to find matching food file
-            domain = pf.stem.replace("predator_", "")
+            domain = pf.stem.replace("toxin_", "")
             food_candidate = data_dir / f"food_{domain}.jsonl"
             f_paths = [food_candidate] if food_candidate.exists() else food_paths
 
             out_path = output_dir / f"quality_{pf.stem}.json"
             run_verification(pf, f_paths, out_path)
 
-    elif args.predator:
+    elif args.toxin:
         # Single file mode
         out_path = Path(args.out)
         if out_path.is_dir():
-            out_path = out_path / f"quality_{args.predator.stem}.json"
-        run_verification(args.predator, food_paths, out_path)
+            out_path = out_path / f"quality_{args.toxin.stem}.json"
+        run_verification(args.toxin, food_paths, out_path)
 
     else:
         parser.print_help()

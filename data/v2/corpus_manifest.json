@@ -13,14 +13,14 @@
     ],
     "target_n": 80
   },
-  "predator_alt_med.jsonl": {
+  "toxin_alt_med.jsonl": {
     "domain": "alt_med",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 2293,
     "sources": [
-      "predator_alt_med_nn",
-      "predator_alt_med_mercola"
+      "toxin_alt_med_nn",
+      "toxin_alt_med_mercola"
     ],
     "target_n": 80
   },
@@ -34,14 +34,14 @@
     ],
     "target_n": 80
   },
-  "predator_cancer.jsonl": {
+  "toxin_cancer.jsonl": {
     "domain": "cancer",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 2590,
     "sources": [
-      "predator_cancer_nn",
-      "predator_cancer_mercola"
+      "toxin_cancer_nn",
+      "toxin_cancer_mercola"
     ],
     "target_n": 80
   },
@@ -57,17 +57,17 @@
     ],
     "target_n": 80
   },
-  "predator_climate.jsonl": {
+  "toxin_climate.jsonl": {
     "domain": "climate",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 1219,
     "sources": [
-      "predator_climate_plate",
-      "predator_climate_at",
-      "predator_climate_nn",
-      "predator_climate",
-      "predator_climate_v2"
+      "toxin_climate_plate",
+      "toxin_climate_at",
+      "toxin_climate_nn",
+      "toxin_climate",
+      "toxin_climate_v2"
     ],
     "target_n": 80
   },
@@ -81,20 +81,20 @@
     ],
     "target_n": 80
   },
-  "predator_covid.jsonl": {
+  "toxin_covid.jsonl": {
     "domain": "covid",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 687,
     "sources": [
-      "predator_covid_nn",
-      "predator_covid_supplement"
+      "toxin_covid_nn",
+      "toxin_covid_supplement"
     ],
     "target_n": 80
   },
-  "predator_covid_legacy_covid.jsonl": {
+  "toxin_covid_legacy_covid.jsonl": {
     "domain": "covid",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 61,
     "note": "legacy — style comparison only"
   },
@@ -109,14 +109,14 @@
     ],
     "target_n": 80
   },
-  "predator_gmo.jsonl": {
+  "toxin_gmo.jsonl": {
     "domain": "gmo",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 2912,
     "sources": [
-      "predator_gmo_nn",
-      "predator_gmo_mercola"
+      "toxin_gmo_nn",
+      "toxin_gmo_mercola"
     ],
     "target_n": 80
   },
@@ -143,21 +143,21 @@
     ],
     "target_n": 80
   },
-  "predator_vaccines.jsonl": {
+  "toxin_vaccines.jsonl": {
     "domain": "vaccines",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 80,
     "avg_words": 3862,
     "sources": [
-      "predator_vaccines_nn",
-      "predator_vaccines_mercola",
-      "predator_vaccines_v2"
+      "toxin_vaccines_nn",
+      "toxin_vaccines_mercola",
+      "toxin_vaccines_v2"
     ],
     "target_n": 80
   },
-  "predator_vaccines_legacy_vaccines.jsonl": {
+  "toxin_vaccines_legacy_vaccines.jsonl": {
     "domain": "vaccines",
-    "type": "predator",
+    "type": "toxin",
     "n_docs": 23,
     "note": "legacy — style comparison only"
   },

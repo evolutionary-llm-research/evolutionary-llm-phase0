@@ -1,9 +1,9 @@
 
 """
-Per-dataset quality analysis of predator corpus vs food corpus using Phase 0 pipeline (model inference).
+Per-dataset quality analysis of toxin corpus vs food corpus using Phase 0 pipeline (model inference).
 
-- Runs Phase 0 pipeline separately for each predator source (climate, vaccines, covid)
-- Compares each predator subset to combined food corpus
+- Runs Phase 0 pipeline separately for each toxin source (climate, vaccines, covid)
+- Compares each toxin subset to combined food corpus
 - Computes: H(X), C(X), I(X;seed), Jaccard, effect size (rank-biserial r), Mann-Whitney U p-value
 - All metrics are computed on model-generated outputs (not raw text)
 - Outputs: table (stdout), JSON (results)
@@ -117,12 +117,12 @@ def main():
     "data/v2/food_cancer.jsonl",
     "data/v2/food_gmo.jsonl",
 ]
-    predator_files = [
-        ("climate",  "data/v2/predator_climate.jsonl"),
-        ("vaccines", "data/v2/predator_vaccines.jsonl"),
-        ("alt_med",  "data/v2/predator_alt_med.jsonl"),
-        ("cancer",   "data/v2/predator_cancer.jsonl"),
-        ("gmo",      "data/v2/predator_gmo.jsonl"),
+    toxin_files = [
+        ("climate",  "data/v2/toxin_climate.jsonl"),
+        ("vaccines", "data/v2/toxin_vaccines.jsonl"),
+        ("alt_med",  "data/v2/toxin_alt_med.jsonl"),
+        ("cancer",   "data/v2/toxin_cancer.jsonl"),
+        ("gmo",      "data/v2/toxin_gmo.jsonl"),
     ]
 
     # Load corpora
@@ -134,9 +134,9 @@ def main():
     food_stats = {k: np.array([d[k] for d in food_metrics]) for k in ["h_x", "c_x", "i_x_seed", "jaccard"]}
 
     results = {}
-    for name, path in predator_files:
+    for name, path in toxin_files:
         pred_docs = load_jsonl(path)
-        print(f"Generating model outputs for {len(pred_docs)} predator ({name}) documents...")
+        print(f"Generating model outputs for {len(pred_docs)} toxin ({name}) documents...")
         pred_metrics = compute_metrics_on_outputs(pred_docs, seed_text, model, tokenizer, gen_cfg, weights)
         pred_stats = {k: np.array([d[k] for d in pred_metrics]) for k in ["h_x", "c_x", "i_x_seed", "jaccard"]}
         results[name] = {"mean": {}, "effect_size": {}, "p_value": {}}
@@ -144,19 +144,19 @@ def main():
             mean_food = float(np.mean(food_stats[metric]))
             mean_pred = float(np.mean(pred_stats[metric]))
             r, p = effect_size_and_p(food_stats[metric], pred_stats[metric])
-            results[name]["mean"][metric] = {"food": mean_food, "predator": mean_pred}
+            results[name]["mean"][metric] = {"food": mean_food, "toxin": mean_pred}
             results[name]["effect_size"][metric] = r
             results[name]["p_value"][metric] = p
     # Print table
-    print("\nPer-dataset predator vs food corpus quality analysis (Phase 0 metrics, model outputs):\n")
-    print(f"{'Predator':<10} {'Metric':<10} {'Food Mean':>10} {'Pred Mean':>10} {'r':>8} {'p':>10}")
-    for name in predator_files:
+    print("\nPer-dataset toxin vs food corpus quality analysis (Phase 0 metrics, model outputs):\n")
+    print(f"{'Toxin':<10} {'Metric':<10} {'Food Mean':>10} {'Pred Mean':>10} {'r':>8} {'p':>10}")
+    for name in toxin_files:
         pname = name[0]
         for metric in ["h_x", "c_x", "i_x_seed", "jaccard"]:
             m = results[pname]["mean"]
             r = results[pname]["effect_size"]
             p = results[pname]["p_value"]
-            print(f"{pname:<10} {metric:<10} {m[metric]['food']:10.4f} {m[metric]['predator']:10.4f} {r[metric]:8.3f} {p[metric]:10.3g}")
+            print(f"{pname:<10} {metric:<10} {m[metric]['food']:10.4f} {m[metric]['toxin']:10.4f} {r[metric]:8.3f} {p[metric]:10.3g}")
     # Save JSON
     out_dir = Path(args.output_root)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -187,12 +187,12 @@ if __name__ == "__main__":
     "data/v2/food_cancer.jsonl",
     "data/v2/food_gmo.jsonl",
 ]
-    predator_files = [
-        ("climate",  "data/v2/predator_climate.jsonl"),
-        ("vaccines", "data/v2/predator_vaccines.jsonl"),
-        ("alt_med",  "data/v2/predator_alt_med.jsonl"),
-        ("cancer",   "data/v2/predator_cancer.jsonl"),
-        ("gmo",      "data/v2/predator_gmo.jsonl"),
+    toxin_files = [
+        ("climate",  "data/v2/toxin_climate.jsonl"),
+        ("vaccines", "data/v2/toxin_vaccines.jsonl"),
+        ("alt_med",  "data/v2/toxin_alt_med.jsonl"),
+        ("cancer",   "data/v2/toxin_cancer.jsonl"),
+        ("gmo",      "data/v2/toxin_gmo.jsonl"),
     ]
     # Load corpora
     food_docs = []
@@ -202,7 +202,7 @@ if __name__ == "__main__":
     food_stats = {k: np.array([d[k] for d in food_metrics]) for k in ["h_x", "c_x", "i_x_seed", "jaccard"]}
 
     results = {}
-    for name, path in predator_files:
+    for name, path in toxin_files:
         pred_docs = load_jsonl(path)
         pred_metrics = compute_metrics(pred_docs, seed_text, weights)
         pred_stats = {k: np.array([d[k] for d in pred_metrics]) for k in ["h_x", "c_x", "i_x_seed", "jaccard"]}
@@ -211,19 +211,19 @@ if __name__ == "__main__":
             mean_food = float(np.mean(food_stats[metric]))
             mean_pred = float(np.mean(pred_stats[metric]))
             r, p = effect_size_and_p(food_stats[metric], pred_stats[metric])
-            results[name]["mean"][metric] = {"food": mean_food, "predator": mean_pred}
+            results[name]["mean"][metric] = {"food": mean_food, "toxin": mean_pred}
             results[name]["effect_size"][metric] = r
             results[name]["p_value"][metric] = p
     # Print table
-    print("\nPer-dataset predator vs food corpus quality analysis (Phase 0 metrics):\n")
-    print(f"{'Predator':<10} {'Metric':<10} {'Food Mean':>10} {'Pred Mean':>10} {'r':>8} {'p':>10}")
-    for name in predator_files:
+    print("\nPer-dataset toxin vs food corpus quality analysis (Phase 0 metrics):\n")
+    print(f"{'Toxin':<10} {'Metric':<10} {'Food Mean':>10} {'Pred Mean':>10} {'r':>8} {'p':>10}")
+    for name in toxin_files:
         pname = name[0]
         for metric in ["h_x", "c_x", "i_x_seed", "jaccard"]:
             m = results[pname]["mean"]
             r = results[pname]["effect_size"]
             p = results[pname]["p_value"]
-            print(f"{pname:<10} {metric:<10} {m[metric]['food']:10.4f} {m[metric]['predator']:10.4f} {r[metric]:8.3f} {p[metric]:10.3g}")
+            print(f"{pname:<10} {metric:<10} {m[metric]['food']:10.4f} {m[metric]['toxin']:10.4f} {r[metric]:8.3f} {p[metric]:10.3g}")
     # Save JSON
     out_dir = Path(args.output_root)
     out_dir.mkdir(parents=True, exist_ok=True)

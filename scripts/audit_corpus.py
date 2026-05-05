@@ -5,7 +5,7 @@ audit_corpus.py — EvoLLM corpus audit, merge and balancing tool.
 Kroki:
 1. Skanuje data/raw/ i data/processed/ w poszukiwaniu plików JSONL
 2. Raportuje N, długości, domeny, typy per plik
-3. Scala pliki tego samego typu/domeny (np. predator_climate*.jsonl)
+3. Scala pliki tego samego typu/domeny (np. toxin_climate*.jsonl)
 4. Wyrównuje N do TARGET_N per typ per domena (losowe próbkowanie)
 5. Zapisuje finalny korpus do data/v2/
 
@@ -53,27 +53,27 @@ FILE_PRIORITY = {
     "food_alt_med_cleaned":   ("alt_med",   "food",      3),
     "food_climate_ext":       ("climate",   "food",      5),
     "food_vaccines_ext":      ("vaccines",  "food",      5),
-    # Predator — NaturalNews (główne)
-    "predator_vaccines_nn":   ("vaccines",  "predator", 10),
-    "predator_alt_med_nn":    ("alt_med",   "predator", 10),
-    "predator_cancer_nn":     ("cancer",    "predator", 10),
-    "predator_gmo_nn":        ("gmo",       "predator", 10),
-    "predator_covid_nn":      ("covid",     "predator", 10),
-    # Predator climate — wszystkie wersje
-    "predator_climate_plate": ("climate",   "predator", 10),
-    "predator_climate_at":    ("climate",   "predator",  8),
-    "predator_climate_nn":    ("climate",   "predator",  7),
-    "predator_climate":       ("climate",   "predator",  2),  # ClimateFever — krótkie
-    "predator_climate_v2":    ("climate",   "predator",  6),
-    # Predator legacy — za krótkie, tylko do porównania
-    "predator_vaccines":      ("vaccines",  "predator",  1),  # VaccineLies
-    "predator_covid":         ("covid",     "predator",  1),  # CoAID
-    "predator_covid_supplem": ("covid",     "predator",  1),
-    # Predator — Mercola
-    "predator_vaccines_mercola": ("vaccines", "predator", 9),
-    "predator_alt_med_mercola":  ("alt_med",  "predator", 9),
-    "predator_cancer_mercola":   ("cancer",   "predator", 9),
-    "predator_gmo_mercola":      ("gmo",      "predator", 9),
+    # Toxin — NaturalNews (główne)
+    "toxin_vaccines_nn":   ("vaccines",  "toxin", 10),
+    "toxin_alt_med_nn":    ("alt_med",   "toxin", 10),
+    "toxin_cancer_nn":     ("cancer",    "toxin", 10),
+    "toxin_gmo_nn":        ("gmo",       "toxin", 10),
+    "toxin_covid_nn":      ("covid",     "toxin", 10),
+    # Toxin climate — wszystkie wersje
+    "toxin_climate_plate": ("climate",   "toxin", 10),
+    "toxin_climate_at":    ("climate",   "toxin",  8),
+    "toxin_climate_nn":    ("climate",   "toxin",  7),
+    "toxin_climate":       ("climate",   "toxin",  2),  # ClimateFever — krótkie
+    "toxin_climate_v2":    ("climate",   "toxin",  6),
+    # Toxin legacy — za krótkie, tylko do porównania
+    "toxin_vaccines":      ("vaccines",  "toxin",  1),  # VaccineLies
+    "toxin_covid":         ("covid",     "toxin",  1),  # CoAID
+    "toxin_covid_supplem": ("covid",     "toxin",  1),
+    # Toxin — Mercola
+    "toxin_vaccines_mercola": ("vaccines", "toxin", 9),
+    "toxin_alt_med_mercola":  ("alt_med",  "toxin", 9),
+    "toxin_cancer_mercola":   ("cancer",   "toxin", 9),
+    "toxin_gmo_mercola":      ("gmo",      "toxin", 9),
     # Noise
     "noise":                  ("mixed",     "noise",    10),
 }
@@ -296,7 +296,7 @@ def merge_and_balance(files: list[dict], target_n: int, dry_run: bool = False):
     print(f"{'='*70}")
 
     # Special legacy handling
-    LEGACY_STEMS = {"predator_vaccines", "predator_covid"}
+    LEGACY_STEMS = {"toxin_vaccines", "toxin_covid"}
 
     for (domain, dtype), file_list in sorted(groups.items()):
         if domain == "unknown":

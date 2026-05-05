@@ -1,14 +1,14 @@
 """
 Sensitivity analysis for minimum output token length at which metric separation
-(food/predator/noise) remains statistically detectable.
+(food/toxin/noise) remains statistically detectable.
 
 - Loads all corpus files from config/phase0_metrics_validation.yaml
 - Loads Qwen3-8B-Base via Unsloth (HF_HUB_OFFLINE=1, load_in_4bit=True)
 - For each sample_size in [50, 100, 150, 200, 300, 500]:
     - Generates outputs with max_new_tokens=sample_size, temperature=0.0
     - Computes H(X), C(X), I(X;seed) on outputs
-    - Runs Kruskal-Wallis food vs predator vs noise for each metric
-    - Computes Cliff's delta for food/predator pair
+    - Runs Kruskal-Wallis food vs toxin vs noise for each metric
+    - Computes Cliff's delta for food/toxin pair
     - Records: sample_size, metric, p-value, cliff_delta
 - Saves results to experiments/sensitivity_analysis_[timestamp].json
 - Prints summary table and threshold
@@ -48,8 +48,8 @@ def load_corpus(files):
         label = None
         if "food" in path:
             label = "food"
-        elif "predator" in path:
-            label = "predator"
+        elif "toxin" in path:
+            label = "toxin"
         elif "noise" in path:
             label = "noise"
         else:
@@ -171,14 +171,14 @@ for sample_size in SAMPLE_SIZES:
     for metric in ["H", "C", "I"]:
         data = [
             [v for v in metrics[k][metric] if not np.isnan(v)]
-            for k in ["food", "predator", "noise"]
+            for k in ["food", "toxin", "noise"]
         ]
         if all(len(d) > 0 for d in data):
             stat, pval = kruskal(*data)
-            # Cliff's delta food vs predator
+            # Cliff's delta food vs toxin
             delta, _ = cliffs_delta(
                 [v for v in metrics["food"][metric] if not np.isnan(v)],
-                [v for v in metrics["predator"][metric] if not np.isnan(v)]
+                [v for v in metrics["toxin"][metric] if not np.isnan(v)]
             )
             results.append({
                 "sample_size": sample_size,

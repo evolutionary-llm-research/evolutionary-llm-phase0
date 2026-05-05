@@ -1,0 +1,84 @@
+{
+  "version": "v3",
+  "frozen_at": "2026-05-04T08:17:34.850121+00:00",
+  "n_total": 880,
+  "files": {
+    "food_climate": {
+      "path": "data/v2/food_climate.jsonl",
+      "n_docs": 80,
+      "min_chars": 31926,
+      "median_chars": 53012,
+      "sha256": "b3641252123ee0078e42e0b551ca78955e5826983d542bd01c3dc66549455b26"
+    },
+    "food_vaccines": {
+      "path": "data/v2/food_vaccines.jsonl",
+      "n_docs": 80,
+      "min_chars": 34846,
+      "median_chars": 44526,
+      "sha256": "191a26c900503d0b1aff21e52b4e1adb0c9768d64bea872ac6a6f608fa51466b"
+    },
+    "food_alt_med": {
+      "path": "data/v2/food_alt_med.jsonl",
+      "n_docs": 80,
+      "min_chars": 33417,
+      "median_chars": 56314,
+      "sha256": "5dbde73ae0b0691f8cbb2a72e890f811ff8cd6ab58a7d48203ff4e8517f02c01"
+    },
+    "food_cancer": {
+      "path": "data/v2/food_cancer.jsonl",
+      "n_docs": 80,
+      "min_chars": 36421,
+      "median_chars": 49593,
+      "sha256": "700b212d2d82b49d828f58382841a56af190bb5acaf8d50eeb716f8f10d5ccf9"
+    },
+    "food_gmo": {
+      "path": "data/v2/food_gmo.jsonl",
+      "n_docs": 80,
+      "min_chars": 14925,
+      "median_chars": 53541,
+      "sha256": "e529a6fdf6af26600ad5c095d1ae141c9acf7fd553b978bd2c61ac7fc0d8c022"
+    },
+    "toxin_climate": {
+      "path": "data/v2/toxin_climate.jsonl",
+      "n_docs": 80,
+      "min_chars": 14079,
+      "median_chars": 16460,
+      "sha256": "0c4e54a10655991c0d53f9d94cce11618a0669c535bec10a4189698e4afef974"
+    },
+    "toxin_vaccines": {
+      "path": "data/v2/toxin_vaccines.jsonl",
+      "n_docs": 80,
+      "min_chars": 17726,
+      "median_chars": 21640,
+      "sha256": "e09ccbca001ebd607eea0e55ec9976f11e7bef75586d974b4ba08977aa1ec55f"
+    },
+    "toxin_alt_med": {
+      "path": "data/v2/toxin_alt_med.jsonl",
+      "n_docs": 80,
+      "min_chars": 14141,
+      "median_chars": 17576,
+      "sha256": "0495cf49a25d57e88925c00fd1a23843274ac4e59cf71e67c9d7901b5e35380b"
+    },
+    "toxin_cancer": {
+      "path": "data/v2/toxin_cancer.jsonl",
+      "n_docs": 80,
+      "min_chars": 14093,
+      "median_chars": 17147,
+      "sha256": "1cd6dfd475b39fd724f5fd140d61f35e460e124ea9f3f92f59f59e6074e24e3f"
+    },
+    "toxin_gmo": {
+      "path": "data/v2/toxin_gmo.jsonl",
+      "n_docs": 80,
+      "min_chars": 14048,
+      "median_chars": 17133,
+      "sha256": "dcbb0aea603ddea97b483d2ad0423bfae93191aded6e4dca3e04eff0487fc16c"
+    },
+    "noise": {
+      "path": "data/v2/noise_wikipedia.jsonl",
+      "n_docs": 80,
+      "min_chars": 14213,
+      "median_chars": 22609,
+      "sha256": "34da76e86ee783f07344c5483a4024c86abc26c22bec6c4a8cd74382d3791c7c"
+    }
+  }
+}

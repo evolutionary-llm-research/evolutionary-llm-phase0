@@ -50,7 +50,7 @@ def validate_config(config: dict[str, Any]) -> None:
 
     biomes = config.get("biomes", {})
     for biome_name, biome in biomes.items():
-        total = float(biome.get("food", 0.0)) + float(biome.get("predator", 0.0)) + float(biome.get("noise", 0.0))
+        total = float(biome.get("food", 0.0)) + float(biome.get("toxin", 0.0)) + float(biome.get("noise", 0.0))
         if abs(total - 1.0) > 1e-9:
             raise ValueError(f"Biome '{biome_name}' ratios must sum to 1.0, got {total}.")
 

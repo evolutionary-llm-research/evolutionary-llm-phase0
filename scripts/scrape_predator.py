@@ -1,11 +1,11 @@
-# scripts/scrape_predator.py
+# scripts/scrape_toxin.py
 """
-EvoLLM Predator Corpus Scraper
+EvoLLM Toxin Corpus Scraper
 
 Usage:
-    python scripts/scrape_predator.py --domain climate --max 60 --out data/raw/predator_climate_v2.jsonl --rate-limit 5.0
-    python scripts/scrape_predator.py --domain gmo --max 50 --out data/raw/predator_gmo_scraped.jsonl
-    python scripts/scrape_predator.py --domain vaccines --max 40 --out data/raw/predator_vaccines_extra.jsonl
+    python scripts/scrape_toxin.py --domain climate --max 60 --out data/raw/toxin_climate_v2.jsonl --rate-limit 5.0
+    python scripts/scrape_toxin.py --domain gmo --max 50 --out data/raw/toxin_gmo_scraped.jsonl
+    python scripts/scrape_toxin.py --domain vaccines --max 40 --out data/raw/toxin_vaccines_extra.jsonl
 """
 
 import argparse
@@ -522,7 +522,7 @@ def scrape_domain(domain: str, max_docs: int, output_path: Path,
             record = {
                 "id": doc_id,
                 "domain": domain,
-                "type": "predator",
+                "type": "toxin",
                 "content": text,
                 "metadata": {
                     "title": title,
@@ -552,7 +552,7 @@ def scrape_domain(domain: str, max_docs: int, output_path: Path,
 # ---------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="EvoLLM predator corpus scraper")
+    parser = argparse.ArgumentParser(description="EvoLLM toxin corpus scraper")
     parser.add_argument("--domain", required=True,
                         choices=list(DOMAIN_CONFIG))
     parser.add_argument("--max", type=int, default=60)

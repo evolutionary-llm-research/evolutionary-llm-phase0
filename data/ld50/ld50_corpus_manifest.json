@@ -1,0 +1,65 @@
+{
+  "experiment": "ld50_titration",
+  "generated_at": "2026-05-04T12:57:15.332902+00:00",
+  "source_manifest": "data/v2/corpus_manifest_v3.json",
+  "n_docs_per_concentration": 80,
+  "random_seed": 42,
+  "concentrations": [
+    {
+      "toxin_concentration_pct": 0,
+      "n_food": 80,
+      "n_toxin": 0,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_000/corpus_ld50_t000.jsonl",
+      "sha256": "72fe9aef287fcc62a23a7d1353a451ff61eda14c9db17af098c04bd68a936022"
+    },
+    {
+      "toxin_concentration_pct": 10,
+      "n_food": 72,
+      "n_toxin": 8,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_010/corpus_ld50_t010.jsonl",
+      "sha256": "4d71d19723ae6b725a779a52501118c22e895620d0d67d015ef09745a04a4e7b"
+    },
+    {
+      "toxin_concentration_pct": 25,
+      "n_food": 60,
+      "n_toxin": 20,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_025/corpus_ld50_t025.jsonl",
+      "sha256": "bdb8c6d12060d59c8ce52282bd941df8736dbc819b2483ff3e907b5d9154a779"
+    },
+    {
+      "toxin_concentration_pct": 50,
+      "n_food": 40,
+      "n_toxin": 40,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_050/corpus_ld50_t050.jsonl",
+      "sha256": "90f0032bc7b2cdffee6f10bf43ef4971f9968e25507c121f112a604290875db2"
+    },
+    {
+      "toxin_concentration_pct": 75,
+      "n_food": 20,
+      "n_toxin": 60,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_075/corpus_ld50_t075.jsonl",
+      "sha256": "74cb45d3a98180d6453d79e20f25bfc53f8188426e313bca97f8a08f42da2bf6"
+    },
+    {
+      "toxin_concentration_pct": 90,
+      "n_food": 8,
+      "n_toxin": 72,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_090/corpus_ld50_t090.jsonl",
+      "sha256": "45c64a2381262a7c7e692d79a184e4d8c85b077941b4a4fac2a04d97ed8e2be2"
+    },
+    {
+      "toxin_concentration_pct": 100,
+      "n_food": 0,
+      "n_toxin": 80,
+      "n_total": 80,
+      "output_file": "data/ld50/concentration_100/corpus_ld50_t100.jsonl",
+      "sha256": "99224002f7f5ef63fc314dcca588b7e47ab78336ff031067930c687a6118086e"
+    }
+  ]
+}

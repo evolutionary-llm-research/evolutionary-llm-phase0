@@ -71,4 +71,4 @@ See environment architecture decision details in `ENVIRONMENT_ARCHITECTURE.md`.
 ## Notes
 
 - Keep experiments reproducible: fixed random seeds and full parameter logging.
-- Do not pass content-type tags (food/predator/noise) to model inputs.
+- Do not pass content-type tags (food/toxin/noise) to model inputs.

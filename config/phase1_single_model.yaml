@@ -11,17 +11,17 @@ model:
 biomes:
   savanna:
     food: 0.60
-    predator: 0.20
+    toxin: 0.20
     noise: 0.20
     k_max: 30
   desert:
     food: 0.10
-    predator: 0.70
+    toxin: 0.70
     noise: 0.20
     k_max: 10
   plain:
     food: 0.80
-    predator: 0.05
+    toxin: 0.05
     noise: 0.15
     k_max: 25
 

@@ -24,12 +24,12 @@ def check_files(label, paths):
 
 base = Path('data/v2')
 
-check_files("PREDATOR", [
-    base / 'predator_climate.jsonl',
-    base / 'predator_vaccines.jsonl',
-    base / 'predator_alt_med.jsonl',
-    base / 'predator_cancer.jsonl',
-    base / 'predator_gmo.jsonl',
+check_files("TOXIN", [
+    base / 'toxin_climate.jsonl',
+    base / 'toxin_vaccines.jsonl',
+    base / 'toxin_alt_med.jsonl',
+    base / 'toxin_cancer.jsonl',
+    base / 'toxin_gmo.jsonl',
 ])
 
 check_files("FOOD", [

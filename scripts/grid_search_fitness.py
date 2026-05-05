@@ -20,7 +20,7 @@ def run_grid_search(json_path):
                 if abs(w1 + w2 + w3 - 1.0) > 1e-6:
                     continue  # tylko kombinacje sumujące się do 1
                 fitness = w1 * train["c_x"] + w2 * train["i_x_seed"] - w3 * train["h_dezorg"]
-                groups = [fitness[train["type"] == t] for t in ["food", "predator", "noise"]]
+                groups = [fitness[train["type"] == t] for t in ["food", "toxin", "noise"]]
                 H, p = kruskal(*groups)
                 if H > best_H:
                     best_H = H
@@ -28,7 +28,7 @@ def run_grid_search(json_path):
                     best_p = p
     # Walidacja na holdoucie
     val_fitness = best_w[0] * val["c_x"] + best_w[1] * val["i_x_seed"] - best_w[2] * val["h_dezorg"]
-    val_groups = [val_fitness[val["type"] == t] for t in ["food", "predator", "noise"]]
+    val_groups = [val_fitness[val["type"] == t] for t in ["food", "toxin", "noise"]]
     val_H, val_p = kruskal(*val_groups)
     return {
         "best_w": best_w,

@@ -573,3 +573,253 @@ Cancer and GMO exceed original climate benchmark (-0.823 H from Phase 0 canonica
 - Doscraping: vaccines, alt_med, cancer, gmo need 35-47 additional docs each
 - Final Phase 0 run on fully cleaned balanced corpus (target 80 per domain)
 - Style swap experiment: predator_vaccines_nn vs predator_vaccines_legacy
+
+---
+
+## 2026-05-01 — Session 5: Corpus v2 finalisation, Mercola predator, Phase 0 rerun launch
+
+### Cel sesji
+Finalizacja korpusu v2 przed kanonicznym runem Phase 0.
+
+### 1. Diagnoza stanu korpusu
+Uruchomiono `check_corpus.py` na wszystkich domenach. Stan wyjściowy:
+- predator: vaccines 33/80, alt_med 45/80, cancer 35/80, gmo 35/80
+- food: gmo 71/80, covid 35/80 (domena nieaktywna)
+- predator_climate: 79/80 (pomijalne)
+
+### 2. Poszukiwanie źródeł predatora
+Przebadano kilka kandydatów:
+
+| Źródło | Status | Powód odrzucenia |
+|--------|--------|------------------|
+| ChildrensHealthDefense.org | odrzucone | Cloudflare Turnstile — interaktywna CAPTCHA |
+| VaccineImpact.com | odrzucone | treści religijno-spiskowe z elementami antysemickimi, szczepionki marginesem |
+| Vaxopedia.org | odrzucone | strona pro-szczepionkowa (dr Iannelli), debunkuje mity |
+| NVIC.org | odrzucone | Cloudflare na starcie |
+| thinktwice.com | odrzucone | strona nie działa |
+| AgeOfAutism.com | odrzucone | strona nie działa |
+
+### 3. Mercola scraper
+Wybrano `articles.mercola.com` jako główne źródło:
+- robots.txt: brak Disallow na treści artykułów, brak crawl-delay
+- Dostęp przez Windows Python (WSL2 blokowany przez Mercola po IP)
+- Archiwum 2015-2021 dostępne przez roczne sitemaps (`.aspx`)
+- Język autentyczny, długie artykuły (avg 14-24k znaków)
+
+Napisano `scripts/scrape_mercola_domain.py` z parametrem `--domain` obsługującym vaccines/alt_med/cancer/gmo.
+
+Wyniki scraping:
+- vaccines: 240/240
+- alt_med: 64/240 (Mercola miał mało stricte alt_med)
+- cancer: 90/90
+- gmo: 157/240
+
+### 4. Merge i finalizacja
+Dodano Mercola do `FILE_PRIORITY` w `audit_corpus.py` (wpisy były unknown/unknown bez tego).
+`audit_corpus.py --merge --target 80` połączył NaturalNews + Mercola dla każdej domeny.
+Stan finalny predatora: wszystkie pięć domen po 80 dokumentów.
+
+### 5. food_gmo uzupełnienie
+Dodano 6 nowych PMCIDów (artykuły glyphosate 2025-2026) do `supplement_food_gmo.py`.
+Wynik: 71 → 77/80. Pozostałe 3 niedostępne w PMC open access.
+Decyzja: 77/80 akceptowalne, zanotować w Methods.
+
+### 6. Commit i dokumentacja
+- Git commit przez GitHub Desktop
+- Napisano `docs/corpus_build_log_v2.md`
+
+### Stan na koniec sesji
+
+Korpus v2 zamrożony. Phase 0 rerun uruchomiony (config: `phase0_rerun_v2.yaml`).
+
+| Typ | climate | vaccines | alt_med | cancer | gmo |
+|-----|---------|----------|---------|--------|-----|
+| food | 80 | 80 | 80 | 80 | 77 |
+| predator | 80 | 80 | 80 | 80 | 80 |
+| noise | 80 | — | — | — | — |
+
+### Obserwacje metodologiczne
+Predator Mercola jest ~3-5x dłuższy niż NaturalNews (avg 16-24k vs 5k znaków). Może wpłynąć na H(X) i C(X) — model dostaje więcej tokenów per dokument. Warto sprawdzić w wynikach Phase 0 czy efekty per domena są spójne mimo różnicy długości. Jeśli nie, konieczna normalizacja długości inputu przed Paper 1.
+
+### Infrastructure updates
+- `scripts/scrape_mercola_domain.py` — nowy scraper Mercola z `--domain` i `--max`
+- `scripts/audit_corpus.py` — dodano Mercola do FILE_PRIORITY
+- `dashboard.py` — live telemetria, resume-on-restart, filtr starych runów
+- `src/analysis/phase0_metric_validation.py` — progressive log + `--resume`
+- `docs/corpus_build_log_v2.md` — pełna dokumentacja budowy korpusu v2
+
+### Next session priorities
+1. Wyniki Phase 0 rerun — interpretacja per-domena effect sizes
+2. Decyzja czy korpus jest gotowy na Paper 1
+3. Style swap experiment (vaccines_mercola vs vaccines_legacy) po zamknięciu Phase 0
+
+---
+
+## 2026-05-02 — Session 6: Percentile chunking, Phase 0 rerun v2 results, corpus asymmetry, corpus v3 decisions
+
+### Cel sesji
+Analiza wyników Phase 0 rerun v2, podjęcie decyzji o gotowości korpusu na Paper 1.
+
+### 1. Implementacja percentilowego chunkingu
+
+**Diagnoza:** single-window truncation (max_length=2048) powoduje że model widzi tylko pierwsze ~1500 słów. Artykuły Mercola (16-24k znaków) były agresywnie ucinane, a dezinformacyjny "core" leży często w drugiej połowie artykułu — stąd p=0.77 dla H(X) w poprzednim runie.
+
+**Rozwiązanie:** document-length-invariant percentile sampling. Dokument dzielony na n okien po 1/n długości, każde okno o stałym rozmiarze tokenów wycentrowane na danym percentylu. Dokumenty 5k i 25k tokenów mają identyczną reprezentację strukturalną.
+
+Zaimplementowano w `src/analysis/phase0_metric_validation.py`:
+- Funkcja `get_percentile_chunks(prompt, tokenizer, n_windows=5, window_size=512)`
+- Adaptive windowing: `actual_windows = min(n_windows, max(1, doc_len // window_size))`
+- Nowe metryki: `h_x_var`, `h_x_slope`, `h_dezorg_var`, `h_dezorg_slope`
+- `gen_cfg` czyta z YAML configa (temperature=0.0, do_sample=False)
+
+### 2. Wyniki Phase 0 percentile run (20260502T000503Z)
+
+| Typ | H(X) | C(X) | I(X;seed) | H_dezorg | Fitness | N |
+|-----|------|------|-----------|----------|---------|---|
+| food | 4.892 | 0.391 | 0.0541 | 0.835 | -0.023 | 397 |
+| predator | 4.675 | 0.292 | 0.0462 | 0.898 | -0.069 | 484 |
+| noise | 4.140 | 0.181 | 0.0397 | 0.923 | -0.110 | 80 |
+
+Kruskal-Wallis:
+
+| Metryka | p-value | Istotna |
+|---------|---------|---------|
+| h_x | 8.2e-21 | ✓ (poprzednio 0.77 — rehabilitacja entropii) |
+| c_x | 4.0e-68 | ✓ |
+| i_x_seed | 1.7e-07 | ✓ |
+| jaccard | 0.44 | ✗ |
+| h_x_var | 4.0e-13 | ✓ |
+| h_x_slope | 5.5e-05 | ✓ |
+| h_dezorg_var | 5.5e-25 | ✓ |
+| h_dezorg_slope | 0.18 | ✗ |
+
+Fitness ujemny to artefakt małego okna (512 tokenów) → wyższa h_dezorg. Hierarchia food > predator > noise zachowana i istotna.
+
+### 3. Analiza asymetrii korpusu
+
+Rozkład długości przy progu 14000 znaków (~3500 tokenów):
+
+| Plik | >14k znaków | Wniosek |
+|------|-------------|---------|
+| food_* | 97-100% | OK |
+| predator_vaccines | 100% | OK |
+| predator_gmo | 99% | OK |
+| predator_alt_med | 45% | Wymagał uzupełnienia |
+| predator_cancer | 66% | Wymagał uzupełnienia |
+| predator_climate | 0% | CARDS/PlateClimatology — za krótkie |
+| noise_mixed | 0% | Fragmenty 50/50 — krótkie z definicji |
+
+**Wniosek:** h_x_var i h_x_slope jako metryki porównawcze między typami są confoundem długości przy obecnym korpusie. Mean jest zawsze porównywalny.
+
+### 4. Redefinicja noise
+
+**Stara definicja:** fragmenty 50/50 food+predator, losowo przetasowane. To jest sygnał zdegradowany, nie szum środowiskowy. Model widzi słownictwo domenowe bez kontekstu. Biologicznie: zepsuta żywność, nie tło środowiskowe.
+
+**Nowa definicja:** semantycznie spójny tekst z domen niezwiązanych z projektem (Wikipedia — historia, geografia, kultura). Artykuły Wikipedia >3500 tokenów → pełny profil 5-chunkowy, brak confoundu długości.
+
+### 5. Decyzje korpus v3
+
+- **predator_alt_med i predator_cancer:** uzupełnione przez rozszerzenie zakresu lat scraperA Mercola (2021→2026). Wynik: min 14141 i 14093 znaków ✓
+- **predator_climate:** nowe źródło wattsupwiththat.com (Selenium scraper — requests blokowany przez rate limiting). Scraper `scripts/scrape_wuwt_selenium.py` z `--start-page`. Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
+- **noise_mixed → Wikipedia noise:** 80 artykułów z niezwiązanych domen, >3500 tokenów. Do implementacji.
+- **Parametry docelowe Phase 0 run v3:** window_size=1024, n_windows=3. Pokrywa 90% predatora (od p10=3168 tokenów) przy pełnym profilu.
+
+### Infrastructure updates
+- `src/analysis/phase0_metric_validation.py` — percentile chunking, nowe metryki profilowe, `gen_cfg` z YAML
+- `scripts/scrape_mercola_domain.py` — +climate domain, MIN_CHARS=14000, lata 2015-2026
+- `scripts/scrape_wuwt_selenium.py` — nowy scraper WUWT przez Selenium z `--start-page`
+- `scripts/scrape_joannenova.py` — zbudowany i odrzucony (artykuły <3000 znaków)
+- `corpus_strategy_20260428.md` — sekcja 2 zaktualizowana: stan v2→v3
+- `validation_protocol.md` — nowy plik, sekcja Percentile Sampling
+- `EvoLLM_notatki_robocze.md` — kluczowe ustalenia sesji
+- `EvoLLM_wnioski_20260502.md` — pełne wnioski badawcze
+
+### Next session priorities
+1. Zebrać 80 artykułów predator_climate z WUWT (scraper w trakcie)
+2. Zbudować Wikipedia noise (80 artykułów, skrypt do napisania)
+3. Puścić Phase 0 run v3: window_size=1024, n_windows=3, korpus v3
+4. Sprawdzić czy fitness wraca do wartości dodatnich przy window_size=1024
+5. Zdokumentować Methods: percentile sampling jako document-length-invariant improvement
+
+---
+
+## 2026-05-04 — Session 7: LD50 titration, Phase 0 closure
+
+### Cel sesji
+Przeprowadzenie eksperymentu LD50 (gradient toksyczności), walidacja gradientowa korpusu v3, zamknięcie Phase 0.
+
+### 1. Kanoniczny run Phase 0 v3 (phase0_metrics_20260504T082632Z)
+
+Parametry kanoniczne:
+- window_size=1024, n_windows=3
+- temperature=0.0, do_sample=False
+- seed_text: "Climate and vaccine discourse requires coherent, evidence-grounded synthesis."
+- Korpus: v3, 880 docs, data/v2/corpus_manifest_v3.json
+
+Metryki skuteczne (paper-ready):
+
+| Metryka | food vs toxin p-value | effect r | Status |
+|---------|-----------------------|----------|--------|
+| c_x | 6.7e-18 | -0.352 | ✓ |
+| h_dezorg | 1.5e-29 | +0.461 | ✓ |
+| fitness | hierarchia food > toxin > noise | — | ✓ |
+
+Metryki nieefektywne (odnotować w Methods):
+- h_x: food vs toxin p=0.587 — mimikra (wynik pozytywny, potwierdzony)
+- i_x_seed: food vs toxin p=0.052 — bag-of-words proxy zbyt gruby
+
+### 2. Eksperyment LD50 (ld50_20260504T131904Z)
+
+Protokół: 7 stężeń toksyny × N=80 dokumentów, seed=42.
+Manifest: `data/ld50/ld50_corpus_manifest.json`
+
+| Stężenie T% | Opis |
+|-------------|------|
+| 0% | 100% food |
+| 10% | 10% toxin / 90% food |
+| 25% | 25% toxin / 75% food |
+| 50% | 50% toxin / 50% food |
+| 75% | 75% toxin / 25% food |
+| 90% | 90% toxin / 10% food |
+| 100% | 100% toxin |
+
+Korelacje Pearsona (T% vs metryka):
+- c_x: r=-0.905, p=0.005
+- h_dezorg: r=+0.849, p=0.016
+- fitness: r=-0.921, p=0.003
+
+**Kluczowy wynik:** Odpowiedź gradualna i liniowa, brak progu krytycznego. LD50 klasyczne nieestymowalne (brak punktu EC50) — to jest wynik, nie błąd metodologiczny. Model bazowy jest odporny na titrację — nie ma "dawki lethalnej" po której nastąpi nagły kolaps metryk.
+
+### 3. Hipoteza diagnostyczna H_diag
+
+h_dezorg reaguje wcześniej (przy T=50-75%), c_x degraduje się późno (T=75-100%). Implikacja: h_dezorg jest wczesnym markerem toksyczności, c_x jest późnym markerem. Do formalnej weryfikacji przez `scripts/analyze_ld50_thresholds.py` (do napisania).
+
+### 4. Decyzje metodologiczne
+
+**I(X;seed) — bag-of-words cosine similarity:** świadomy wybór dla przejrzystości i reprodukowalności. Zmiana na embedding-based wymagałaby rekalibracji całego pipeline. Utrzymane as-is przez wszystkie fazy. Ograniczenie odnotowane w Discussion Paper 1.
+
+**Odporność na seed:** przypadkowo zweryfikowana — wszystkie 3 runy Phase 0 miały różne lub nieoptymalnie zdefiniowane seed_text. c_x i h_dezorg stabilne niezależnie od seed. i_x_seed słabe we wszystkich 3 runach — zgodne z oczekiwaniami.
+
+**Zmiana terminologii:** `predator` → `toxin` (zatruwa, nie poluje). Spójne z frameworkiem LD50, metabolic decay, dose-response. Wymaga rename plików w repo przed Phase 1.
+
+### 5. Phase 0 — ZAMKNIĘTA
+
+Kanoniczne runy (chronologicznie):
+1. `phase0_metrics_20260501T160337Z` — single-window 2048, ZAMROŻONY jako baseline
+2. `phase0_metrics_20260502T000503Z` — percentile 5×512, rehabilitacja h_x
+3. `phase0_metrics_20260504T082632Z` — percentile 3×1024, KANONICZNY
+4. `ld50_20260504T131904Z` — titration 7 stężeń, walidacja gradientowa
+
+### Files updated this session
+| Plik | Akcja |
+|------|-------|
+| `docs/validation_protocol.md` | Dodano sekcję Phase 0 — ZAMKNIĘTA |
+| `corpus_strategy_20260428.md` | Dodano sekcję walidacja gradientowa |
+| `EvoLLM_notatki_robocze.md` | Dodano kluczowe ustalenia sesji |
+| `EvoLLM_wnioski_20260504.md` | Nowy plik — pełne wnioski badawcze |
+| `config/phase0_v3.yaml` | Config kanonicznego runu v3 |
+
+### Do zrobienia przed Phase 1
+- [ ] rename `predator_*` → `toxin_*` w repo
+- [ ] `git tag phase0-final`
+- [ ] `scripts/analyze_ld50_thresholds.py` — formalna weryfikacja H_diag

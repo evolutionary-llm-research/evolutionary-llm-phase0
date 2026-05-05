@@ -1,3 +1,15 @@
+## Walidacja gradientowa (2026-05-04)
+
+LD50 titration: 7 stężeń × N=80, seed=42.
+Manifest: data/ld50/ld50_corpus_manifest.json
+Run: experiments/ld50_20260504T131904Z
+
+Korelacje Pearsona (T% vs metryka):
+- c_x: r=-0.905, p=0.005
+- h_dezorg: r=+0.849, p=0.016
+- fitness: r=-0.921, p=0.003
+
+Wniosek: gradient monotonicznie uporządkowany, brak nieciągłości. Kontrast food/toxin jest rzeczywisty i mierzalny ilościowo.
 # EvoLLM Corpus: Strategia i Architektura
 *Wygenerowane: 2026-04-28 | Uzupełnienie do wnioski_20260427.md*
 
@@ -41,20 +53,19 @@ porównaj efekty z ClimateFever. Potwierdza lub falsyfikuje hipotezę stylu.
 
 ---
 
-## 2. Aktualne braki korpusu i priorytety
+## 2. Stan korpusu v2 → v3 (aktualizacja 2026-05-02)
 
-| Domena         | Food (N) | Predator (N) | Status predatora |
-|----------------|----------|--------------|------------------|
-| climate        | 26       | 32           | Dobry (ClimateFever) |
-| vaccines       | 23       | 23           | Anomalny (VaccineLies) — WYMAGA WYMIANY |
-| covid          | 52       | 61           | Średni (CoAID + syntetyczny) |
-| alt_med        | 0        | 0            | Do zbudowania |
-| gmo            | 0        | 0            | Do zbudowania |
+| Plik | v2 status | v3 status | Źródło |
+|------|-----------|-----------|--------|
+| food_* (5 domen) | 77-80 docs | bez zmian | PMC |
+| predator_vaccines | 80 docs OK | bez zmian | Mercola |
+| predator_gmo | 80 docs OK | bez zmian | Mercola |
+| predator_alt_med | 80 docs, 45% za krótkie | 80 docs, min 14141 znaków ✓ | Mercola 2015-2026 |
+| predator_cancer | 80 docs, 66% za krótkie | 80 docs, min 14093 znaków ✓ | Mercola 2015-2026 |
+| predator_climate | 80 docs CARDS/PlateClim. | W budowie — WUWT Selenium | wattsupwiththat.com |
+| noise_mixed | 80 docs, 0% >3500 tokenów | Do wymiany — Wikipedia | Wikipedia API |
 
-**Priorytet 1:** wymiana predatora szczepionki na autentyczny język
-(webscraping NaturalNews/HealthImpactNews z tagiem "vaccines").
-
-**Priorytet 2:** zbudowanie alt_med i GMO do Paper 1.
+**Kryterium długości v3:** MIN_CHARS=14000 znaków (~3500 tokenów), wymóg pełnego profilu 3-chunkowego przy window_size=1024.
 
 ---
 

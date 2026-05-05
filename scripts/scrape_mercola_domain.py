@@ -6,10 +6,11 @@ robots.txt: no Disallow on article content, no crawl-delay specified
 Years: 2015-2021
 
 Usage:
-    python scrape_mercola_domain.py --domain vaccines --max 240
-    python scrape_mercola_domain.py --domain alt_med --max 240
-    python scrape_mercola_domain.py --domain cancer --max 240
-    python scrape_mercola_domain.py --domain gmo --max 240
+    python scrape_mercola_domain.py --domain climate --max 120
+    python scrape_mercola_domain.py --domain alt_med --max 120
+    python scrape_mercola_domain.py --domain cancer --max 120
+    python scrape_mercola_domain.py --domain vaccines --max 120
+    python scrape_mercola_domain.py --domain gmo --max 120
 
 Output: data/v2/predator_{domain}_mercola.jsonl
 """
@@ -29,7 +30,7 @@ log = logging.getLogger(__name__)
 
 BASE_URL = "https://articles.mercola.com"
 SITEMAP_PATTERN = f"{BASE_URL}/sitemap-{{year}}.aspx"
-YEARS = list(range(2021, 2014, -1))  # 2021 down to 2015
+YEARS = list(range(2026, 2014, -1))  # 2021 down to 2015
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -40,10 +41,27 @@ HEADERS = {
 }
 
 CRAWL_DELAY = 3
-MIN_CHARS = 500
+MIN_CHARS = 14000  # ~3500 tokenow, wymog pelnego profilu 3-chunkowego przy window_size=1024
 
-# Per-domain keyword config
 DOMAIN_CONFIG = {
+    "climate": {
+        "keywords": [
+            "climate change", "global warming", "carbon dioxide", "co2",
+            "greenhouse gas", "climate lockdown", "climate agenda",
+            "climate fraud", "climate hoax", "climate myth",
+            "climate science", "climate policy", "carbon tax",
+            "green new deal", "paris agreement", "climate emergency",
+            "geoengineering", "chemtrail", "weather modification",
+            "fossil fuel", "renewable energy", "solar panels",
+            "wind turbine", "electric vehicle", "net zero",
+            "ipcc", "climate model", "temperature record",
+            "arctic ice", "sea level", "climate data",
+            "co2 benefits", "plant food co2", "climate skeptic",
+            "climate alarmism", "climate cult",
+        ],
+        "id_prefix": "PREDATOR_CLIMATE_MERCOLA",
+        "domain": "climate",
+    },
     "vaccines": {
         "keywords": [
             "vaccine", "vaccin", "immuniz", "immunis", "herd immunity",
@@ -179,8 +197,9 @@ def scrape_article(url: str, title_hint: str, idx: int, config: dict) -> dict | 
     body_text = body_el.get_text(separator=" ", strip=True)
     content = re.sub(r"\s+", " ", glance_text + body_text).strip()
 
+    # Filtr dlugosci - kluczowy dla profilu 3-chunkowego przy window_size=1024
     if len(content) < MIN_CHARS:
-        log.info(f"REJECT (short {len(content)} chars): {title_hint[:60]}")
+        log.info(f"REJECT (short {len(content)} < {MIN_CHARS} chars): {title_hint[:60]}")
         return None
 
     content_lower = content[:500].lower()
@@ -211,9 +230,9 @@ def scrape_article(url: str, title_hint: str, idx: int, config: dict) -> dict | 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--domain", required=True, choices=list(DOMAIN_CONFIG.keys()),
-                        help="Domain to scrape: vaccines, alt_med, cancer, gmo")
-    parser.add_argument("--max", type=int, default=240,
-                        help="Max articles to collect")
+                        help="Domain to scrape: climate, vaccines, alt_med, cancer, gmo")
+    parser.add_argument("--max", type=int, default=120,
+                        help="Max articles to collect (default 120, wyzszy od 80 bo filtr dlugosci odrzuca krotkie)")
     parser.add_argument("--output", default=None,
                         help="Output path (default: data/v2/predator_{domain}_mercola.jsonl)")
     args = parser.parse_args()
@@ -222,17 +241,16 @@ def main():
     output_path = Path(args.output or f"data/v2/predator_{args.domain}_mercola.jsonl")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    log.info(f"Domain: {args.domain} | Target: {args.max} articles")
+    log.info(f"Domain: {args.domain} | Target: {args.max} | Min length: {MIN_CHARS} chars (~{MIN_CHARS//4} tokens)")
     log.info(f"Keywords ({len(config['keywords'])}): {', '.join(config['keywords'][:5])}...")
 
-    # Step 1: collect candidates
     log.info("Step 1: Collecting article URLs from sitemaps...")
     candidates = []
     for year in YEARS:
         year_candidates = get_article_urls_from_sitemap(year, config["keywords"])
         candidates.extend(year_candidates)
         time.sleep(CRAWL_DELAY)
-        if len(candidates) >= args.max * 2:
+        if len(candidates) >= args.max * 3:
             log.info(f"Collected {len(candidates)} candidates, stopping sitemap scan.")
             break
 
@@ -242,7 +260,6 @@ def main():
         log.error("No candidates found. Check keywords or sitemap access.")
         return
 
-    # Step 2: scrape
     log.info("Step 2: Scraping articles...")
     accepted = 0
     rejected = 0
@@ -260,7 +277,7 @@ def main():
                 f.write(json.dumps(doc, ensure_ascii=False) + "\n")
                 accepted += 1
                 idx += 1
-                log.info(f"  ACCEPT ({doc['metadata']['char_count']} chars)")
+                log.info(f"  ACCEPT ({doc['metadata']['char_count']} chars = ~{doc['metadata']['char_count']//4} tokens)")
             else:
                 rejected += 1
 
