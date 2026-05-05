@@ -369,18 +369,24 @@ document.querySelectorAll('nav a').forEach(a=>{
 });
 </script>
 
-<script type="text/babel" src="figures/simulation.jsx" data-type="module"></script>
-<script type="text/babel" src="figures/mi_visualization.jsx" data-type="module"></script>
-<script type="text/babel" src="figures/ld50_visualization.jsx" data-type="module"></script>
+<script type="text/babel" src="figures/simulation.jsx"></script>
+<script type="text/babel" src="figures/mi_visualization.jsx"></script>
+<script type="text/babel" src="figures/ld50_visualization.jsx"></script>
 
 <script>
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    if(window.Simulation){ReactDOM.createRoot(document.getElementById('sim-root')).render(React.createElement(window.Simulation))}
-    if(window.MIViz){ReactDOM.createRoot(document.getElementById('mi-root')).render(React.createElement(window.MIViz))}
-    if(window.LD50Visualization){ReactDOM.createRoot(document.getElementById('ld50fig-root')).render(React.createElement(window.LD50Visualization))}
-  },2000);
-});
+(function mountFigures() {
+  var attempts = 0;
+  var interval = setInterval(function() {
+    attempts++;
+    var allReady = window.Simulation && window.MIViz && window.LD50Visualization;
+    if (allReady || attempts > 40) {
+      clearInterval(interval);
+      if (window.Simulation) ReactDOM.createRoot(document.getElementById('sim-root')).render(React.createElement(window.Simulation));
+      if (window.MIViz)       ReactDOM.createRoot(document.getElementById('mi-root')).render(React.createElement(window.MIViz));
+      if (window.LD50Visualization) ReactDOM.createRoot(document.getElementById('ld50fig-root')).render(React.createElement(window.LD50Visualization));
+    }
+  }, 250);
+})();
 </script>
 
 </body>
