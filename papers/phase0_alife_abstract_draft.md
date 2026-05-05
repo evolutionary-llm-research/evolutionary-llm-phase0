@@ -1,7 +1,10 @@
 # Phase 0 — Structured Scientific Summary
+
 ## Target: *Artificial Life* (MIT Press) — Letter / Extended Abstract
+
 **Status:** Draft v1 | 2026-05-05  
-**Authors:** Karol Malota, University of Silesia  
+**Author:** Dr. Karol Malota  
+**Affiliations:** Institute of Biology, Biotechnology and Environmental Protection, University of Silesia in Katowice, Bankowa 9, 40-007, Katowice, Poland; SPIN-Lab Centre for Microscopic Studies on Matter, University of Silesia in Katowice, 75 Pułku Piechoty 1a, 41-500, Chorzów, Poland  
 **System:** qwen3:8b-base · Unsloth 4-bit · Threadripper 7960X · RTX 4090
 
 ---
