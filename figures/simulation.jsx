@@ -1,4 +1,4 @@
-import { useState } from "react";
+const { useState } = React;
 
 // ─── REAL DATA FROM PHASE 0 v3 CANONICAL RUN ─────────────────────────────────
 // experiments/phase0_metrics_20260504T082632Z
@@ -115,7 +115,7 @@ function PValueBadge({ p, label }) {
   );
 }
 
-export default function Simulation() {
+function Simulation() {
   const [active, setActive] = useState(null);
   const [step, setStep] = useState(0);
   const cond = active ? CONDITIONS.find(c => c.id === active) : null;
@@ -333,3 +333,5 @@ export default function Simulation() {
     </div>
   );
 }
+
+window.Simulation = Simulation;

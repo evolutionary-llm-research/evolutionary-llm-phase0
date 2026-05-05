@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+const { useState, useEffect } = React;
 
 // Simulated tokenization - realistic subword splits
 const VOCAB = {
@@ -101,7 +101,7 @@ function getMatchColor(seedId, descId, condition) {
   return null;
 }
 
-export default function MIViz() {
+function MIViz() {
   const [active, setActive] = useState("food");
   const [highlight, setHighlight] = useState(null);
   const [animStep, setAnimStep] = useState(0);
@@ -409,3 +409,4 @@ export default function MIViz() {
     </div>
   );
 }
+window.MIViz = MIViz;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+const { useState } = React;
 
 // ─── REAL DATA FROM LD50 TITRATION EXPERIMENT ────────────────────────────────
 // experiments/ld50_20260504T131904Z
@@ -81,7 +81,7 @@ function LineChart({ data, yKey, color, yMin, yMax, label, sigKey }) {
 
 const BASELINE_FIT = -0.028;
 
-export default function LD50Visualization() {
+function LD50Visualization() {
   const [activeMetric, setActiveMetric] = useState("cx");
   const [showFitness, setShowFitness] = useState(false);
 
@@ -210,3 +210,5 @@ export default function LD50Visualization() {
     </div>
   );
 }
+
+window.LD50Visualization = LD50Visualization;
