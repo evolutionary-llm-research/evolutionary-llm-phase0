@@ -71,6 +71,16 @@
 
   .run-table-wrap{overflow-x:auto}
 
+  .supp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem}
+  .supp-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:1rem}
+  .supp-card .k{font-family:monospace;color:#8b949e;font-size:.75rem;letter-spacing:.7px;margin-bottom:.35rem}
+  .supp-card .v{font-family:monospace;color:#f0f6fc;font-size:1.2rem}
+  .sample-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+  .sample-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:1rem}
+  .sample-card h4{font-size:.82rem;font-family:monospace;letter-spacing:.8px;color:#8b949e;margin-bottom:.75rem}
+  .sample-card .mini{font-size:.77rem;color:#8b949e;font-family:monospace;margin-bottom:.55rem}
+  .sample-card .excerpt{font-size:.84rem;color:#c9d1d9;line-height:1.55}
+
   footer{background:#010409;border-top:1px solid #30363d;padding:2rem 0;text-align:center;font-size:.8rem;color:#6e7681}
   footer a{color:#58a6ff}
 </style>
@@ -95,6 +105,7 @@
     <li><a href="#progression">Run progression</a></li>
     <li><a href="#results">Canonical results</a></li>
     <li><a href="#ld50">LD50 titration</a></li>
+    <li><a href="#supplementary">Supplementary</a></li>
     <li><a href="#figures">Interactive figures</a></li>
   </ul>
 </nav>
@@ -267,6 +278,59 @@
   </div>
 </section>
 
+<!-- SUPPLEMENTARY -->
+<section id="supplementary">
+  <div class="container">
+    <h2>Supplementary mini-rerun (Q1/Q2/Q3 text evidence)</h2>
+    <p style="color:#8b949e;font-size:.9rem;margin-bottom:1.2rem">Run: <code>phase0_metrics_20260506T083113Z</code> (mini set: 55 docs). Goal: add qualitative evidence for trajectory drift across percentile windows Q1, Q2, Q3. Canonical statistics remain anchored to the full N=880 run.</p>
+
+    <div class="supp-grid">
+      <div class="supp-card">
+        <div class="k">sample size</div>
+        <div class="v">food 25 / toxin 25 / noise 5</div>
+      </div>
+      <div class="supp-card">
+        <div class="k">Kruskal-Wallis (mini)</div>
+        <div class="v">C(X) p=0.0206, H(X)_var p=0.0483</div>
+      </div>
+      <div class="supp-card">
+        <div class="k">artifact</div>
+        <div class="v"><a href="results/metrics_phase0_supplement_mini_20260506.json">metrics_phase0_supplement_mini_20260506.json</a></div>
+      </div>
+    </div>
+
+    <div class="chart-label">Representative per-document trajectory (Q1→Q2→Q3, C(X))</div>
+    <div class="chart-wrap" style="height:240px"><canvas id="miniDriftChart" role="img" aria-label="Representative C(X) trajectories for food, toxin and noise from mini supplementary run">Representative Q1-Q3 trajectory plot.</canvas></div>
+
+    <h3 style="margin-top:1.6rem">Generated text snippets (model outputs)</h3>
+    <p style="color:#8b949e;font-size:.86rem;margin-bottom:1rem">Below are short excerpts of generated outputs from percentile windows. They are included for qualitative inspection of drift patterns, not for inferential statistics.</p>
+
+    <div class="sample-grid">
+      <div class="sample-card">
+        <h4>FOOD_CLIMATE_0004</h4>
+        <div class="mini">C(X): Q1=0.355, Q2=0.391, Q3=0.607</div>
+        <div class="excerpt"><strong>Q1:</strong> "Sample collection is a critical step in marine mammal research..."<br><strong>Q2:</strong> "The ethics of using noninvasive methods in animal research..."<br><strong>Q3:</strong> "Effects of marine mammal noise on fish: A review..."</div>
+      </div>
+
+      <div class="sample-card">
+        <h4>TOXIN_CLIMATE_WUWT_0001</h4>
+        <div class="mini">C(X): Q1=0.147, Q2=0.249, Q3=0.346</div>
+        <div class="excerpt"><strong>Q1:</strong> repetitive loop: "The relationship is not linear..." repeated many times<br><strong>Q2:</strong> repeated phrase block: "The method does not account for the effects of clouds..."<br><strong>Q3:</strong> citation-like list with repeated templates</div>
+      </div>
+
+      <div class="sample-card">
+        <h4>NOISE_WIKIPEDIA_0010</h4>
+        <div class="mini">C(X): Q1=0.222, Q2=0.237, Q3=0.319</div>
+        <div class="excerpt"><strong>Q1:</strong> repeated broadcasting sentence pattern<br><strong>Q2:</strong> repeated "blacked out on ESPN" pattern<br><strong>Q3:</strong> repetitive schedule template with incremental time shifts</div>
+      </div>
+    </div>
+
+    <div class="annotation" style="margin-top:1.2rem">
+      <strong>Copyright note:</strong> this section displays model outputs from diagnostic prompts, not raw source corpus text. Raw corpus files remain non-redistributed.
+    </div>
+  </div>
+</section>
+
 <!-- INTERACTIVE FIGURES -->
 <section id="figures">
   <div class="container">
@@ -341,6 +405,10 @@ new Chart(document.getElementById('hdChart'),{
 const ld50T = [0,10,25,50,75,90,100];
 const ld50CX = [0.382,0.378,0.384,0.361,0.341,0.329,0.349];
 const ld50HD = [0.845,0.845,0.816,0.864,0.884,0.883,0.890];
+const miniQ = ['Q1','Q2','Q3'];
+const miniFoodCX = [0.355,0.391,0.607];
+const miniToxinCX = [0.147,0.249,0.346];
+const miniNoiseCX = [0.222,0.237,0.319];
 
 new Chart(document.getElementById('ld50Chart'),{
   type:'line',
@@ -368,6 +436,16 @@ new Chart(document.getElementById('ld50Chart'),{
       grid:{drawOnChartArea:false}
     }
   }}
+});
+
+new Chart(document.getElementById('miniDriftChart'),{
+  type:'line',
+  data:{labels:miniQ,datasets:[
+    {label:'food sample C(X)',data:miniFoodCX,borderColor:'#3fb950',backgroundColor:'#3fb95015',borderWidth:2,pointRadius:4,tension:0.25},
+    {label:'toxin sample C(X)',data:miniToxinCX,borderColor:'#f85149',backgroundColor:'#f8514915',borderWidth:2,pointRadius:4,borderDash:[5,3],tension:0.25},
+    {label:'noise sample C(X)',data:miniNoiseCX,borderColor:'#8b949e',backgroundColor:'#8b949e15',borderWidth:2,pointRadius:4,borderDash:[2,2],tension:0.25}
+  ]},
+  options:{...sharedOpts,scales:{...sharedOpts.scales,y:{...sharedOpts.scales.y,min:0.1,max:0.65}}}
 });
 
 function showFig(id, btn){

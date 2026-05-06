@@ -103,6 +103,16 @@ Pearson correlations vs. concentration: C(X) r=−0.905 (p=0.005), fitness r=−
 
 ---
 
+## Canonical vs Supplementary
+
+- Frozen canonical checkpoint: tag v0.1-phase0
+- Canonical artifact (used for core statistical claims): results/metrics_phase0.json
+- Supplementary qualitative artifact (Q1/Q2/Q3 generated text windows): results/metrics_phase0_supplement_mini_20260506.json
+
+The supplementary mini-rerun uses a reduced sample (55 docs total) and is intended for qualitative drift illustration on the project page. It does not replace canonical inferential analysis from the full N=880 corpus.
+
+---
+
 ## Interactive Figures
 
 The `figures/` directory contains three React components for interactive exploration of Phase 0 results. To view them, paste the `.jsx` file content into [Claude.ai Artifacts](https://claude.ai) or any React sandbox (CodeSandbox, StackBlitz).
@@ -149,3 +159,5 @@ Code: MIT License — see `LICENSE`
 Aggregated results (`results/`): CC BY 4.0 — free to use with attribution
 
 Raw corpus: not redistributed — see corpus reproduction instructions above
+
+Website note: index.html contains a Supplementary section that visualizes representative Q1→Q2→Q3 trajectories and short generated-output excerpts from the mini-rerun artifact above.
