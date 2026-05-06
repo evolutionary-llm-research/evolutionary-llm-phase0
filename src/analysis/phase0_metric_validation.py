@@ -116,6 +116,7 @@ def run_phase0_metric_validation(
     phase0_cfg = config.get("phase0_validation", {})
     seed_text = str(phase0_cfg.get("seed_text", ""))
     corpus_files = phase0_cfg.get("corpus_files", [])
+    save_chunk_texts = bool(phase0_cfg.get("save_chunk_texts", False))
 
     # Load Unsloth Qwen3-8B-Base in 4bit
     model_name = "unsloth/qwen3-8b-base-unsloth-bnb-4bit"
@@ -230,6 +231,11 @@ def run_phase0_metric_validation(
                     for c in chunk_metrics
                     for k in ["h_x", "c_x", "i_x_seed", "h_dezorg", "jaccard"]
                 }
+                chunk_text_profile = (
+                    {f"gen_text_Q{c['q_id']}": c["gen_text"] for c in chunk_metrics}
+                    if save_chunk_texts
+                    else {}
+                )
 
                 h_x      = _mean("h_x")
                 c_x      = _mean("c_x")
@@ -261,6 +267,7 @@ def run_phase0_metric_validation(
                     "h_dezorg_slope": _slope("h_dezorg"),
                     # pelny profil kwartylow
                     **profile,
+                    **chunk_text_profile,
                     "model_output": chunk_metrics[-1]["gen_text"],
                 }
 
