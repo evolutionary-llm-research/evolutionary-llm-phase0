@@ -5,6 +5,80 @@ Chronological log of work sessions, decisions, and progress.
 
 ---
 
+## 2026-05-07 — Phase 1 infrastructure build, MI proxy replacement, documentation
+
+### Context
+
+Phase 0 was already statistically closed at tag `phase0-final`. Goal of this session:
+build Phase 1 computational infrastructure (trainer, population manager, biome orchestrator),
+replace the weak MI proxy with a proper information-theoretic implementation, run normality
+diagnostics, and update all project documentation.
+
+### Actions performed
+
+**Normality diagnostics**
+- Ran `src/analysis/normality_check.py` on Phase 0 canonical N=880 run.
+- Result: 14/15 groups non-normal (Shapiro-Wilk p < 0.05); 12/15 with p < 1e-5.
+- Only exception: H(X) for noise (N=80, p=0.87).
+- Documented in `docs/phase0_closure.md`; non-parametric framework confirmed.
+
+**Terminology and tag finalisation**
+- Renamed all `predator_*` → `toxin_*` across codebase (commit `c1d2cd3`).
+- Git tag `phase0-final` applied at commit `5834c53` (also includes `effective_complexity`
+  clipping fix: `min(ratio, 1.0)`).
+
+**Flash Attention and CUDA setup (WSL2)**
+- Flash Attention 2.8.3 installed in `evollm-wsl`.
+- `CUDA_HOME` set permanently in WSL2 `.bashrc`.
+
+**Phase 1 source modules implemented**
+- `src/evolution/trainer.py` — LoRA fine-tuning wrapper (Unsloth); unsloth import
+  moved to top for JIT optimisation (commit `23f67a8`).
+- `src/evolution/population.py` — agent state management, fitness-proportionate selection
+  (`select_parent` via softmax), reproduction counter; seed-dependent test replaced with
+  statistical verification (commits `cd0a9df`, `28cb562`, revert `4adcf01`, fix `bd3880c`).
+- `src/evolution/biome_runner.py` — full biome orchestration loop, JSD pairwise matrix,
+  `mean_jsd`, lazy GPU imports, checkpoint/resume, diagnostic prompt (commit `973c1a6`).
+
+**mutual_information_proxy replacement**
+- Old: cosine-similarity bag-of-words (Phase 0 showed r=-0.754, weak).
+- New: I(X;Y) = H(X) + H(Y) - H(X,Y), normalised by min(H(X),H(Y)), clamped [0,1].
+- New dedicated test file: `tests/test_metrics_mi.py` (5 tests, all pass).
+- Existing 14 tests in `tests/test_metrics_core.py` all still pass.
+- Commits: `cedcc54`.
+- Consequence: Phase 0 full rerun required. Old results archived under tag `phase0-final`;
+  new results will be tagged `phase0-final-v2`.
+
+**Documentation**
+- Created `docs/phase0_closure.md` — normality results, outlier incident, bimodality
+  false alarm.
+- Appended Phase 1 design decisions + MI replacement to `docs/design_decisions.md`.
+- Appended session summary to `EvoLLM_notatki_robocze.md`.
+- Commit: `7d325e7`.
+
+### Phase status after this session
+
+| Phase | Status | Note |
+|-------|--------|------|
+| Phase 0 | **CLOSED** (tag `phase0-final`) | Rerun for MI fix pending → will retag `phase0-final-v2` |
+| Phase 1 infrastructure | **COMPLETE** | trainer.py, population.py, biome_runner.py ready |
+| Phase 1 experiment | **PENDING** | Waiting for Phase 0 rerun and potential metric recalibration |
+
+### Files created / updated
+
+| File | Action | Notes |
+|------|--------|-------|
+| `src/evolution/trainer.py` | Created | Unsloth LoRA training wrapper |
+| `src/evolution/population.py` | Created | Agent state + evolutionary mechanics |
+| `src/evolution/biome_runner.py` | Created | Biome orchestration loop, JSD, checkpointing |
+| `src/metrics/core.py` | Modified | MI replaced with entropy decomposition |
+| `tests/test_metrics_mi.py` | Created | 5 entropy-decomposition MI unit tests |
+| `docs/phase0_closure.md` | Created | Normality results, outlier incident |
+| `docs/design_decisions.md` | Updated | Phase 1 decisions, MI replacement rationale |
+| `EvoLLM_notatki_robocze.md` | Updated | Session 2026-05-07 summary |
+
+---
+
 ## 2026-05-06 — Supplementary mini-rerun, freeze tag, and public dissemination
 
 ### Context
@@ -677,6 +751,100 @@ Dodano Mercola do `FILE_PRIORITY` w `audit_corpus.py` (wpisy były unknown/unkno
 Stan finalny toxina: wszystkie pięć domen po 80 dokumentów.
 
 ### 5. food_gmo uzupełnienie
+
+Znaleziono 6 nowych artykułów PMC z 2025-2026 (PMCIDs: PMC12969878, PMC13011801,
+PMC12846237, PMC12709226, PMC12641724, PMC12590857). food_gmo podniesiony do 77/80.
+Brakujące 3 niedostępne w PMC OA — zanotować w Methods.
+
+### 6. Phase 0 launch
+
+`python -m src.analysis.phase0_metric_validation --config config/phase0_rerun_v2.yaml`
+uruchomiony z seed 42. Progressive logging włączony — crash-resume działa.
+
+---
+
+## 2026-05-02 — Percentile sampling, H(X) rehabilitation, corpus v3 planning
+
+### Context
+
+Canonical single-window run (20260501T160337Z) wykazał H(X) food vs toxin p=0.77 —
+artefakt agresywnego ucięcia długich artykułów Mercola przy max_length=2048.
+Sesja poświęcona diagnozie i naprawie.
+
+### Findings
+
+- single-window truncation nie chwyta heterogeniczności dokumentu (body dezinformacji
+  leży często w drugiej połowie długich artykułów Mercola/NaturalNews).
+- Percentile chunking (podział dokumentu na N okien przesuwanych procentowo przez
+  całą długość) chwyta całość bez obcinania.
+- Rerun z 5×512 (percentile): H(X) p=8.2e-21 — sygnał odrestaurowany.
+
+### Decision: percentile sampling as standard
+
+- Parametry kanoniczne: n_windows=3, window_size=1024.
+- actual_windows = min(3, max(1, doc_len // 1024)).
+- Wymaganie dla corpus v3: noise musi mieć min ~3500 tokenów (Wikipedia paragrafy
+  zamiast 50/50 mix) żeby uniknąć confoundu długości.
+
+### Runs completed
+
+- 20260502T000503Z: percentile 5×512 — H(X) p=8.2e-21 (rehabilitacja)
+
+### Status after session
+
+Phase 0 parametry ustalone. Korpus v3 do przygotowania przed kanonicznym runem.
+
+---
+
+## 2026-05-04 — Phase 0 canonical run completion and LD50
+
+### Context
+
+Korpus v3 gotowy (Wikipedia noise, wszystkie 5 domen po 80 dok.). Sesja: kanoniczny
+run Phase 0 + LD50 titracja.
+
+### Runs completed
+
+1. `phase0_metrics_20260504T082632Z` — percentile 3×1024, N=880, KANONICZNY.
+2. `ld50_20260504T131904Z` — titracja 7 stężeń (0%, 12%, 25%, 37%, 50%, 75%, 100%).
+
+### Key Phase 0 canonical results (N=880)
+
+| Metric | food vs toxin p | r | Notes |
+|--------|----------------|---|-------|
+| c_x | 6.7e-18 | -0.352 | ✓ robust |
+| h_dezorg | 1.5e-29 | +0.461 | ✓ strongest |
+| fitness (composite) | 6.64e-26 | -0.430 | ✓ three-class |
+| h_x | 0.587 | — | mimicry (positive null) |
+| i_x_seed | 0.052 | — | bag-of-words proxy too coarse |
+
+Three-class hierarchy confirmed: food > toxin > noise (KW H=147.84, p=7.87e-33).
+
+### LD50 findings
+
+- Dose-response: gradual and linear, no critical threshold.
+- Base model resistant to titration — LD50 classique not estimable.
+- H_diag hypothesis: h_dezorg reacts at T=50-75%, c_x degrades at T=75-100%.
+
+### Phase 0 closure
+
+- Git tag `phase0-final` applied (initially at this commit; re-applied 2026-05-07
+  after predator→toxin rename at commit `5834c53`).
+- Fitness weights w1=0.3, w2=0.5, w3=0.2 frozen in `config/fitness_weights_sum1.yaml`.
+- All publication figures generated: `papers/phase0/figures_publication/generated/`.
+- ALife methodological letter abstract drafted.
+
+### Files created / updated
+
+| File | Notes |
+|------|-------|
+| `experiments/phase0_metrics_20260504T082632Z/` | Canonical Phase 0 run output |
+| `experiments/ld50_20260504T131904Z/` | LD50 titration output |
+| `src/analysis/phase0_metric_validation.py` | Percentile sampling added |
+| `papers/phase0/figures_publication/generated/*` | Publication figures (4 main + supplement) |
+| `papers/phase0/alife_methodological_letter_abstract.md` | ALife abstract draft |
+| `docs/phase0_validation_summary.md` | Full validation summary |
+| `docs/phase1_protocol.md` | Phase 1 protocol document |
 Dodano 6 nowych PMCIDów (artykuły glyphosate 2025-2026) do `supplement_food_gmo.py`.
 Wynik: 71 → 77/80. Pozostałe 3 niedostępne w PMC open access.
 Decyzja: 77/80 akceptowalne, zanotować w Methods.

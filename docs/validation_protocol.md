@@ -22,9 +22,16 @@
 - i_x_seed: food vs toxin p=0.052 — bag-of-words proxy, zbyt grube
 
 ### Do zrobienia przed Phase 1
-- [ ] rename toxin_* → toxin_* w repo
-- [ ] git tag phase0-final
+- [x] rename predator_* → toxin_* w repo (commit c1d2cd3, 2026-05-07)
+- [x] git tag phase0-final (commit 5834c53, 2026-05-07)
 - [ ] skrypt analyze_ld50_thresholds.py (hipoteza H_diag)
+- [x] effective_complexity clipping min(ratio,1.0) (commit 5834c53, 2026-05-07)
+- [ ] Phase 0 rerun z nowym I(X;Y) → tag phase0-final-v2
+
+### Uwaga: mutual_information_proxy (2026-05-07)
+Implementacja zmieniona z cosine-similarity bag-of-words na entropijną dekompozycję
+I(X;Y) = H(X)+H(Y)-H(X,Y), normalizowaną przez min(H(X),H(Y)).
+Wymagany pełny rerun Phase 0. Stare wyniki zachowane pod tagiem `phase0-final`.
 # EvoLLM — Validation Protocol
 
 *Stworzony: 2026-04-27 | Living document — aktualizowany po każdej sesji*
@@ -66,9 +73,23 @@ Ewolucja *nie* jest stwierdzona przez jednorazowy skok fitness lub zmianę bez r
 | disorganization_entropy_empty | H_dezorg("") = 0.0 | ✅ |
 | disorganization_entropy_sentence_mix | H_dezorg > 0 | ✅ |
 
-Wynik: **11/11 passed** (2026-04-22, pytest 9.0.3, Python 3.12.7).
+Wynik: **14/14 passed** (2026-05-07, pytest 9.0.3, Python 3.12.7).
+Liczba wzrosła z 11 → 14: dodano jaccard_similarity_identical/disjoint/partial_overlap.
 
-**Próg przejścia:** 11/11. Jakikolwiek failure blokuje Phase 0.
+**Uwaga (2026-05-07):** `mutual_information_proxy` zastąpione entropijną dekompozycją
+(I(X;Y)=H(X)+H(Y)-H(X,Y)). Wszystkie powyższe testy nadal przechodzą.
+Nowy dedykowany plik: `tests/test_metrics_mi.py` (5 testów, wszystkie zielone):
+
+| Test | Warunek | Status |
+|------|---------|--------|
+| test_identical_texts_returns_one | I(x,x) = 1.0 | ✅ (2026-05-07) |
+| test_disjoint_vocabularies_returns_zero | I(x,y) = 0.0 przy disjoint vocab | ✅ |
+| test_partial_overlap_returns_between_zero_and_one | 0 < I < 1 | ✅ |
+| test_empty_seed_returns_zero | I("", y) = 0.0 | ✅ |
+| test_empty_output_returns_zero | I(x, "") = 0.0 | ✅ |
+
+**Próg przejścia:** 14/14 (test_metrics_core.py) + 5/5 (test_metrics_mi.py).
+Jakikolwiek failure blokuje Phase 0 rerun i Phase 1.
 
 ---
 
