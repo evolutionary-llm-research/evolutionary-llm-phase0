@@ -22,6 +22,20 @@
 
 ---
 
+## Sesja 2026-05-07 — domknięcie decyzji i start rerunu po zmianie MI
+
+- Phase 0 closed: commits `5834c53`, `c1d2cd3`, tag `phase0-final`.
+- Flash Attention 2.8.3 installed, `CUDA_HOME` set in `.bashrc`.
+- `trainer.py` implemented (commit after import fix).
+- `population.py` implemented, statistical test for `select_parent` added.
+- `biome_runner.py` implemented with lazy GPU imports.
+- `mutual_information_proxy` replaced with entropy decomposition.
+- Phase 0 rerun in progress (canonical + LD50).
+- Pending: rerun results, recalibration of k and beta if needed,
+  tag `phase0-final-v2`, then Phase 1 start.
+
+---
+
 ## Sesja 2026-05-06 — mini-rerun pod materiał supplementary
 
 **Cel:** domknąć brakujące evidence jakościowe dryfu Q1/Q2/Q3 bez ruszania canonical run N=880.
