@@ -103,7 +103,15 @@ def fitness_score(
 
 
 def mutual_information_proxy(seed_text: str, output_text: str) -> float:
-    """Approximate mutual information using cosine similarity.
+    """Compute mutual information via entropy decomposition I(X;Y) = H(X)+H(Y)-H(X,Y).
+
+    Uses the identity I(X;Y) = H(X) + H(Y) - H(X,Y), where H(X,Y) is the
+    Shannon entropy of the token distribution of the concatenated text.
+    Normalized by min(H(X), H(Y)) to yield a value in [0, 1].
+
+    Tokenization: whitespace (consistent with shannon_entropy and H_dezorg).
+    Replaces: cosine similarity (bag-of-words) proxy.
+    Reason: information-theoretic consistency with H(X) and H_dezorg.
 
     Parameters
     ----------
@@ -115,27 +123,18 @@ def mutual_information_proxy(seed_text: str, output_text: str) -> float:
     Returns
     -------
     float
-        Cosine similarity in range [0, 1] for non-negative token counts.
+        Normalized mutual information in [0, 1].
+        Returns 0.0 if min(H(X), H(Y)) == 0.0.
     """
-    seed_counts = Counter(seed_text.lower().split())
-    output_counts = Counter(output_text.lower().split())
-    if not seed_counts or not output_counts:
+    hx = shannon_entropy(seed_text)
+    hy = shannon_entropy(output_text)
+    min_h = min(hx, hy)
+    if min_h == 0.0:
         return 0.0
-
-    all_tokens = set(seed_counts) | set(output_counts)
-    dot = 0.0
-    seed_norm = 0.0
-    output_norm = 0.0
-    for token in all_tokens:
-        a = float(seed_counts.get(token, 0))
-        b = float(output_counts.get(token, 0))
-        dot += a * b
-        seed_norm += a * a
-        output_norm += b * b
-
-    if seed_norm == 0.0 or output_norm == 0.0:
-        return 0.0
-    return dot / (math.sqrt(seed_norm) * math.sqrt(output_norm))
+    combined = seed_text + " " + output_text
+    hxy = shannon_entropy(combined)
+    mi = hx + hy - hxy
+    return max(0.0, min(1.0, mi / min_h))
 
 
 def disorganization_entropy(text: str) -> float:
