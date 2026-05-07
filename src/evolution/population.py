@@ -172,18 +172,12 @@ def select_parent(population: Population, rng: np.random.Generator) -> str:
         idx = int(rng.integers(len(agent_ids)))
         return agent_ids[idx]
 
-    # Softmax with temperature 1.0; subtract max for numerical stability.
-    # rng.multinomial(1, weights).argmax() is used instead of rng.choice(p=...)
-    # because choice() does CDF-inversion on a single uniform draw: with
-    # near-uniform weights (e.g. fitness values close to zero) that uniform
-    # can land outside the highest-weight bucket even when it is the mode.
-    # multinomial() draws from the true categorical distribution and avoids
-    # this artefact.
+    # Softmax with temperature 1.0; subtract max for numerical stability
     shifted = fitnesses - fitnesses.max()
     exp_vals = np.exp(shifted)
     weights = exp_vals / exp_vals.sum()
 
-    idx = int(np.argmax(rng.multinomial(1, weights)))
+    idx = int(rng.choice(len(agent_ids), p=weights))
     return agent_ids[idx]
 
 
