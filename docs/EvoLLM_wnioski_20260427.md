@@ -2,8 +2,8 @@
 
 ## Status na koniec dnia
 
-Phase 0 kanonicznie zakończony. Metryki walidują hipotezę (food ≠ predator ≠ noise).
-Odkrycie anomalii szczepionkowej zmienia podejście do budowy korpusu predator.
+Phase 0 kanonicznie zakończony. Metryki walidują hipotezę (food ≠ toxin ≠ noise).
+Odkrycie anomalii szczepionkowej zmienia podejście do budowy korpusu toxin.
 System jest gotowy do Phase 1 po rozwiązaniu blockerów infrastrukturalnych.
 
 ---
@@ -12,7 +12,7 @@ System jest gotowy do Phase 1 po rozwiązaniu blockerów infrastrukturalnych.
 
 **Problem:** Pierwotnie rozważano mierzenie H(X), C(X), I(X;seed) na dokumentach wejściowych.
 
-**Odrzucone z powodu confoundu długości:** Krótkie artykuły predator (pojedyncze twierdzenia
+**Odrzucone z powodu confoundu długości:** Krótkie artykuły toxin (pojedyncze twierdzenia
 z MBIB/LIAR) sztucznie zawyżają C(X) — krótszy tekst ma wyższy stosunek kompresji.
 Porównanie między typami dokumentów o różnych długościach byłoby artefaktem, nie sygnałem.
 
@@ -30,7 +30,7 @@ informacyjne właściwości *zachowania modelu*, nie *dokumentów*.
 | Typ | H(X) | C(X) | I(X;seed) | Jaccard | Fitness | N |
 |-----|------|------|-----------|---------|---------|---|
 | food | 5.503 | 0.526 | 0.0900 | 0.018 | +0.035 | 73 |
-| predator | 5.240 | 0.425 | 0.0717 | 0.021 | -0.024 | 116 |
+| toxin | 5.240 | 0.425 | 0.0717 | 0.021 | -0.024 | 116 |
 | noise | 5.771 | 0.564 | 0.0912 | 0.020 | +0.035 | 35 |
 
 **Kruskal-Wallis:**
@@ -44,23 +44,23 @@ informacyjne właściwości *zachowania modelu*, nie *dokumentów*.
 
 ## 3. Anomalia szczepionkowa — kluczowe odkrycie
 
-**Obserwacja:** Predator szczepionkowy (VaccineLies MisT) daje *odwrócony* kierunek
+**Obserwacja:** Toxin szczepionkowy (VaccineLies MisT) daje *odwrócony* kierunek
 dla I(X;seed): model po ekspozycji na dezinformację szczepionkową generuje output
 *bliższy* seedowi niż po ekspozycji na rzetelne artykuły naukowe.
 
-| Predator | I(X;seed) effect r | Kierunek |
+| Toxin | I(X;seed) effect r | Kierunek |
 |---------|-------------------|----------|
-| predator_climate (ClimateFever) | -0.607 | ✓ prawidłowy |
-| predator_vaccines (VaccineLies MisT) | +0.274 | ✗ odwrócony |
+| toxin_climate (ClimateFever) | -0.607 | ✓ prawidłowy |
+| toxin_vaccines (VaccineLies MisT) | +0.274 | ✗ odwrócony |
 
 **Hipoteza:** VaccineLies używa akademickiego stylu taksonomicznego ("claim X is false
 because Y"). Model base traktuje styl naukowy jako sygnał wysokiej jakości,
 niezależnie od treści. Efekt dezinformacji jest maskowany przez styl.
 
 ClimateFever i NaturalNews używają autentycznego języka internetowego (emocjonalny,
-potoczny, conspiracyjny) który destabilizuje model. To jest właściwy predator.
+potoczny, conspiracyjny) który destabilizuje model. To jest właściwy toxin.
 
-**Implikacja dla corpus building:** Źródłem predatora musi być autentyczny język
+**Implikacja dla corpus building:** Źródłem toxina musi być autentyczny język
 internetowy, nie akademicka taksonomia twierdzeń. MBIB, LIAR, VaccineLies MisT
 są nieodpowiednie jako główne źródła. NaturalNews, Mercola, WUWT — właściwe.
 
@@ -72,13 +72,13 @@ implikacje dla systemów detekcji. Style matters more than content for LLM respo
 
 ## 4. Analiza jakości korpusu (corpus_quality_analysis.py)
 
-Ranking predatorów według effect size r (food vs predator), H(X):
+Ranking toxinów według effect size r (food vs toxin), H(X):
 
-| Predator | H effect | C effect | I effect | Ocena |
+| Toxin | H effect | C effect | I effect | Ocena |
 |---------|---------|---------|---------|-------|
-| predator_climate (ClimateFever) | -0.823 | -0.851 | -0.607 | ✓ najlepszy |
-| predator_covid (CoAID cleaned) | -0.496 | -0.557 | -0.278 | ✓ dobry |
-| predator_vaccines (VaccineLies) | -0.797 | -0.774 | +0.274 | ✗ anomalny |
+| toxin_climate (ClimateFever) | -0.823 | -0.851 | -0.607 | ✓ najlepszy |
+| toxin_covid (CoAID cleaned) | -0.496 | -0.557 | -0.278 | ✓ dobry |
+| toxin_vaccines (VaccineLies) | -0.797 | -0.774 | +0.274 | ✗ anomalny |
 
 **CoAID cleanup:** 102/141 dokumentów usuniętych (72%) — artefakty webscraping
 (Facebook UI, HTTP errors, duplicate headers). Pozostałe 39 autentycznych + 22
@@ -86,7 +86,7 @@ syntetyczne dokumenty taksonomiczne = 61 total.
 
 **Korelacja Jaccard ↔ I(X;seed):**
 - food: r=0.597 (p=2.5e-08)
-- predator: r=0.642 (p=8.6e-15)
+- toxin: r=0.642 (p=8.6e-15)
 - noise: r=0.491 (p=0.003)
 
 Wszystkie poniżej 0.8 → Jaccard nie jest redundantny. Justified for Phase 2 fitness.
@@ -101,8 +101,8 @@ Per każdą długość: H(X), C(X), I(X;seed), KW p-value, Cliff's delta.
 **Wyniki:**
 - Od 50 tokenów: wszystkie metryki istotne (p < 1e-17 dla H, Cliff's delta > 0.69 dla I)
 - C(X) delta odwraca znak między 150 a 200 tokenami:
-  - 150 tokenów: C delta = -0.22 (predator niższa złożoność niż food)
-  - 200 tokenów: C delta = +0.23 (predator wyższa złożoność — stabilna interpretacja)
+  - 150 tokenów: C delta = -0.22 (toxin niższa złożoność niż food)
+  - 200 tokenów: C delta = +0.23 (toxin wyższa złożoność — stabilna interpretacja)
 
 **Decyzja:** Minimalna długość wyjścia = 200 tokenów. Próg konieczny dla stabilnych
 kierunków efektów. Zapisany do `docs/metric_definitions.md`.
@@ -111,8 +111,8 @@ kierunków efektów. Zapisany do `docs/metric_definitions.md`.
 
 ## 6. Otwarte zadania po sesji 3
 
-- [ ] Style swap test: predator_vaccines_mercola vs predator_vaccines_legacy
-- [ ] Zbudować alt_med i GMO predator (5 domen = Paper 1 requirement)
+- [ ] Style swap test: toxin_vaccines_mercola vs toxin_vaccines_legacy
+- [ ] Zbudować alt_med i GMO toxin (5 domen = Paper 1 requirement)
 - [ ] DTW protocol implementation przed Phase 2
 - [ ] Ubuntu 22.04 migration (TCP blocked w WSL2)
 - [ ] Streamlit dashboard deployment

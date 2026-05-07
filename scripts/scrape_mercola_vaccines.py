@@ -5,7 +5,7 @@ Scrapes anti-vaccine articles from articles.mercola.com archive sitemaps.
 robots.txt (articles.mercola.com): no Disallow on article content, no crawl-delay
 Years: 2015-2021 (post-2021 articles deleted after 48h under regulatory pressure)
 
-Usage: python scrape_mercola_vaccines.py --max 80 --output data/v2/predator_vaccines_mercola.jsonl
+Usage: python scrape_mercola_vaccines.py --max 80 --output data/v2/toxin_vaccines_mercola.jsonl
 """
 
 import requests
@@ -158,9 +158,9 @@ def scrape_article(url: str, title_hint: str, idx: int) -> dict | None:
     pub_date = year_match.group(1).replace("/", "-") if year_match else ""
 
     return {
-        "id": f"PREDATOR_VACCINES_MERCOLA_{idx:04d}",
+        "id": f"TOXIN_VACCINES_MERCOLA_{idx:04d}",
         "domain": "vaccines",
-        "type": "predator",
+        "type": "toxin",
         "content": content,
         "metadata": {
             "title": title,
@@ -175,7 +175,7 @@ def scrape_article(url: str, title_hint: str, idx: int) -> dict | None:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="data/v2/predator_vaccines_mercola.jsonl")
+    parser.add_argument("--output", default="data/v2/toxin_vaccines_mercola.jsonl")
     parser.add_argument("--max", type=int, default=80)
     args = parser.parse_args()
 

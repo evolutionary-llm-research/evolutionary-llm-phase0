@@ -5,9 +5,9 @@
     "p_bonferroni_sig": false,
     "effect_r": 0.022174999999999945,
     "mean_food": 4.94098217963551,
-    "mean_predator": 5.049305541728618,
+    "mean_toxin": 5.049305541728618,
     "n_food": 400,
-    "n_predator": 400
+    "n_toxin": 400
   },
   {
     "metric": "c_x",
@@ -15,9 +15,9 @@
     "p_bonferroni_sig": true,
     "effect_r": -0.35214999999999996,
     "mean_food": 0.40772039541511906,
-    "mean_predator": 0.33141228784395094,
+    "mean_toxin": 0.33141228784395094,
     "n_food": 400,
-    "n_predator": 400
+    "n_toxin": 400
   },
   {
     "metric": "i_x_seed",
@@ -25,9 +25,9 @@
     "p_bonferroni_sig": false,
     "effect_r": -0.0794187500000001,
     "mean_food": 0.054308988728932465,
-    "mean_predator": 0.0500447177692233,
+    "mean_toxin": 0.0500447177692233,
     "n_food": 400,
-    "n_predator": 400
+    "n_toxin": 400
   },
   {
     "metric": "jaccard",
@@ -35,9 +35,9 @@
     "p_bonferroni_sig": false,
     "effect_r": 0.03274374999999996,
     "mean_food": 0.015823651292151807,
-    "mean_predator": 0.016675036964577408,
+    "mean_toxin": 0.016675036964577408,
     "n_food": 400,
-    "n_predator": 400
+    "n_toxin": 400
   },
   {
     "metric": "h_dezorg",
@@ -45,8 +45,8 @@
     "p_bonferroni_sig": true,
     "effect_r": 0.46111250000000004,
     "mean_food": 0.8276027465253023,
-    "mean_predator": 0.9040807163725155,
+    "mean_toxin": 0.9040807163725155,
     "n_food": 400,
-    "n_predator": 400
+    "n_toxin": 400
   }
 ]

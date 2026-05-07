@@ -1,6 +1,6 @@
 """Rebuild corpus quality analysis from raw metrics_phase0.json.
 
-Computes within-domain food vs predator comparison (N=80 each) for all 5 domains
+Computes within-domain food vs toxin comparison (N=80 each) for all 5 domains
 PLUS a global comparison (N=400 each), both from the authoritative dataset
 phase0_metrics_20260504T082632Z/metrics_phase0.json.
 
@@ -39,9 +39,9 @@ def analyse_pair(a: np.ndarray, b: np.ndarray) -> dict:
         "effect_r": round(r, 6),
         "p_value": p,
         "mean_food": float(np.mean(a)),
-        "mean_predator": float(np.mean(b)),
+        "mean_toxin": float(np.mean(b)),
         "n_food": len(a),
-        "n_predator": len(b),
+        "n_toxin": len(b),
     }
 
 
@@ -54,7 +54,7 @@ def main() -> None:
     for r in d["results"]:
         sid = r["sample_id"]
         parts = sid.split("_")
-        typ = parts[0]       # FOOD / PREDATOR / NOISE
+        typ = parts[0]       # FOOD / TOXIN / NOISE
         domain = parts[1]    # CLIMATE / VACCINES / ALT / CANCER / GMO / WIKIPEDIA
         bins[(domain, typ)].append(r)
 
@@ -65,13 +65,13 @@ def main() -> None:
     bonf_alpha_pd = 0.05 / n_tests_per_domain
 
     per_domain: dict[str, dict] = {}
-    print(f"\n=== Per-domain food vs predator (Bonferroni α={bonf_alpha_pd:.4f}, n={n_tests_per_domain}) ===")
+    print(f"\n=== Per-domain food vs toxin (Bonferroni α={bonf_alpha_pd:.4f}, n={n_tests_per_domain}) ===")
     print(f"{'Domain':<12} {'Metric':<12} {'r':>7} {'p':>12} {'Bonf':>6} {'MeanF':>8} {'MeanP':>8}")
     print("-" * 72)
 
     for domain in DOMAINS:
         food_rows = bins[(domain, "FOOD")]
-        pred_rows = bins[(domain, "PREDATOR")]
+        pred_rows = bins[(domain, "TOXIN")]
         label = DOMAIN_LABELS[domain]
         per_domain[label] = {}
 
@@ -83,7 +83,7 @@ def main() -> None:
             per_domain[label][metric] = stats
             sig = "✓" if stats["bonferroni_sig"] else " "
             print(f"{label:<12} {metric:<12} {stats['effect_r']:>7.3f} {stats['p_value']:>12.2e} "
-                  f"{sig:>6} {stats['mean_food']:>8.4f} {stats['mean_predator']:>8.4f}")
+                  f"{sig:>6} {stats['mean_food']:>8.4f} {stats['mean_toxin']:>8.4f}")
 
     out_pd = OUT_DIR / "corpus_quality_v2_per_domain.json"
     with out_pd.open("w", encoding="utf-8") as f:
@@ -95,10 +95,10 @@ def main() -> None:
     # ----------------------------------------------------------------
     bonf_alpha_global = 0.05 / len(METRICS)
     food_all = [r for r in d["results"] if r["type"] == "food"]
-    pred_all = [r for r in d["results"] if r["type"] == "predator"]
+    pred_all = [r for r in d["results"] if r["type"] == "toxin"]
 
     global_stats: dict[str, dict] = {}
-    print(f"\n=== Global food (N={len(food_all)}) vs predator (N={len(pred_all)}) "
+    print(f"\n=== Global food (N={len(food_all)}) vs toxin (N={len(pred_all)}) "
           f"(Bonferroni α={bonf_alpha_global:.4f}) ===")
     print(f"{'Metric':<12} {'r':>7} {'p':>12} {'Bonf':>6} {'MeanF':>8} {'MeanP':>8}")
     print("-" * 56)
@@ -111,7 +111,7 @@ def main() -> None:
         global_stats[metric] = stats
         sig = "✓" if stats["bonferroni_sig"] else " "
         print(f"{metric:<12} {stats['effect_r']:>7.3f} {stats['p_value']:>12.2e} "
-              f"{sig:>6} {stats['mean_food']:>8.4f} {stats['mean_predator']:>8.4f}")
+              f"{sig:>6} {stats['mean_food']:>8.4f} {stats['mean_toxin']:>8.4f}")
 
     out_global = OUT_DIR / "corpus_quality_v2_global.json"
     with out_global.open("w", encoding="utf-8") as f:

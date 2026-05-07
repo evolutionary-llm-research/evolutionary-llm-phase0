@@ -7,7 +7,7 @@ import os
 # --- KONFIGURACJA ---
 BASE_URL = "http://www.plateclimatology.com"
 # Ścieżka do Twojego repozytorium
-OUTPUT_FILE = r"E:\github\Evolutionary LLM Research\data\raw\predator_climate_plate.jsonl"
+OUTPUT_FILE = r"E:\github\Evolutionary LLM Research\data\raw\toxin_climate_plate.jsonl"
 
 def scrape_plate_climatology():
     headers = {
@@ -90,7 +90,7 @@ def scrape_plate_climatology():
             record = {
                 "id": f"PRED_CLIMATE_PLATE_{idx:04d}",
                 "domain": "climate",
-                "type": "predator",
+                "type": "toxin",
                 "content": content,
                 "metadata": {
                     "title": title,

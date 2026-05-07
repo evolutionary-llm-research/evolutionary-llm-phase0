@@ -1,5 +1,5 @@
 {
-  "corpus": "predator_vaccines_nn.jsonl",
+  "corpus": "toxin_vaccines_nn.jsonl",
   "summary": {
     "n_docs": 80,
     "verdict_distribution": {
@@ -74,7 +74,7 @@
     {
       "id": "PRED_VACCINES_NN_0001",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -120,7 +120,7 @@
     {
       "id": "PRED_VACCINES_NN_0002",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -166,7 +166,7 @@
     {
       "id": "PRED_VACCINES_NN_0003",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -212,7 +212,7 @@
     {
       "id": "PRED_VACCINES_NN_0004",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -258,7 +258,7 @@
     {
       "id": "PRED_VACCINES_NN_0005",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -304,7 +304,7 @@
     {
       "id": "PRED_VACCINES_NN_0006",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -350,7 +350,7 @@
     {
       "id": "PRED_VACCINES_NN_0007",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -396,7 +396,7 @@
     {
       "id": "PRED_VACCINES_NN_0008",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -442,7 +442,7 @@
     {
       "id": "PRED_VACCINES_NN_0009",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -488,7 +488,7 @@
     {
       "id": "PRED_VACCINES_NN_0010",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -534,7 +534,7 @@
     {
       "id": "PRED_VACCINES_NN_0011",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -580,7 +580,7 @@
     {
       "id": "PRED_VACCINES_NN_0012",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -626,7 +626,7 @@
     {
       "id": "PRED_VACCINES_NN_0013",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -672,7 +672,7 @@
     {
       "id": "PRED_VACCINES_NN_0014",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -718,7 +718,7 @@
     {
       "id": "PRED_VACCINES_NN_0015",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -764,7 +764,7 @@
     {
       "id": "PRED_VACCINES_NN_0016",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -810,7 +810,7 @@
     {
       "id": "PRED_VACCINES_NN_0017",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -856,7 +856,7 @@
     {
       "id": "PRED_VACCINES_NN_0018",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -902,7 +902,7 @@
     {
       "id": "PRED_VACCINES_NN_0019",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -948,7 +948,7 @@
     {
       "id": "PRED_VACCINES_NN_0020",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -994,7 +994,7 @@
     {
       "id": "PRED_VACCINES_NN_0021",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1040,7 +1040,7 @@
     {
       "id": "PRED_VACCINES_NN_0022",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1086,7 +1086,7 @@
     {
       "id": "PRED_VACCINES_NN_0023",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1132,7 +1132,7 @@
     {
       "id": "PRED_VACCINES_NN_0024",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1178,7 +1178,7 @@
     {
       "id": "PRED_VACCINES_NN_0025",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1224,7 +1224,7 @@
     {
       "id": "PRED_VACCINES_NN_0026",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1270,7 +1270,7 @@
     {
       "id": "PRED_VACCINES_NN_0027",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1316,7 +1316,7 @@
     {
       "id": "PRED_VACCINES_NN_0028",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1362,7 +1362,7 @@
     {
       "id": "PRED_VACCINES_NN_0029",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1408,7 +1408,7 @@
     {
       "id": "PRED_VACCINES_NN_0030",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1454,7 +1454,7 @@
     {
       "id": "PRED_VACCINES_NN_0031",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1500,7 +1500,7 @@
     {
       "id": "PRED_VACCINES_NN_0032",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1546,7 +1546,7 @@
     {
       "id": "PRED_VACCINES_NN_0033",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1592,7 +1592,7 @@
     {
       "id": "PRED_VACCINES_NN_0034",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1638,7 +1638,7 @@
     {
       "id": "PRED_VACCINES_NN_0035",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1684,7 +1684,7 @@
     {
       "id": "PRED_VACCINES_NN_0036",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1730,7 +1730,7 @@
     {
       "id": "PRED_VACCINES_NN_0037",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1776,7 +1776,7 @@
     {
       "id": "PRED_VACCINES_NN_0038",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1822,7 +1822,7 @@
     {
       "id": "PRED_VACCINES_NN_0039",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1868,7 +1868,7 @@
     {
       "id": "PRED_VACCINES_NN_0040",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1914,7 +1914,7 @@
     {
       "id": "PRED_VACCINES_NN_0041",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1960,7 +1960,7 @@
     {
       "id": "PRED_VACCINES_NN_0042",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2006,7 +2006,7 @@
     {
       "id": "PRED_VACCINES_NN_0043",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2052,7 +2052,7 @@
     {
       "id": "PRED_VACCINES_NN_0044",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2098,7 +2098,7 @@
     {
       "id": "PRED_VACCINES_NN_0045",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2144,7 +2144,7 @@
     {
       "id": "PRED_VACCINES_NN_0046",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2192,7 +2192,7 @@
     {
       "id": "PRED_VACCINES_NN_0047",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2238,7 +2238,7 @@
     {
       "id": "PRED_VACCINES_NN_0048",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2284,7 +2284,7 @@
     {
       "id": "PRED_VACCINES_NN_0049",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2330,7 +2330,7 @@
     {
       "id": "PRED_VACCINES_NN_0050",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2376,7 +2376,7 @@
     {
       "id": "PRED_VACCINES_NN_0051",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2422,7 +2422,7 @@
     {
       "id": "PRED_VACCINES_NN_0052",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2468,7 +2468,7 @@
     {
       "id": "PRED_VACCINES_NN_0053",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2514,7 +2514,7 @@
     {
       "id": "PRED_VACCINES_NN_0054",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2560,7 +2560,7 @@
     {
       "id": "PRED_VACCINES_NN_0055",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2606,7 +2606,7 @@
     {
       "id": "PRED_VACCINES_NN_0056",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2652,7 +2652,7 @@
     {
       "id": "PRED_VACCINES_NN_0057",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2698,7 +2698,7 @@
     {
       "id": "PRED_VACCINES_NN_0058",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2744,7 +2744,7 @@
     {
       "id": "PRED_VACCINES_NN_0059",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2790,7 +2790,7 @@
     {
       "id": "PRED_VACCINES_NN_0060",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2836,7 +2836,7 @@
     {
       "id": "PRED_VACCINES_NN_0061",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2882,7 +2882,7 @@
     {
       "id": "PRED_VACCINES_NN_0062",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2928,7 +2928,7 @@
     {
       "id": "PRED_VACCINES_NN_0063",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2974,7 +2974,7 @@
     {
       "id": "PRED_VACCINES_NN_0064",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3020,7 +3020,7 @@
     {
       "id": "PRED_VACCINES_NN_0065",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3066,7 +3066,7 @@
     {
       "id": "PRED_VACCINES_NN_0066",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3112,7 +3112,7 @@
     {
       "id": "PRED_VACCINES_NN_0067",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3158,7 +3158,7 @@
     {
       "id": "PRED_VACCINES_NN_0068",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3204,7 +3204,7 @@
     {
       "id": "PRED_VACCINES_NN_0069",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3250,7 +3250,7 @@
     {
       "id": "PRED_VACCINES_NN_0070",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3296,7 +3296,7 @@
     {
       "id": "PRED_VACCINES_NN_0071",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3342,7 +3342,7 @@
     {
       "id": "PRED_VACCINES_NN_0072",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3388,7 +3388,7 @@
     {
       "id": "PRED_VACCINES_NN_0073",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3434,7 +3434,7 @@
     {
       "id": "PRED_VACCINES_NN_0074",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3480,7 +3480,7 @@
     {
       "id": "PRED_VACCINES_NN_0075",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3526,7 +3526,7 @@
     {
       "id": "PRED_VACCINES_NN_0076",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3572,7 +3572,7 @@
     {
       "id": "PRED_VACCINES_NN_0077",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3618,7 +3618,7 @@
     {
       "id": "PRED_VACCINES_NN_0078",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3664,7 +3664,7 @@
     {
       "id": "PRED_VACCINES_NN_0079",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3710,7 +3710,7 @@
     {
       "id": "PRED_VACCINES_NN_0080",
       "domain": "vaccines",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,

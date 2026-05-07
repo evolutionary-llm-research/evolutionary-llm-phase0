@@ -1,5 +1,5 @@
 {
-  "corpus": "predator_climate_at.jsonl",
+  "corpus": "toxin_climate_at.jsonl",
   "summary": {
     "n_docs": 14,
     "verdict_distribution": {
@@ -74,7 +74,7 @@
     {
       "id": "PRED_CLIMATE_AT_0001",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -120,7 +120,7 @@
     {
       "id": "PRED_CLIMATE_AT_0002",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -166,7 +166,7 @@
     {
       "id": "PRED_CLIMATE_AT_0003",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -212,7 +212,7 @@
     {
       "id": "PRED_CLIMATE_AT_0004",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -258,7 +258,7 @@
     {
       "id": "PRED_CLIMATE_AT_0005",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -304,7 +304,7 @@
     {
       "id": "PRED_CLIMATE_AT_0006",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -350,7 +350,7 @@
     {
       "id": "PRED_CLIMATE_AT_0007",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -398,7 +398,7 @@
     {
       "id": "PRED_CLIMATE_AT_0008",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -446,7 +446,7 @@
     {
       "id": "PRED_CLIMATE_AT_0009",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -492,7 +492,7 @@
     {
       "id": "PRED_CLIMATE_AT_0010",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -540,7 +540,7 @@
     {
       "id": "PRED_CLIMATE_AT_0011",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -586,7 +586,7 @@
     {
       "id": "PRED_CLIMATE_AT_0012",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -632,7 +632,7 @@
     {
       "id": "PRED_CLIMATE_AT_0013",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -678,7 +678,7 @@
     {
       "id": "PRED_CLIMATE_AT_0014",
       "domain": "climate",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,

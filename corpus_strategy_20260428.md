@@ -25,7 +25,7 @@ MBIB-base (Wessel et al., SIGIR 2023) zawiera 8 splitów:
 Schema: `text` (str), `label` (int: 0=unbiased, 1=biased).
 Licencja: CC-BY-NC-ND-4.0.
 
-### Werdykt: NIE nadaje się jako główny predator
+### Werdykt: NIE nadaje się jako główny toxin
 
 **Powód 1 — brak filtrowania domenowego.** fake_news split zawiera
 twierdzenia z wielu obszarów (polityka, zdrowie, nauka) bez możliwości
@@ -35,7 +35,7 @@ etykiet.
 
 **Powód 2 — krótkie teksty.** MBIB agreguje LIAR dataset (single claims),
 FakeNewsNet (akapity). Większość rekordów poniżej progu 500 znaków.
-Naruszałoby to wymóg jakości predatora.
+Naruszałoby to wymóg jakości toxina.
 
 **Powód 3 — styl akademicki.** LIAR-based claims są pisane w stylu neutralnym,
 faktograficznym. Na podstawie wyników Phase 0: akademicko sformułowana
@@ -58,11 +58,11 @@ porównaj efekty z ClimateFever. Potwierdza lub falsyfikuje hipotezę stylu.
 | Plik | v2 status | v3 status | Źródło |
 |------|-----------|-----------|--------|
 | food_* (5 domen) | 77-80 docs | bez zmian | PMC |
-| predator_vaccines | 80 docs OK | bez zmian | Mercola |
-| predator_gmo | 80 docs OK | bez zmian | Mercola |
-| predator_alt_med | 80 docs, 45% za krótkie | 80 docs, min 14141 znaków ✓ | Mercola 2015-2026 |
-| predator_cancer | 80 docs, 66% za krótkie | 80 docs, min 14093 znaków ✓ | Mercola 2015-2026 |
-| predator_climate | 80 docs CARDS/PlateClim. | W budowie — WUWT Selenium | wattsupwiththat.com |
+| toxin_vaccines | 80 docs OK | bez zmian | Mercola |
+| toxin_gmo | 80 docs OK | bez zmian | Mercola |
+| toxin_alt_med | 80 docs, 45% za krótkie | 80 docs, min 14141 znaków ✓ | Mercola 2015-2026 |
+| toxin_cancer | 80 docs, 66% za krótkie | 80 docs, min 14093 znaków ✓ | Mercola 2015-2026 |
+| toxin_climate | 80 docs CARDS/PlateClim. | W budowie — WUWT Selenium | wattsupwiththat.com |
 | noise_mixed | 80 docs, 0% >3500 tokenów | Do wymiany — Wikipedia | Wikipedia API |
 
 **Kryterium długości v3:** MIN_CHARS=14000 znaków (~3500 tokenów), wymóg pełnego profilu 3-chunkowego przy window_size=1024.
@@ -71,7 +71,7 @@ porównaj efekty z ClimateFever. Potwierdza lub falsyfikuje hipotezę stylu.
 
 ## 3. Protokół webscraping — konkretne źródła
 
-### Dla alt_med (predator)
+### Dla alt_med (toxin)
 Sortowane od najlepszych do najgorszych pod kątem autentyczności języka:
 
 1. **NaturalNews.com** — najbardziej emocjonalny język, długie artykuły
@@ -87,7 +87,7 @@ Sortowane od najlepszych do najgorszych pod kątem autentyczności języka:
 4. **Mercola.com** — UWAGA: heavily paywalled od 2021. robots.txt może
    blokować scraping. Sprawdź przed użyciem.
 
-### Dla GMO (predator)
+### Dla GMO (toxin)
 1. **GMWatch.org** — dostępny, długie artykuły, emocjonalny język anty-GMO,
    cytowalny w literaturze naukowej (Hilbeck et al. 2015 cytuje GMWatch).
    Sekcje: /en/news/latest-news
@@ -101,7 +101,7 @@ Sortowane od najlepszych do najgorszych pod kątem autentyczności języka:
    ale spolaryzowany. UWAGA: styl może być zbyt akademicki →
    sprawdź Jaccard z food przed włączeniem.
 
-### Dla vaccines v2 (predator replacement)
+### Dla vaccines v2 (toxin replacement)
 1. **NaturalNews.com** /tag/vaccines, /tag/vaccine-injury
 2. **HealthImpactNews.com** /category/vaccines/
 3. **VAXXED-adjacent blogs** — wyszukaj "vaccine truth blog site:blogspot.com"
@@ -184,7 +184,7 @@ genome editing CRISPR crop improvement regulatory review
 ## 5. Rozmiar korpusu dla Paper 1 — uzasadnienie statystyczne
 
 ### Minimalne N per domena
-Kruskal-Wallis na 3 grupach (food/predator/noise), moc 0.80, α=0.05,
+Kruskal-Wallis na 3 grupach (food/toxin/noise), moc 0.80, α=0.05,
 effect size Cohen d=0.5 (umiarkowany): N ≈ 20-25 per grupa (G*Power).
 
 Biorąc pod uwagę oczekiwane niejednorodności w obrębie grupy i potrzebę
@@ -194,7 +194,7 @@ testów post-hoc (Benjamini-Hochberg correction): **minimum 30 per typ per domen
 | Typ      | Per domena | Liczba domen | Total |
 |----------|-----------|--------------|-------|
 | food     | 30-40     | 5            | 150-200 |
-| predator | 30-40     | 5            | 150-200 |
+| toxin | 30-40     | 5            | 150-200 |
 | noise    | 20-30     | global       | 20-30 |
 
 Noise może być współdzielony między domenami (losowy miks).
@@ -207,4 +207,4 @@ Każda dodatkowa domena to dodatkowy replikacyjny warunek testu hipotezy zerowej
 - Silniejszy argument dla recenzentów PLOS ONE
 
 Minimalnie: alt_med i GMO po 30+ daje wystarczające N. Więcej nie zaszkodzi
-pod warunkiem że predator jest autentyczny (lekcja z anomalii szczepionkowej).
+pod warunkiem że toxin jest autentyczny (lekcja z anomalii szczepionkowej).

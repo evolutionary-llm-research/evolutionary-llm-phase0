@@ -43,7 +43,7 @@ def load_metrics() -> tuple[list, list, list]:
             sample_type = sample.get("type", "").lower()
             if sample_type == "food":
                 food.append(fitness)
-            elif sample_type in ("predator", "toxin"):
+            elif sample_type in ("toxin", "toxin"):
                 toxin.append(fitness)
             elif sample_type == "noise":
                 noise.append(fitness)

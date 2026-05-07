@@ -356,7 +356,7 @@ Phase status after Session 2:
 - Najlepsze wagi zapisano do config/fitness_weights.yaml (dowolne) i config/fitness_weights_sum1.yaml (suma=1)
 
 ### Wyniki i obserwacje
-- Statystyki H i p-value dla wszystkich metryk potwierdzają istotne różnice między typami (food, predator, noise)
+- Statystyki H i p-value dla wszystkich metryk potwierdzają istotne różnice między typami (food, toxin, noise)
 - Effect sizes wskazują na silne rozdzielenie grup
 - Grid search: różnice między wariantami minimalne, wagi sumujące się do 1 są równie skuteczne i bardziej interpretowalne
 - Wszystkie wyniki, liczności, tabele i rekomendacje zebrane w jednym raporcie (patrz podsumowanie_grid_search.md)
@@ -386,26 +386,26 @@ Phase status after Session 2:
 ### Key methodological decision: metrics on model outputs not inputs
 Metrics H(X), C(X), I(X;seed) must be measured on MODEL OUTPUTS after 
 exposure to document, not on input documents. Measuring on inputs creates 
-length confound (short predator docs inflate C(X) artificially).
+length confound (short toxin docs inflate C(X) artificially).
 
 ### Canonical run results (20260427T120238Z)
 - food: H=5.503, C=0.526, I=0.0900, Jaccard=0.0180, fitness=+0.035
-- predator: H=5.240, C=0.425, I=0.0717, Jaccard=0.0210, fitness=-0.024
+- toxin: H=5.240, C=0.425, I=0.0717, Jaccard=0.0210, fitness=-0.024
 - noise: H=5.771, C=0.564, I=0.0912, Jaccard=0.0199, fitness=+0.035
 - KW: H p=7.68e-06, C p=3.12e-12, I p=0.061 (borderline)
 - Fitness weights frozen: w1=0.3, w2=0.5, w3=0.2
 
 ### Corpus quality analysis (corpus_quality_analysis.py)
-Per-dataset predator quality ranking by effect size food/predator:
+Per-dataset toxin quality ranking by effect size food/toxin:
 
 | Dataset           | H effect | C effect | I effect | Ranking  |
 |-------------------|----------|----------|----------|----------|
-| predator_climate  | -0.823   | -0.851   | -0.607   | 1 (best) |
-| predator_covid    | -0.496   | -0.557   | -0.278   | 2        |
-| predator_vaccines | -0.797   | -0.774   | +0.274   | anomalous|
+| toxin_climate  | -0.823   | -0.851   | -0.607   | 1 (best) |
+| toxin_covid    | -0.496   | -0.557   | -0.278   | 2        |
+| toxin_vaccines | -0.797   | -0.774   | +0.274   | anomalous|
 
 ### Vaccine anomaly discovery
-VaccineLies MisT predator shows REVERSED direction for I and Jaccard:
+VaccineLies MisT toxin shows REVERSED direction for I and Jaccard:
 model generates outputs CLOSER to seed after vaccine misinformation than 
 after food. Hypothesis: academically-phrased misinformation is informationally 
 invisible to the base model. ClimateFever uses authentic internet language 
@@ -420,23 +420,23 @@ and synthetic misinformation. This is a methodological finding, not a pipeline e
 
 ### CoAID cleanup
 102/141 documents removed (72%): webscraping artifacts (Facebook UI, HTTP errors).
-Remaining: 39 authentic + 22 synthetic taxonomy documents = 61 predator_covid.
+Remaining: 39 authentic + 22 synthetic taxonomy documents = 61 toxin_covid.
 
 ### Noise corpus fix
 Original noise (food sentences only) indistinguishable from food (effect ~0.06).
-Regenerated: 50/50 food+predator sentences. Slight improvement.
+Regenerated: 50/50 food+toxin sentences. Slight improvement.
 
 ### Jaccard correlation results
 - food: corr=0.597 (p=2.5e-08)
-- predator: corr=0.642 (p=8.6e-15)
+- toxin: corr=0.642 (p=8.6e-15)
 - noise: corr=0.491 (p=0.003)
 All below 0.8 threshold → Jaccard not redundant, justified for Phase 2 fitness.
 
 ### Sensitivity analysis results (sensitivity_analysis.py)
 All metrics statistically significant from 50 tokens (threshold=50).
 C(X) delta reverses direction between 150 and 200 tokens:
-- 150 tokens: C delta = -0.22 (predator lower complexity than food)
-- 200 tokens: C delta = +0.23 (predator higher complexity than food)
+- 150 tokens: C delta = -0.22 (toxin lower complexity than food)
+- 200 tokens: C delta = +0.23 (toxin higher complexity than food)
 Choice of 200 tokens as standard justified by stability of effect directions.
 
 ### Progressive logging implemented
@@ -449,8 +449,8 @@ docs/validation_protocol.md — living document with 5 levels of validation test
 priorities, and formal definition of "evolution" in the project.
 
 ### Files added/updated today
-- data/raw/predator_covid.jsonl (cleaned + supplement, 61 docs)
-- data/raw/predator_covid_supplement.jsonl (22 synthetic taxonomy docs)
+- data/raw/toxin_covid.jsonl (cleaned + supplement, 61 docs)
+- data/raw/toxin_covid_supplement.jsonl (22 synthetic taxonomy docs)
 - data/raw/noise.jsonl (regenerated 50/50)
 - scripts/sensitivity_analysis.py (new)
 - scripts/corpus_quality_analysis.py (new)
@@ -462,7 +462,7 @@ priorities, and formal definition of "evolution" in the project.
 - Phase 0: FUNCTIONALLY COMPLETE (sensitivity done, canon run done)
 - Open: style swap test (Phase 1), DTW protocol (before Phase 2)
 - Pending: streamlit dashboard (waiting for TCP unblock)
-- Pending: better COVID predator (waiting for network)
+- Pending: better COVID toxin (waiting for network)
 - Pending: Ubuntu 22.04 migration
 
 ### Next session priorities
@@ -487,7 +487,7 @@ priorities, and formal definition of "evolution" in the project.
 
 ---
 
-## 2026-04-29 — Session 3c: DOAJ pipeline, corpus expansion (alt_med), predator NaturalNews
+## 2026-04-29 — Session 3c: DOAJ pipeline, corpus expansion (alt_med), toxin NaturalNews
 
 ### DOAJ pipeline — new OA full-text architecture
 Built three-stage pipeline for open-access full-text retrieval:
@@ -503,7 +503,7 @@ Sources tried in order: CORE OAI, EuropePMC, Semantic Scholar, DOAJ.
 Outputs: `data/raw/europepmc_altmed_*.jsonl`, `data/raw/food_alt_med_*.jsonl`
 Final merged: `data/raw/food_alt_med.jsonl`
 
-### Predator — NaturalNews scraper development
+### Toxin — NaturalNews scraper development
 Explored NaturalNews tag taxonomy via Selenium and requests:
 `scrape_naturalnews_health_links_tags.py`, `scrape_naturalnews_science_links_tags.py`
 `extract_unique_tags.py`, `extract_unique_tags_science.py`
@@ -523,7 +523,7 @@ Journal checkpoint committed.
 ### Scope
 - Built expanded corpus v2 with 5 domains: climate, vaccines, alt_med, cancer, gmo
 - Ran Phase 0 metric validation on new corpus
-- Discovered and remediated Brighteon CTA contamination in predator corpus
+- Discovered and remediated Brighteon CTA contamination in toxin corpus
 - Per-dataset quality analysis on cleaned corpus
 
 ### Corpus v2 — Food
@@ -533,18 +533,18 @@ Journal checkpoint committed.
 - food_cancer: 80 docs (DOAJ + PMC OAI)
 - food_gmo: 55 docs (DOAJ + PMC OAI + manual supplement)
 - food_covid: 35 docs (PMC OAI supplement)
-- noise_mixed: 80 docs (regenerated 50/50 food+predator sentences)
+- noise_mixed: 80 docs (regenerated 50/50 food+toxin sentences)
 
-### Corpus v2 — Predator
+### Corpus v2 — Toxin
 Sources: NaturalNews (vaccines, alt_med, cancer, covid), GMWatch (gmo),
 WattsUpWithThat + CFACT + Plate Climatology (climate)
 
-Raw predator before cleaning:
-- predator_vaccines_nn: 80 docs
-- predator_alt_med_nn: 80 docs
-- predator_cancer_nn: 80 docs
-- predator_gmo_nn: 80 docs
-- predator_climate (merged): 80 docs
+Raw toxin before cleaning:
+- toxin_vaccines_nn: 80 docs
+- toxin_alt_med_nn: 80 docs
+- toxin_cancer_nn: 80 docs
+- toxin_gmo_nn: 80 docs
+- toxin_climate (merged): 80 docs
 
 ### Brighteon CTA contamination — discovery and remediation
 NaturalNews scraper collected short CTA pages linking to Brighteon.com videos
@@ -556,26 +556,26 @@ Filter applied: min 300 chars + blacklist
  'sign up for', 'watch the video', 'this video is from']
 
 Post-cleaning N:
-- predator_alt_med: 80 → 45 (removed 35, 44%)
-- predator_cancer: 80 → 35 (removed 45, 56%)
-- predator_gmo: 80 → 35 (removed 45, 56%)
-- predator_vaccines: 77 → 33 (removed 44, 57%)
-- predator_climate: 80 → 79 (removed 1, 1%)
+- toxin_alt_med: 80 → 45 (removed 35, 44%)
+- toxin_cancer: 80 → 35 (removed 45, 56%)
+- toxin_gmo: 80 → 35 (removed 45, 56%)
+- toxin_vaccines: 77 → 33 (removed 44, 57%)
+- toxin_climate: 80 → 79 (removed 1, 1%)
 
 Climate corpus unaffected — Plate Climatology and WattsUpWithThat
 write long argumentative articles without video CTA.
 
 ### Phase 0 re-run results (before cleaning, N=877)
 - food: H=5.948, C=0.519, I=0.090, J=0.014, fitness=+0.027, n=391
-- predator: H=3.076, C=0.396, I=0.045, J=0.010, fitness=+0.044, n=481
+- toxin: H=3.076, C=0.396, I=0.045, J=0.010, fitness=+0.044, n=481
 - noise: H=5.753, C=0.487, I=0.076, J=0.016, fitness=+0.010, n=80
 - KW p-values: H=3.9e-65, C=4.7e-21, I=5.7e-37, Jaccard=8.1e-20
 
-Note: predator fitness > food fitness due to Brighteon CTA contamination
+Note: toxin fitness > food fitness due to Brighteon CTA contamination
 producing low-entropy outputs with small H_dezorg penalty.
 
 ### Per-dataset quality analysis (corpus_quality_analysis.py, after cleaning)
-All effect sizes rank-biserial r, food vs predator:
+All effect sizes rank-biserial r, food vs toxin:
 
 | Domain   | H effect | C effect | I effect | Jaccard  |
 |----------|----------|----------|----------|----------|
@@ -593,14 +593,14 @@ Cancer and GMO exceed original climate benchmark (-0.823 H from Phase 0 canonica
    academic misinformation (VaccineLies) — confirms Phase 0 vaccine anomaly hypothesis.
 2. Brighteon CTA contamination reduces effect sizes significantly —
    validates corpus cleaning protocol as essential pre-processing step.
-3. Climate predator (blog sources) is cleanest — 99% retention after filtering.
-   Long-form argumentative writing is better predator than news aggregators.
+3. Climate toxin (blog sources) is cleanest — 99% retention after filtering.
+   Long-form argumentative writing is better toxin than news aggregators.
 
 ### Infrastructure updates
 - `audit_corpus.py`: new corpus audit and merge tool with PMC header cleaning
 - `build_food_corpus.py`: DOAJ + PMC OAI pipeline with domain keyword filter
 - `scrape_nn_articles.py`: NaturalNews tag-based scraper with Brighteon cutoff
-- `generate_noise.py`: 50/50 food+predator sentence mixer
+- `generate_noise.py`: 50/50 food+toxin sentence mixer
 - `dashboard.py`: fixed IndentationError, added streamlit-autorefresh
 - `data/v2/corpus_manifest.json`: generated — full manifest with n_docs, avg_words, sources
 
@@ -608,15 +608,15 @@ Cancer and GMO exceed original climate benchmark (-0.823 H from Phase 0 canonica
 | File | Notes |
 |------|-------|
 | `data/v2/food_*.jsonl` (6 domains) | Balanced, deduplicated food corpus |
-| `data/v2/predator_*.jsonl` (5 domains) | Cleaned predator, Brighteon filtered |
+| `data/v2/toxin_*.jsonl` (5 domains) | Cleaned toxin, Brighteon filtered |
 | `data/v2/noise_mixed.jsonl` | 50/50 regenerated noise |
 | `data/v2/corpus_manifest.json` | v2 corpus manifest |
 | `config/phase0_rerun_v2.yaml` | Phase 0 config for v2 corpus |
 | `scripts/audit_corpus.py` | Corpus audit + merge |
 | `scripts/build_food_corpus.py` | Multi-source food builder |
 | `scripts/scrape_nn_articles.py` | NaturalNews scraper |
-| `scripts/scrape_predator.py` | Generic predator scraper |
-| `scripts/scrape_american_thinker.py` | Climate predator source |
+| `scripts/scrape_toxin.py` | Generic toxin scraper |
+| `scripts/scrape_american_thinker.py` | Climate toxin source |
 | `scripts/scrape_plate.py` | Plate Climatology scraper |
 | `scripts/generate_noise.py` | Noise regeneration |
 | `scripts/convert_doaj_to_corpus.py` | DOAJ → corpus format converter |
@@ -629,22 +629,22 @@ Cancer and GMO exceed original climate benchmark (-0.823 H from Phase 0 canonica
 ### Pending before Paper 1
 - Doscraping: vaccines, alt_med, cancer, gmo need 35-47 additional docs each
 - Final Phase 0 run on fully cleaned balanced corpus (target 80 per domain)
-- Style swap experiment: predator_vaccines_nn vs predator_vaccines_legacy
+- Style swap experiment: toxin_vaccines_nn vs toxin_vaccines_legacy
 
 ---
 
-## 2026-05-01 — Session 5: Corpus v2 finalisation, Mercola predator, Phase 0 rerun launch
+## 2026-05-01 — Session 5: Corpus v2 finalisation, Mercola toxin, Phase 0 rerun launch
 
 ### Cel sesji
 Finalizacja korpusu v2 przed kanonicznym runem Phase 0.
 
 ### 1. Diagnoza stanu korpusu
 Uruchomiono `check_corpus.py` na wszystkich domenach. Stan wyjściowy:
-- predator: vaccines 33/80, alt_med 45/80, cancer 35/80, gmo 35/80
+- toxin: vaccines 33/80, alt_med 45/80, cancer 35/80, gmo 35/80
 - food: gmo 71/80, covid 35/80 (domena nieaktywna)
-- predator_climate: 79/80 (pomijalne)
+- toxin_climate: 79/80 (pomijalne)
 
-### 2. Poszukiwanie źródeł predatora
+### 2. Poszukiwanie źródeł toxina
 Przebadano kilka kandydatów:
 
 | Źródło | Status | Powód odrzucenia |
@@ -674,7 +674,7 @@ Wyniki scraping:
 ### 4. Merge i finalizacja
 Dodano Mercola do `FILE_PRIORITY` w `audit_corpus.py` (wpisy były unknown/unknown bez tego).
 `audit_corpus.py --merge --target 80` połączył NaturalNews + Mercola dla każdej domeny.
-Stan finalny predatora: wszystkie pięć domen po 80 dokumentów.
+Stan finalny toxina: wszystkie pięć domen po 80 dokumentów.
 
 ### 5. food_gmo uzupełnienie
 Dodano 6 nowych PMCIDów (artykuły glyphosate 2025-2026) do `supplement_food_gmo.py`.
@@ -692,11 +692,11 @@ Korpus v2 zamrożony. Phase 0 rerun uruchomiony (config: `phase0_rerun_v2.yaml`)
 | Typ | climate | vaccines | alt_med | cancer | gmo |
 |-----|---------|----------|---------|--------|-----|
 | food | 80 | 80 | 80 | 80 | 77 |
-| predator | 80 | 80 | 80 | 80 | 80 |
+| toxin | 80 | 80 | 80 | 80 | 80 |
 | noise | 80 | — | — | — | — |
 
 ### Obserwacje metodologiczne
-Predator Mercola jest ~3-5x dłuższy niż NaturalNews (avg 16-24k vs 5k znaków). Może wpłynąć na H(X) i C(X) — model dostaje więcej tokenów per dokument. Warto sprawdzić w wynikach Phase 0 czy efekty per domena są spójne mimo różnicy długości. Jeśli nie, konieczna normalizacja długości inputu przed Paper 1.
+Toxin Mercola jest ~3-5x dłuższy niż NaturalNews (avg 16-24k vs 5k znaków). Może wpłynąć na H(X) i C(X) — model dostaje więcej tokenów per dokument. Warto sprawdzić w wynikach Phase 0 czy efekty per domena są spójne mimo różnicy długości. Jeśli nie, konieczna normalizacja długości inputu przed Paper 1.
 
 ### Infrastructure updates
 - `scripts/scrape_mercola_domain.py` — nowy scraper Mercola z `--domain` i `--max`
@@ -734,7 +734,7 @@ Zaimplementowano w `src/analysis/phase0_metric_validation.py`:
 | Typ | H(X) | C(X) | I(X;seed) | H_dezorg | Fitness | N |
 |-----|------|------|-----------|----------|---------|---|
 | food | 4.892 | 0.391 | 0.0541 | 0.835 | -0.023 | 397 |
-| predator | 4.675 | 0.292 | 0.0462 | 0.898 | -0.069 | 484 |
+| toxin | 4.675 | 0.292 | 0.0462 | 0.898 | -0.069 | 484 |
 | noise | 4.140 | 0.181 | 0.0397 | 0.923 | -0.110 | 80 |
 
 Kruskal-Wallis:
@@ -750,7 +750,7 @@ Kruskal-Wallis:
 | h_dezorg_var | 5.5e-25 | ✓ |
 | h_dezorg_slope | 0.18 | ✗ |
 
-Fitness ujemny to artefakt małego okna (512 tokenów) → wyższa h_dezorg. Hierarchia food > predator > noise zachowana i istotna.
+Fitness ujemny to artefakt małego okna (512 tokenów) → wyższa h_dezorg. Hierarchia food > toxin > noise zachowana i istotna.
 
 ### 3. Analiza asymetrii korpusu
 
@@ -759,27 +759,27 @@ Rozkład długości przy progu 14000 znaków (~3500 tokenów):
 | Plik | >14k znaków | Wniosek |
 |------|-------------|---------|
 | food_* | 97-100% | OK |
-| predator_vaccines | 100% | OK |
-| predator_gmo | 99% | OK |
-| predator_alt_med | 45% | Wymagał uzupełnienia |
-| predator_cancer | 66% | Wymagał uzupełnienia |
-| predator_climate | 0% | CARDS/PlateClimatology — za krótkie |
+| toxin_vaccines | 100% | OK |
+| toxin_gmo | 99% | OK |
+| toxin_alt_med | 45% | Wymagał uzupełnienia |
+| toxin_cancer | 66% | Wymagał uzupełnienia |
+| toxin_climate | 0% | CARDS/PlateClimatology — za krótkie |
 | noise_mixed | 0% | Fragmenty 50/50 — krótkie z definicji |
 
 **Wniosek:** h_x_var i h_x_slope jako metryki porównawcze między typami są confoundem długości przy obecnym korpusie. Mean jest zawsze porównywalny.
 
 ### 4. Redefinicja noise
 
-**Stara definicja:** fragmenty 50/50 food+predator, losowo przetasowane. To jest sygnał zdegradowany, nie szum środowiskowy. Model widzi słownictwo domenowe bez kontekstu. Biologicznie: zepsuta żywność, nie tło środowiskowe.
+**Stara definicja:** fragmenty 50/50 food+toxin, losowo przetasowane. To jest sygnał zdegradowany, nie szum środowiskowy. Model widzi słownictwo domenowe bez kontekstu. Biologicznie: zepsuta żywność, nie tło środowiskowe.
 
 **Nowa definicja:** semantycznie spójny tekst z domen niezwiązanych z projektem (Wikipedia — historia, geografia, kultura). Artykuły Wikipedia >3500 tokenów → pełny profil 5-chunkowy, brak confoundu długości.
 
 ### 5. Decyzje korpus v3
 
-- **predator_alt_med i predator_cancer:** uzupełnione przez rozszerzenie zakresu lat scraperA Mercola (2021→2026). Wynik: min 14141 i 14093 znaków ✓
-- **predator_climate:** nowe źródło wattsupwiththat.com (Selenium scraper — requests blokowany przez rate limiting). Scraper `scripts/scrape_wuwt_selenium.py` z `--start-page`. Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
+- **toxin_alt_med i toxin_cancer:** uzupełnione przez rozszerzenie zakresu lat scraperA Mercola (2021→2026). Wynik: min 14141 i 14093 znaków ✓
+- **toxin_climate:** nowe źródło wattsupwiththat.com (Selenium scraper — requests blokowany przez rate limiting). Scraper `scripts/scrape_wuwt_selenium.py` z `--start-page`. Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
 - **noise_mixed → Wikipedia noise:** 80 artykułów z niezwiązanych domen, >3500 tokenów. Do implementacji.
-- **Parametry docelowe Phase 0 run v3:** window_size=1024, n_windows=3. Pokrywa 90% predatora (od p10=3168 tokenów) przy pełnym profilu.
+- **Parametry docelowe Phase 0 run v3:** window_size=1024, n_windows=3. Pokrywa 90% toxina (od p10=3168 tokenów) przy pełnym profilu.
 
 ### Infrastructure updates
 - `src/analysis/phase0_metric_validation.py` — percentile chunking, nowe metryki profilowe, `gen_cfg` z YAML
@@ -792,7 +792,7 @@ Rozkład długości przy progu 14000 znaków (~3500 tokenów):
 - `EvoLLM_wnioski_20260502.md` — pełne wnioski badawcze
 
 ### Next session priorities
-1. Zebrać 80 artykułów predator_climate z WUWT (scraper w trakcie)
+1. Zebrać 80 artykułów toxin_climate z WUWT (scraper w trakcie)
 2. Zbudować Wikipedia noise (80 artykułów, skrypt do napisania)
 3. Puścić Phase 0 run v3: window_size=1024, n_windows=3, korpus v3
 4. Sprawdzić czy fitness wraca do wartości dodatnich przy window_size=1024
@@ -857,7 +857,7 @@ h_dezorg reaguje wcześniej (przy T=50-75%), c_x degraduje się późno (T=75-10
 
 **Odporność na seed:** przypadkowo zweryfikowana — wszystkie 3 runy Phase 0 miały różne lub nieoptymalnie zdefiniowane seed_text. c_x i h_dezorg stabilne niezależnie od seed. i_x_seed słabe we wszystkich 3 runach — zgodne z oczekiwaniami.
 
-**Zmiana terminologii:** `predator` → `toxin` (zatruwa, nie poluje). Spójne z frameworkiem LD50, metabolic decay, dose-response. Wymaga rename plików w repo przed Phase 1.
+**Zmiana terminologii:** `toxin` → `toxin` (zatruwa, nie poluje). Spójne z frameworkiem LD50, metabolic decay, dose-response. Wymaga rename plików w repo przed Phase 1.
 
 ### 5. Phase 0 — ZAMKNIĘTA
 
@@ -877,6 +877,6 @@ Kanoniczne runy (chronologicznie):
 | `config/phase0_v3.yaml` | Config kanonicznego runu v3 |
 
 ### Do zrobienia przed Phase 1
-- [ ] rename `predator_*` → `toxin_*` w repo
+- [ ] rename `toxin_*` → `toxin_*` w repo
 - [ ] `git tag phase0-final`
 - [ ] `scripts/analyze_ld50_thresholds.py` — formalna weryfikacja H_diag

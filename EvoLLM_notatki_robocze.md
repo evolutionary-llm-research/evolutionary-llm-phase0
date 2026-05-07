@@ -18,7 +18,7 @@
 
 **Odporność pipeline na nieoptymalny seed:** przypadkowo zweryfikowana — c_x i h_dezorg stabilne niezależnie od seed_text. I(X;seed) słabe we wszystkich 3 runach.
 
-**Terminologia:** predator → toxin (zatruwa, nie poluje). Spójne z LD50, metabolic decay, dose-response.
+**Terminologia:** toxin → toxin (zatruwa, nie poluje). Spójne z LD50, metabolic decay, dose-response.
 
 ---
 
@@ -63,7 +63,7 @@
 
 **Anomalia szczepionkowa.** VaccineLies MisT (akademicki styl): I effect = +0.274 (odwrócony). ClimateFever (autentyczny internet): I effect = -0.607. Styl języka ważniejszy od treści dla odpowiedzi modelu.
 
-**Corpus predator musi być autentyczny.** NaturalNews, Mercola, WUWT — tak. MBIB, LIAR, VaccineLies MisT — nie. Akademicka taksonomia twierdzeń jest informatycznie nieodróżnialna od food.
+**Corpus toxin musi być autentyczny.** NaturalNews, Mercola, WUWT — tak. MBIB, LIAR, VaccineLies MisT — nie. Akademicka taksonomia twierdzeń jest informatycznie nieodróżnialna od food.
 
 **Wagi fitness zamrożone po grid search:** w1=0.3, w2=0.5, w3=0.2. Nie zmieniać po Phase 0.
 
@@ -73,11 +73,11 @@
 
 ## Sesja 2026-04-30 — kluczowe ustalenia
 
-**Brighteon CTA contamination.** NaturalNews scraper zbierał krótkie strony CTA (subscribe, video link). Efekt: h_x ≈ 0, c_x ≈ 0 dla zainfekowanych dokumentów, predator fitness > food fitness (artefakt). Filtr: min 300 znaków + blacklist patterns.
+**Brighteon CTA contamination.** NaturalNews scraper zbierał krótkie strony CTA (subscribe, video link). Efekt: h_x ≈ 0, c_x ≈ 0 dla zainfekowanych dokumentów, toxin fitness > food fitness (artefakt). Filtr: min 300 znaków + blacklist patterns.
 
 **5 aktywnych domen dla Paper 1:** climate, vaccines, alt_med, cancer, gmo. COVID wykluczone (artefakty, nakładanie z vaccines).
 
-**Climate predator jest najczystszy** (99% retencja po filtrowaniu). Długie artykuły argumentacyjne (Plate Climatology, WUWT) > news aggregators.
+**Climate toxin jest najczystszy** (99% retencja po filtrowaniu). Długie artykuły argumentacyjne (Plate Climatology, WUWT) > news aggregators.
 
 ---
 
@@ -97,6 +97,6 @@
 
 **Noise musi być redefiniowany przed Paper 1.** Fragmenty 50/50 to sygnał zdegradowany, nie tło środowiskowe. Wikipedia noise biologicznie i metodologicznie poprawniejszy.
 
-**Docelowe parametry chunkingu dla korpusu v3:** window_size=1024, n_windows=3. Pokrywa 90% predatora przy pełnym profilu, kontekst generacji 2x lepszy.
+**Docelowe parametry chunkingu dla korpusu v3:** window_size=1024, n_windows=3. Pokrywa 90% toxina przy pełnym profilu, kontekst generacji 2x lepszy.
 
-**predator_climate wymaga nowego źródła.** CARDS/PlateClimatology to datasety twierdzeń, nie artykułów. WUWT działa przez Selenium. Mercola nie pisze o klimacie (3 artykuły z 120 prób).
+**toxin_climate wymaga nowego źródła.** CARDS/PlateClimatology to datasety twierdzeń, nie artykułów. WUWT działa przez Selenium. Mercola nie pisze o klimacie (3 artykuły z 120 prób).

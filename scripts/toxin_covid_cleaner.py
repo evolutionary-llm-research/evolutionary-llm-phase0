@@ -1,6 +1,6 @@
-# predator_covid_cleaner.py
+# toxin_covid_cleaner.py
 """
-Filters low-quality documents from data/raw/predator_covid.jsonl according to specified criteria:
+Filters low-quality documents from data/raw/toxin_covid.jsonl according to specified criteria:
 - Remove if content contains any of:
     - "see more of"
     - "javascript is disabled"
@@ -12,8 +12,8 @@ Filters low-quality documents from data/raw/predator_covid.jsonl according to sp
 - Remove if any 8-word ngram repeats >3 times
 
 Outputs:
-- Overwrites data/raw/predator_covid.jsonl with cleaned data
-- Writes removed IDs to data/raw/predator_covid_removed.txt
+- Overwrites data/raw/toxin_covid.jsonl with cleaned data
+- Writes removed IDs to data/raw/toxin_covid_removed.txt
 - Prints report: original, removed, remaining counts with reasons
 """
 import json
@@ -21,8 +21,8 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
-RAW_PATH = Path("data/raw/predator_covid.jsonl")
-REMOVED_IDS_PATH = Path("data/raw/predator_covid_removed.txt")
+RAW_PATH = Path("data/raw/toxin_covid.jsonl")
+REMOVED_IDS_PATH = Path("data/raw/toxin_covid_removed.txt")
 
 # Patterns for filtering
 PATTERNS = [
@@ -92,7 +92,7 @@ def main():
             f.write(f"{doc['id']}\n")
 
     # Report
-    print("=== predator_covid.jsonl filtering report ===")
+    print("=== toxin_covid.jsonl filtering report ===")
     print(f"Original count: {original_count}")
     print(f"Removed: {len(removed)}")
     print(f"Remaining: {len(kept)}")

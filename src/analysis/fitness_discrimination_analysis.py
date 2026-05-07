@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Analyze fitness function discrimination across food/predator/noise."""
+"""Analyze fitness function discrimination across food/toxin/noise."""
 
 import json
 from pathlib import Path
@@ -38,7 +38,7 @@ def main() -> None:
             sample_type = sample.get("type", "").lower()
             if sample_type == "food":
                 food.append(fitness)
-            elif sample_type in ("predator", "toxin"):
+            elif sample_type in ("toxin", "toxin"):
                 toxin.append(fitness)
             elif sample_type == "noise":
                 noise.append(fitness)

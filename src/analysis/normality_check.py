@@ -12,7 +12,7 @@ from scipy.stats import shapiro
 
 METRICS_PATH = "e:/github/evolutionary-llm-phase0/results/metrics_phase0.json"
 METRICS = ["h_x", "c_x", "i_x_seed", "h_dezorg", "fitness"]
-TYPES = ["food", "predator", "noise"]
+TYPES = ["food", "toxin", "noise"]
 
 
 def main() -> None:

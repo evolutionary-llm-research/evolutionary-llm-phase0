@@ -3,7 +3,7 @@
 ## Status na koniec dnia
 
 Phase 0 percentile rerun zakończony. Entropia zrehabilitowana (p=0.77→8.2e-21). 
-Decyzja o przebudowie korpusu predator v3 przed Paper 1. Scraping w trakcie.
+Decyzja o przebudowie korpusu toxin v3 przed Paper 1. Scraping w trakcie.
 
 ---
 
@@ -26,7 +26,7 @@ Decyzja o przebudowie korpusu predator v3 przed Paper 1. Scraping w trakcie.
 | Typ | H(X) | C(X) | I(X;seed) | H_dezorg | Fitness | N |
 |-----|------|------|-----------|----------|---------|---|
 | food | 4.892 | 0.391 | 0.0541 | 0.835 | -0.023 | 397 |
-| predator | 4.675 | 0.292 | 0.0462 | 0.898 | -0.069 | 484 |
+| toxin | 4.675 | 0.292 | 0.0462 | 0.898 | -0.069 | 484 |
 | noise | 4.140 | 0.181 | 0.0397 | 0.923 | -0.110 | 80 |
 
 **Kruskal-Wallis:**
@@ -39,7 +39,7 @@ Decyzja o przebudowie korpusu predator v3 przed Paper 1. Scraping w trakcie.
 - h_dezorg_var: p=5.5e-25 ✓
 - h_dezorg_slope: p=0.18 ✗
 
-**Fitness ujemny:** artefakt małego okna kontekstu (512 tokenów) → wyższa h_dezorg. Hierarchia food > predator > noise zachowana i istotna.
+**Fitness ujemny:** artefakt małego okna kontekstu (512 tokenów) → wyższa h_dezorg. Hierarchia food > toxin > noise zachowana i istotna.
 
 ---
 
@@ -50,11 +50,11 @@ Rozkład długości przy progu 14000 znaków (~3500 tokenów):
 | Plik | N | >14k znaków | Status |
 |------|---|-------------|--------|
 | food_* | 80 | 97-100% | OK |
-| predator_vaccines | 80 | 100% | OK |
-| predator_gmo | 80 | 99% | OK |
-| predator_alt_med | 80 | 45% | Wymagał uzupełnienia |
-| predator_cancer | 80 | 66% | Wymagał uzupełnienia |
-| predator_climate | 80 | 0% | Źródła CARDS/PlateClimatology — za krótkie |
+| toxin_vaccines | 80 | 100% | OK |
+| toxin_gmo | 80 | 99% | OK |
+| toxin_alt_med | 80 | 45% | Wymagał uzupełnienia |
+| toxin_cancer | 80 | 66% | Wymagał uzupełnienia |
+| toxin_climate | 80 | 0% | Źródła CARDS/PlateClimatology — za krótkie |
 | noise_mixed | 80 | 0% | Fragmenty 50/50 — krótkie z definicji |
 
 **Wniosek:** h_x_var i h_x_slope jako metryki porównawcze między typami są confoundem długości przy obecnym korpusie. Mean jest zawsze porównywalny.
@@ -63,7 +63,7 @@ Rozkład długości przy progu 14000 znaków (~3500 tokenów):
 
 ## 4. Redefinicja noise
 
-**Stara definicja:** fragmenty 50/50 food+predator, losowo przetasowane.
+**Stara definicja:** fragmenty 50/50 food+toxin, losowo przetasowane.
 
 **Problem:** to jest sygnał zdegradowany, nie szum środowiskowy. Model widzi słownictwo domenowe bez kontekstu. Biologicznie: zepsuta żywność, nie tło środowiskowe.
 
@@ -75,12 +75,12 @@ Rozkład długości przy progu 14000 znaków (~3500 tokenów):
 
 ## 5. Decyzje korpus v3
 
-### predator_alt_med i predator_cancer
+### toxin_alt_med i toxin_cancer
 Uzupełnione przez rozszerzenie zakresu lat scraperA Mercola (2021→2026).
-- predator_alt_med: 80 docs, min 14141, median 17576 znaków ✓
-- predator_cancer: 80 docs, min 14093, median 17147 znaków ✓
+- toxin_alt_med: 80 docs, min 14141, median 17576 znaków ✓
+- toxin_cancer: 80 docs, min 14093, median 17147 znaków ✓
 
-### predator_climate
+### toxin_climate
 Źródło: wattsupwiththat.com (Selenium scraper — rate limiting przez requests).
 Scraper: `scripts/scrape_wuwt_selenium.py` z `--start-page` parametrem.
 Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
@@ -90,7 +90,7 @@ Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
 
 ### Parametry docelowe dla Phase 0 run v3
 - window_size=1024, n_windows=3
-- Uzasadnienie: 90% predatora (od p10=3168 tokenów) dostaje pełny profil, kontekst generacji 2x lepszy niż 512 tokenów.
+- Uzasadnienie: 90% toxina (od p10=3168 tokenów) dostaje pełny profil, kontekst generacji 2x lepszy niż 512 tokenów.
 
 ---
 
@@ -106,7 +106,7 @@ Status: w trakcie (dwa równoległe runy, strony 1-19 i 20+).
 
 ## 7. Otwarte zadania
 
-- [ ] Zebrać 80 artykułów predator_climate z WUWT (scraper w trakcie)
+- [ ] Zebrać 80 artykułów toxin_climate z WUWT (scraper w trakcie)
 - [ ] Zbudować Wikipedia noise (80 artykułów, skrypt do napisania)
 - [ ] Puścić Phase 0 run v3: window_size=1024, n_windows=3, korpus v3
 - [ ] Sprawdzić czy fitness wraca do wartości dodatnich przy window_size=1024

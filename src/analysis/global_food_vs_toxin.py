@@ -1,7 +1,7 @@
-"""Global food vs. predator statistical analysis (Phase 0).
+"""Global food vs. toxin statistical analysis (Phase 0).
 
 Loads raw per-sample metrics from metrics_phase0.json, compares food (N=400)
-against predator (N=400) across all domains combined, and outputs:
+against toxin (N=400) across all domains combined, and outputs:
   - Summary table (console + JSON)
   - Bar plot of effect sizes saved to the figures_publication directory
 """
@@ -77,12 +77,12 @@ def main() -> None:
 
     results = d["results"]
     food = [r for r in results if r["type"] == "food"]
-    predator = [r for r in results if r["type"] == "predator"]
+    toxin = [r for r in results if r["type"] == "toxin"]
 
-    print(f"food N={len(food)}, predator N={len(predator)}\n")
+    print(f"food N={len(food)}, toxin N={len(toxin)}\n")
 
     n_food = len(food)
-    n_pred = len(predator)
+    n_pred = len(toxin)
     n_tests = len(METRICS)
     bonferroni_alpha = 0.05 / n_tests
 
@@ -94,7 +94,7 @@ def main() -> None:
 
     for metric in METRICS:
         vals_food = np.array([r[metric] for r in food], dtype=float)
-        vals_pred = np.array([r[metric] for r in predator], dtype=float)
+        vals_pred = np.array([r[metric] for r in toxin], dtype=float)
 
         u_stat, p_val = mannwhitneyu(vals_food, vals_pred, alternative="two-sided")
         r = rank_biserial_r(u_stat, n_food, n_pred)
@@ -106,16 +106,16 @@ def main() -> None:
             "p_bonferroni_sig": bool(p_bonf_sig),
             "effect_r": r,
             "mean_food": float(np.mean(vals_food)),
-            "mean_predator": float(np.mean(vals_pred)),
+            "mean_toxin": float(np.mean(vals_pred)),
             "n_food": n_food,
-            "n_predator": n_pred,
+            "n_toxin": n_pred,
         }
         rows.append(row)
 
         stars = sig_stars(p_val) + ("†" if p_bonf_sig else "")
         print(
             f"{metric:<14} {p_val:>12.2e} {str(p_bonf_sig):>10} {stars:>4} "
-            f"{r:>7.3f} {row['mean_food']:>11.4f} {row['mean_predator']:>11.4f}"
+            f"{r:>7.3f} {row['mean_food']:>11.4f} {row['mean_toxin']:>11.4f}"
         )
 
     print(f"\nBonferroni α = {bonferroni_alpha:.4f} (n_tests={n_tests})")
@@ -123,7 +123,7 @@ def main() -> None:
 
     # Save JSON summary
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_json = OUT_DIR / "global_food_vs_predator_stats.json"
+    out_json = OUT_DIR / "global_food_vs_toxin_stats.json"
     with out_json.open("w", encoding="utf-8") as f:
         json.dump(rows, f, indent=2)
     print(f"Stats saved → {out_json}")
@@ -176,9 +176,9 @@ def main() -> None:
 
     ax.set_xticks(x)
     ax.set_xticklabels([METRIC_LABELS[m] for m in METRICS], fontsize=9)
-    ax.set_ylabel("Rank-biserial r  (food vs. predator)", fontsize=10)
+    ax.set_ylabel("Rank-biserial r  (food vs. toxin)", fontsize=10)
     ax.set_title(
-        "Global metric discrimination: food (N=400) vs. predator (N=400)\n"
+        "Global metric discrimination: food (N=400) vs. toxin (N=400)\n"
         "Mann-Whitney U, all domains pooled",
         fontsize=10,
     )

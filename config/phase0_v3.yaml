@@ -42,11 +42,11 @@ phase0_validation:
     - data/v2/food_alt_med.jsonl
     - data/v2/food_cancer.jsonl
     - data/v2/food_gmo.jsonl
-    # Predator — v3 corpus (Mercola/WUWT, N=80 per domain, min 14000 chars)
-    - data/v2/predator_climate.jsonl
-    - data/v2/predator_vaccines.jsonl
-    - data/v2/predator_alt_med.jsonl
-    - data/v2/predator_cancer.jsonl
-    - data/v2/predator_gmo.jsonl
+    # Toxin — v3 corpus (Mercola/WUWT, N=80 per domain, min 14000 chars)
+    - data/v2/toxin_climate.jsonl
+    - data/v2/toxin_vaccines.jsonl
+    - data/v2/toxin_alt_med.jsonl
+    - data/v2/toxin_cancer.jsonl
+    - data/v2/toxin_gmo.jsonl
     # Noise — v3 Wikipedia (N=80, min 14000 chars)
     - data/v2/noise_wikipedia.jsonl

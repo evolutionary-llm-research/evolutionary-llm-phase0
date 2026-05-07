@@ -9,7 +9,7 @@ Min length: 14000 chars (~3500 tokens)
 
 Usage:
     python scrape_wuwt_selenium.py --max 120 --start-page 1
-    python scrape_wuwt_selenium.py --max 120 --start-page 20 --output data/v2/predator_climate_wuwt_old.jsonl
+    python scrape_wuwt_selenium.py --max 120 --start-page 20 --output data/v2/toxin_climate_wuwt_old.jsonl
 """
 
 import time
@@ -42,7 +42,7 @@ BLACKLIST_TITLE = [
     "bits and", "monday morning", "friday funny",
 ]
 
-ID_PREFIX = "PREDATOR_CLIMATE_WUWT"
+ID_PREFIX = "TOXIN_CLIMATE_WUWT"
 
 
 def make_driver() -> webdriver.Chrome:
@@ -160,7 +160,7 @@ def scrape_article(driver: webdriver.Chrome, url: str, idx: int) -> dict | None:
     return {
         "id": f"{ID_PREFIX}_{idx:04d}",
         "domain": "climate",
-        "type": "predator",
+        "type": "toxin",
         "content": content,
         "metadata": {
             "title": title,
@@ -177,7 +177,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--max", type=int, default=120)
     parser.add_argument("--start-page", type=int, default=1)
-    parser.add_argument("--output", default="data/v2/predator_climate_wuwt.jsonl")
+    parser.add_argument("--output", default="data/v2/toxin_climate_wuwt.jsonl")
     args = parser.parse_args()
 
     output_path = Path(args.output)

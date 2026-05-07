@@ -1,12 +1,12 @@
-# Merge and shuffle script for predator_covid.jsonl
+# Merge and shuffle script for toxin_covid.jsonl
 # This script merges the cleaned CoAID records and taxonomy supplement, shuffles, and overwrites the file.
 
 import json
 import random
 
-INPUT_MAIN = "data/raw/predator_covid.jsonl"
-INPUT_SUPP = "data/raw/predator_covid_supplement.jsonl"
-OUTPUT = "data/raw/predator_covid.jsonl"
+INPUT_MAIN = "data/raw/toxin_covid.jsonl"
+INPUT_SUPP = "data/raw/toxin_covid_supplement.jsonl"
+OUTPUT = "data/raw/toxin_covid.jsonl"
 SEED = 42
 
 def load_jsonl(path):

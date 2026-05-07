@@ -1,6 +1,6 @@
 """Three-class corpus discrimination analysis (Phase 0).
 
-Compares food (N=400) vs predator (N=400) vs noise (N=80) across all metrics.
+Compares food (N=400) vs toxin (N=400) vs noise (N=80) across all metrics.
 Performs Kruskal-Wallis test + pairwise Mann-Whitney with effect sizes.
 
 Outputs:
@@ -32,10 +32,10 @@ def main() -> None:
         d = json.load(f)
 
     food = [r for r in d["results"] if r["type"] == "food"]
-    predator = [r for r in d["results"] if r["type"] == "predator"]
+    toxin = [r for r in d["results"] if r["type"] == "toxin"]
     noise = [r for r in d["results"] if r["type"] == "noise"]
 
-    print(f"N: food={len(food)}, predator={len(predator)}, noise={len(noise)}\n")
+    print(f"N: food={len(food)}, toxin={len(toxin)}, noise={len(noise)}\n")
 
     # Bonferroni: 5 metrics x 3 pairwise = 15 tests
     bonf_alpha = 0.05 / (len(METRICS) * 3)
@@ -47,7 +47,7 @@ def main() -> None:
 
     for metric in METRICS:
         food_vals = np.array([r[metric] for r in food], dtype=float)
-        pred_vals = np.array([r[metric] for r in predator], dtype=float)
+        pred_vals = np.array([r[metric] for r in toxin], dtype=float)
         noise_vals = np.array([r[metric] for r in noise], dtype=float)
 
         # Kruskal-Wallis
@@ -58,15 +58,15 @@ def main() -> None:
             "pairwise": {},
             "means": {
                 "food": float(np.mean(food_vals)),
-                "predator": float(np.mean(pred_vals)),
+                "toxin": float(np.mean(pred_vals)),
                 "noise": float(np.mean(noise_vals)),
             },
         }
 
         for label, g1, g2, v1, v2 in [
-            ("food vs predator", "food", "predator", food_vals, pred_vals),
+            ("food vs toxin", "food", "toxin", food_vals, pred_vals),
             ("food vs noise", "food", "noise", food_vals, noise_vals),
-            ("predator vs noise", "predator", "noise", pred_vals, noise_vals),
+            ("toxin vs noise", "toxin", "noise", pred_vals, noise_vals),
         ]:
             u, p = mannwhitneyu(v1, v2, alternative="two-sided")
             r = rank_biserial_r(u, len(v1), len(v2))

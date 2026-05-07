@@ -14,13 +14,13 @@ Artificial Life, NeurIPS/GECCO).
 
 ## Information environment (biomes)
 Three biomes defined by content ratios:
-- Savanna: 60% food / 20% predator / 20% noise | K_max=30
-- Desert:  10% food / 70% predator / 20% noise | K_max=10
-- Plain:   80% food /  5% predator / 15% noise | K_max=25
+- Savanna: 60% food / 20% toxin / 20% noise | K_max=30
+- Desert:  10% food / 70% toxin / 20% noise | K_max=10
+- Plain:   80% food /  5% toxin / 15% noise | K_max=25
 
 Data types:
 - Food: peer-reviewed articles from PubMed Central (climate + vaccines)
-- Predator: CARDS dataset, ClimateFever, VaccineLies, ANTiVax corpus
+- Toxin: CARDS dataset, ClimateFever, VaccineLies, ANTiVax corpus
 - Noise: semantically empty but grammatically valid text
 - CRITICAL: type tags exist ONLY in pipeline metadata, never passed to model
 
@@ -89,7 +89,7 @@ papers/          # publication drafts
   archetype, fitness_score, creation_timestamp)
 
 ## Critical constraints
-- Model must NEVER receive content type tags (food/predator/noise)
+- Model must NEVER receive content type tags (food/toxin/noise)
 - Metrics must be computable without ground truth labels
 - Each phase isolates one variable; do not mix phase mechanics
 - All adapter operations must be logged for reproducibility

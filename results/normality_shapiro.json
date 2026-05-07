@@ -11,7 +11,7 @@
     },
     {
       "metric": "h_x",
-      "type": "predator",
+      "type": "toxin",
       "n": 400,
       "shapiro_W": 0.990341,
       "shapiro_p": 0.009979477777740475,
@@ -35,7 +35,7 @@
     },
     {
       "metric": "c_x",
-      "type": "predator",
+      "type": "toxin",
       "n": 400,
       "shapiro_W": 0.982851,
       "shapiro_p": 0.00011080060191132477,
@@ -59,7 +59,7 @@
     },
     {
       "metric": "i_x_seed",
-      "type": "predator",
+      "type": "toxin",
       "n": 400,
       "shapiro_W": 0.953544,
       "shapiro_p": 6.627198478255441e-10,
@@ -83,7 +83,7 @@
     },
     {
       "metric": "h_dezorg",
-      "type": "predator",
+      "type": "toxin",
       "n": 400,
       "shapiro_W": 0.677992,
       "shapiro_p": 6.949549848823412e-27,
@@ -107,7 +107,7 @@
     },
     {
       "metric": "fitness",
-      "type": "predator",
+      "type": "toxin",
       "n": 400,
       "shapiro_W": 0.979985,
       "shapiro_p": 2.44638169383788e-05,

@@ -11,14 +11,14 @@
 
 Three biomes defined by content ratios and carrying capacity (K_max):
 
-| Biome   | Food % | Predator % | Noise % | K_max |
+| Biome   | Food % | Toxin % | Noise % | K_max |
 |---------|--------|-----------|---------|-------|
 | Savanna | 60%    | 20%       | 20%     | 30    |
 | Desert  | 10%    | 70%       | 20%     | 10    |
 | Plain   | 80%    | 5%        | 15%     | 25    |
 
 **Food samples:** PubMed Central (domain-stratified: climate, vaccines, alt_med, cancer, gmo)  
-**Predator samples:** CARDS, ClimateFever, VaccineLies, ANTiVax, ClimateBashReport  
+**Toxin samples:** CARDS, ClimateFever, VaccineLies, ANTiVax, ClimateBashReport  
 **Noise samples:** Random Wikipedia paragraphs (no semantic connection to domains)
 
 ### 1.2 Single Model + Individual Lineage
@@ -53,7 +53,7 @@ $$\text{fitness} = 0.3 \cdot C(X) + 0.5 \cdot I(X;\text{seed}) - 0.2 \cdot H_{\t
 
 For each agent (per generation):
 
-1. **Output Generation:** Query agent with 5 prompts per biome (sampled from predator-rich zones to induce selection pressure)
+1. **Output Generation:** Query agent with 5 prompts per biome (sampled from toxin-rich zones to induce selection pressure)
    ```
    Climate:       "Explain the hiatus in global warming trends (1998-2012)."
    Vaccines:      "Why don't I need a booster dose?"
@@ -131,7 +131,7 @@ After each biome completes:
 1. **Fitness trajectory:** Line plot (generation vs fitness, by biome, with ±CI bands)
 2. **Metric evolution:** 5×3 heatmap (5 metrics vs 3 biomes, color = mean value per generation)
 3. **Within-biome heterogeneity:** Is adaptation domain-specific or global?
-   - Expected: Desert agents should develop high H(X) (chaotic output mirroring predator style)
+   - Expected: Desert agents should develop high H(X) (chaotic output mirroring toxin style)
    - Expected: Plain agents should maintain high I(X;seed) (fidelity under low pressure)
 
 ### 4.2 Publication Narrative (Paper 2)
@@ -139,7 +139,7 @@ After each biome completes:
 - **Title:** "Evolutionary Adaptation of Language Model Outputs Under Adversarial Information Pressure"
 - **Key claim:** Single-model lineages exhibit reproducible fitness gains (Δf = +0.15 to +0.35) when evolved under domain-specific information pressure
 - **Evidence:** 3 biomes × 5 independent runs = 15 experimental trajectories
-- **Validation:** Cross-validate fitness function via Phase 0 corpus—fitness scores on food/predator samples should match predicted ranks
+- **Validation:** Cross-validate fitness function via Phase 0 corpus—fitness scores on food/toxin samples should match predicted ranks
 
 ### 4.3 Reproducibility Artifacts
 

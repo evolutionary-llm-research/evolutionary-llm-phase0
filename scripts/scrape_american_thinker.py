@@ -9,7 +9,7 @@ from urllib3.util.retry import Retry
 # --- KONFIGURACJA ---
 BASE_URL = "https://www.americanthinker.com"
 TOPIC_URL = f"{BASE_URL}/topic/climate-change-hoax/"
-OUTPUT_FILE = r"E:\github\Evolutionary LLM Research\data\raw\predator_climate_at.jsonl"
+OUTPUT_FILE = r"E:\github\Evolutionary LLM Research\data\raw\toxin_climate_at.jsonl"
 
 def get_session():
     session = requests.Session()
@@ -101,7 +101,7 @@ def scrape_american_thinker():
             record = {
                 "id": f"PRED_CLIMATE_AT_{idx:04d}",
                 "domain": "climate",
-                "type": "predator",
+                "type": "toxin",
                 "content": content,
                 "metadata": {
                     "title": title,

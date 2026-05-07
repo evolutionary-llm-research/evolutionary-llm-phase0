@@ -1,5 +1,5 @@
 {
-  "corpus": "predator_alt_med_nn.jsonl",
+  "corpus": "toxin_alt_med_nn.jsonl",
   "summary": {
     "n_docs": 80,
     "verdict_distribution": {
@@ -74,7 +74,7 @@
     {
       "id": "PRED_ALT_MED_NN_0001",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -120,7 +120,7 @@
     {
       "id": "PRED_ALT_MED_NN_0002",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -166,7 +166,7 @@
     {
       "id": "PRED_ALT_MED_NN_0003",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -212,7 +212,7 @@
     {
       "id": "PRED_ALT_MED_NN_0004",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -258,7 +258,7 @@
     {
       "id": "PRED_ALT_MED_NN_0005",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -304,7 +304,7 @@
     {
       "id": "PRED_ALT_MED_NN_0006",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -350,7 +350,7 @@
     {
       "id": "PRED_ALT_MED_NN_0007",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -396,7 +396,7 @@
     {
       "id": "PRED_ALT_MED_NN_0008",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -442,7 +442,7 @@
     {
       "id": "PRED_ALT_MED_NN_0009",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -488,7 +488,7 @@
     {
       "id": "PRED_ALT_MED_NN_0010",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -534,7 +534,7 @@
     {
       "id": "PRED_ALT_MED_NN_0011",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -580,7 +580,7 @@
     {
       "id": "PRED_ALT_MED_NN_0012",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -626,7 +626,7 @@
     {
       "id": "PRED_ALT_MED_NN_0013",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -672,7 +672,7 @@
     {
       "id": "PRED_ALT_MED_NN_0014",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -720,7 +720,7 @@
     {
       "id": "PRED_ALT_MED_NN_0015",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -766,7 +766,7 @@
     {
       "id": "PRED_ALT_MED_NN_0016",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -812,7 +812,7 @@
     {
       "id": "PRED_ALT_MED_NN_0017",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -858,7 +858,7 @@
     {
       "id": "PRED_ALT_MED_NN_0018",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -904,7 +904,7 @@
     {
       "id": "PRED_ALT_MED_NN_0019",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -950,7 +950,7 @@
     {
       "id": "PRED_ALT_MED_NN_0020",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -996,7 +996,7 @@
     {
       "id": "PRED_ALT_MED_NN_0021",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1042,7 +1042,7 @@
     {
       "id": "PRED_ALT_MED_NN_0022",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1088,7 +1088,7 @@
     {
       "id": "PRED_ALT_MED_NN_0023",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1134,7 +1134,7 @@
     {
       "id": "PRED_ALT_MED_NN_0024",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1180,7 +1180,7 @@
     {
       "id": "PRED_ALT_MED_NN_0025",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1226,7 +1226,7 @@
     {
       "id": "PRED_ALT_MED_NN_0026",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1272,7 +1272,7 @@
     {
       "id": "PRED_ALT_MED_NN_0027",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1318,7 +1318,7 @@
     {
       "id": "PRED_ALT_MED_NN_0028",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1364,7 +1364,7 @@
     {
       "id": "PRED_ALT_MED_NN_0029",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1410,7 +1410,7 @@
     {
       "id": "PRED_ALT_MED_NN_0030",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1456,7 +1456,7 @@
     {
       "id": "PRED_ALT_MED_NN_0031",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1502,7 +1502,7 @@
     {
       "id": "PRED_ALT_MED_NN_0032",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1548,7 +1548,7 @@
     {
       "id": "PRED_ALT_MED_NN_0033",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1594,7 +1594,7 @@
     {
       "id": "PRED_ALT_MED_NN_0034",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1640,7 +1640,7 @@
     {
       "id": "PRED_ALT_MED_NN_0035",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1686,7 +1686,7 @@
     {
       "id": "PRED_ALT_MED_NN_0036",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1732,7 +1732,7 @@
     {
       "id": "PRED_ALT_MED_NN_0037",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1778,7 +1778,7 @@
     {
       "id": "PRED_ALT_MED_NN_0038",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1826,7 +1826,7 @@
     {
       "id": "PRED_ALT_MED_NN_0039",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1872,7 +1872,7 @@
     {
       "id": "PRED_ALT_MED_NN_0040",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1918,7 +1918,7 @@
     {
       "id": "PRED_ALT_MED_NN_0041",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -1964,7 +1964,7 @@
     {
       "id": "PRED_ALT_MED_NN_0042",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2010,7 +2010,7 @@
     {
       "id": "PRED_ALT_MED_NN_0043",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2056,7 +2056,7 @@
     {
       "id": "PRED_ALT_MED_NN_0044",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2104,7 +2104,7 @@
     {
       "id": "PRED_ALT_MED_NN_0045",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2150,7 +2150,7 @@
     {
       "id": "PRED_ALT_MED_NN_0046",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2196,7 +2196,7 @@
     {
       "id": "PRED_ALT_MED_NN_0047",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2244,7 +2244,7 @@
     {
       "id": "PRED_ALT_MED_NN_0048",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2290,7 +2290,7 @@
     {
       "id": "PRED_ALT_MED_NN_0049",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2336,7 +2336,7 @@
     {
       "id": "PRED_ALT_MED_NN_0050",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2382,7 +2382,7 @@
     {
       "id": "PRED_ALT_MED_NN_0051",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2428,7 +2428,7 @@
     {
       "id": "PRED_ALT_MED_NN_0052",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2474,7 +2474,7 @@
     {
       "id": "PRED_ALT_MED_NN_0053",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2520,7 +2520,7 @@
     {
       "id": "PRED_ALT_MED_NN_0054",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2566,7 +2566,7 @@
     {
       "id": "PRED_ALT_MED_NN_0055",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2612,7 +2612,7 @@
     {
       "id": "PRED_ALT_MED_NN_0056",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2660,7 +2660,7 @@
     {
       "id": "PRED_ALT_MED_NN_0057",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2706,7 +2706,7 @@
     {
       "id": "PRED_ALT_MED_NN_0058",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2752,7 +2752,7 @@
     {
       "id": "PRED_ALT_MED_NN_0059",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2798,7 +2798,7 @@
     {
       "id": "PRED_ALT_MED_NN_0060",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2844,7 +2844,7 @@
     {
       "id": "PRED_ALT_MED_NN_0061",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2890,7 +2890,7 @@
     {
       "id": "PRED_ALT_MED_NN_0062",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2936,7 +2936,7 @@
     {
       "id": "PRED_ALT_MED_NN_0063",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -2982,7 +2982,7 @@
     {
       "id": "PRED_ALT_MED_NN_0064",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3028,7 +3028,7 @@
     {
       "id": "PRED_ALT_MED_NN_0065",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3074,7 +3074,7 @@
     {
       "id": "PRED_ALT_MED_NN_0066",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3120,7 +3120,7 @@
     {
       "id": "PRED_ALT_MED_NN_0067",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3166,7 +3166,7 @@
     {
       "id": "PRED_ALT_MED_NN_0068",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3212,7 +3212,7 @@
     {
       "id": "PRED_ALT_MED_NN_0069",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3258,7 +3258,7 @@
     {
       "id": "PRED_ALT_MED_NN_0070",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3304,7 +3304,7 @@
     {
       "id": "PRED_ALT_MED_NN_0071",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3350,7 +3350,7 @@
     {
       "id": "PRED_ALT_MED_NN_0072",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3396,7 +3396,7 @@
     {
       "id": "PRED_ALT_MED_NN_0073",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3442,7 +3442,7 @@
     {
       "id": "PRED_ALT_MED_NN_0074",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3488,7 +3488,7 @@
     {
       "id": "PRED_ALT_MED_NN_0075",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3534,7 +3534,7 @@
     {
       "id": "PRED_ALT_MED_NN_0076",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3580,7 +3580,7 @@
     {
       "id": "PRED_ALT_MED_NN_0077",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3626,7 +3626,7 @@
     {
       "id": "PRED_ALT_MED_NN_0078",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3672,7 +3672,7 @@
     {
       "id": "PRED_ALT_MED_NN_0079",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,
@@ -3718,7 +3718,7 @@
     {
       "id": "PRED_ALT_MED_NN_0080",
       "domain": "alt_med",
-      "type": "predator",
+      "type": "toxin",
       "dimensions": {
         "length": {
           "ok": true,

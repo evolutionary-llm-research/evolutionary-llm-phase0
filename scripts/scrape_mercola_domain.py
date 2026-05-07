@@ -1,6 +1,6 @@
 """
 scrape_mercola_domain.py
-Scrapes articles from articles.mercola.com for multiple predator domains.
+Scrapes articles from articles.mercola.com for multiple toxin domains.
 
 robots.txt: no Disallow on article content, no crawl-delay specified
 Years: 2015-2021
@@ -12,7 +12,7 @@ Usage:
     python scrape_mercola_domain.py --domain vaccines --max 120
     python scrape_mercola_domain.py --domain gmo --max 120
 
-Output: data/v2/predator_{domain}_mercola.jsonl
+Output: data/v2/toxin_{domain}_mercola.jsonl
 """
 
 import requests
@@ -59,7 +59,7 @@ DOMAIN_CONFIG = {
             "co2 benefits", "plant food co2", "climate skeptic",
             "climate alarmism", "climate cult",
         ],
-        "id_prefix": "PREDATOR_CLIMATE_MERCOLA",
+        "id_prefix": "TOXIN_CLIMATE_MERCOLA",
         "domain": "climate",
     },
     "vaccines": {
@@ -70,7 +70,7 @@ DOMAIN_CONFIG = {
             "cdc schedule", "vaccine injury", "vaccine damage", "vaccine safety",
             "covid jab", "covid shot", "mrna vaccine",
         ],
-        "id_prefix": "PREDATOR_VACCINES_MERCOLA",
+        "id_prefix": "TOXIN_VACCINES_MERCOLA",
         "domain": "vaccines",
     },
     "alt_med": {
@@ -82,7 +82,7 @@ DOMAIN_CONFIG = {
             "traditional medicine", "natural treatment", "natural cure",
             "big pharma", "medical establishment", "mainstream medicine",
         ],
-        "id_prefix": "PREDATOR_ALT_MED_MERCOLA",
+        "id_prefix": "TOXIN_ALT_MED_MERCOLA",
         "domain": "alt_med",
     },
     "cancer": {
@@ -94,7 +94,7 @@ DOMAIN_CONFIG = {
             "cancer suppressed", "cannabis cancer", "baking soda cancer",
             "vitamin c cancer", "cancer conspiracy",
         ],
-        "id_prefix": "PREDATOR_CANCER_MERCOLA",
+        "id_prefix": "TOXIN_CANCER_MERCOLA",
         "domain": "cancer",
     },
     "gmo": {
@@ -105,7 +105,7 @@ DOMAIN_CONFIG = {
             "crispr food", "frankenfood", "gm crop", "gm food",
             "bayer monsanto", "chemical agriculture",
         ],
-        "id_prefix": "PREDATOR_GMO_MERCOLA",
+        "id_prefix": "TOXIN_GMO_MERCOLA",
         "domain": "gmo",
     },
 }
@@ -214,7 +214,7 @@ def scrape_article(url: str, title_hint: str, idx: int, config: dict) -> dict | 
     return {
         "id": f"{config['id_prefix']}_{idx:04d}",
         "domain": config["domain"],
-        "type": "predator",
+        "type": "toxin",
         "content": content,
         "metadata": {
             "title": title,
@@ -234,11 +234,11 @@ def main():
     parser.add_argument("--max", type=int, default=120,
                         help="Max articles to collect (default 120, wyzszy od 80 bo filtr dlugosci odrzuca krotkie)")
     parser.add_argument("--output", default=None,
-                        help="Output path (default: data/v2/predator_{domain}_mercola.jsonl)")
+                        help="Output path (default: data/v2/toxin_{domain}_mercola.jsonl)")
     args = parser.parse_args()
 
     config = DOMAIN_CONFIG[args.domain]
-    output_path = Path(args.output or f"data/v2/predator_{args.domain}_mercola.jsonl")
+    output_path = Path(args.output or f"data/v2/toxin_{args.domain}_mercola.jsonl")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     log.info(f"Domain: {args.domain} | Target: {args.max} | Min length: {MIN_CHARS} chars (~{MIN_CHARS//4} tokens)")

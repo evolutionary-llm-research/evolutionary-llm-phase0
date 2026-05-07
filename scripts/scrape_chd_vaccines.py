@@ -7,7 +7,7 @@ robots.txt: User-agent: * | Crawl-delay: 10 | No disallow on content
 
 Install: pip install playwright && playwright install chromium
 Usage:   python scrape_chd_vaccines.py --max 5   # test first
-         python scrape_chd_vaccines.py --max 80 --output data/v2/predator_vaccines_chd.jsonl
+         python scrape_chd_vaccines.py --max 80 --output data/v2/toxin_vaccines_chd.jsonl
 """
 
 import json
@@ -134,9 +134,9 @@ def scrape_article(page, url: str, idx: int) -> dict | None:
     pub_date = date_el.get("datetime", "") if date_el else ""
 
     return {
-        "id": f"PREDATOR_VACCINES_CHD_{idx:04d}",
+        "id": f"TOXIN_VACCINES_CHD_{idx:04d}",
         "domain": "vaccines",
-        "type": "predator",
+        "type": "toxin",
         "content": content,
         "metadata": {
             "title": title,
@@ -151,7 +151,7 @@ def scrape_article(page, url: str, idx: int) -> dict | None:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default="data/v2/predator_vaccines_chd.jsonl")
+    parser.add_argument("--output", default="data/v2/toxin_vaccines_chd.jsonl")
     parser.add_argument("--max", type=int, default=100)
     parser.add_argument("--max_pages", type=int, default=20)
     parser.add_argument("--headless", action="store_true", default=False,

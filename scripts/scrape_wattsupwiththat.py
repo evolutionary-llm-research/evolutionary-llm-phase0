@@ -9,7 +9,7 @@ Min length: 14000 chars (~3500 tokens)
 
 Usage:
     python scrape_wattsupwiththat.py --max 120
-Output: data/v2/predator_climate_wuwt.jsonl
+Output: data/v2/toxin_climate_wuwt.jsonl
 """
 
 import requests
@@ -44,7 +44,7 @@ BLACKLIST_TITLE = [
     "please welcome", "announce", "housekeeping",
 ]
 
-ID_PREFIX = "PREDATOR_CLIMATE_WUWT"
+ID_PREFIX = "TOXIN_CLIMATE_WUWT"
 
 
 def get_page(url: str, retries: int = 3):
@@ -141,7 +141,7 @@ def scrape_article(url: str, idx: int) -> dict | None:
     return {
         "id": f"{ID_PREFIX}_{idx:04d}",
         "domain": "climate",
-        "type": "predator",
+        "type": "toxin",
         "content": content,
         "metadata": {
             "title": title,
@@ -157,7 +157,7 @@ def scrape_article(url: str, idx: int) -> dict | None:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--max", type=int, default=120)
-    parser.add_argument("--output", default="data/v2/predator_climate_wuwt.jsonl")
+    parser.add_argument("--output", default="data/v2/toxin_climate_wuwt.jsonl")
     args = parser.parse_args()
 
     output_path = Path(args.output)

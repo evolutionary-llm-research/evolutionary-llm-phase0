@@ -53,7 +53,7 @@ def _compute_fitness_food_vs_toxin_stats(metrics_file: Path) -> tuple[dict[str, 
 
             if sample_type == "food":
                 food_by_domain[sample_domain].append(float(fitness))
-            elif sample_type in ("predator", "toxin"):
+            elif sample_type in ("toxin", "toxin"):
                 toxin_by_domain[sample_domain].append(float(fitness))
 
     per_domain_fitness: dict[str, Any] = {}
@@ -193,7 +193,7 @@ def build_figure_1_metric_discrimination(
         cbar.set_label(cbar_label, fontsize=9)
 
     fig.suptitle(
-        "Figure 1. Within-domain metric discrimination: food vs predator (Phase 0)\n"
+        "Figure 1. Within-domain metric discrimination: food vs toxin (Phase 0)\n"
         "Mann-Whitney U, rank-biserial r. \u2020 = Bonferroni-corrected significant.",
         fontsize=10,
     )
@@ -478,7 +478,7 @@ def build_figure_1b_three_class_discrimination(
     """Build Figure 1b: three-class corpus discrimination (food/toxin/noise)."""
     metrics = ["h_x", "c_x", "i_x_seed", "jaccard", "h_dezorg"]
     metric_labels = ["H(X)", "C(X)", "I(X;seed)", "Jaccard", "H_dezorg"]
-    pairs = ["food vs predator", "food vs noise", "predator vs noise"]
+    pairs = ["food vs toxin", "food vs noise", "toxin vs noise"]
     pair_labels = ["Food→Toxin", "Food→Noise", "Toxin→Noise"]
 
     bonf_alpha = 0.05 / (len(metrics) * 3)
@@ -537,7 +537,7 @@ def build_figure_3_corpus_hierarchy(
     for ax_idx, (ax, metric) in enumerate(zip(axes, metrics)):
         means = [
             three_class_stats[metric]["means"]["food"],
-            three_class_stats[metric]["means"]["predator"],
+            three_class_stats[metric]["means"]["toxin"],
             three_class_stats[metric]["means"]["noise"],
         ]
         x = np.arange(len(corpus_labels))
@@ -584,7 +584,7 @@ def build_figure_fitness_biomarker(fitness_stats: dict[str, Any], repo_root: Pat
             sample_type = sample.get("type", "").lower()
             if sample_type == "food":
                 food.append(fitness)
-            elif sample_type in ("predator", "toxin"):
+            elif sample_type in ("toxin", "toxin"):
                 toxin.append(fitness)
             elif sample_type == "noise":
                 noise.append(fitness)
@@ -691,7 +691,7 @@ def build_figure_3_corpus_hierarchy_old(
     for ax_idx, (ax, metric) in enumerate(zip(axes, metrics)):
         means = [
             three_class_stats[metric]["means"]["food"],
-            three_class_stats[metric]["means"]["predator"],
+            three_class_stats[metric]["means"]["toxin"],
             three_class_stats[metric]["means"]["noise"],
         ]
         x = np.arange(len(corpus_labels))

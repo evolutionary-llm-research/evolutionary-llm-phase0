@@ -1077,7 +1077,7 @@ z
      </g>
     </g>
     <g id="text_14">
-     <!-- Rank-biserial r  (food vs. predator) -->
+     <!-- Rank-biserial r  (food vs. toxin) -->
      <g transform="translate(14.798438 236.307812) rotate(-90) scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-52" d="M 2841 2188 
@@ -1397,7 +1397,7 @@ z
     </g>
    </g>
    <g id="text_23">
-    <!-- Global metric discrimination: food (N=400) vs. predator (N=400) -->
+    <!-- Global metric discrimination: food (N=400) vs. toxin (N=400) -->
     <g transform="translate(103.60625 14.798437) scale(0.1 -0.1)">
      <defs>
       <path id="DejaVuSans-47" d="M 3809 666 

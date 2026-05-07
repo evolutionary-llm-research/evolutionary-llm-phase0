@@ -51,14 +51,14 @@ phase0_validation:
     - data/v2/food_alt_med.jsonl
     - data/v2/food_cancer.jsonl
     - data/v2/food_gmo.jsonl
-    # Predator — v2 corpus (NaturalNews, autentyczny język)
-    - data/v2/predator_climate.jsonl
-    - data/v2/predator_vaccines.jsonl
-    - data/v2/predator_alt_med.jsonl
-    - data/v2/predator_cancer.jsonl
-    - data/v2/predator_gmo.jsonl
+    # Toxin — v2 corpus (NaturalNews, autentyczny język)
+    - data/v2/toxin_climate.jsonl
+    - data/v2/toxin_vaccines.jsonl
+    - data/v2/toxin_alt_med.jsonl
+    - data/v2/toxin_cancer.jsonl
+    - data/v2/toxin_gmo.jsonl
     # Noise
     - data/v2/noise_mixed.jsonl
     # Legacy — do porównania style swap
-    - data/v2/predator_vaccines_legacy_vaccines.jsonl
-    - data/v2/predator_covid_legacy_covid.jsonl
+    - data/v2/toxin_vaccines_legacy_vaccines.jsonl
+    - data/v2/toxin_covid_legacy_covid.jsonl

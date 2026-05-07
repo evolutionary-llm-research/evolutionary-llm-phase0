@@ -113,7 +113,7 @@ def main():
     )
 
     for domain in DOMAINS_TO_SCRAPE:
-        out_path      = OUT_DIR / f"predator_{domain}_nn.jsonl"
+        out_path      = OUT_DIR / f"toxin_{domain}_nn.jsonl"
         existing_urls = set()
         count         = 0
 
@@ -160,7 +160,7 @@ def main():
             record = {
                 "id": f"PRED_{domain.upper()}_NN_{count+1:04d}",
                 "domain": domain,
-                "type": "predator",
+                "type": "toxin",
                 "content": text,
                 "metadata": {
                     "title":        rec.get("title", ""),

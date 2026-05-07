@@ -8,7 +8,7 @@
 
 ## EXECUTIVE SUMMARY
 
-Phase 0 validates a comprehensive information-theoretic metric framework for discriminating food (peer-reviewed), predator (misinformation), and noise (random) content without using content labels during inference. Five metrics (H(X), C(X), I(X;seed), Jaccard, H_dezorg) achieve strong discrimination across 880 samples stratified by 5 knowledge domains. **Critical finding:** Domain heterogeneity is a feature, not a bug—different genres of misinformation have distinct information signatures (e.g., vaccines pseudoscience is well-organized; climate denial is chaotic).
+Phase 0 validates a comprehensive information-theoretic metric framework for discriminating food (peer-reviewed), toxin (misinformation), and noise (random) content without using content labels during inference. Five metrics (H(X), C(X), I(X;seed), Jaccard, H_dezorg) achieve strong discrimination across 880 samples stratified by 5 knowledge domains. **Critical finding:** Domain heterogeneity is a feature, not a bug—different genres of misinformation have distinct information signatures (e.g., vaccines pseudoscience is well-organized; climate denial is chaotic).
 
 ---
 
@@ -43,18 +43,18 @@ Phase 0 validates a comprehensive information-theoretic metric framework for dis
 ### Per-Domain Analysis (5 domains × 5 metrics = 25 tests)
 - **Test:** Mann-Whitney U (rank-biserial r effect size)
 - **Bonferroni correction:** α_corrected = 0.05 / 25 = **0.002**
-- **Sample sizes:** N_food = 80, N_predator = 80 per domain
+- **Sample sizes:** N_food = 80, N_toxin = 80 per domain
 
 ### Global Analysis (5 metrics)
 - **Test:** Mann-Whitney U with pooled samples
 - **Bonferroni correction:** α_corrected = 0.05 / 5 = **0.01**
-- **Sample sizes:** N_food = 400, N_predator = 400
+- **Sample sizes:** N_food = 400, N_toxin = 400
 
 ### Three-Class Analysis (3 pairwise × 5 metrics = 15 tests)
-- **First test:** Kruskal-Wallis (food vs predator vs noise omnibus)
-- **Follow-up:** Pairwise Mann-Whitney for food-predator, food-noise, predator-noise
+- **First test:** Kruskal-Wallis (food vs toxin vs noise omnibus)
+- **Follow-up:** Pairwise Mann-Whitney for food-toxin, food-noise, toxin-noise
 - **Bonferroni correction:** α_corrected = 0.05 / 15 = **0.0033**
-- **Sample sizes:** N_food = 400, N_predator = 400, N_noise = 80
+- **Sample sizes:** N_food = 400, N_toxin = 400, N_noise = 80
 
 ---
 
@@ -69,7 +69,7 @@ Phase 0 validates a comprehensive information-theoretic metric framework for dis
 - ✅ CANCER: r=+0.514, p=7.19e-12 †
 - ✅ GMO: r=+0.426, p=2.13e-07 †
 
-**Interpretation:** Predator content is significantly MORE disorganized (higher H_dezorg) than food content across all 5 domains. This is the most robust single discriminator.
+**Interpretation:** Toxin content is significantly MORE disorganized (higher H_dezorg) than food content across all 5 domains. This is the most robust single discriminator.
 
 **C(X) performance (complementary):**
 - ✅ CLIMATE: r=-0.402, p=1.16e-06 †
@@ -78,7 +78,7 @@ Phase 0 validates a comprehensive information-theoretic metric framework for dis
 - ❌ CANCER: r=-0.134, p=0.145 (not significant; power analysis shows true effect ~1.3%)
 - ✅ GMO: r=-0.349, p=0.008 (near Bonferroni, power 20.3%)
 
-**Interpretation:** C(X) reliably discriminates food from predator via complexity gap (food > predator), but domain heterogeneity is real: vaccines pseudoscience is structurally sophisticated (high C(X)); cancer misinformation is simplistic.
+**Interpretation:** C(X) reliably discriminates food from toxin via complexity gap (food > toxin), but domain heterogeneity is real: vaccines pseudoscience is structurally sophisticated (high C(X)); cancer misinformation is simplistic.
 
 ### 3.2 Global Discrimination (Pooled Across All Domains)
 
@@ -156,13 +156,13 @@ This is NOT a failure of the metric framework—it reveals **domain-specific tox
 
 **Original mistake** (corpus_quality_analysis.py):
 - Loaded all 400 food samples ONCE
-- Looped through 5 domain predator files, reusing same pooled food_stats
-- Result: Comparing "average food (all domains)" vs "predator (per-domain)"
+- Looped through 5 domain toxin files, reusing same pooled food_stats
+- Result: Comparing "average food (all domains)" vs "toxin (per-domain)"
 - Artificial inflation of food effect
 
 **Corrected approach** (rebuild_corpus_quality_v2.py):
-- Stratified food and predator by domain within biome dict
-- Within each domain: compare food_domain (N=80) vs predator_domain (N=80)
+- Stratified food and toxin by domain within biome dict
+- Within each domain: compare food_domain (N=80) vs toxin_domain (N=80)
 - Per-domain Bonferroni: α=0.002 (25 tests across 5 metrics × 5 domains)
 - **Impact:** Some metrics went from "everywhere significant" to "heterogeneous"—THIS WAS THE CORRECT OUTCOME
 
@@ -175,10 +175,10 @@ This is NOT a failure of the metric framework—it reveals **domain-specific tox
 **Title:** *Validating Information-Theoretic Metrics for Content Quality Discrimination in Large Language Models*
 
 **Key claims:**
-1. H_dezorg (disorganization entropy) is a robust primary discriminator (food vs predator, all domains, r≥+0.33 †)
+1. H_dezorg (disorganization entropy) is a robust primary discriminator (food vs toxin, all domains, r≥+0.33 †)
 2. C(X) complements H_dezorg with domain-dependent sensitivity; vaccines pseudoscience has high complexity but high disorganization
 3. Within-domain methodology reveals expected heterogeneity; pooling masks important signatures
-4. Three-class validation (food > predator > noise) confirms metric hierarchy
+4. Three-class validation (food > toxin > noise) confirms metric hierarchy
 
 **Strengths:**
 - ✅ Reproducible config-driven setup, all RNG seeded
@@ -206,7 +206,7 @@ This is NOT a failure of the metric framework—it reveals **domain-specific tox
 | Figure 2 | LD50 sequential biomarker profile (C(X), H_dezorg) | PNG/SVG/PDF | ✅ Ready |
 | Figure 3 | Corpus hierarchy bar plots (C(X), H_dezorg) | PNG/SVG/PDF | ✅ Ready |
 | Figure 4 | Fitness function as composite biomarker | PNG/SVG/PDF | ✅ Ready |
-| Supplement | Global food vs predator effect bar plot | PNG/SVG/PDF | ✅ Ready |
+| Supplement | Global food vs toxin effect bar plot | PNG/SVG/PDF | ✅ Ready |
 
 All figures use consistent color scheme, proper Bonferroni significance markers (†), and publication-quality formatting.
 

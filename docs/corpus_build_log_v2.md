@@ -9,14 +9,14 @@
 
 Pięć aktywnych domen: climate, vaccines, alt_med, cancer, gmo.  
 Domena covid wykluczona z Paper 1 (legacy, artefakty, nakładanie z vaccines).  
-Trzy typy per domena: food (pokarm), predator (drapieżnik), noise (szum).  
+Trzy typy per domena: food (pokarm), toxin (drapieżnik), noise (szum).  
 Cel: 80 dokumentów per typ per domena.
 
 ---
 
 ## Stan finalny
 
-| Domena | food | predator | noise |
+| Domena | food | toxin | noise |
 |--------|------|----------|-------|
 | climate | 80 | 80 | — |
 | vaccines | 80 | 80 | — |
@@ -47,7 +47,7 @@ food_gmo uzupełniony o 6 artykułów glyphosate/GMO z PMC 2025-2026 (PMCIDs: PM
 
 ---
 
-## Predator corpus
+## Toxin corpus
 
 **Filtr jakości:** min. 300 znaków na input, blacklist CTA patterns (brighteon, subscribe to, etc.)  
 **Weryfikacja:** `scripts/verify_corpus_quality.py` (bez LLM, bigram Jaccard)
@@ -56,13 +56,13 @@ food_gmo uzupełniony o 6 artykułów glyphosate/GMO z PMC 2025-2026 (PMCIDs: PM
 
 | Plik | N | Źródło |
 |------|---|--------|
-| predator_climate_plate.jsonl | 60 | PlateClimatology.com |
-| predator_climate_at.jsonl | 14 | AmericanThinker.com |
-| predator_climate_nn.jsonl | 5 | NaturalNews.com |
-| predator_vaccines_nn.jsonl | 33 | NaturalNews.com |
-| predator_alt_med_nn.jsonl | 45 | NaturalNews.com |
-| predator_cancer_nn.jsonl | 35 | NaturalNews.com |
-| predator_gmo_nn.jsonl | 35 | NaturalNews.com |
+| toxin_climate_plate.jsonl | 60 | PlateClimatology.com |
+| toxin_climate_at.jsonl | 14 | AmericanThinker.com |
+| toxin_climate_nn.jsonl | 5 | NaturalNews.com |
+| toxin_vaccines_nn.jsonl | 33 | NaturalNews.com |
+| toxin_alt_med_nn.jsonl | 45 | NaturalNews.com |
+| toxin_cancer_nn.jsonl | 35 | NaturalNews.com |
+| toxin_gmo_nn.jsonl | 35 | NaturalNews.com |
 
 ### Mercola scraper (2026-05-01)
 
@@ -74,10 +74,10 @@ food_gmo uzupełniony o 6 artykułów glyphosate/GMO z PMC 2025-2026 (PMCIDs: PM
 
 | Plik | Zebrane | Odrzucone | avg (znaki) |
 |------|---------|-----------|-------------|
-| predator_vaccines_mercola.jsonl | 240 | 0 | ~24000 |
-| predator_alt_med_mercola.jsonl | 64 | 2 | ~14000 |
-| predator_cancer_mercola.jsonl | 90 | 0 | ~16000 |
-| predator_gmo_mercola.jsonl | 157 | 0 | ~18000 |
+| toxin_vaccines_mercola.jsonl | 240 | 0 | ~24000 |
+| toxin_alt_med_mercola.jsonl | 64 | 2 | ~14000 |
+| toxin_cancer_mercola.jsonl | 90 | 0 | ~16000 |
+| toxin_gmo_mercola.jsonl | 157 | 0 | ~18000 |
 
 ### Merge finalny (audit_corpus.py --merge --target 80)
 
@@ -94,22 +94,22 @@ food_gmo uzupełniony o 6 artykułów glyphosate/GMO z PMC 2025-2026 (PMCIDs: PM
 ## Noise corpus
 
 **Skrypt:** `scripts/generate_noise.py`  
-**Metoda:** 50/50 mieszanie zdań z food i predator  
+**Metoda:** 50/50 mieszanie zdań z food i toxin  
 **N:** 80 dokumentów, avg 350 słów
 
 ---
 
 ## Legacy (nie używane w Paper 1)
 
-- `predator_vaccines_legacy_vaccines.jsonl` (23 dok, VaccineLies MisT) — zachowany do style swap experiment
-- `predator_covid_legacy_covid.jsonl` (61 dok, CoAID) — zachowany do style swap experiment
+- `toxin_vaccines_legacy_vaccines.jsonl` (23 dok, VaccineLies MisT) — zachowany do style swap experiment
+- `toxin_covid_legacy_covid.jsonl` (61 dok, CoAID) — zachowany do style swap experiment
 - `food_covid.jsonl` (35 dok) — domena nieaktywna
 
 ---
 
 ## Kluczowe odkrycie z Phase 0 (poprzedni run)
 
-Akademicko sformułowana dezinformacja (VaccineLies MisT) jest informatycznie nieodróżnialna od pokarmu. Autentyczny język internetowy (ClimateFever, NaturalNews, Mercola) daje efekty -0.60 do -0.82. Kryterium jakości predatora: język musi być autentyczny (potoczny, emocjonalny), nie akademicki.
+Akademicko sformułowana dezinformacja (VaccineLies MisT) jest informatycznie nieodróżnialna od pokarmu. Autentyczny język internetowy (ClimateFever, NaturalNews, Mercola) daje efekty -0.60 do -0.82. Kryterium jakości toxina: język musi być autentyczny (potoczny, emocjonalny), nie akademicki.
 
 ---
 
@@ -123,7 +123,7 @@ Akademicko sformułowana dezinformacja (VaccineLies MisT) jest informatycznie ni
 
 ## Odtwarzalność
 
-1. Git commit: "corpus v2 final: Mercola predator (vaccines/alt_med/cancer/gmo), food_gmo=77/80, merge 80 per domain"
+1. Git commit: "corpus v2 final: Mercola toxin (vaccines/alt_med/cancer/gmo), food_gmo=77/80, merge 80 per domain"
 2. `data/v2/corpus_manifest.json` rejestruje skład każdego pliku processed
 3. Skrypty scraping: `scripts/scrape_mercola_domain.py --domain {vaccines|alt_med|cancer|gmo} --max 240`
 4. Merge: `python scripts/audit_corpus.py --merge --target 80`
