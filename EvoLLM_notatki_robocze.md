@@ -36,6 +36,22 @@
 
 ---
 
+## Sesja 2026-05-08 — kalibracja MI, wybór seeda C, analiza gradientu LD50
+
+- MI calibration complete: 4 seedy × 8 implementacji, wynik zamrożony.
+- **Seed C + mi_token_ids_nmi** — r_canonical=0.301, kierunek correct.
+- systematic_reversal_finding: mi_entropy_decomp / mi_jsd / mi_npmi zawsze
+  odwrócone dla wszystkich seedów — problem strukturalny, nie artefakt seeda.
+  Materiał do Discussion Paper 1.
+- Seed C STABLE: seed_stability_test.py std(h_x)=0.0, std(c_x)=0.0 × 5 RNG seeds.
+- Truncation artifact pomijalny: delta H=0.010, delta C=0.001.
+- **C(X) i H_dezorg = primary signal**: r=-0.936 i r=0.869 na gradiencie LD50.
+- I(X;seed) = mierzy separację kanoniczną, nie gradient dawka-odpowiedź.
+- config/phase0_v3.yaml zaktualizowany z Seed C + mi_token_ids_nmi.
+- Pending: final rerun Phase 0, rekalibracja k/β, tag phase0-final-v2, Phase 1.
+
+---
+
 ## Sesja 2026-05-06 — mini-rerun pod materiał supplementary
 
 **Cel:** domknąć brakujące evidence jakościowe dryfu Q1/Q2/Q3 bez ruszania canonical run N=880.

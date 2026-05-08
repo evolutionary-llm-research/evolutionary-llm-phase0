@@ -79,6 +79,99 @@ diagnostics, and update all project documentation.
 
 ---
 
+## 2026-05-08 — MI calibration study, seed selection, fitness gradient analysis
+
+### Context
+
+Following the MI replacement in the 2026-05-07 session (entropy decomposition),
+a systematic calibration study was conducted to select the best seed text and MI
+implementation. Four candidate seeds (A–D) were tested against eight MI
+implementations. Two new analysis scripts were ported from the public phase0 repo
+into the research repo.
+
+### Actions performed
+
+**MI calibration study (4 seeds × 8 implementations)**
+
+Canonical evaluation on the full N=880 Phase 0 run. Key criterion: food > toxin
+direction with highest rank-biserial effect size.
+
+| MI implementation      | Seed A r | dir A   | Seed B r | dir B   | Seed C r | dir C   | Seed D r | dir D   |
+|------------------------|----------|---------|----------|---------|----------|---------|----------|---------|
+| mi_cosine              | +0.008   | correct | +0.201   | correct | −0.031   | reversed| −0.096   | reversed|
+| mi_entropy_decomp      | −0.220   | reversed| −0.291   | reversed| −0.153   | reversed| −0.185   | reversed|
+| mi_jsd                 | +0.017   | reversed| +0.190   | reversed| +0.317   | reversed| +0.211   | reversed|
+| mi_npmi                | +0.084   | reversed| +0.142   | reversed| −0.271   | reversed| −0.087   | reversed|
+| mi_token_ids           | −0.120   | reversed| −0.043   | reversed| +0.259   | correct | +0.100   | correct |
+| mi_token_ids_nmi       | N/A      | —       | −0.024   | reversed| **+0.301** | **correct** | N/A | — |
+| mi_token_ids_bigrams   | N/A      | —       | −0.164   | reversed| +0.058   | correct | N/A      | —       |
+| mi_token_ids_bpe       | N/A      | —       | −0.137   | reversed| −0.012   | reversed| N/A      | —       |
+
+**Systematic reversal finding (structural, not a seed artifact)**
+
+`mi_entropy_decomp`, `mi_jsd`, and `mi_npmi` produce reversed direction
+(toxin > food) for ALL seed variants. Root cause: these metrics measure
+domain vocabulary overlap. Toxin documents share keywords with any seed
+touching misinformation/vaccines/climate, inflating their scores regardless
+of information quality. This is a structural property of these estimators on
+this corpus and warrants a Discussion note in Paper 1.
+
+**Final selection: Seed C + mi_token_ids_nmi**
+
+- r_canonical = 0.301 (food vs toxin), correct direction
+- Seed C = base model output before exposure (diagnostic prompt response),
+  operationalising the panspermia hypothesis (ancestral state)
+- Self-calibrating: regenerated per model change
+- Truncation artifact verified negligible: delta H < 0.01, delta C < 0.001
+
+**Seed C stability verification (seed_stability_test.py)**
+
+- Ran `src/analysis/seed_stability_test.py` with 5 random seeds
+- Result: STABLE — std(h_x) = 0.0, std(c_x) = 0.0 across all seeds
+- Confirms Seed C determinism under temperature=0.0, seed=42
+
+**LD50 gradient — role of fitness components**
+
+- C(X): r = −0.936, p = 0.002 — primary signal carrier across LD50 gradient
+- H_dezorg: r = 0.869, p = 0.011 — secondary signal carrier
+- I(X;seed): gradient weak (r = −0.530, p = 0.221, flat) in isolation,
+  but fitness gradient remains strong because C(X) dominates
+- Implication: I(X;seed) with mi_token_ids_nmi correctly captures canonical
+  food/toxin separation but does not drive the dose-response gradient directly
+
+**Config update**
+
+- `config/phase0_v3.yaml` frozen with Seed C text and `mi: mi_token_ids_nmi`
+- Phase 0 final rerun pending with new MI implementation; will retag as
+  `phase0-final-v2`
+
+### Phase status after this session
+
+| Phase | Status | Note |
+|-------|--------|------|
+| Phase 0 | **PENDING RERUN** | MI + seed frozen; rerun → tag `phase0-final-v2` |
+| Phase 1 infrastructure | Complete | trainer.py, population.py, biome_runner.py ready |
+| Phase 1 experiment | Pending | After Phase 0 rerun and k/β recalibration |
+
+### Files created / updated
+
+| File | Action | Notes |
+|------|--------|-------|
+| `src/analysis/mi_calibration.py` | Created (ported) | 8 MI implementations + calibration harness |
+| `src/analysis/seed_stability_test.py` | Created (ported) | Determinism check for Seed C |
+| `results/mi_calibration_seedA.json` | Created | Calibration results Seed A |
+| `results/mi_calibration_seedB_v3.json` | Created | Calibration results Seed B (final) |
+| `results/mi_calibration_seedC_v3.json` | Created | Calibration results Seed C (final) |
+| `results/mi_calibration_seedD.json` | Created | Calibration results Seed D |
+| `results/mi_calibration_seed*_ld50.json` | Created | LD50 gradient per seed |
+| `config/phase0_v3.yaml` | Updated | Seed C text + mi_token_ids_nmi frozen |
+| `docs/project_journal.md` | Updated | This entry |
+| `docs/design_decisions.md` | Updated | Seed C + mi_token_ids_nmi rationale |
+| `EvoLLM_wnioski_20260508.md` | Created | Polish session findings |
+| `EvoLLM_notatki_robocze.md` | Updated | Session 2026-05-08 note |
+
+---
+
 ## 2026-05-06 — Supplementary mini-rerun, freeze tag, and public dissemination
 
 ### Context

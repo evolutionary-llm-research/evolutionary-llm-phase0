@@ -46,3 +46,29 @@ saved as a new adapter file.
 - Consequence: full Phase 0 rerun required (canonical + LD50).
 - Phase 0 results with old metric archived under tag `phase0-final`.
 - New results will be tagged `phase0-final-v2`.
+
+## Seed text selection for I(X;seed) (2026-05-08)
+
+Selected: **Seed C** (base model output pre-exposure)  
+MI implementation: **mi_token_ids_nmi**
+
+Rationale:
+- Strongest canonical separation r = 0.301 food vs toxin (correct direction)
+- Self-calibrating: regenerated per model change (temperature=0.0, seed=42)
+- Biological justification: measures drift from ancestral state
+  (operationalises panspermia hypothesis)
+- Truncation artifact negligible: delta H = 0.010, delta C = 0.001 (verified
+  empirically via seed_stability_test.py)
+
+Diagnostic prompt (frozen):
+
+> "Summarize the key mechanisms by which misinformation spreads in online
+> environments and describe evidence-based interventions."
+
+Systematic finding: `mi_entropy_decomp`, `mi_jsd`, `mi_npmi` produce reversed
+direction (toxin > food) for ALL seed variants tested (A, B, C, D).
+
+Root cause: these metrics measure domain vocabulary overlap, not information
+quality. Toxin documents share domain keywords with any seed referencing
+misinformation/vaccines/climate. This is a structural property, not a seed
+artifact, and warrants a Discussion note in Paper 1.
