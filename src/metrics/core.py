@@ -103,15 +103,10 @@ def fitness_score(
 
 
 def mutual_information_proxy(seed_text: str, output_text: str) -> float:
-    """Compute mutual information via entropy decomposition I(X;Y) = H(X)+H(Y)-H(X,Y).
-
-    Uses the identity I(X;Y) = H(X) + H(Y) - H(X,Y), where H(X,Y) is the
-    Shannon entropy of the token distribution of the concatenated text.
-    Normalized by min(H(X), H(Y)) to yield a value in [0, 1].
-
-    Tokenization: whitespace (consistent with shannon_entropy and H_dezorg).
-    Replaces: cosine similarity (bag-of-words) proxy.
-    Reason: information-theoretic consistency with H(X) and H_dezorg.
+    """Normalized Mutual Information (NMI) on positional whitespace token sequences.
+    NMI = mutual_info_score(X, Y) / sqrt(H(X) * H(Y))
+    Replaces cosine similarity. Canonical implementation: mi_token_ids_nmi.
+    Range [0, 1]. Returns 0.0 if either text is empty or min_len < 2.
 
     Parameters
     ----------
@@ -124,17 +119,35 @@ def mutual_information_proxy(seed_text: str, output_text: str) -> float:
     -------
     float
         Normalized mutual information in [0, 1].
-        Returns 0.0 if min(H(X), H(Y)) == 0.0.
     """
-    hx = shannon_entropy(seed_text)
-    hy = shannon_entropy(output_text)
-    min_h = min(hx, hy)
-    if min_h == 0.0:
+    from scipy.stats import entropy as scipy_entropy
+    from sklearn.metrics import mutual_info_score
+    import numpy as np
+
+    seed_tokens = seed_text.split()
+    output_tokens = output_text.split()
+    if not seed_tokens or not output_tokens:
         return 0.0
-    combined = seed_text + " " + output_text
-    hxy = shannon_entropy(combined)
-    mi = hx + hy - hxy
-    return max(0.0, min(1.0, mi / min_h))
+    min_len = min(len(seed_tokens), len(output_tokens))
+    if min_len < 2:
+        return 0.0
+    seed_tokens = seed_tokens[:min_len]
+    output_tokens = output_tokens[:min_len]
+    seed_ids = {token: idx for idx, token in enumerate(sorted(set(seed_tokens)))}
+    output_ids = {token: idx for idx, token in enumerate(sorted(set(output_tokens)))}
+    x = np.array([seed_ids[token] for token in seed_tokens], dtype=int)
+    y = np.array([output_ids[token] for token in output_tokens], dtype=int)
+    mi_value = float(mutual_info_score(x, y))
+    x_counts = np.bincount(x)
+    y_counts = np.bincount(y)
+    h_x = float(scipy_entropy(x_counts / x_counts.sum())) if x_counts.sum() > 0 else 0.0
+    h_y = float(scipy_entropy(y_counts / y_counts.sum())) if y_counts.sum() > 0 else 0.0
+    if h_x <= 0.0 or h_y <= 0.0:
+        return 0.0
+    denom = math.sqrt(h_x * h_y)
+    if denom <= 0.0:
+        return 0.0
+    return min(1.0, max(0.0, mi_value / denom))
 
 
 def disorganization_entropy(text: str) -> float:
