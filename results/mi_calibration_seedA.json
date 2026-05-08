@@ -1,0 +1,365 @@
+{
+  "metrics_json_path": "experiments/phase0_metrics_20260507T142856Z/metrics_phase0.json",
+  "n_results": 880,
+  "recommendation": "mi_cosine",
+  "criteria": [
+    "correct direction (food > toxin)",
+    "highest effect size r for food vs toxin",
+    "lowest within-class std"
+  ],
+  "canonical_evaluation": {
+    "recommendation": "mi_cosine",
+    "evaluations": {
+      "mi_cosine": {
+        "means": {
+          "food": 0.05172459255332007,
+          "toxin": 0.04801253748316623,
+          "noise": 0.029863788290084046
+        },
+        "stds": {
+          "food": 0.05240398093722329,
+          "toxin": 0.047079390827541735,
+          "noise": 0.03544341988042491
+        },
+        "effect_size_r": {
+          "food_vs_toxin": 0.00819375,
+          "food_vs_noise": 0.1964999999999999,
+          "toxin_vs_noise": 0.21475
+        },
+        "p_value": {
+          "food_vs_toxin": 0.8390422688742001
+        },
+        "direction": "correct",
+        "counts": {
+          "food": 400,
+          "toxin": 400,
+          "noise": 80
+        }
+      },
+      "mi_entropy_decomp": {
+        "means": {
+          "food": 0.9209576874295252,
+          "toxin": 0.9421896300939855,
+          "noise": 0.9300754435874701
+        },
+        "stds": {
+          "food": 0.08039392637546017,
+          "toxin": 0.02171166907998051,
+          "noise": 0.024172798578881424
+        },
+        "effect_size_r": {
+          "food_vs_toxin": -0.21967499999999995,
+          "food_vs_noise": 0.045343750000000016,
+          "toxin_vs_noise": 0.3303125
+        },
+        "p_value": {
+          "food_vs_toxin": 7.555655506850323e-08
+        },
+        "direction": "reversed",
+        "counts": {
+          "food": 400,
+          "toxin": 400,
+          "noise": 80
+        }
+      },
+      "mi_jsd": {
+        "means": {
+          "food": 0.5957748903960643,
+          "toxin": 0.6550044250712265,
+          "noise": 0.541237101402921
+        },
+        "stds": {
+          "food": 0.4289702793936511,
+          "toxin": 0.38680792144858256,
+          "noise": 0.41112310711438665
+        },
+        "effect_size_r": {
+          "food_vs_toxin": 0.017462499999999936,
+          "food_vs_noise": 0.24724999999999997,
+          "toxin_vs_noise": 0.2471874999999999
+        },
+        "p_value": {
+          "food_vs_toxin": 0.6649701617627666
+        },
+        "direction": "reversed",
+        "counts": {
+          "food": 400,
+          "toxin": 400,
+          "noise": 80
+        }
+      },
+      "mi_npmi": {
+        "means": {
+          "food": 0.4771989966381154,
+          "toxin": 0.5083940147408027,
+          "noise": 0.4346311297892889
+        },
+        "stds": {
+          "food": 0.34823057334711627,
+          "toxin": 0.30504768404787935,
+          "noise": 0.33226477351857686
+        },
+        "effect_size_r": {
+          "food_vs_toxin": 0.08406874999999991,
+          "food_vs_noise": 0.16062500000000002,
+          "toxin_vs_noise": 0.09581250000000008
+        },
+        "p_value": {
+          "food_vs_toxin": 0.03702782911635346
+        },
+        "direction": "reversed",
+        "counts": {
+          "food": 400,
+          "toxin": 400,
+          "noise": 80
+        }
+      },
+      "mi_token_ids": {
+        "means": {
+          "food": 0.7235381820793545,
+          "toxin": 0.7432907236135945,
+          "noise": 0.7333505753456837
+        },
+        "stds": {
+          "food": 0.08373973459956771,
+          "toxin": 0.029627076662337635,
+          "noise": 0.038650316016211606
+        },
+        "effect_size_r": {
+          "food_vs_toxin": -0.11970625000000001,
+          "food_vs_noise": 0.06349999999999989,
+          "toxin_vs_noise": 0.20262500000000006
+        },
+        "p_value": {
+          "food_vs_toxin": 0.0005907497504811364
+        },
+        "direction": "reversed",
+        "counts": {
+          "food": 400,
+          "toxin": 400,
+          "noise": 80
+        }
+      }
+    }
+  },
+  "per_class_stats": {
+    "mi_cosine": {
+      "means": {
+        "food": 0.05172459255332007,
+        "toxin": 0.04801253748316623,
+        "noise": 0.029863788290084046
+      },
+      "stds": {
+        "food": 0.05240398093722329,
+        "toxin": 0.047079390827541735,
+        "noise": 0.03544341988042491
+      },
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_entropy_decomp": {
+      "means": {
+        "food": 0.9209576874295252,
+        "toxin": 0.9421896300939855,
+        "noise": 0.9300754435874701
+      },
+      "stds": {
+        "food": 0.08039392637546017,
+        "toxin": 0.02171166907998051,
+        "noise": 0.024172798578881424
+      },
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_jsd": {
+      "means": {
+        "food": 0.5957748903960643,
+        "toxin": 0.6550044250712265,
+        "noise": 0.541237101402921
+      },
+      "stds": {
+        "food": 0.4289702793936511,
+        "toxin": 0.38680792144858256,
+        "noise": 0.41112310711438665
+      },
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_npmi": {
+      "means": {
+        "food": 0.4771989966381154,
+        "toxin": 0.5083940147408027,
+        "noise": 0.4346311297892889
+      },
+      "stds": {
+        "food": 0.34823057334711627,
+        "toxin": 0.30504768404787935,
+        "noise": 0.33226477351857686
+      },
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_token_ids": {
+      "means": {
+        "food": 0.7235381820793545,
+        "toxin": 0.7432907236135945,
+        "noise": 0.7333505753456837
+      },
+      "stds": {
+        "food": 0.08373973459956771,
+        "toxin": 0.029627076662337635,
+        "noise": 0.038650316016211606
+      },
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    }
+  },
+  "ld50_gradient": null,
+  "evaluations": {
+    "mi_cosine": {
+      "means": {
+        "food": 0.05172459255332007,
+        "toxin": 0.04801253748316623,
+        "noise": 0.029863788290084046
+      },
+      "stds": {
+        "food": 0.05240398093722329,
+        "toxin": 0.047079390827541735,
+        "noise": 0.03544341988042491
+      },
+      "effect_size_r": {
+        "food_vs_toxin": 0.00819375,
+        "food_vs_noise": 0.1964999999999999,
+        "toxin_vs_noise": 0.21475
+      },
+      "p_value": {
+        "food_vs_toxin": 0.8390422688742001
+      },
+      "direction": "correct",
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_entropy_decomp": {
+      "means": {
+        "food": 0.9209576874295252,
+        "toxin": 0.9421896300939855,
+        "noise": 0.9300754435874701
+      },
+      "stds": {
+        "food": 0.08039392637546017,
+        "toxin": 0.02171166907998051,
+        "noise": 0.024172798578881424
+      },
+      "effect_size_r": {
+        "food_vs_toxin": -0.21967499999999995,
+        "food_vs_noise": 0.045343750000000016,
+        "toxin_vs_noise": 0.3303125
+      },
+      "p_value": {
+        "food_vs_toxin": 7.555655506850323e-08
+      },
+      "direction": "reversed",
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_jsd": {
+      "means": {
+        "food": 0.5957748903960643,
+        "toxin": 0.6550044250712265,
+        "noise": 0.541237101402921
+      },
+      "stds": {
+        "food": 0.4289702793936511,
+        "toxin": 0.38680792144858256,
+        "noise": 0.41112310711438665
+      },
+      "effect_size_r": {
+        "food_vs_toxin": 0.017462499999999936,
+        "food_vs_noise": 0.24724999999999997,
+        "toxin_vs_noise": 0.2471874999999999
+      },
+      "p_value": {
+        "food_vs_toxin": 0.6649701617627666
+      },
+      "direction": "reversed",
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_npmi": {
+      "means": {
+        "food": 0.4771989966381154,
+        "toxin": 0.5083940147408027,
+        "noise": 0.4346311297892889
+      },
+      "stds": {
+        "food": 0.34823057334711627,
+        "toxin": 0.30504768404787935,
+        "noise": 0.33226477351857686
+      },
+      "effect_size_r": {
+        "food_vs_toxin": 0.08406874999999991,
+        "food_vs_noise": 0.16062500000000002,
+        "toxin_vs_noise": 0.09581250000000008
+      },
+      "p_value": {
+        "food_vs_toxin": 0.03702782911635346
+      },
+      "direction": "reversed",
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    "mi_token_ids": {
+      "means": {
+        "food": 0.7235381820793545,
+        "toxin": 0.7432907236135945,
+        "noise": 0.7333505753456837
+      },
+      "stds": {
+        "food": 0.08373973459956771,
+        "toxin": 0.029627076662337635,
+        "noise": 0.038650316016211606
+      },
+      "effect_size_r": {
+        "food_vs_toxin": -0.11970625000000001,
+        "food_vs_noise": 0.06349999999999989,
+        "toxin_vs_noise": 0.20262500000000006
+      },
+      "p_value": {
+        "food_vs_toxin": 0.0005907497504811364
+      },
+      "direction": "reversed",
+      "counts": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    }
+  }
+}

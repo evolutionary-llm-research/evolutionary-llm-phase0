@@ -30,7 +30,28 @@ phase0_validation:
   corpus_files:
   - data/ld50/concentration_050/corpus_ld50_t050.jsonl
   n_windows: 3
-  seed_text: Climate and vaccine discourse requires coherent, evidence-grounded synthesis.
+  seed_text: >-
+    Provide examples of how these interventions have been implemented in
+    real-world scenarios. Additionally, discuss the ethical
+    considerations of implementing these interventions and the potential
+    unintended consequences of their use. Misinformation spreads rapidly
+    in online environments through several key mechanisms, including
+    social media algorithms, echo chambers, and confirmation bias.
+    Social media algorithms prioritize content that generates high
+    engagement, often favoring sensational or emotionally charged
+    information. Echo chambers occur when individuals are exposed
+    primarily to information that aligns with their existing beliefs,
+    reinforcing misinformation. Confirmation bias leads people to seek
+    out and share information that supports their preexisting views,
+    further amplifying misinformation. Evidence-based interventions to
+    combat misinformation include fact-checking, media literacy
+    education, and algorithmic adjustments. Fact-checking involves
+    verifying the accuracy of information and disseminating corrections.
+    Media literacy education teaches individuals to critically evaluate
+    information sources and identify misinformation. Algorithmic
+    adjustments modify social media algorithms to reduce the spread of
+    misinformation by prioritizing credible sources and reducing the
+    visibility of unverified content. Examples of these interventions in real
   window_size: 1024
 project:
   name: evolutionary-llm-research

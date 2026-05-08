@@ -25,6 +25,20 @@ except Exception:  # pragma: no cover - fallback is used when scipy is unavailab
 
 MIType = Callable[[str, str], float]
 CLASS_ORDER = ("food", "toxin", "noise")
+_TOKENIZER = None
+
+
+def _get_tokenizer() -> Any:
+    """Load and cache the model tokenizer for BPE-based MI evaluation."""
+    global _TOKENIZER
+    if _TOKENIZER is None:
+        from transformers import AutoTokenizer
+
+        _TOKENIZER = AutoTokenizer.from_pretrained(
+            "unsloth/qwen3-8b-base-unsloth-bnb-4bit",
+            trust_remote_code=True,
+        )
+    return _TOKENIZER
 
 
 def _clamp_01(value: float) -> float:
@@ -395,6 +409,125 @@ def mi_token_ids(seed_text: str, output_text: str) -> float:
     return _clamp_01(mi_value / denom)
 
 
+def mi_token_ids_nmi(seed_text: str, output_text: str) -> float:
+    """Normalized Mutual Information on whitespace token sequences.
+
+    Uses the same aligned positional token-ID setup as ``mi_token_ids`` but
+    normalizes by ``sqrt(H(X) * H(Y))`` where entropies are computed with
+    ``scipy.stats.entropy``.
+    """
+    from scipy.stats import entropy
+    from sklearn.metrics import mutual_info_score
+    import numpy as np
+
+    seed_tokens = seed_text.split()
+    output_tokens = output_text.split()
+    if not seed_tokens or not output_tokens:
+        return 0.0
+
+    min_len = min(len(seed_tokens), len(output_tokens))
+    if min_len < 2:
+        return 0.0
+
+    seed_tokens = seed_tokens[:min_len]
+    output_tokens = output_tokens[:min_len]
+
+    seed_ids = {token: idx for idx, token in enumerate(sorted(set(seed_tokens)))}
+    output_ids = {token: idx for idx, token in enumerate(sorted(set(output_tokens)))}
+
+    x = np.array([seed_ids[token] for token in seed_tokens], dtype=int)
+    y = np.array([output_ids[token] for token in output_tokens], dtype=int)
+
+    mi_value = float(mutual_info_score(x, y))
+
+    x_counts = np.bincount(x)
+    y_counts = np.bincount(y)
+    h_x = float(entropy(x_counts / x_counts.sum())) if x_counts.sum() > 0 else 0.0
+    h_y = float(entropy(y_counts / y_counts.sum())) if y_counts.sum() > 0 else 0.0
+    if h_x <= 0.0 or h_y <= 0.0:
+        return 0.0
+
+    denom = math.sqrt(h_x * h_y)
+    if denom <= 0.0:
+        return 0.0
+
+    return _clamp_01(mi_value / denom)
+
+
+def mi_token_ids_bigrams(seed_text: str, output_text: str) -> float:
+    """Positional MI on whitespace bigram sequences.
+
+    Builds consecutive token-pair sequences, aligns lengths, computes
+    ``mutual_info_score`` on bigram IDs, and normalizes by
+    ``log(n_unique_bigrams)``.
+    """
+    from sklearn.metrics import mutual_info_score
+    import numpy as np
+
+    seed_tokens = seed_text.split()
+    output_tokens = output_text.split()
+    if len(seed_tokens) < 2 or len(output_tokens) < 2:
+        return 0.0
+
+    min_token_len = min(len(seed_tokens), len(output_tokens))
+    if min_token_len < 3:
+        return 0.0
+
+    seed_tokens = seed_tokens[:min_token_len]
+    output_tokens = output_tokens[:min_token_len]
+
+    seed_bigrams = list(zip(seed_tokens[:-1], seed_tokens[1:]))
+    output_bigrams = list(zip(output_tokens[:-1], output_tokens[1:]))
+
+    min_bigram_len = min(len(seed_bigrams), len(output_bigrams))
+    if min_bigram_len < 2:
+        return 0.0
+
+    seed_bigrams = seed_bigrams[:min_bigram_len]
+    output_bigrams = output_bigrams[:min_bigram_len]
+
+    seed_ids = {bigram: idx for idx, bigram in enumerate(sorted(set(seed_bigrams)))}
+    output_ids = {bigram: idx for idx, bigram in enumerate(sorted(set(output_bigrams)))}
+
+    x = np.array([seed_ids[bigram] for bigram in seed_bigrams], dtype=int)
+    y = np.array([output_ids[bigram] for bigram in output_bigrams], dtype=int)
+
+    mi_value = float(mutual_info_score(x, y))
+    n_unique_bigrams = max(len(set(seed_bigrams) | set(output_bigrams)), 1)
+    denom = float(np.log(n_unique_bigrams))
+    if denom <= 0.0:
+        return 0.0
+
+    return _clamp_01(mi_value / denom)
+
+
+def mi_token_ids_bpe(seed_text: str, output_text: str) -> float:
+    """Positional MI on BPE token ID sequences from the model tokenizer."""
+    from sklearn.metrics import mutual_info_score
+    import numpy as np
+
+    tokenizer = _get_tokenizer()
+    seed_ids = tokenizer(seed_text, add_special_tokens=False)["input_ids"]
+    output_ids = tokenizer(output_text, add_special_tokens=False)["input_ids"]
+    if not seed_ids or not output_ids:
+        return 0.0
+
+    min_len = min(len(seed_ids), len(output_ids))
+    if min_len < 2:
+        return 0.0
+
+    x = np.array(seed_ids[:min_len], dtype=int)
+    y = np.array(output_ids[:min_len], dtype=int)
+
+    mi_value = float(mutual_info_score(x, y))
+    n_unique_bpe_tokens = max(len(set(x.tolist()) | set(y.tolist())), 1)
+    denom = float(np.log(n_unique_bpe_tokens))
+    if denom <= 0.0:
+        return 0.0
+
+    return _clamp_01(mi_value / denom)
+
+
 def evaluate_mi_function(
     mi_func: MIType,
     results: list[dict[str, Any]],
@@ -538,6 +671,9 @@ def run_calibration(
         "mi_jsd": mi_jsd,
         "mi_npmi": mi_npmi,
         "mi_token_ids": mi_token_ids,
+        "mi_token_ids_nmi": mi_token_ids_nmi,
+        "mi_token_ids_bigrams": mi_token_ids_bigrams,
+        "mi_token_ids_bpe": mi_token_ids_bpe,
     }
 
     evaluations: dict[str, dict[str, Any]] = {}

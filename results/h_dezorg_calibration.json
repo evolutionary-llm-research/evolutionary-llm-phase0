@@ -1,0 +1,78 @@
+{
+  "metrics_path": "experiments/phase0_metrics_20260507T142856Z/metrics_phase0.json",
+  "n_results": 880,
+  "evaluations": [
+    {
+      "variant_name": "h_dezorg_simple",
+      "mean_by_class": {
+        "food": 0.8089230924468317,
+        "toxin": 0.8968997903712016,
+        "noise": 0.8814841758366094
+      },
+      "std_by_class": {
+        "food": 0.252761417917419,
+        "toxin": 0.19963665624386973,
+        "noise": 0.25534211091426545
+      },
+      "effect_size_r_food_vs_toxin": -0.4232,
+      "p_value_food_vs_toxin": 3.7592771533158667e-25,
+      "direction": "correct",
+      "pearson_r_with_existing_h_dezorg": 0.6227338383623207,
+      "n_by_class": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    {
+      "variant_name": "h_dezorg_nltk",
+      "mean_by_class": {
+        "food": 0.7408040429970917,
+        "toxin": 0.8905598680607932,
+        "noise": 0.8694263681339381
+      },
+      "std_by_class": {
+        "food": 0.3468075911270367,
+        "toxin": 0.20776255479398203,
+        "noise": 0.2730254139361831
+      },
+      "effect_size_r_food_vs_toxin": -0.39226249999999996,
+      "p_value_food_vs_toxin": 7.48894701224793e-22,
+      "direction": "correct",
+      "pearson_r_with_existing_h_dezorg": 0.5295168479851602,
+      "n_by_class": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    },
+    {
+      "variant_name": "h_dezorg_regex",
+      "mean_by_class": {
+        "food": 0.8113353289272731,
+        "toxin": 0.7930927952594203,
+        "noise": 0.851037313074386
+      },
+      "std_by_class": {
+        "food": 0.2264713469896841,
+        "toxin": 0.3008217867910614,
+        "noise": 0.21641070600525017
+      },
+      "effect_size_r_food_vs_toxin": -0.14746250000000005,
+      "p_value_food_vs_toxin": 0.00030573157472021906,
+      "direction": "reversed",
+      "pearson_r_with_existing_h_dezorg": 0.3863698526159027,
+      "n_by_class": {
+        "food": 400,
+        "toxin": 400,
+        "noise": 80
+      }
+    }
+  ],
+  "recommended_variant": "h_dezorg_simple",
+  "recommendation_criteria": [
+    "correct direction (toxin > food)",
+    "highest absolute effect size r food vs toxin",
+    "highest Pearson correlation with existing h_dezorg"
+  ]
+}
