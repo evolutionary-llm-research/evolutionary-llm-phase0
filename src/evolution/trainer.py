@@ -29,7 +29,7 @@ _BASE_MODEL: str = "unsloth/qwen3-8b-base-unsloth-bnb-4bit"
 _LORA_R: int = 8
 _LORA_ALPHA: int = 16
 _LORA_TARGET_MODULES: list[str] = ["q_proj", "v_proj"]
-_MAX_SEQ_LENGTH: int = 2048
+_MAX_SEQ_LENGTH: int = 512
 _MAX_NEW_TOKENS: int = 200
 _BASE_MODEL_CACHE: dict = {"model": None, "tokenizer": None}
 
@@ -249,8 +249,8 @@ def train_adapter(
         training_args = SFTConfig(
             output_dir=tmp_output,
             num_train_epochs=1,
-            per_device_train_batch_size=2,
-            gradient_accumulation_steps=4,
+            per_device_train_batch_size=1,
+            gradient_accumulation_steps=1,
             warmup_steps=5,
             seed=seed,
             fp16=not torch.cuda.is_bf16_supported(),

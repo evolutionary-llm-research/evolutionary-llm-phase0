@@ -533,8 +533,8 @@ def load_latest_checkpoint(
 def _generate_seed_output(base_model_name: str) -> str:
     """Generate the reference seed output from the base model (no adapter).
 
-    Called once at the start of each run.  GPU memory is released before
-    returning.
+    Called once at the start of each run. The base model remains resident in
+    trainer's cache for later adapter training.
 
     Parameters
     ----------
@@ -548,14 +548,10 @@ def _generate_seed_output(base_model_name: str) -> str:
     """
     import torch
     from unsloth import FastLanguageModel  # noqa: F401 (already imported by trainer)
+    from src.evolution.trainer import _BASE_MODEL_CACHE, get_base_model
 
-    log.info("_generate_seed_output — loading base model %s", base_model_name)
-    model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=base_model_name,
-        max_seq_length=2048,
-        dtype=None,
-        load_in_4bit=True,
-    )
+    log.info("_generate_seed_output — reusing cached base model %s", base_model_name)
+    model, tokenizer = get_base_model(base_model_name)
     FastLanguageModel.for_inference(model)
 
     inputs = tokenizer(DIAGNOSTIC_PROMPT, return_tensors="pt").to(model.device)
@@ -572,8 +568,9 @@ def _generate_seed_output(base_model_name: str) -> str:
     new_tokens = output_ids[0][prompt_len:]
     seed_text: str = tokenizer.decode(new_tokens, skip_special_tokens=True)
 
-    del model
     torch.cuda.empty_cache()
+    if _BASE_MODEL_CACHE["model"] is model:
+        log.info("_generate_seed_output — base model retained in trainer cache")
     log.info("_generate_seed_output — seed output generated (%d chars)", len(seed_text))
     return seed_text
 
