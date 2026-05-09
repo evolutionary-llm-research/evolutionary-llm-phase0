@@ -119,7 +119,11 @@ def get_base_model(base_model_name: str) -> tuple:
             and len(cached_model.peft_config) > 0
         ):
             log.info("Unloading PEFT adapter from cached base model before reuse")
-            cached_model.unload()
+            if hasattr(cached_model, "unload"):
+                cached_model.unload()
+            elif hasattr(cached_model, "base_model"):
+                # Already a PEFT wrapper - disable adapters.
+                cached_model.disable_adapter_layers()
 
     return _BASE_MODEL_CACHE["model"], _BASE_MODEL_CACHE["tokenizer"]
 
