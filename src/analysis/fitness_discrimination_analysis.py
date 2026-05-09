@@ -40,27 +40,29 @@ def main() -> None:
     args = parser.parse_args()
     
     metrics_file = args.metrics
-    output_dir = args.output_dir""
+    output_dir = args.output_dir
+    
     # Load all samples
     food = []
     toxin = []
     noise = []
 
     with open(metrics_file) as f:
-        for line in f:
-            sample = json.loads(line)
-            fitness = sample.get("fitness", np.nan)
-            
-            if np.isnan(fitness):
-                continue
-            
-            sample_type = sample.get("type", "").lower()
-            if sample_type == "food":
-                food.append(fitness)
-            elif sample_type in ("toxin", "toxin"):
-                toxin.append(fitness)
-            elif sample_type == "noise":
-                noise.append(fitness)
+        data = json.load(f)
+    samples = data['results']
+    for sample in samples:
+        fitness = sample.get('fitness', np.nan)
+        
+        if np.isnan(fitness):
+            continue
+        
+        sample_type = sample.get("type", "").lower()
+        if sample_type == "food":
+            food.append(fitness)
+        elif sample_type in ("toxin", "toxin"):
+            toxin.append(fitness)
+        elif sample_type == "noise":
+            noise.append(fitness)
 
     print(f"N: food={len(food)}, toxin={len(toxin)}, noise={len(noise)}\n")
 
