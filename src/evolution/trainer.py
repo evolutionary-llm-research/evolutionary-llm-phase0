@@ -291,8 +291,11 @@ def train_adapter(
     _log_gpu_memory("after-training")
 
     # ------------------------------------------------------------------
-    # 6. Release GPU memory for the trainable wrapper only
+    # 6. Detach the trainable wrapper and keep the pristine base in cache
     # ------------------------------------------------------------------
+    if peft_model is not None and hasattr(peft_model, "unload"):
+        _BASE_MODEL_CACHE["model"] = peft_model.unload()
+
     del trainer
     del peft_model
     torch.cuda.empty_cache()
