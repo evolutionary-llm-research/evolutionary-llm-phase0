@@ -1,8 +1,4 @@
-"""Unsloth LoRA fine-tuning wrapper for Phase 1 (single-lineage evolution).
-
-This module is stateless: it has no global model handles.  The caller is
-responsible for loading and releasing the model around each call.
-"""
+"""Unsloth LoRA fine-tuning wrapper for Phase 1 (single-lineage evolution)."""
 
 import unsloth  # noqa: F401 — must be first import for optimizations
 from unsloth import FastLanguageModel
@@ -35,6 +31,7 @@ _LORA_ALPHA: int = 16
 _LORA_TARGET_MODULES: list[str] = ["q_proj", "v_proj"]
 _MAX_SEQ_LENGTH: int = 2048
 _MAX_NEW_TOKENS: int = 200
+_BASE_MODEL_CACHE: dict = {"model": None, "tokenizer": None}
 
 
 # ---------------------------------------------------------------------------
@@ -94,6 +91,24 @@ def _resolve_base_model_name(config: dict) -> str:
     return name
 
 
+def get_base_model(base_model_name: str) -> tuple:
+    """Load the base model once and return the cached model/tokenizer pair."""
+    global _BASE_MODEL_CACHE
+
+    if _BASE_MODEL_CACHE["model"] is None:
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            model_name=base_model_name,
+            max_seq_length=_MAX_SEQ_LENGTH,
+            dtype=None,
+            load_in_4bit=True,
+        )
+        _BASE_MODEL_CACHE["model"] = model
+        _BASE_MODEL_CACHE["tokenizer"] = tokenizer
+        log.info("Base model loaded and cached: %s", base_model_name)
+
+    return _BASE_MODEL_CACHE["model"], _BASE_MODEL_CACHE["tokenizer"]
+
+
 def _build_fresh_lora(model, seed: int):
     """Attach a fresh LoRA adaptor with Phase-1 fixed hyper-parameters.
 
@@ -142,8 +157,8 @@ def train_adapter(
 
     Documents are tokenised as plain text — no chat template, no labels.
 
-    GPU memory is released (``del model``, ``torch.cuda.empty_cache()``)
-    before the function returns.
+    GPU memory is released for the trainable LoRA wrapper before the function
+    returns. The cached base model remains resident for reuse.
 
     Parameters
     ----------
@@ -190,18 +205,13 @@ def train_adapter(
     )
     _log_gpu_memory("before-training")
 
-    model = None
+    peft_model = None
     trainer = None
     try:
         # ------------------------------------------------------------------
         # 1. Load 4-bit base model
         # ------------------------------------------------------------------
-        model, tokenizer = FastLanguageModel.from_pretrained(
-            model_name=base_model_name,
-            max_seq_length=_MAX_SEQ_LENGTH,
-            dtype=None,        # auto-detect bfloat16 / float16
-            load_in_4bit=True,
-        )
+        base_model, tokenizer = get_base_model(base_model_name)
 
         # ------------------------------------------------------------------
         # 2. Attach LoRA adaptor
@@ -217,15 +227,15 @@ def train_adapter(
                     f"Parent adapter directory not found: {parent_adapter_path!r}"
                 )
             log.info("Loading parent adapter from %s", parent_adapter_path)
-            model = PeftModel.from_pretrained(
-                model, parent_adapter_path, is_trainable=True
+            peft_model = PeftModel.from_pretrained(
+                base_model, parent_adapter_path, is_trainable=True
             )
             # Unsloth disables input-gradient hooks on the base model by
             # default; re-enable them so LoRA receives gradients.
-            model.enable_input_require_grads()
-            model.gradient_checkpointing_enable()
+            peft_model.enable_input_require_grads()
+            peft_model.gradient_checkpointing_enable()
         else:
-            model = _build_fresh_lora(model, seed)
+            peft_model = _build_fresh_lora(base_model, seed)
 
         # ------------------------------------------------------------------
         # 3. Build HuggingFace Dataset from plain documents
@@ -254,7 +264,7 @@ def train_adapter(
         )
 
         trainer = SFTTrainer(
-            model=model,
+            model=peft_model,
             tokenizer=tokenizer,
             train_dataset=dataset,
             args=training_args,
@@ -270,7 +280,7 @@ def train_adapter(
     # ------------------------------------------------------------------
     # 5. Save adapter weights and metadata
     # ------------------------------------------------------------------
-    model.save_pretrained(save_path)
+    peft_model.save_pretrained(save_path)
     tokenizer.save_pretrained(save_path)
 
     metadata_path = os.path.join(save_path, "metadata.json")
@@ -281,10 +291,10 @@ def train_adapter(
     _log_gpu_memory("after-training")
 
     # ------------------------------------------------------------------
-    # 6. Release GPU memory — caller must not use model after this point
+    # 6. Release GPU memory for the trainable wrapper only
     # ------------------------------------------------------------------
     del trainer
-    del model
+    del peft_model
     torch.cuda.empty_cache()
     log.info("train_adapter END — agent_id=%s", agent_id)
 
