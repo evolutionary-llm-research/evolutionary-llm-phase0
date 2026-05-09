@@ -75,7 +75,7 @@ def main() -> None:
     for r in d["results"]:
         sid = r["sample_id"]
         parts = sid.split("_")
-        typ = parts[0]       # FOOD / TOXIN / NOISE
+        typ = parts[0].replace("PREDATOR", "TOXIN")       # FOOD / TOXIN / NOISE
         domain = parts[1]    # CLIMATE / VACCINES / ALT / CANCER / GMO / WIKIPEDIA
         bins[(domain, typ)].append(r)
 

@@ -1,0 +1,52 @@
+[
+  {
+    "metric": "h_x",
+    "p_value": 0.39827873271405156,
+    "p_bonferroni_sig": false,
+    "effect_r": 0.034512499999999946,
+    "mean_food": 4.948906350578675,
+    "mean_toxin": 5.0607494714742565,
+    "n_food": 400,
+    "n_toxin": 400
+  },
+  {
+    "metric": "c_x",
+    "p_value": 7.280678406209422e-20,
+    "p_bonferroni_sig": true,
+    "effect_r": -0.37270000000000003,
+    "mean_food": 0.3929922299351993,
+    "mean_toxin": 0.3305610114482539,
+    "n_food": 400,
+    "n_toxin": 400
+  },
+  {
+    "metric": "i_x_seed",
+    "p_value": 2.0139367953480827e-18,
+    "p_bonferroni_sig": true,
+    "effect_r": -0.3577125000000001,
+    "mean_food": 0.8057823562085986,
+    "mean_toxin": 0.7721312496613649,
+    "n_food": 400,
+    "n_toxin": 400
+  },
+  {
+    "metric": "jaccard",
+    "p_value": 2.1810907394210876e-16,
+    "p_bonferroni_sig": true,
+    "effect_r": 0.33545625,
+    "mean_food": 0.03588760923103332,
+    "mean_toxin": 0.042751610842321555,
+    "n_food": 400,
+    "n_toxin": 400
+  },
+  {
+    "metric": "h_dezorg",
+    "p_value": 8.412328427166499e-33,
+    "p_bonferroni_sig": true,
+    "effect_r": 0.4872875,
+    "mean_food": 0.8244523315281331,
+    "mean_toxin": 0.9073515285871977,
+    "n_food": 400,
+    "n_toxin": 400
+  }
+]
