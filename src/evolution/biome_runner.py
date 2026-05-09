@@ -9,6 +9,7 @@ Usage (called by cli.py, not invoked directly):
 
 from __future__ import annotations
 
+import gc
 import json
 import logging
 import math
@@ -1080,7 +1081,9 @@ def _measure_agent(
     finally:
         del model
         del tokenizer
+        gc.collect()
         torch.cuda.empty_cache()
+        torch.cuda.synchronize()
 
     return metrics, output_text
 

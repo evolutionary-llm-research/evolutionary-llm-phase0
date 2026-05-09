@@ -3,6 +3,7 @@
 import unsloth  # noqa: F401 — must be first import for optimizations
 from unsloth import FastLanguageModel
 
+import gc
 import json
 import logging
 import os
@@ -105,7 +106,13 @@ def get_base_model(base_model_name: str) -> tuple:
             del _BASE_MODEL_CACHE["model"]
             _BASE_MODEL_CACHE["model"] = None
             _BASE_MODEL_CACHE["tokenizer"] = None
+            gc.collect()
             torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+            log.info(
+                "get_base_model — VRAM after cache clear: %.1f MB",
+                torch.cuda.memory_allocated() / 1e6,
+            )
             log.info("get_base_model — cleared PEFT-contaminated cache")
 
     if _BASE_MODEL_CACHE["model"] is None:
