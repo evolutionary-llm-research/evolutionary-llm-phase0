@@ -503,21 +503,38 @@ def build_figure_1b_three_class_discrimination(
     """Build Figure 1b: three-class corpus discrimination (food/toxin/noise)."""
     metrics = ["h_x", "c_x", "i_x_seed", "jaccard", "h_dezorg"]
     metric_labels = ["H(X)", "C(X)", "I(X;seed)", "Jaccard", "H_dezorg"]
-    pairs = ["food vs toxin", "food vs noise", "toxin vs noise"]
+    pair_keys = ["food_vs_toxin", "food_vs_noise", "toxin_vs_noise"]
     pair_labels = ["Food→Toxin", "Food→Noise", "Toxin→Noise"]
 
     bonf_alpha = 0.05 / (len(metrics) * 3)
 
-    effect_matrix = np.zeros((len(pairs), len(metrics)))
-    pval_matrix = np.zeros((len(pairs), len(metrics)))
-    bonf_matrix = np.zeros((len(pairs), len(metrics)), dtype=bool)
+    effect_matrix = np.zeros((len(pair_keys), len(metrics)))
+    pval_matrix = np.zeros((len(pair_keys), len(metrics)))
+    bonf_matrix = np.zeros((len(pair_keys), len(metrics)), dtype=bool)
+
+    # Support both legacy and new stats formats.
+    # New format:
+    #   effect_sizes[metric]["food_vs_toxin"] = float
+    #   kruskal_wallis[metric]["p"] = float
+    # Legacy format:
+    #   three_class_stats[metric]["pairwise"]["food vs toxin"] = {effect_r, p_value, bonf_sig}
+    has_new_format = "effect_sizes" in three_class_stats and "kruskal_wallis" in three_class_stats
 
     for j, metric in enumerate(metrics):
-        for i, pair in enumerate(pairs):
-            pw = three_class_stats[metric]["pairwise"][pair]
-            effect_matrix[i, j] = pw["effect_r"]
-            pval_matrix[i, j] = pw["p_value"]
-            bonf_matrix[i, j] = pw["bonf_sig"]
+        if has_new_format:
+            metric_effects = three_class_stats["effect_sizes"].get(metric, {})
+            p_metric = float(three_class_stats["kruskal_wallis"].get(metric, {}).get("p", np.nan))
+            for i, pair in enumerate(pair_keys):
+                effect_matrix[i, j] = float(metric_effects.get(pair, np.nan))
+                pval_matrix[i, j] = p_metric
+                bonf_matrix[i, j] = bool(p_metric < bonf_alpha) if not np.isnan(p_metric) else False
+        else:
+            for i, pair in enumerate(pair_keys):
+                legacy_key = pair.replace("_", " ")
+                pw = three_class_stats[metric]["pairwise"][legacy_key]
+                effect_matrix[i, j] = pw["effect_r"]
+                pval_matrix[i, j] = pw["p_value"]
+                bonf_matrix[i, j] = pw["bonf_sig"]
 
     fig, ax = plt.subplots(figsize=(10.5, 5), constrained_layout=True)
 
@@ -528,7 +545,7 @@ def build_figure_1b_three_class_discrimination(
     ax.set_yticks(np.arange(len(pair_labels)))
     ax.set_yticklabels(pair_labels, fontsize=10)
 
-    for i in range(len(pairs)):
+    for i in range(len(pair_keys)):
         for j in range(len(metrics)):
             r = effect_matrix[i, j]
             marker = "†" if bonf_matrix[i, j] else ""
