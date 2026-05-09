@@ -9,17 +9,13 @@ Outputs:
 """
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
 import numpy as np
 from scipy.stats import mannwhitneyu, kruskal
 
-METRICS_FILE = Path(
-    r"E:\github\Evolutionary LLM Research\experiments"
-    r"\phase0_metrics_20260504T082632Z\metrics_phase0.json"
-)
-OUT_DIR = Path(r"E:\github\Evolutionary LLM Research\experiments")
 METRICS = ["h_x", "c_x", "i_x_seed", "jaccard", "h_dezorg"]
 
 
@@ -28,12 +24,30 @@ def rank_biserial_r(u: float, n1: int, n2: int) -> float:
 
 
 def main() -> None:
-    with METRICS_FILE.open("r", encoding="utf-8") as f:
+    parser = argparse.ArgumentParser(
+        description="Run three-class corpus discrimination analysis."
+    )
+    parser.add_argument(
+        "--metrics",
+        type=Path,
+        required=True,
+        help="Path to metrics_phase0.json",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="Path to output JSON file",
+    )
+    args = parser.parse_args()
+
+    with args.metrics.open("r", encoding="utf-8") as f:
         d = json.load(f)
 
-    food = [r for r in d["results"] if r["type"] == "food"]
-    toxin = [r for r in d["results"] if r["type"] == "toxin"]
-    noise = [r for r in d["results"] if r["type"] == "noise"]
+    results = d["results"]
+    food = [r for r in results if r["type"] == "food"]
+    toxin = [r for r in results if r["type"] == "toxin"]
+    noise = [r for r in results if r["type"] == "noise"]
 
     print(f"N: food={len(food)}, toxin={len(toxin)}, noise={len(noise)}\n")
 
@@ -82,7 +96,8 @@ def main() -> None:
 
             print(f"{metric:<12} {p_kw:>12.2e} {label:>16} {r:>7.3f} {p:>12.2e} {sig:>6}")
 
-    out_json = OUT_DIR / "corpus_quality_v3_threeclass_stats.json"
+    out_json = args.output
+    out_json.parent.mkdir(parents=True, exist_ok=True)
     with out_json.open("w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
     print(f"\nThree-class stats → {out_json}")
