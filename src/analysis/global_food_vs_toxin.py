@@ -7,6 +7,7 @@ against toxin (N=400) across all domains combined, and outputs:
 """
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -18,13 +19,6 @@ from scipy.stats import mannwhitneyu
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-METRICS_FILE = Path(
-    r"E:\github\Evolutionary LLM Research\experiments"
-    r"\phase0_metrics_20260504T082632Z\metrics_phase0.json"
-)
-OUT_DIR = Path(
-    r"E:\github\Evolutionary LLM Research\papers\phase0\figures_publication\generated"
-)
 METRICS = ["h_x", "c_x", "i_x_seed", "jaccard", "h_dezorg"]
 METRIC_LABELS = {
     "h_x": "H(X)\nentropy",
@@ -71,8 +65,28 @@ def sig_stars(p: float) -> str:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Analyze food vs. toxin discrimination in Phase 0 metrics."
+    )
+    parser.add_argument(
+        "--metrics",
+        type=Path,
+        required=True,
+        help="Path to metrics_phase0.json file",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("results/"),
+        help="Output directory for results and figures (default: results/)",
+    )
+    args = parser.parse_args()
+    
+    metrics_file = args.metrics
+    out_dir = args.output_dir
+    
     # Load data
-    with METRICS_FILE.open("r", encoding="utf-8") as f:
+    with metrics_file.open("r", encoding="utf-8") as f:
         d = json.load(f)
 
     results = d["results"]
@@ -122,8 +136,8 @@ def main() -> None:
     print("† = survives Bonferroni correction\n")
 
     # Save JSON summary
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_json = OUT_DIR / "global_food_vs_toxin_stats.json"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_json = out_dir / "global_food_vs_toxin_stats.json"
     with out_json.open("w", encoding="utf-8") as f:
         json.dump(rows, f, indent=2)
     print(f"Stats saved → {out_json}")
@@ -190,10 +204,10 @@ def main() -> None:
     ax.legend(handles=legend_patches, fontsize=8, loc="upper left")
 
     for fmt in ("png", "pdf", "svg"):
-        out_fig = OUT_DIR / f"figure_global_effect_sizes.{fmt}"
+        out_fig = out_dir / f"figure_global_effect_sizes.{fmt}"
         fig.savefig(out_fig, dpi=300, bbox_inches="tight")
     plt.close(fig)
-    print(f"Figure saved → {OUT_DIR / 'figure_global_effect_sizes.*'}")
+    print(f"Figure saved → {out_dir / 'figure_global_effect_sizes.*'}")
 
 
 if __name__ == "__main__":

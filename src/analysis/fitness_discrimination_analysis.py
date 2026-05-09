@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Analyze fitness function discrimination across food/toxin/noise."""
 
+import argparse
 import json
 from pathlib import Path
 from typing import Any
@@ -12,7 +13,6 @@ import matplotlib.patches as mpatches
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-METRICS_FILE = REPO_ROOT / "experiments" / "phase0_metrics_20260504T082632Z" / "metrics_progressive.jsonl"
 
 
 def rank_biserial_r(u: float, n1: int, n2: int) -> float:
@@ -22,12 +22,31 @@ def rank_biserial_r(u: float, n1: int, n2: int) -> float:
 
 def main() -> None:
     """Analyze fitness discrimination."""
+    parser = argparse.ArgumentParser(
+        description="Analyze fitness function discrimination across food/toxin/noise."
+    )
+    parser.add_argument(
+        "--metrics",
+        type=Path,
+        required=True,
+        help="Path to metrics file (metrics_progressive.jsonl)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("results/"),
+        help="Output directory for JSON results (default: results/)",
+    )
+    args = parser.parse_args()
+    
+    metrics_file = args.metrics
+    output_dir = args.output_dir""
     # Load all samples
     food = []
     toxin = []
     noise = []
 
-    with open(METRICS_FILE) as f:
+    with open(metrics_file) as f:
         for line in f:
             sample = json.loads(line)
             fitness = sample.get("fitness", np.nan)
@@ -87,7 +106,8 @@ def main() -> None:
     print()
 
     # Output JSON
-    output_path = REPO_ROOT / "experiments" / "fitness_discrimination_stats.json"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / "fitness_discrimination_stats.json"
     output_data = {
         "test": "fitness_discrimination",
         "bonf_alpha": bonf_alpha,
