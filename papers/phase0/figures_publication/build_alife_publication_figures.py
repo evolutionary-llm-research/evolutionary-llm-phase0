@@ -777,6 +777,18 @@ def main() -> None:
         default=None,
         help="Path to three_class_stats JSON file (default: experiments/corpus_quality_v3_threeclass_stats.json)",
     )
+    parser.add_argument(
+        "--per-domain",
+        type=str,
+        default=None,
+        help="Path to per-domain stats JSON (default: experiments/corpus_quality_v2_per_domain.json)",
+    )
+    parser.add_argument(
+        "--global-stats",
+        type=str,
+        default=None,
+        help="Path to global stats JSON (default: experiments/corpus_quality_v2_global.json)",
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[3]
@@ -789,8 +801,8 @@ def main() -> None:
     if not metrics_file.is_absolute():
         metrics_file = repo_root / metrics_file
 
-    per_domain_path = repo_root / "experiments" / "corpus_quality_v2_per_domain.json"
-    global_path = repo_root / "experiments" / "corpus_quality_v2_global.json"
+    per_domain_path = Path(args.per_domain) if args.per_domain else repo_root / "experiments" / "corpus_quality_v2_per_domain.json"
+    global_path = Path(args.global_stats) if args.global_stats else repo_root / "experiments" / "corpus_quality_v2_global.json"
     three_class_path = Path(args.three_class) if args.three_class else repo_root / "experiments" / "corpus_quality_v3_threeclass_stats.json"
     fitness_stats_path = repo_root / "experiments" / "fitness_discrimination_stats.json"
     ld50_path = repo_root / "experiments" / "ld50_20260504T131904Z" / "ld50_analysis_results.json"
