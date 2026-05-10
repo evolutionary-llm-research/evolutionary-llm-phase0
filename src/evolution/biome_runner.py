@@ -14,6 +14,7 @@ import json
 import logging
 import math
 import os
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -534,6 +535,108 @@ def load_latest_checkpoint(
     return population, resume_from_generation
 
 
+def _run_agent_subprocess(
+    agent_id: str,
+    base_model_name: str,
+    parent_adapter_path: str | None,
+    documents: list[str],
+    seed_output: str,
+    config: dict,
+    config_path: str,
+    output_dir: str,
+    metadata: AdapterMetadata,
+    tmp_dir: str,
+) -> tuple[str, dict]:
+    """Run agent training in an isolated subprocess to avoid VRAM fragmentation.
+    
+    Parameters
+    ----------
+    agent_id : str
+        Unique agent identifier
+    base_model_name : str
+        Name of the base model
+    parent_adapter_path : str | None
+        Path to parent adapter or None for base model
+    documents : list[str]
+        Training documents
+    seed_output : str
+        Seed output from base model
+    config : dict
+        Configuration dictionary
+    config_path : str
+        Path to config file
+    output_dir : str
+        Output directory for adapter
+    metadata : AdapterMetadata
+        Adapter metadata
+    tmp_dir : str
+        Temporary directory for IPC files
+        
+    Returns
+    -------
+    tuple[str, dict]
+        (adapter_path, metrics) from training
+    """
+    import subprocess
+    import tempfile
+    
+    os.makedirs(tmp_dir, exist_ok=True)
+    docs_file = os.path.join(tmp_dir, f"{agent_id}_docs.json")
+    result_file = os.path.join(tmp_dir, f"{agent_id}_result.json")
+    
+    # Serialize documents
+    with open(docs_file, "w") as f:
+        json.dump(documents, f)
+    
+    # Serialize metadata
+    metadata_dict = {
+        "generation": metadata.generation,
+        "parent_id": metadata.parent_id,
+        "biome": metadata.biome,
+        "archetype": metadata.archetype,
+        "fitness_score": metadata.fitness_score,
+        "creation_timestamp": metadata.creation_timestamp,
+    }
+    
+    cmd = [
+        sys.executable,
+        "-m",
+        "src.evolution.worker",
+        "--agent-id",
+        agent_id,
+        "--base-model",
+        base_model_name,
+        "--parent-adapter",
+        parent_adapter_path or "none",
+        "--docs-file",
+        docs_file,
+        "--output-file",
+        result_file,
+        "--seed-output",
+        seed_output,
+        "--config",
+        config_path,
+        "--output-dir",
+        output_dir,
+        "--metadata-json",
+        json.dumps(metadata_dict),
+    ]
+    
+    env = os.environ.copy()
+    result = subprocess.run(cmd, env=env, timeout=900)
+    
+    with open(result_file) as f:
+        data = json.load(f)
+    
+    os.unlink(docs_file)
+    os.unlink(result_file)
+    
+    if data["status"] != "ok":
+        raise RuntimeError(f"Worker failed for {agent_id}: {data.get('error')}")
+    
+    return data["adapter_path"], data["metrics"]
+
+
 # ---------------------------------------------------------------------------
 # Seed output (base model, no adapter)
 # ---------------------------------------------------------------------------
@@ -645,7 +748,6 @@ def run_biome(
         Base RNG seed; each generation uses ``seed + generation``.
     """
     import torch  # noqa: F401 — torch is imported early for memory management
-    from src.evolution.trainer import train_and_measure  # noqa: F401 — lazy to avoid unsloth GPU check at import time
 
     config_path_obj = Path(config_path)
     with open(config_path_obj, encoding="utf-8") as fh:
@@ -663,6 +765,9 @@ def run_biome(
 
     adapters_dir = str(Path(output_dir) / biome_name / "adapters")
     Path(adapters_dir).mkdir(parents=True, exist_ok=True)
+
+    tmp_dir = str(Path(output_dir) / biome_name / "tmp")
+    Path(tmp_dir).mkdir(parents=True, exist_ok=True)
 
     # -----------------------------------------------------------------------
     # Load corpus once (shared across all generations)
@@ -746,17 +851,17 @@ def run_biome(
                     creation_timestamp=now_utc_iso(),
                 )
 
-                adapter_path, metrics = train_and_measure(
-                    documents=doc_slice,
-                    parent_adapter_path=None,
-                    output_dir=gen_adapter_dir,
+                adapter_path, metrics = _run_agent_subprocess(
                     agent_id=agent_id,
-                    metadata=metadata,
-                    config=config,
-                    diagnostic_prompt=DIAGNOSTIC_PROMPT,
-                    seed_output=seed_output,
-                    fitness_weights=_FITNESS_WEIGHTS,
                     base_model_name=base_model_name,
+                    parent_adapter_path=None,
+                    documents=doc_slice,
+                    seed_output=seed_output,
+                    config=config,
+                    config_path=config_path,
+                    output_dir=gen_adapter_dir,
+                    metadata=metadata,
+                    tmp_dir=tmp_dir,
                 )
                 output_text = str(metrics.pop("output_text"))
                 agent_outputs[agent_id] = output_text
@@ -806,17 +911,17 @@ def run_biome(
                     creation_timestamp=now_utc_iso(),
                 )
 
-                adapter_path, metrics = train_and_measure(
-                    documents=doc_slice,
-                    parent_adapter_path=state.adapter_path,
-                    output_dir=gen_adapter_dir,
+                adapter_path, metrics = _run_agent_subprocess(
                     agent_id=agent_id,
-                    metadata=metadata,
-                    config=config,
-                    diagnostic_prompt=DIAGNOSTIC_PROMPT,
-                    seed_output=seed_output,
-                    fitness_weights=_FITNESS_WEIGHTS,
                     base_model_name=base_model_name,
+                    parent_adapter_path=state.adapter_path,
+                    documents=doc_slice,
+                    seed_output=seed_output,
+                    config=config,
+                    config_path=config_path,
+                    output_dir=gen_adapter_dir,
+                    metadata=metadata,
+                    tmp_dir=tmp_dir,
                 )
                 output_text = str(metrics.pop("output_text"))
                 agent_outputs[agent_id] = output_text
@@ -896,17 +1001,17 @@ def run_biome(
                 creation_timestamp=now_utc_iso(),
             )
 
-            offspring_adapter_path, offspring_metrics = train_and_measure(
-                documents=offspring_doc_slice,
-                parent_adapter_path=parent_state.adapter_path,
-                output_dir=offspring_gen_dir,
+            offspring_adapter_path, offspring_metrics = _run_agent_subprocess(
                 agent_id=offspring_id,
-                metadata=offspring_metadata,
-                config=config,
-                diagnostic_prompt=DIAGNOSTIC_PROMPT,
-                seed_output=seed_output,
-                fitness_weights=_FITNESS_WEIGHTS,
                 base_model_name=base_model_name,
+                parent_adapter_path=parent_state.adapter_path,
+                documents=offspring_doc_slice,
+                seed_output=seed_output,
+                config=config,
+                config_path=config_path,
+                output_dir=offspring_gen_dir,
+                metadata=offspring_metadata,
+                tmp_dir=tmp_dir,
             )
             offspring_text = str(offspring_metrics.pop("output_text"))
 
