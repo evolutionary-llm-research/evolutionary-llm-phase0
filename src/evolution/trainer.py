@@ -416,6 +416,20 @@ def train_and_measure(
         gc.collect()
         torch.cuda.empty_cache()
         torch.cuda.synchronize()
+        torch.cuda.reset_peak_memory_stats()
+        allocated_mb = torch.cuda.memory_allocated() / 1e6
+        reserved_mb = torch.cuda.memory_reserved() / 1e6
+        log.info(
+            "train_and_measure — post-cleanup VRAM: %.1f MB allocated, %.1f MB reserved",
+            allocated_mb,
+            reserved_mb,
+        )
+        if torch.cuda.memory_allocated() > 2 * 1024**3:
+            _BASE_MODEL_CACHE["model"] = None
+            _BASE_MODEL_CACHE["tokenizer"] = None
+            gc.collect()
+            torch.cuda.empty_cache()
+            log.warning("train_and_measure — forced full cache reset (VRAM > 2GB after cleanup)")
         log.info("train_and_measure END — agent_id=%s", agent_id)
 
 
