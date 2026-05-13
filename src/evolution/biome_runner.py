@@ -34,8 +34,6 @@ from src.evolution.population import (
     load_population,
     register_offspring,
     save_population,
-    select_candidates_for_death,
-    select_candidates_for_reproduction,
     select_parent,
 )
 
@@ -58,6 +56,112 @@ DIAGNOSTIC_PROMPT: str = (
 
 # Frozen fitness weights (Phase 1, validated in Phase 0).
 _FITNESS_WEIGHTS: dict[str, float] = {"w1": 0.3, "w2": 0.5, "w3": 0.2}
+
+
+# ---------------------------------------------------------------------------
+# Z-score bounded sigmoid mechanics (Phase 1b)
+# ---------------------------------------------------------------------------
+
+def _get_population_mechanics_params(config: dict) -> dict:
+    """Extract population mechanics parameters from config with defaults."""
+    mechanics = config.get("mechanics", {})
+    return {
+        "alpha_r":   float(mechanics.get("alpha_r",   1.0)),
+        "alpha_d":   float(mechanics.get("alpha_d",   1.5)),
+        "p_r_min":   float(mechanics.get("p_r_min",   0.05)),
+        "p_r_max":   float(mechanics.get("p_r_max",   0.45)),
+        "p_d_min":   float(mechanics.get("p_d_min",   0.07)),
+        "p_d_max":   float(mechanics.get("p_d_max",   0.45)),
+        "sigma_min": float(mechanics.get("sigma_min", 0.01)),
+    }
+
+
+def _compute_population_zscores(
+    population: Population,
+    sigma_min: float,
+) -> tuple[dict[str, float], float, float]:
+    """Compute per-agent z-scores from current population fitness values.
+
+    Returns
+    -------
+    tuple
+        (zscores dict, mu_f, sigma_f)
+    """
+    fitnesses = [state.metrics.get("fitness", 0.0) for state in population.values()]
+    mu = float(np.mean(fitnesses)) if fitnesses else 0.0
+    sigma = float(max(np.std(fitnesses), sigma_min)) if fitnesses else sigma_min
+    zscores = {
+        aid: (state.metrics.get("fitness", 0.0) - mu) / sigma
+        for aid, state in population.items()
+    }
+    return zscores, mu, sigma
+
+
+def _sigmoid(x: float) -> float:
+    return 1.0 / (1.0 + math.exp(-x))
+
+
+def zscore_reproduction_probs(
+    population: Population,
+    params: dict,
+    zscores: dict[str, float],
+) -> dict[str, float]:
+    """Compute P_rep_i = p_r_min + (p_r_max - p_r_min) * sigmoid(alpha_r * z_i)."""
+    alpha_r = params["alpha_r"]
+    p_r_min = params["p_r_min"]
+    p_r_max = params["p_r_max"]
+    return {
+        aid: p_r_min + (p_r_max - p_r_min) * _sigmoid(alpha_r * z)
+        for aid, z in zscores.items()
+    }
+
+
+def zscore_death_probs(
+    population: Population,
+    params: dict,
+    zscores: dict[str, float],
+) -> dict[str, float]:
+    """Compute P_death_i = p_d_min + (p_d_max - p_d_min) * sigmoid(-alpha_d * z_i)."""
+    alpha_d = params["alpha_d"]
+    p_d_min = params["p_d_min"]
+    p_d_max = params["p_d_max"]
+    return {
+        aid: p_d_min + (p_d_max - p_d_min) * _sigmoid(-alpha_d * z)
+        for aid, z in zscores.items()
+    }
+
+
+def select_candidates_for_death_zscore(
+    population: Population,
+    rng: np.random.Generator,
+    params: dict,
+    zscores: dict[str, float],
+) -> list[str]:
+    """Independent Bernoulli draws with z-score bounded sigmoid death probabilities."""
+    probs = zscore_death_probs(population, params, zscores)
+    dying: list[str] = []
+    for aid in population:
+        p = probs[aid]
+        if p > 0.0 and rng.random() < p:
+            dying.append(aid)
+    return dying
+
+
+def select_candidates_for_reproduction_zscore(
+    population: Population,
+    rng: np.random.Generator,
+    params: dict,
+    zscores: dict[str, float],
+) -> list[str]:
+    """Independent Bernoulli draws with z-score bounded sigmoid reproduction probabilities."""
+    probs = zscore_reproduction_probs(population, params, zscores)
+    reproducing: list[str] = []
+    for aid in population:
+        p = probs[aid]
+        if p > 0.0 and rng.random() < p:
+            reproducing.append(aid)
+    return reproducing
+
 
 # Archetype label for Phase 1 (single-model; Id/Ego/Superego are Phase 2+).
 _PHASE1_ARCHETYPE: str = "base"
@@ -347,6 +451,9 @@ def build_generation_log(
     jsd_matrix: dict[str, dict[str, float]],
     deaths: list[str],
     births: list[str],
+    pop_mean_fitness: float | None = None,
+    pop_sigma_fitness: float | None = None,
+    mean_p_death: float | None = None,
 ) -> dict:
     """Build a JSON-serializable summary dict for one generation.
 
@@ -364,6 +471,12 @@ def build_generation_log(
         agent_ids that died this generation.
     births : list[str]
         agent_ids of offspring born this generation.
+    pop_mean_fitness : float, optional
+        Pre-death population mean fitness (mu_f from z-score mechanics).
+    pop_sigma_fitness : float, optional
+        Pre-death population fitness std (sigma_f from z-score mechanics).
+    mean_p_death : float, optional
+        Mean death probability across all agents this generation.
 
     Returns
     -------
@@ -391,7 +504,7 @@ def build_generation_log(
         for state in population.values()
     ]
 
-    return {
+    log_dict: dict = {
         "generation": generation,
         "biome": biome_name,
         "timestamp": now_utc_iso(),
@@ -403,6 +516,14 @@ def build_generation_log(
         "births": births,
         "agents": agents_list,
     }
+    # New fields for z-score mechanics (Phase 1b); not present in earlier runs.
+    if pop_mean_fitness is not None:
+        log_dict["pop_mean_fitness"] = pop_mean_fitness
+    if pop_sigma_fitness is not None:
+        log_dict["pop_sigma_fitness"] = pop_sigma_fitness
+    if mean_p_death is not None:
+        log_dict["mean_p_death"] = mean_p_death
+    return log_dict
 
 
 # ---------------------------------------------------------------------------
@@ -1274,9 +1395,25 @@ def run_biome(
         }
 
         # -------------------------------------------------------------------
+        # Step 4.5: Z-score mechanics (Phase 1b)
+        # -------------------------------------------------------------------
+        pop_mech_params = _get_population_mechanics_params(config)
+        zscores, mu_f, sigma_f = _compute_population_zscores(
+            population, pop_mech_params["sigma_min"]
+        )
+        death_probs_map = zscore_death_probs(population, pop_mech_params, zscores)
+        mean_p_death = float(np.mean(list(death_probs_map.values()))) if death_probs_map else 0.0
+        log.info(
+            "gen=%d zscore — mu_f=%.4f sigma_f=%.4f mean_p_death=%.4f",
+            generation, mu_f, sigma_f, mean_p_death,
+        )
+
+        # -------------------------------------------------------------------
         # Step 5: Deaths
         # -------------------------------------------------------------------
-        dying_ids = select_candidates_for_death(population, gen_rng)
+        dying_ids = select_candidates_for_death_zscore(
+            population, gen_rng, pop_mech_params, zscores
+        )
         population = apply_deaths(population, dying_ids)
         log.info(
             "gen=%d deaths=%d remaining=%d", generation, len(dying_ids), len(population)
@@ -1286,7 +1423,9 @@ def run_biome(
         # Step 6: Reproduction — train offspring from selected parents
         # -------------------------------------------------------------------
         births: list[str] = []
-        reproducing_ids = select_candidates_for_reproduction(population, gen_rng)
+        reproducing_ids = select_candidates_for_reproduction_zscore(
+            population, gen_rng, pop_mech_params, zscores
+        )
 
         for _ in reproducing_ids:
             if not population:
@@ -1399,6 +1538,9 @@ def run_biome(
             jsd_matrix=jsd_matrix,
             deaths=dying_ids,
             births=births,
+            pop_mean_fitness=mu_f,
+            pop_sigma_fitness=sigma_f,
+            mean_p_death=mean_p_death,
         )
         save_generation_checkpoint(
             output_dir=output_dir,
