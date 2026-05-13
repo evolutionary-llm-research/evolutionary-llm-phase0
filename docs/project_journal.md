@@ -1356,3 +1356,22 @@ Kanoniczne runy (chronologicznie):
 - [ ] rename `toxin_*` → `toxin_*` w repo
 - [ ] `git tag phase0-final`
 - [ ] `scripts/analyze_ld50_thresholds.py` — formalna weryfikacja H_diag
+
+---
+
+## 2026-05-13 — Phase 1 data freeze
+
+All Phase 1 and Phase 1b pilot experiment data archived and frozen.
+
+**Archive:** evollm_phase1_frozen_20260513.tar.gz
+**Location:** /mnt/e/backups/
+**Contents:** experiments/phase1/ + experiments/phase1b_pilot/
+**Size:** 100GB
+**SHA256:** 7778aab7808deed5a337e2d20c6d7937030db30c65cb0af19f253038236f346b
+
+To verify integrity:
+sha256sum /mnt/e/backups/evollm_phase1_frozen_20260513.tar.gz
+
+Git tag: phase1-frozen-20260513 (commit 0551c6a)
+
+---
