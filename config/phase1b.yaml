@@ -14,22 +14,32 @@ biomes:
     k_max: 30
     noise: 0.2
     toxin: 0.2
+  tundra:
+    food: 0.15
+    k_max: 30
+    noise: 0.75
+    toxin: 0.1
+  wetland:
+    food: 0.45
+    k_max: 30
+    noise: 0.1
+    toxin: 0.45
 constraints:
   pass_content_type_tags_to_model: false
 logging:
   phylogeny_enabled: true
 mechanics:
-  alpha_d: 1.5
+  alpha_d: 1.0
   alpha_r: 1.0
-  cannibalism_enabled: false
+  cannibalism_enabled: true
   hgt_enabled: false
   k_max: 30
-  p_d_max: 0.45
-  p_d_min: 0.07
-  p_r_max: 0.45
+  p_d_max: 0.41
+  p_d_min: 0.02
+  p_r_max: 0.65
   p_r_min: 0.05
   population_model: zscore_bounded_sigmoid
-  sigma_min: 0.01
+  sigma_min: 0.05
 metrics:
   weights:
     w1_complexity: 0.3
