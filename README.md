@@ -2,9 +2,9 @@
 
 **Information Ecology of Language Models under Informational Pressure**
 
-> Companion repository for: *"Information Ecology of Large Language Models: Dose-Response Dynamics under Disinformation Pressure"* (submitted to Artificial Life, 2026)
+> Companion repository for: *"Information Ecology of Large Language Models: Dose-Response Dynamics under Disinformation Pressure"* 
 
-**PI:** Prof. Karol Malota, University of Silesia (Department of Electron Microscopy and Environmental Ecotoxicology)
+**PI:** dr Karol Malota, University of Silesia (Department of Electron Microscopy and Environmental Ecotoxicology)
 
 ---
 
